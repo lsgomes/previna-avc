@@ -13,6 +13,7 @@
 		A0FF49B71E4BE4B80041EEBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FF49B51E4BE4B80041EEBE /* Main.storyboard */; };
 		A0FF49B91E4BE4B80041EEBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0FF49B81E4BE4B80041EEBE /* Assets.xcassets */; };
 		A0FF49BC1E4BE4B80041EEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FF49BA1E4BE4B80041EEBE /* LaunchScreen.storyboard */; };
+		A0FF49C61E4BE5470041EEBE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FF49C51E4BE5470041EEBE /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		A0FF49B81E4BE4B80041EEBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0FF49BB1E4BE4B80041EEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0FF49BD1E4BE4B80041EEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0FF49C31E4BE5470041EEBE /* Previna AVC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Previna AVC.entitlements"; sourceTree = "<group>"; };
+		A0FF49C51E4BE5470041EEBE /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0FF49C61E4BE5470041EEBE /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +46,7 @@
 			children = (
 				A0FF49AE1E4BE4B80041EEBE /* Previna AVC */,
 				A0FF49AD1E4BE4B80041EEBE /* Products */,
+				A0FF49C41E4BE5470041EEBE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +61,7 @@
 		A0FF49AE1E4BE4B80041EEBE /* Previna AVC */ = {
 			isa = PBXGroup;
 			children = (
+				A0FF49C31E4BE5470041EEBE /* Previna AVC.entitlements */,
 				A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */,
 				A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */,
 				A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */,
@@ -65,6 +71,14 @@
 				A0FF49BD1E4BE4B80041EEBE /* Info.plist */,
 			);
 			path = "Previna AVC";
+			sourceTree = "<group>";
+		};
+		A0FF49C41E4BE5470041EEBE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0FF49C51E4BE5470041EEBE /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -101,6 +115,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = N5H55YKWYG;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -263,8 +282,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N5H55YKWYG;
 				INFOPLIST_FILE = "Previna AVC/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-AVC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,8 +298,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N5H55YKWYG;
 				INFOPLIST_FILE = "Previna AVC/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-AVC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
