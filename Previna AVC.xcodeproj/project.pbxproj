@@ -14,6 +14,7 @@
 		A0FF49B91E4BE4B80041EEBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0FF49B81E4BE4B80041EEBE /* Assets.xcassets */; };
 		A0FF49BC1E4BE4B80041EEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FF49BA1E4BE4B80041EEBE /* LaunchScreen.storyboard */; };
 		A0FF49C61E4BE5470041EEBE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FF49C51E4BE5470041EEBE /* HealthKit.framework */; };
+		A0FF49C81E4BEAD60041EEBE /* WizardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49C71E4BEAD60041EEBE /* WizardPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A0FF49BD1E4BE4B80041EEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0FF49C31E4BE5470041EEBE /* Previna AVC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Previna AVC.entitlements"; sourceTree = "<group>"; };
 		A0FF49C51E4BE5470041EEBE /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		A0FF49C71E4BEAD60041EEBE /* WizardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				A0FF49B81E4BE4B80041EEBE /* Assets.xcassets */,
 				A0FF49BA1E4BE4B80041EEBE /* LaunchScreen.storyboard */,
 				A0FF49BD1E4BE4B80041EEBE /* Info.plist */,
+				A0FF49C71E4BEAD60041EEBE /* WizardPageViewController.swift */,
 			);
 			path = "Previna AVC";
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			files = (
 				A0FF49B41E4BE4B80041EEBE /* SecondViewController.swift in Sources */,
 				A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */,
+				A0FF49C81E4BEAD60041EEBE /* WizardPageViewController.swift in Sources */,
 				A0FF49B21E4BE4B80041EEBE /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
