@@ -33,12 +33,21 @@ class WizardPageViewController: UIPageViewController {
         
         let doc = UIImage.init(named: "document")!
         let imageView = UIImageView.init(image: doc)
-        imageView.widthAnchor.constraint(equalToConstant: 375.0)
-        imageView.heightAnchor.constraint(equalToConstant: 667.0)
+        //imageView.bounds = CGRect(x: 0, y: 0, width: 375.0, height: 667.0)
+        //imageView.widthAnchor.constraint(equalToConstant: 375.0)
+        //imageView.heightAnchor.constraint(equalToConstant: 667.0)
         imageView.backgroundColor = .clear
         imageView.contentMode = .scaleAspectFill
+        imageView.frame = CGRect(x: 0, y: 0, width: 375.0, height: 667.0)
+        //imageView.frame = CGRect(x: 0, y: 0, width: doc.size.width, height: doc.size.height)
+
+        
+        //imageView.bounds = CGRect(0,0,doc.size.width,doc.size.height);
+        //imageView.frame.width = 375.0
+        //imageView.sizeToFit()
 
         view.addSubview(imageView)
+        view.sendSubview(toBack: imageView)
         
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],

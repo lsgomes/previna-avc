@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0E58AB51E4D53EE00252FA7 /* HealthKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E58AB41E4D53EE00252FA7 /* HealthKitViewController.swift */; };
 		A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */; };
 		A0FF49B21E4BE4B80041EEBE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */; };
 		A0FF49B41E4BE4B80041EEBE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A0E58AB41E4D53EE00252FA7 /* HealthKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitViewController.swift; sourceTree = "<group>"; };
 		A0FF49AC1E4BE4B80041EEBE /* Previna AVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Previna AVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				A0FF49BA1E4BE4B80041EEBE /* LaunchScreen.storyboard */,
 				A0FF49BD1E4BE4B80041EEBE /* Info.plist */,
 				A0FF49C71E4BEAD60041EEBE /* WizardPageViewController.swift */,
+				A0E58AB41E4D53EE00252FA7 /* HealthKitViewController.swift */,
 			);
 			path = "Previna AVC";
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			files = (
 				A0FF49B41E4BE4B80041EEBE /* SecondViewController.swift in Sources */,
 				A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */,
+				A0E58AB51E4D53EE00252FA7 /* HealthKitViewController.swift in Sources */,
 				A0FF49C81E4BEAD60041EEBE /* WizardPageViewController.swift in Sources */,
 				A0FF49B21E4BE4B80041EEBE /* FirstViewController.swift in Sources */,
 			);
@@ -333,6 +337,7 @@
 				A0FF49C21E4BE4B80041EEBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
