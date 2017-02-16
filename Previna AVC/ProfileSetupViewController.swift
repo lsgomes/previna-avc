@@ -15,58 +15,58 @@ class ProfileSetupViewController: HealthKitEnabledViewController {
     @IBOutlet var weightTextField: UITextField!
     @IBOutlet var sexTextField: UITextField!
     
+    @IBOutlet var continueButton: UIButton!
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //super.viewDidLoad()
         print("ProfileSetupViewController loaded")
         
     }
     
     func setup() {
           
-        var v = self.view
+        //var v = self.view
         
         let formatter = DateFormatter()
+        //formatter.
 
-        
-        //let isAuthorizedForAge = healthKitStore.authorizationStatus(for: HKObjectType.characteristicType(forIdentifier: .dateOfBirth)! )
-        
-        //if (isAuthorizedForAge == .sharingAuthorized) {
-            
             do {
                 let dateOfBirth = try healthKitStore.dateOfBirth() as Date
                 ageTextField.textColor = .black
-                ageTextField.text = formatter.string(from: dateOfBirth)
+                let text = formatter.string(from: dateOfBirth)
+                print("age: " + (text))
+                ageTextField.text = text
+                print("ageTextfield" + ageTextField.text!)
                 
             } catch {
                 print("Error getting dateOfBirth from HealthKitStore")
             }
-        //}
-        
-        //let isAuthorizedForSex = healthKitStore.authorizationStatus(for: HKObjectType.characteristicType(forIdentifier: .biologicalSex)! )
-        
-        //if (isAuthorizedForSex == .sharingAuthorized) {
-            
             
             do {
                 
                 let sex = try healthKitStore.biologicalSex().biologicalSex
                 
+                var text = ""
+                
                 switch (sex as HKBiologicalSex) {
                 case .male:
-                    sexTextField.text = "Masculino"
+                    text = "Masculino"
                 case .female:
-                    sexTextField.text = "Feminino"
+                    text = "Feminino"
                 default:
                     break
                 }
                 
+                print(text)
+                sexTextField.text = text
+                print("sexTextField: " + sexTextField.text!)
+
+                
             } catch {
                 print("Error getting biologicalSex from HealthKitStore")
             }
-            
-        //}
-        
-        //let isAuthorizedForWeight = healthKitStore.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: .bodyMass)! )
+
+        //let isAuthorizedForWeight = healthKitStore.authorizationStatus(for: HKObjectTye.quantityType(forIdentifier: .bodyMass)! )
         
         //if (isAuthorizedForWeight == .sharingAuthorized) {
             
@@ -84,4 +84,7 @@ class ProfileSetupViewController: HealthKitEnabledViewController {
     }
     */
 
+    @IBAction func clickContinueButton(_ sender: Any) {
+        setup()
+    }
 }

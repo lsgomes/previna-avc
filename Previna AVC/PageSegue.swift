@@ -20,6 +20,7 @@ class PageSegue: UIStoryboardSegue {
     
     // Exception: A segue must either have a performHandler or it must override perform.
     override func perform() {
-        
+        //super.perform()
     }
+    
 }

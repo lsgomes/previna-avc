@@ -96,7 +96,7 @@
                     <connections>
                         <segue destination="NwB-cF-8zu" kind="custom" identifier="WizardSegue1" customClass="PageSegue" customModule="Previna_AVC" customModuleProvider="target" id="5B7-qO-v6Y"/>
                         <segue destination="Ffk-SP-K78" kind="custom" identifier="WizardSegue2" customClass="PageSegue" customModule="Previna_AVC" customModuleProvider="target" id="tKW-gq-TSc"/>
-                        <segue destination="XkZ-42-7oc" kind="custom" identifier="WizardSegue3" customClass="PageSegue" customModule="Previna_AVC" customModuleProvider="target" id="LK3-Qz-hfx"/>
+                        <segue destination="XkZ-42-7oc" kind="custom" identifier="WizardSegue3" customClass="PageSegue" customModule="Previna_AVC" customModuleProvider="target" id="zzD-W8-OIC"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVt-mX-RD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -118,7 +118,7 @@
         <!--View Controller-->
         <scene sceneID="b8Y-nL-vVW">
             <objects>
-                <viewController storyboardIdentifier="WizardPage1" id="NwB-cF-8zu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WizardSegue1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NwB-cF-8zu" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YTw-BF-DHw"/>
                         <viewControllerLayoutGuide type="bottom" id="2n6-Jd-hdy"/>
@@ -171,7 +171,7 @@
         <!--Health Kit View Controller-->
         <scene sceneID="pZd-dj-P8W">
             <objects>
-                <viewController storyboardIdentifier="WizardPage2" id="Ffk-SP-K78" customClass="HealthKitViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WizardSegue2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ffk-SP-K78" customClass="HealthKitViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kth-zt-aLo"/>
                         <viewControllerLayoutGuide type="bottom" id="58T-yT-4kW"/>
@@ -213,7 +213,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="allowAccess:" destination="Ffk-SP-K78" eventType="touchUpInside" id="t5L-5f-P2W"/>
-                                    <segue destination="XkZ-42-7oc" kind="custom" identifier="WizardSegue4" customClass="PageSegue" customModule="Previna_AVC" customModuleProvider="target" id="EOX-e8-6G0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -230,7 +229,7 @@
         <!--Profile Setup View Controller-->
         <scene sceneID="BoI-ff-c7k">
             <objects>
-                <viewController storyboardIdentifier="WizardPage3" id="XkZ-42-7oc" customClass="ProfileSetupViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WizardSegue3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XkZ-42-7oc" customClass="ProfileSetupViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F99-QK-fVS"/>
                         <viewControllerLayoutGuide type="bottom" id="8Yk-vM-fFW"/>
@@ -264,7 +263,7 @@
                             <textField clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rXL-zg-pGp">
                                 <rect key="frame" x="85" y="181" width="195" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -279,7 +278,7 @@
                             <textField clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iA4-NA-f6W">
                                 <rect key="frame" x="85" y="222" width="195" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -291,10 +290,10 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="a" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ye1-kw-c8z">
+                            <textField clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ye1-kw-c8z">
                                 <rect key="frame" x="85" y="263" width="195" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -309,7 +308,7 @@
                             <textField clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bqh-WZ-rPK">
                                 <rect key="frame" x="85" y="304" width="195" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -328,12 +327,16 @@
                                         <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickContinueButton:" destination="XkZ-42-7oc" eventType="touchUpInside" id="2Fg-mx-rH9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="ageTextField" destination="iA4-NA-f6W" id="QSj-cd-PIt"/>
+                        <outlet property="continueButton" destination="Kt2-qH-4Nd" id="OJ7-Am-bgF"/>
                         <outlet property="sexTextField" destination="bqh-WZ-rPK" id="zuc-hS-fYx"/>
                         <outlet property="weightTextField" destination="Ye1-kw-c8z" id="sDa-Rp-OxI"/>
                     </connections>
@@ -369,7 +372,4 @@
         <image name="health app icon" width="110" height="110"/>
         <image name="second" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="EOX-e8-6G0"/>
-    </inferredMetricsTieBreakers>
 </document>

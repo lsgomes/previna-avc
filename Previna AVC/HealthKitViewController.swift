@@ -36,9 +36,8 @@ class HealthKitViewController: HealthKitEnabledViewController {
  
         healthKitStore.requestAuthorization(toShare: nil, read: readDataTypes, completion: completion)
      
+        //self.performSegue(withIdentifier: "WizardSegue4", sender: nil)
         
-        self.performSegue(withIdentifier: "WizardSegue4", sender: nil)
-
     }
 
     // MARK: Private methods
@@ -93,11 +92,12 @@ class HealthKitViewController: HealthKitEnabledViewController {
         //    profileSetup?.healthKitStore = self.healthKitStore
         //}
         
-        if segue.identifier == "WizardSegue4" {
-            let profileSetup = segue.destination as? ProfileSetupViewController
-            //var v = profileSetup?.view
-            profileSetup?.setup()
-        }
+        //if segue.identifier == "WizardSegue4" {
+        //    let profileSetup = segue.destination as? ProfileSetupViewController
+        //    //var v = profileSetup?.view
+        //    segue.perform()
+        //    profileSetup?.setup()
+        //}
     }
 
     

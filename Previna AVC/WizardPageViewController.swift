@@ -22,17 +22,45 @@ class WizardPageViewController: UIPageViewController {
 
     
     private func newViewController(title: String) -> UIViewController {
-        performSegue(withIdentifier: title, sender: self)
+        //performSegue(withIdentifier: title, sender: self)
+        
+        print("new view controller")
+
+        
+        //if (nextViewController == nil)
+        //{
+            return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: title)
+        //}
+        
+        //performSegue(withIdentifier: title, sender: self)
         
         //if let profileSetupPage = nextViewController as? ProfileSetupViewController {
+            //print("inside if profileSetupPage")
             //profileSetupPage.healthKitStore
         //}
         
-        return nextViewController!
+        //return nextViewController!
        // return UIStoryboard(name: "Main", bundle: nil)
         //    .instantiateViewController(withIdentifier: title)
     }
     
+    var currentIndex:Int {
+        get {
+            return orderedViewControllers.index(of: self.viewControllers!.first!)!
+        }
+        
+        set {
+            guard newValue >= 0,
+                newValue < orderedViewControllers.count else {
+                    return
+            }
+            
+            let vc = orderedViewControllers[newValue]
+            let direction:UIPageViewControllerNavigationDirection = newValue > currentIndex ? .forward : .reverse
+            self.setViewControllers([vc], direction: direction, animated: true, completion: nil)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -77,7 +105,7 @@ class WizardPageViewController: UIPageViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
@@ -87,10 +115,12 @@ class WizardPageViewController: UIPageViewController {
         //}
         
         //if segue.identifier == "WizardSegue3" {
+            print("segue")
+        print("current :", currentIndex)
         //    let profileSetup = segue.destination as? ProfileSetupViewController
         //    profileSetup?.setup()
         //}
-    //}
+    }
 
 
 }
@@ -121,6 +151,7 @@ extension WizardPageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
+
         
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
@@ -137,7 +168,12 @@ extension WizardPageViewController: UIPageViewControllerDataSource {
             return nil
         }
         
-        return orderedViewControllers[nextIndex]
+        let vc = orderedViewControllers[nextIndex]
+        
+        //performSegue(withIdentifier: vc.restorationIdentifier!, sender: self)
+        
+        return vc
+
     }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
