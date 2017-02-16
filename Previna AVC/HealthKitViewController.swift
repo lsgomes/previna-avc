@@ -9,10 +9,8 @@
 import UIKit
 import HealthKit
 
-class HealthKitViewController: UIViewController {
+class HealthKitViewController: HealthKitEnabledViewController {
 
-    let healthKitStore: HKHealthStore = HKHealthStore()
-    
     @IBOutlet weak var allowAccessButton: UIButton!
     
     @IBAction func allowAccess(_ sender: UIButton) {
@@ -33,25 +31,16 @@ class HealthKitViewController: UIViewController {
                 print("You didn't allow HealthKit to access these read/write data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: \(error). If you're using a simulator, try it on a device.")
                 return
             }
+
         }
  
         healthKitStore.requestAuthorization(toShare: nil, read: readDataTypes, completion: completion)
-    }
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+     
         
-        
-        // Do any additional setup after loading the view.
+        self.performSegue(withIdentifier: "WizardSegue4", sender: nil)
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: Private methods
     // MARK: HealthKit Permissions
     
@@ -90,14 +79,26 @@ class HealthKitViewController: UIViewController {
         //        HKQuantityTypeIdentifier.flightsClimbed
     }
 
-    /*
+    
     // MARK: - Navigation
+
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        //if segue.identifier == "WizardSegue3" {
+        //    let profileSetup = segue.destination as? ProfileSetupViewController
+        //    profileSetup?.healthKitStore = self.healthKitStore
+        //}
+        
+        if segue.identifier == "WizardSegue4" {
+            let profileSetup = segue.destination as? ProfileSetupViewController
+            //var v = profileSetup?.view
+            profileSetup?.setup()
+        }
     }
-    */
 
+    
 }

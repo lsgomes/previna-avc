@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0974F891E53E4AE005E712A /* ProfileSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */; };
+		A0974F8B1E53EE0F005E712A /* PageSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0974F8A1E53EE0F005E712A /* PageSegue.swift */; };
+		A0974F8D1E53FB65005E712A /* HealthKitEnabledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0974F8C1E53FB65005E712A /* HealthKitEnabledViewController.swift */; };
 		A0E58AB51E4D53EE00252FA7 /* HealthKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E58AB41E4D53EE00252FA7 /* HealthKitViewController.swift */; };
 		A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */; };
 		A0FF49B21E4BE4B80041EEBE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetupViewController.swift; sourceTree = "<group>"; };
+		A0974F8A1E53EE0F005E712A /* PageSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageSegue.swift; sourceTree = "<group>"; };
+		A0974F8C1E53FB65005E712A /* HealthKitEnabledViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitEnabledViewController.swift; sourceTree = "<group>"; };
 		A0E58AB41E4D53EE00252FA7 /* HealthKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitViewController.swift; sourceTree = "<group>"; };
 		A0FF49AC1E4BE4B80041EEBE /* Previna AVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Previna AVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +81,9 @@
 				A0FF49BD1E4BE4B80041EEBE /* Info.plist */,
 				A0FF49C71E4BEAD60041EEBE /* WizardPageViewController.swift */,
 				A0E58AB41E4D53EE00252FA7 /* HealthKitViewController.swift */,
+				A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */,
+				A0974F8A1E53EE0F005E712A /* PageSegue.swift */,
+				A0974F8C1E53FB65005E712A /* HealthKitEnabledViewController.swift */,
 			);
 			path = "Previna AVC";
 			sourceTree = "<group>";
@@ -167,9 +176,12 @@
 			files = (
 				A0FF49B41E4BE4B80041EEBE /* SecondViewController.swift in Sources */,
 				A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */,
+				A0974F8D1E53FB65005E712A /* HealthKitEnabledViewController.swift in Sources */,
 				A0E58AB51E4D53EE00252FA7 /* HealthKitViewController.swift in Sources */,
 				A0FF49C81E4BEAD60041EEBE /* WizardPageViewController.swift in Sources */,
+				A0974F891E53E4AE005E712A /* ProfileSetupViewController.swift in Sources */,
 				A0FF49B21E4BE4B80041EEBE /* FirstViewController.swift in Sources */,
+				A0974F8B1E53EE0F005E712A /* PageSegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
