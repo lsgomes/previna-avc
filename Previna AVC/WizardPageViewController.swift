@@ -9,39 +9,24 @@
 import UIKit
 import HealthKit
 
-class WizardPageViewController: UIPageViewController {
-    
-    var nextViewController: UIViewController?
+class WizardPageViewController: UIPageViewController //, UIPageViewControllerDelegate
+{
+    static let PAGE_1 = "WizardPage1"
+    static let PAGE_2 = "WizardPage2"
+    static let PAGE_3 = "WizardPage3"
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newViewController(title: "WizardSegue1"),
-                self.newViewController(title: "WizardSegue2"),
-                self.newViewController(title: "WizardSegue3")
+        return [self.newViewController(title: PAGE_1),
+                self.newViewController(title: PAGE_2),
+                self.newViewController(title: PAGE_3)
     ]
     } ()
 
     
     private func newViewController(title: String) -> UIViewController {
-        //performSegue(withIdentifier: title, sender: self)
         
-        print("new view controller")
-
-        
-        //if (nextViewController == nil)
-        //{
-            return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: title)
-        //}
-        
-        //performSegue(withIdentifier: title, sender: self)
-        
-        //if let profileSetupPage = nextViewController as? ProfileSetupViewController {
-            //print("inside if profileSetupPage")
-            //profileSetupPage.healthKitStore
-        //}
-        
-        //return nextViewController!
-       // return UIStoryboard(name: "Main", bundle: nil)
-        //    .instantiateViewController(withIdentifier: title)
+        print("WizardPageViewController.newViewController(): " + title)
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: title)
     }
     
     var currentIndex:Int {
@@ -65,6 +50,7 @@ class WizardPageViewController: UIPageViewController {
         super.viewDidLoad()
 
         dataSource = self
+        // delegate = self
         
         let doc = UIImage.init(named: "document")!
         let imageView = UIImageView.init(image: doc)
@@ -82,46 +68,30 @@ class WizardPageViewController: UIPageViewController {
                                animated: true, completion: nil)
         }
         
-        stylePageControl()
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    private func stylePageControl() {
         let pageControl = UIPageControl.appearance(whenContainedInInstancesOf: [type(of: self)])
         
         pageControl.currentPageIndicatorTintColor = UIColor.darkGray
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.backgroundColor = .clear
-
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    public func segueToPage(name: String)
+    {
+        var page : UIViewController?
         
-        //if segue.identifier == "WizardSegue2" || segue.identifier == "WizardSegue3" {
-        //    var viewController = segue.destination as? HealthKitProtocol
-        //viewController?.healthKitStore = self.healthKitStore
-        //}
+        for viewController in orderedViewControllers {
+            if viewController.restorationIdentifier == name {
+                page = viewController
+                break;
+            }
+        }
         
-        //if segue.identifier == "WizardSegue3" {
-            print("segue")
-        print("current :", currentIndex)
-        //    let profileSetup = segue.destination as? ProfileSetupViewController
-        //    profileSetup?.setup()
-        //}
+        print("WizardPageViewController.segueToPage(): " + page!.restorationIdentifier!)
+        
+        setViewControllers([page!], direction: .forward, animated: true, completion: nil)
     }
 
+    //  public func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController])
 
 }
 
@@ -129,51 +99,64 @@ class WizardPageViewController: UIPageViewController {
 
 extension WizardPageViewController: UIPageViewControllerDataSource {
     
-    func pageViewController(_ pageViewController: UIPageViewController,
-                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
-            return nil
-        }
-        
-        let previousIndex = viewControllerIndex - 1
-        
-        guard previousIndex >= 0 else {
-            return nil
-        }
-        
-        guard orderedViewControllers.count > previousIndex else {
-            return nil
-        }
-        
-        return orderedViewControllers[previousIndex]
+//    func pageViewController(_ pageViewController: UIPageViewController,
+//                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
+//        
+//        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
+//            return nil
+//        }
+//        
+//        print("viewControllerBefore.currentViewController: \(viewControllerIndex)")
+//        
+//        let previousIndex = viewControllerIndex - 1
+//        
+//        guard previousIndex >= 0 else {
+//            return nil
+//        }
+//        
+//        guard orderedViewControllers.count > previousIndex else {
+//            return nil
+//        }
+//        
+//        return orderedViewControllers[previousIndex]
+//    }
+//    
+//    func pageViewController(_ pageViewController: UIPageViewController,
+//                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
+//        
+//        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
+//            return nil
+//        }
+//        
+//        print("viewControllerAfter.currentViewController: \(viewControllerIndex)")
+//
+//        if (viewController.restorationIdentifier == WizardPageViewController.PAGE_3)
+//        {
+//            let profileSetup = viewController as? ProfileSetupViewController
+//            profileSetup?.setup()
+//        }
+//        
+//        let nextIndex = viewControllerIndex + 1
+//        let orderedViewControllersCount = orderedViewControllers.count
+//        
+//        guard orderedViewControllersCount != nextIndex else {
+//            return nil
+//        }
+//        
+//        guard orderedViewControllersCount > nextIndex else {
+//            return nil
+//        }
+//        
+//        return orderedViewControllers[nextIndex]
+//
+//    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        return nil
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController,
-                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
-
-        
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
-            return nil
-        }
-        
-        let nextIndex = viewControllerIndex + 1
-        let orderedViewControllersCount = orderedViewControllers.count
-        
-        guard orderedViewControllersCount != nextIndex else {
-            return nil
-        }
-        
-        guard orderedViewControllersCount > nextIndex else {
-            return nil
-        }
-        
-        let vc = orderedViewControllers[nextIndex]
-        
-        //performSegue(withIdentifier: vc.restorationIdentifier!, sender: self)
-        
-        return vc
-
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        return nil
     }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {

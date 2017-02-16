@@ -14,7 +14,7 @@ class PageSegue: UIStoryboardSegue {
         
         super.init(identifier: identifier, source: source, destination: destination)
         if let pageViewController = source as? WizardPageViewController {
-            pageViewController.nextViewController = destination as UIViewController //as? ProfileSetupViewController
+           // pageViewController.nextViewController = destination as UIViewController //as? ProfileSetupViewController
         }
     }
     

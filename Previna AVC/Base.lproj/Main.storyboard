@@ -92,13 +92,7 @@
         <!--Wizard Page View Controller-->
         <scene sceneID="Ioe-Hi-jhe">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="bQX-7K-sHF" customClass="WizardPageViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController">
-                    <connections>
-                        <segue destination="NwB-cF-8zu" kind="custom" identifier="WizardSegue1" customClass="PageSegue" customModule="Previna_AVC" customModuleProvider="target" id="5B7-qO-v6Y"/>
-                        <segue destination="Ffk-SP-K78" kind="custom" identifier="WizardSegue2" customClass="PageSegue" customModule="Previna_AVC" customModuleProvider="target" id="tKW-gq-TSc"/>
-                        <segue destination="XkZ-42-7oc" kind="custom" identifier="WizardSegue3" customClass="PageSegue" customModule="Previna_AVC" customModuleProvider="target" id="zzD-W8-OIC"/>
-                    </connections>
-                </pageViewController>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="bQX-7K-sHF" customClass="WizardPageViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVt-mX-RD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationBar contentMode="scaleToFill" id="kPV-Zx-CGI">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -115,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="-2238" y="0.0"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="b8Y-nL-vVW">
             <objects>
-                <viewController storyboardIdentifier="WizardSegue1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NwB-cF-8zu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WizardPage1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NwB-cF-8zu" customClass="WelcomeViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YTw-BF-DHw"/>
                         <viewControllerLayoutGuide type="bottom" id="2n6-Jd-hdy"/>
@@ -143,11 +137,9 @@
                                 <state key="normal" title="CONTINUAR">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="continueButton:" destination="NwB-cF-8zu" eventType="touchUpInside" id="JL7-1k-3As"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="app icon" translatesAutoresizingMaskIntoConstraints="NO" id="XtR-5g-Xwr">
                                 <rect key="frame" x="40" y="96" width="240" height="128"/>
@@ -168,10 +160,10 @@
             </objects>
             <point key="canvasLocation" x="-3000" y="750"/>
         </scene>
-        <!--Health Kit View Controller-->
+        <!--Authorize Health Kit View Controller-->
         <scene sceneID="pZd-dj-P8W">
             <objects>
-                <viewController storyboardIdentifier="WizardSegue2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ffk-SP-K78" customClass="HealthKitViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WizardPage2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ffk-SP-K78" customClass="AuthorizeHealthKitViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kth-zt-aLo"/>
                         <viewControllerLayoutGuide type="bottom" id="58T-yT-4kW"/>
@@ -206,11 +198,6 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="PERMITIR ACESSO"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
-                                        <integer key="value" value="50"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="allowAccess:" destination="Ffk-SP-K78" eventType="touchUpInside" id="t5L-5f-P2W"/>
                                 </connections>
@@ -229,7 +216,7 @@
         <!--Profile Setup View Controller-->
         <scene sceneID="BoI-ff-c7k">
             <objects>
-                <viewController storyboardIdentifier="WizardSegue3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XkZ-42-7oc" customClass="ProfileSetupViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WizardPage3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XkZ-42-7oc" customClass="ProfileSetupViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F99-QK-fVS"/>
                         <viewControllerLayoutGuide type="bottom" id="8Yk-vM-fFW"/>
@@ -322,11 +309,6 @@
                                 <state key="normal" title="CONTINUAR">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="clickContinueButton:" destination="XkZ-42-7oc" eventType="touchUpInside" id="2Fg-mx-rH9"/>
                                 </connections>
