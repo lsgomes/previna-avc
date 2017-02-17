@@ -50,7 +50,9 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
         super.viewDidLoad()
 
         dataSource = self
+        
         // delegate = self
+        //self.view.backgroundColor = .white
         
         let doc = UIImage.init(named: "document")!
         let imageView = UIImageView.init(image: doc)

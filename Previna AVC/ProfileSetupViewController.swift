@@ -14,9 +14,7 @@ class ProfileSetupViewController: UIViewController {
     @IBOutlet var ageTextField: UITextField!
     @IBOutlet var weightTextField: UITextField!
     @IBOutlet var sexTextField: UITextField!
-    
-    @IBOutlet var continueButton: UIButton!
-    
+        
     override func viewDidLoad() {
 
         print("ProfileSetupViewController.viewDidLoad()")
@@ -25,8 +23,5 @@ class ProfileSetupViewController: UIViewController {
         sexTextField.text = HealthKitManager.instance.getBiologicalSex()
         
     }
-    
-    @IBAction func clickContinueButton(_ sender: Any) {
 
-    }
 }
