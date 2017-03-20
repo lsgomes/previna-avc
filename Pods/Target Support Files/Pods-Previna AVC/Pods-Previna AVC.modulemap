@@ -1,0 +1,6 @@
+framework module Pods_Previna_AVC {
+  umbrella header "Pods-Previna AVC-umbrella.h"
+
+  export *
+  module * { export * }
+}

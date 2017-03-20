@@ -10,7 +10,12 @@
 		A0974F891E53E4AE005E712A /* ProfileSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */; };
 		A0D1E2AD1E55FF8000349A18 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */; };
 		A0D1E2AF1E56194400349A18 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */; };
+		A0E0D10B1E7EF931005D3B6E /* HasDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0D1071E7EF931005D3B6E /* HasDevice.swift */; };
+		A0E0D10C1E7EF931005D3B6E /* HasRiskFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0D1081E7EF931005D3B6E /* HasRiskFactor.swift */; };
+		A0E0D10D1E7EF931005D3B6E /* HasSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0D1091E7EF931005D3B6E /* HasSensor.swift */; };
+		A0E0D10E1E7EF931005D3B6E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0D10A1E7EF931005D3B6E /* Person.swift */; };
 		A0E58AB51E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */; };
+		A0FA77961E7F34DD00F7B5FA /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FA77951E7F34DD00F7B5FA /* RestManager.swift */; };
 		A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */; };
 		A0FF49B21E4BE4B80041EEBE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */; };
 		A0FF49B41E4BE4B80041EEBE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */; };
@@ -19,13 +24,22 @@
 		A0FF49BC1E4BE4B80041EEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FF49BA1E4BE4B80041EEBE /* LaunchScreen.storyboard */; };
 		A0FF49C61E4BE5470041EEBE /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FF49C51E4BE5470041EEBE /* HealthKit.framework */; };
 		A0FF49C81E4BEAD60041EEBE /* WizardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49C71E4BEAD60041EEBE /* WizardPageViewController.swift */; };
+		C8EFBAC0F4C276D9EBFDE933 /* Pods_Previna_AVC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36C83C3433C795B9E6B232B /* Pods_Previna_AVC.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		348DC6AE897B4A2115C8C70A /* Pods-Previna AVC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Previna AVC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Previna AVC/Pods-Previna AVC.debug.xcconfig"; sourceTree = "<group>"; };
 		A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetupViewController.swift; sourceTree = "<group>"; };
 		A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		A0E0D1071E7EF931005D3B6E /* HasDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasDevice.swift; sourceTree = "<group>"; };
+		A0E0D1081E7EF931005D3B6E /* HasRiskFactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasRiskFactor.swift; sourceTree = "<group>"; };
+		A0E0D1091E7EF931005D3B6E /* HasSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasSensor.swift; sourceTree = "<group>"; };
+		A0E0D10A1E7EF931005D3B6E /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizeHealthKitViewController.swift; sourceTree = "<group>"; };
+		A0FA77911E7F17E600F7B5FA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Release-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		A0FA77931E7F180000F7B5FA /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Release-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		A0FA77951E7F34DD00F7B5FA /* RestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
 		A0FF49AC1E4BE4B80041EEBE /* Previna AVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Previna AVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +51,8 @@
 		A0FF49C31E4BE5470041EEBE /* Previna AVC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Previna AVC.entitlements"; sourceTree = "<group>"; };
 		A0FF49C51E4BE5470041EEBE /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		A0FF49C71E4BEAD60041EEBE /* WizardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WizardPageViewController.swift; sourceTree = "<group>"; };
+		A36C83C3433C795B9E6B232B /* Pods_Previna_AVC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Previna_AVC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5A8A179FFC4C3299119C786 /* Pods-Previna AVC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Previna AVC.release.xcconfig"; path = "Pods/Target Support Files/Pods-Previna AVC/Pods-Previna AVC.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0FF49C61E4BE5470041EEBE /* HealthKit.framework in Frameworks */,
+				C8EFBAC0F4C276D9EBFDE933 /* Pods_Previna_AVC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +74,7 @@
 				A0FF49AE1E4BE4B80041EEBE /* Previna AVC */,
 				A0FF49AD1E4BE4B80041EEBE /* Products */,
 				A0FF49C41E4BE5470041EEBE /* Frameworks */,
+				DBF38DB7EA87A4503365D260 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +89,10 @@
 		A0FF49AE1E4BE4B80041EEBE /* Previna AVC */ = {
 			isa = PBXGroup;
 			children = (
+				A0E0D1071E7EF931005D3B6E /* HasDevice.swift */,
+				A0E0D1081E7EF931005D3B6E /* HasRiskFactor.swift */,
+				A0E0D1091E7EF931005D3B6E /* HasSensor.swift */,
+				A0E0D10A1E7EF931005D3B6E /* Person.swift */,
 				A0FF49C31E4BE5470041EEBE /* Previna AVC.entitlements */,
 				A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */,
 				A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */,
@@ -84,6 +106,7 @@
 				A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */,
 				A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */,
 				A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */,
+				A0FA77951E7F34DD00F7B5FA /* RestManager.swift */,
 			);
 			path = "Previna AVC";
 			sourceTree = "<group>";
@@ -91,9 +114,21 @@
 		A0FF49C41E4BE5470041EEBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0FA77931E7F180000F7B5FA /* SwiftyJSON.framework */,
+				A0FA77911E7F17E600F7B5FA /* Alamofire.framework */,
 				A0FF49C51E4BE5470041EEBE /* HealthKit.framework */,
+				A36C83C3433C795B9E6B232B /* Pods_Previna_AVC.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DBF38DB7EA87A4503365D260 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				348DC6AE897B4A2115C8C70A /* Pods-Previna AVC.debug.xcconfig */,
+				B5A8A179FFC4C3299119C786 /* Pods-Previna AVC.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,9 +138,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0FF49C01E4BE4B80041EEBE /* Build configuration list for PBXNativeTarget "Previna AVC" */;
 			buildPhases = (
+				E6D9F17A18340BF8FB93EFF2 /* [CP] Check Pods Manifest.lock */,
 				A0FF49A81E4BE4B70041EEBE /* Sources */,
 				A0FF49A91E4BE4B70041EEBE /* Frameworks */,
 				A0FF49AA1E4BE4B70041EEBE /* Resources */,
+				E24765669D1910683A25E10C /* [CP] Embed Pods Frameworks */,
+				20FC8DC176466C9088C163F4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -169,6 +207,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		20FC8DC176466C9088C163F4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Previna AVC/Pods-Previna AVC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E24765669D1910683A25E10C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Previna AVC/Pods-Previna AVC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6D9F17A18340BF8FB93EFF2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A0FF49A81E4BE4B70041EEBE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -178,9 +264,14 @@
 				A0FF49B41E4BE4B80041EEBE /* SecondViewController.swift in Sources */,
 				A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */,
 				A0E58AB51E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift in Sources */,
+				A0E0D10C1E7EF931005D3B6E /* HasRiskFactor.swift in Sources */,
+				A0E0D10E1E7EF931005D3B6E /* Person.swift in Sources */,
+				A0E0D10D1E7EF931005D3B6E /* HasSensor.swift in Sources */,
+				A0E0D10B1E7EF931005D3B6E /* HasDevice.swift in Sources */,
 				A0FF49C81E4BEAD60041EEBE /* WizardPageViewController.swift in Sources */,
 				A0974F891E53E4AE005E712A /* ProfileSetupViewController.swift in Sources */,
 				A0FF49B21E4BE4B80041EEBE /* FirstViewController.swift in Sources */,
+				A0FA77961E7F34DD00F7B5FA /* RestManager.swift in Sources */,
 				A0D1E2AF1E56194400349A18 /* HealthKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,11 +391,17 @@
 		};
 		A0FF49C11E4BE4B80041EEBE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 348DC6AE897B4A2115C8C70A /* Pods-Previna AVC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N5H55YKWYG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",
+					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftyJSON",
+				);
 				INFOPLIST_FILE = "Previna AVC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -316,11 +413,17 @@
 		};
 		A0FF49C21E4BE4B80041EEBE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5A8A179FFC4C3299119C786 /* Pods-Previna AVC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N5H55YKWYG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",
+					"$(PROJECT_DIR)/build/Release-iphoneos/SwiftyJSON",
+				);
 				INFOPLIST_FILE = "Previna AVC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

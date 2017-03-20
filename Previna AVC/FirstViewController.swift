@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Alamofire
 
 class FirstViewController: UIViewController {
-
+    
+    @IBOutlet weak var riskPercentageLabel: UILabel!
+    @IBOutlet var riskLabel: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +24,33 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func updateAction(_ sender: UIButton) {
+        
+        
+        sender.setTitle("ATUALIZANDO....", for: .normal)
+        
+        RestManager.instance.getRiskLevel(name: "John") { response in
+            print(response)
+            self.riskPercentageLabel.text = response
+            
+            switch (response) {
+                
+            case "?":
+                self.riskLabel.text = "Pressione em ATUALIZAR para calcular seu risco."
+                sender.setTitle("ATUALIZAR", for: .normal)
+            default:
+                
+                let date = Date()
+                let calendar = Calendar.current
+                let hour = calendar.component(.hour, from: date)
+                let minutes = calendar.component(.minute, from: date)
+                
+                self.riskLabel.text = "Este é seu risco atual de AVC.\n Última atualização: Hoje às \(hour):\(minutes)"
+            
+            sender.setTitle("ATUALIZAR", for: .normal)
+            }
+        }
+    }
+        
 }
 

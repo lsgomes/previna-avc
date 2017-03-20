@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Previna AVC/FirstViewController.swift"
+            timestampString = "511645156.747732"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Previna AVC/RestManager.swift"
+            timestampString = "511653376.985735"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "RestManager"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_FA77F90D9C256137EAEF4DDA75007038_func3"
+                  moduleName = "Previna AVC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/RestManager.swift"
+                  timestampString = "511654706.025317"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Previna_AVC.RestManager.REST_ENDPOINT.unsafeMutableAddressor : Swift.String"
+                  moduleName = "Previna AVC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/RestManager.swift"
+                  timestampString = "511654706.029279"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Previna_AVC.RestManager.REST_ENDPOINT.getter : Swift.String"
+                  moduleName = "Previna AVC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/RestManager.swift"
+                  timestampString = "511654706.032962"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Previna AVC/FirstViewController.swift"
+            timestampString = "511660143.085756"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "updateAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Previna AVC/ProfileSetupViewController.swift"
+            timestampString = "511673249.217587"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Previna AVC/ProfileSetupViewController.swift"
+            timestampString = "511669855.20173"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "ProfileSetupViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Previna_AVC.ProfileSetupViewController.__deallocating_deinit"
+                  moduleName = "Previna AVC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/ProfileSetupViewController.swift"
+                  timestampString = "511669856.863963"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Previna_AVC.ProfileSetupViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Previna_AVC.ProfileSetupViewController"
+                  moduleName = "Previna AVC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/ProfileSetupViewController.swift"
+                  timestampString = "511669856.867901"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Previna_AVC.ProfileSetupViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Previna_AVC.ProfileSetupViewController"
+                  moduleName = "Previna AVC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/ProfileSetupViewController.swift"
+                  timestampString = "511669856.871609"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Previna_AVC.ProfileSetupViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Previna_AVC.ProfileSetupViewController&gt;"
+                  moduleName = "Previna AVC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/ProfileSetupViewController.swift"
+                  timestampString = "511669856.875149"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Previna_AVC.ProfileSetupViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Previna_AVC.ProfileSetupViewController&gt;"
+                  moduleName = "Previna AVC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/ProfileSetupViewController.swift"
+                  timestampString = "511669856.879005"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Previna AVC/ProfileSetupViewController.swift"
+            timestampString = "511668838.409342"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Previna_AVC.ProfileSetupViewController.__deallocating_deinit"
+                  moduleName = "Previna AVC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/ProfileSetupViewController.swift"
+                  timestampString = "511668838.41618"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Previna_AVC.ProfileSetupViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Previna_AVC.ProfileSetupViewController"
+                  moduleName = "Previna AVC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/ProfileSetupViewController.swift"
+                  timestampString = "511668838.420429"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Previna_AVC.ProfileSetupViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Previna_AVC.ProfileSetupViewController"
+                  moduleName = "Previna AVC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/ProfileSetupViewController.swift"
+                  timestampString = "511668838.424291"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Previna_AVC.ProfileSetupViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Previna_AVC.ProfileSetupViewController&gt;"
+                  moduleName = "Previna AVC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/ProfileSetupViewController.swift"
+                  timestampString = "511668838.428131"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Previna_AVC.ProfileSetupViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Previna_AVC.ProfileSetupViewController&gt;"
+                  moduleName = "Previna AVC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/ProfileSetupViewController.swift"
+                  timestampString = "511668838.432868"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Previna AVC/ProfileSetupViewController.swift"
+            timestampString = "511673467.819276"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "alcoholDropperSelect(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
