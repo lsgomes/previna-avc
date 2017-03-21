@@ -61,6 +61,10 @@ public class Person {
 		hasUserName = dictionary["hasUserName"] as? String
 		uri = dictionary["uri"] as? String
 	}
+    
+    public init?() {
+        
+    }
 
 		
 /**

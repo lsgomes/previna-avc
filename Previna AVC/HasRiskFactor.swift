@@ -51,6 +51,8 @@ public class HasRiskFactor {
 		hasWeight = dictionary["hasWeight"] as? Int
 		uri = dictionary["uri"] as? String
 	}
+    
+    public init() { }
 
 		
 /**

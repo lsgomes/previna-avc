@@ -1,18 +1,18 @@
 PODS:
   - Alamofire (4.4.0)
-  - Dropper (2.7.6)
+  - DKDropMenu (0.2.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
-  - Dropper
+  - DKDropMenu
   - SwiftyJSON (~> 3.1.4)
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  Dropper: 52a020beb6fef2e4b1d55447f17099e5776954ef
+  DKDropMenu: d734c2e6accb97b5c26e2324240e84008e47dec6
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: de89a0cee0a399b4a86d556e28dfefc9572b45d3
+PODFILE CHECKSUM: 94d272dc21cd3a32543422faa19f40a3b710f7da
 
 COCOAPODS: 1.2.0

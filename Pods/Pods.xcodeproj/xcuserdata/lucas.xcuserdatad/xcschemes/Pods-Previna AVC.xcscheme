@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "30F06E56AAB367B34E11F19584156561"
+               BlueprintIdentifier = "DEA172A9A2DD44119ECB1398F88001E7"
                BuildableName = "Pods_Previna_AVC.framework"
                BlueprintName = "Pods-Previna AVC"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30F06E56AAB367B34E11F19584156561"
+            BlueprintIdentifier = "DEA172A9A2DD44119ECB1398F88001E7"
             BuildableName = "Pods_Previna_AVC.framework"
             BlueprintName = "Pods-Previna AVC"
             ReferencedContainer = "container:Pods.xcodeproj">

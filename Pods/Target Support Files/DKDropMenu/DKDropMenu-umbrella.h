@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double DropperVersionNumber;
-FOUNDATION_EXPORT const unsigned char DropperVersionString[];
+FOUNDATION_EXPORT double DKDropMenuVersionNumber;
+FOUNDATION_EXPORT const unsigned char DKDropMenuVersionString[];
 

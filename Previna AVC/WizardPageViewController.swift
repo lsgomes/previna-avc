@@ -14,11 +14,15 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
     static let PAGE_1 = "WizardPage1"
     static let PAGE_2 = "WizardPage2"
     static let PAGE_3 = "WizardPage3"
+    static let PAGE_4 = "WizardPage4"
+
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [self.newViewController(title: PAGE_1),
                 self.newViewController(title: PAGE_2),
-                self.newViewController(title: PAGE_3)
+                self.newViewController(title: PAGE_3),
+                self.newViewController(title: PAGE_4)
+
     ]
     } ()
 
@@ -52,8 +56,9 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
         dataSource = self
         
         // delegate = self
-        //self.view.backgroundColor = .white
+        self.view.backgroundColor = .white
         
+        /* 
         let doc = UIImage.init(named: "document")!
         let imageView = UIImageView.init(image: doc)
 
@@ -63,6 +68,7 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
 
         view.addSubview(imageView)
         view.sendSubview(toBack: imageView)
+        */
         
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],

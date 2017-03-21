@@ -3,7 +3,7 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "RestManager.getRiskLevel(name : String) -&gt; String:RestManager.swift">
+         contextName = "FirstViewController.(updateAction(Any) -&gt; ()).(closure #1):FirstViewController.swift">
       </ContextState>
       <ContextState
          contextName = "RestManager.(getRiskLevel(name : String) -&gt; String).(closure #1):RestManager.swift">
@@ -20,7 +20,23 @@
          contextName = "FirstViewController.updateAction(Any) -&gt; ():FirstViewController.swift">
       </ContextState>
       <ContextState
-         contextName = "FirstViewController.(updateAction(Any) -&gt; ()).(closure #1):FirstViewController.swift">
+         contextName = "ProfileSetupViewController.validateForm() -&gt; ():ProfileSetupViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserManager.instance.person">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ProfileSetupViewController.continueAction(UIButton) -&gt; ():ProfileSetupViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserManager.instance.person">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RestManager.getRiskLevel(name : String) -&gt; String:RestManager.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

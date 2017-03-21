@@ -8,16 +8,32 @@
 
 import UIKit
 import HealthKit
-import Dropper
 
 class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var ageTextField: UITextField!
     @IBOutlet var sexSegmentedControl: UISegmentedControl!
-    @IBOutlet var alcoholPicker: UIButton!
+    @IBOutlet var hypertensionSegmentedControl: UISegmentedControl!
+    @IBOutlet var diabetesSegmentedControl: UISegmentedControl!
+    @IBOutlet var renalDiseaseSegmentedControl: UISegmentedControl!
+    @IBOutlet var peripheralDiseaseSegmentedControl: UISegmentedControl!
+    @IBOutlet var heartFailureSegmentedControl: UISegmentedControl!
+    @IBOutlet var ischemicHeartDiseaseSegmentedControl: UISegmentedControl!
     
-    let alcoholDropper = Dropper(x: 71, y: 50, width: 195, height: 33)
+    let MALE = "Male";
+    let HYPERTENSION = "Hypertension";
+    let DIABETES = "Diabetes";
+    let RENAL_DISEASE = "Renal_disease"
+    let PERIPHERAL_DISEASE = "Peripheral_arterial_disease"
+    let HEART_FAILURE = "Congestive_heart_failure"
+    let ISCHEMIC_HEART_DISEASE = "Ischemic_heart_disease"
+
+    let SEGMENT_MALE = 0;
+    let SEGMENT_FEMALE = 1;
+    
+    let SEGMENT_YES = 0;
+    let SEGMENT_NO = 1;
     
     override func viewDidLoad() {
 
@@ -25,36 +41,78 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
         
         nameTextField.delegate = self
         ageTextField.delegate = self
-        
-        alcoholPicker.layer.borderWidth = 0.3
-        alcoholPicker.layer.borderColor = UIColor.lightGray.cgColor
-        
-        //alcoholDropper.cornerRadius = 3
-        
+                
         ageTextField.text = HealthKitManager.instance.getDateOfBirth()
         let sex = HealthKitManager.instance.getBiologicalSex()
         
         switch (sex) {
             case "Feminino":
-                sexSegmentedControl.selectedSegmentIndex = 1
+                sexSegmentedControl.selectedSegmentIndex = SEGMENT_FEMALE
             default:
-                sexSegmentedControl.selectedSegmentIndex = 0
+                sexSegmentedControl.selectedSegmentIndex = SEGMENT_MALE
 
         }
     }
     
-    
-    @IBAction func alcoholDropperSelect(_ sender: UIButton) {
-        if alcoholDropper.status == .hidden {
-            alcoholDropper.items = ["Bebo sete ou mais vezes por semana", "Ex-álcoolatra", "Evito"]
-            alcoholDropper.theme = Dropper.Themes.white
-            alcoholDropper.delegate = self
-            alcoholDropper.refreshHeight()
-            alcoholDropper.showWithAnimation(0.3, options: .center, button: sender)
-            view.addSubview(alcoholDropper)
-        } else {
-            alcoholDropper.hideWithAnimation(0.2)
+    func validateForm() {
+        
+        var riskFactors = [HasRiskFactor]()
+        
+        if (!ageTextField.text!.isEmpty)
+        {
+            UserManager.instance.person?.hasAge = Int(ageTextField.text!)
         }
+        
+        if (!nameTextField.text!.isEmpty)
+        {
+            UserManager.instance.person?.hasUserName = nameTextField.text
+        }
+        
+        validateSegmentControl(segmentControl: sexSegmentedControl, uri: MALE, expectedSegmentResult: SEGMENT_MALE, riskFactors: &riskFactors)
+
+        validateSegmentControl(segmentControl: hypertensionSegmentedControl, uri: HYPERTENSION, riskFactors: &riskFactors)
+
+        validateSegmentControl(segmentControl: diabetesSegmentedControl, uri: DIABETES, riskFactors: &riskFactors)
+        
+        validateSegmentControl(segmentControl: renalDiseaseSegmentedControl, uri: RENAL_DISEASE, riskFactors: &riskFactors)
+    
+        validateSegmentControl(segmentControl: peripheralDiseaseSegmentedControl, uri: PERIPHERAL_DISEASE, riskFactors: &riskFactors)
+        
+        validateSegmentControl(segmentControl: heartFailureSegmentedControl, uri: HEART_FAILURE, riskFactors: &riskFactors)
+        
+        validateSegmentControl(segmentControl: ischemicHeartDiseaseSegmentedControl, uri: ISCHEMIC_HEART_DISEASE, riskFactors: &riskFactors)
+        
+        if (!riskFactors.isEmpty) {
+            UserManager.instance.person?.hasRiskFactor = riskFactors
+        }
+
+        print(UserManager.instance.person!.dictionaryRepresentation())
+    }
+    
+    func validateSegmentControl(segmentControl: UISegmentedControl, uri: String, riskFactors: inout [HasRiskFactor]) {
+        
+        if (segmentControl.selectedSegmentIndex == SEGMENT_YES) {
+            let risk = HasRiskFactor()
+            risk.uri = uri
+            riskFactors.append(risk)
+        }
+    }
+    
+    func validateSegmentControl(segmentControl: UISegmentedControl, uri: String, expectedSegmentResult: Int, riskFactors: inout [HasRiskFactor]) {
+        
+        if (segmentControl.selectedSegmentIndex == expectedSegmentResult) {
+            let risk = HasRiskFactor()
+            risk.uri = uri
+            riskFactors.append(risk)
+        }
+    }
+    
+    @IBAction func continueAction(_ sender: UIButton) {
+    
+        validateForm()
+        let pageViewController = self.parent as? WizardPageViewController
+        pageViewController?.segueToPage(name: WizardPageViewController.PAGE_4)
+
     }
     
     /**
@@ -73,8 +131,3 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
-extension ProfileSetupViewController: DropperDelegate {
-    func DropperSelectedRow(_ path: IndexPath, contents: String) {
-        alcoholPicker.setTitle(contents, for: .normal)
-    }
-}
