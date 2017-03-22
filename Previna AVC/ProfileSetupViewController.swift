@@ -82,11 +82,7 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
         
         validateSegmentControl(segmentControl: ischemicHeartDiseaseSegmentedControl, uri: ISCHEMIC_HEART_DISEASE, riskFactors: &riskFactors)
         
-        if (!riskFactors.isEmpty) {
-            UserManager.instance.person?.hasRiskFactor = riskFactors
-        }
-
-        print(UserManager.instance.person!.dictionaryRepresentation())
+        UserManager.instance.person?.hasRiskFactor = riskFactors
     }
     
     func validateSegmentControl(segmentControl: UISegmentedControl, uri: String, riskFactors: inout [HasRiskFactor]) {

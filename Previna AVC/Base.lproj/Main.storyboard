@@ -284,7 +284,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rXL-zg-pGp">
-                                <rect key="frame" x="71" y="156" width="195" height="30"/>
+                                <rect key="frame" x="76" y="156" width="228" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
@@ -299,7 +299,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iA4-NA-f6W">
-                                <rect key="frame" x="71" y="187" width="195" height="30"/>
+                                <rect key="frame" x="76" y="187" width="228" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
@@ -307,7 +307,7 @@
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Sexo:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QYs-Ak-Ft3">
-                                <rect key="frame" x="16" y="216" width="61" height="33"/>
+                                <rect key="frame" x="16" y="217" width="61" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
@@ -327,7 +327,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="vn1-ob-bpW">
-                                <rect key="frame" x="71" y="220" width="195" height="29"/>
+                                <rect key="frame" x="159" y="220" width="145" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Masculino"/>
@@ -335,15 +335,7 @@
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="i1m-CA-iLQ">
-                                <rect key="frame" x="120" y="252" width="131" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Sim"/>
-                                    <segment title="Não"/>
-                                </segments>
-                            </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="cki-jG-vxe">
-                                <rect key="frame" x="211" y="347" width="93" height="29"/>
+                                <rect key="frame" x="211" y="253" width="93" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Sim"/>
@@ -351,7 +343,7 @@
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="PYV-Ij-iBC">
-                                <rect key="frame" x="95" y="283" width="131" height="29"/>
+                                <rect key="frame" x="211" y="284" width="93" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Sim"/>
@@ -359,7 +351,7 @@
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="V24-R1-jBk">
-                                <rect key="frame" x="185" y="380" width="101" height="29"/>
+                                <rect key="frame" x="211" y="379" width="93" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Sim"/>
@@ -367,7 +359,7 @@
                                 </segments>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="kpu-yF-7vE">
-                                <rect key="frame" x="225" y="411" width="79" height="29"/>
+                                <rect key="frame" x="211" y="411" width="93" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Sim"/>
@@ -375,49 +367,49 @@
                                 </segments>
                             </segmentedControl>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Hipertensão:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UvQ-Va-l38">
-                                <rect key="frame" x="16" y="250" width="103" height="33"/>
+                                <rect key="frame" x="16" y="250" width="96" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Diabetes:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DT5-Fj-WC0">
-                                <rect key="frame" x="16" y="281" width="81" height="33"/>
+                                <rect key="frame" x="16" y="281" width="72" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Insuficiência renal crônica:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3jA-hf-I17">
-                                <rect key="frame" x="16" y="312" width="196" height="33"/>
+                                <rect key="frame" x="16" y="312" width="181" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Doença arterial periférica:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NjD-mA-25p">
-                                <rect key="frame" x="16" y="345" width="196" height="33"/>
+                                <rect key="frame" x="16" y="345" width="181" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Insuficiência cardíaca:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dmo-iv-O2l">
-                                <rect key="frame" x="16" y="378" width="167" height="33"/>
+                                <rect key="frame" x="16" y="378" width="152" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Doença arterial coronariana:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z0z-oh-Uxb">
-                                <rect key="frame" x="16" y="409" width="210" height="33"/>
+                                <rect key="frame" x="16" y="409" width="191" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Bpd-GR-Yec">
-                                <rect key="frame" x="211" y="314" width="93" height="29"/>
+                                <rect key="frame" x="211" y="315" width="93" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Sim"/>
@@ -431,6 +423,14 @@
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="cki-jG-vxe">
+                                <rect key="frame" x="211" y="347" width="93" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Sim"/>
+                                    <segment title="Não"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -453,7 +453,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -481,47 +481,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Prontuário (continuação)" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9bx-fW-0w3">
-                                <rect key="frame" x="46" y="28" width="228" height="69"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Prontuário" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OIN-gx-yYN">
+                                <rect key="frame" x="46" y="28" width="228" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Preencha os campos a seguir para completar seu perfil:" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SU-uA-3c7">
-                                <rect key="frame" x="16" y="93" width="240" height="83"/>
+                                <rect key="frame" x="16" y="60" width="240" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Escolaridade:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sFL-Kt-9hv">
-                                <rect key="frame" x="16" y="184" width="114" height="33"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Escolaridade?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sFL-Kt-9hv">
+                                <rect key="frame" x="16" y="259" width="114" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Atividade física:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zEv-RE-iic">
-                                <rect key="frame" x="16" y="216" width="124" height="33"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Atividade física?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zEv-RE-iic">
+                                <rect key="frame" x="16" y="291" width="124" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Álcool:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1rK-cp-QxI">
-                                <rect key="frame" x="16" y="248" width="61" height="33"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Álcool?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1rK-cp-QxI">
+                                <rect key="frame" x="16" y="323" width="61" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Cigarro" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kdj-Xl-oXg">
-                                <rect key="frame" x="16" y="281" width="76" height="33"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Cigarro?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kdj-Xl-oXg">
+                                <rect key="frame" x="16" y="356" width="76" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vi1-jk-7y6">
@@ -534,47 +534,86 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" identifier="ProfilePageToTabSegue" id="TbD-i4-qQm"/>
+                                    <action selector="continueAction:" destination="mtW-iv-1Sa" eventType="touchUpInside" id="5t6-p9-aXD"/>
+                                    <segue destination="49e-Tb-3d3" kind="show" identifier="TabBarSegue" id="qwx-re-vLC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzS-yc-QLv">
-                                <rect key="frame" x="72" y="248" width="195" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" title="Selecione uma opção"/>
-                            </button>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Choro com frequência" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q15-MC-4Sc">
-                                <rect key="frame" x="16" y="343" width="175" height="33"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Chora com frequência?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q15-MC-4Sc">
+                                <rect key="frame" x="16" y="158" width="172" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Me irrito com frequência" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZXP-GH-nT5">
-                                <rect key="frame" x="16" y="376" width="189" height="33"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Se irrita com frequência?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZXP-GH-nT5">
+                                <rect key="frame" x="16" y="191" width="172" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Sou ansioso" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Ws-lR-tbN">
-                                <rect key="frame" x="16" y="408" width="189" height="33"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="É ansioso(a)?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Ws-lR-tbN">
+                                <rect key="frame" x="16" y="223" width="99" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwr-4b-ywK" customClass="DKDropMenu" customModule="DKDropMenu">
-                                <rect key="frame" x="127" y="186" width="177" height="29"/>
+                                <rect key="frame" x="132" y="325" width="172" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Azl-lB-0Pb" customClass="DKDropMenu" customModule="DKDropMenu">
+                                <rect key="frame" x="132" y="293" width="172" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ft6-mP-V5h" customClass="DKDropMenu" customModule="DKDropMenu">
+                                <rect key="frame" x="132" y="261" width="172" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SJZ-q9-RIN" customClass="DKDropMenu" customModule="DKDropMenu">
+                                <rect key="frame" x="132" y="358" width="172" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="F9x-7c-asP">
+                                <rect key="frame" x="211" y="225" width="93" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Sim"/>
+                                    <segment title="Não"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="La7-PC-FXg">
+                                <rect key="frame" x="211" y="160" width="93" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Sim"/>
+                                    <segment title="Não"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="bg6-q4-1d9">
+                                <rect key="frame" x="211" y="193" width="93" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Sim"/>
+                                    <segment title="Não"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="scholarshipDropMenu" destination="wwr-4b-ywK" id="Mec-N4-MZX"/>
+                        <outlet property="alcoholDropMenu" destination="wwr-4b-ywK" id="kvo-nX-1ke"/>
+                        <outlet property="angrySegmentControl" destination="bg6-q4-1d9" id="DtT-oJ-ZKd"/>
+                        <outlet property="anxietySegmentControl" destination="F9x-7c-asP" id="CCP-FK-rPp"/>
+                        <outlet property="crySegmentControl" destination="La7-PC-FXg" id="x8s-uY-Xu6"/>
+                        <outlet property="physicalActivityDropMenu" destination="Azl-lB-0Pb" id="fwO-OJ-yAx"/>
+                        <outlet property="schoolDropMenu" destination="Ft6-mP-V5h" id="0XH-2n-5zF"/>
+                        <outlet property="smokeDropMenu" destination="SJZ-q9-RIN" id="UMU-V7-yah"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Eq-JB-eNT" userLabel="First Responder" sceneMemberID="firstResponder"/>

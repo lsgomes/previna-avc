@@ -32,8 +32,8 @@ import UIKit
 
 /// Delegate protocol for receiving change in list selection
 @objc public protocol DKDropMenuDelegate {
-    func itemSelected(withIndex: Int, name:String)
-    @objc optional func collapsedChanged()
+    func itemSelected(withIndex: Int, name:String, dropMenu: DKDropMenu)
+    @objc optional func collapsedChanged(dropMenu: DKDropMenu, collapsed: Bool)
 }
 
 /// A simple drop down list like expandable menu for iOS
@@ -55,7 +55,7 @@ public class DKDropMenu: UIView {
     }
     public var collapsed: Bool = true {
         didSet {
-            delegate?.collapsedChanged?()
+            delegate?.collapsedChanged?(dropMenu: self, collapsed: collapsed)
             //animate collapsing or opening
             UIView.animate(withDuration: 0.5, delay: 0, options: .transitionCrossDissolve, animations: {
                 var tempFrame = self.frame
@@ -246,7 +246,7 @@ public class DKDropMenu: UIView {
                         thought += 1
                     }
                 }
-                dele.itemSelected(withIndex: thought, name: items[thought])
+                dele.itemSelected(withIndex: thought, name: items[thought], dropMenu: self)
                 selectedItem = items[thought]
             }
         }
