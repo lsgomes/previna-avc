@@ -12,11 +12,11 @@
 		A0974F891E53E4AE005E712A /* ProfileSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */; };
 		A0D1E2AD1E55FF8000349A18 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */; };
 		A0D1E2AF1E56194400349A18 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */; };
-		A0E0D10B1E7EF931005D3B6E /* HasDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0D1071E7EF931005D3B6E /* HasDevice.swift */; };
-		A0E0D10C1E7EF931005D3B6E /* HasRiskFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0D1081E7EF931005D3B6E /* HasRiskFactor.swift */; };
-		A0E0D10D1E7EF931005D3B6E /* HasSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0D1091E7EF931005D3B6E /* HasSensor.swift */; };
-		A0E0D10E1E7EF931005D3B6E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E0D10A1E7EF931005D3B6E /* Person.swift */; };
 		A0E58AB51E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */; };
+		A0F6EBB21E8377BF0006451F /* HasDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBAE1E8377BF0006451F /* HasDevice.swift */; };
+		A0F6EBB31E8377BF0006451F /* HasRiskFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBAF1E8377BF0006451F /* HasRiskFactor.swift */; };
+		A0F6EBB41E8377BF0006451F /* HasSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBB01E8377BF0006451F /* HasSensor.swift */; };
+		A0F6EBB51E8377BF0006451F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBB11E8377BF0006451F /* Person.swift */; };
 		A0FA77961E7F34DD00F7B5FA /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FA77951E7F34DD00F7B5FA /* RestManager.swift */; };
 		A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */; };
 		A0FF49B21E4BE4B80041EEBE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */; };
@@ -36,11 +36,11 @@
 		A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetupViewController.swift; sourceTree = "<group>"; };
 		A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
-		A0E0D1071E7EF931005D3B6E /* HasDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasDevice.swift; sourceTree = "<group>"; };
-		A0E0D1081E7EF931005D3B6E /* HasRiskFactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasRiskFactor.swift; sourceTree = "<group>"; };
-		A0E0D1091E7EF931005D3B6E /* HasSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasSensor.swift; sourceTree = "<group>"; };
-		A0E0D10A1E7EF931005D3B6E /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizeHealthKitViewController.swift; sourceTree = "<group>"; };
+		A0F6EBAE1E8377BF0006451F /* HasDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasDevice.swift; sourceTree = "<group>"; };
+		A0F6EBAF1E8377BF0006451F /* HasRiskFactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasRiskFactor.swift; sourceTree = "<group>"; };
+		A0F6EBB01E8377BF0006451F /* HasSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasSensor.swift; sourceTree = "<group>"; };
+		A0F6EBB11E8377BF0006451F /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		A0FA77911E7F17E600F7B5FA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Release-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		A0FA77931E7F180000F7B5FA /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Release-iphoneos/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		A0FA77951E7F34DD00F7B5FA /* RestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
@@ -93,10 +93,10 @@
 		A0FF49AE1E4BE4B80041EEBE /* Previna AVC */ = {
 			isa = PBXGroup;
 			children = (
-				A0E0D1071E7EF931005D3B6E /* HasDevice.swift */,
-				A0E0D1081E7EF931005D3B6E /* HasRiskFactor.swift */,
-				A0E0D1091E7EF931005D3B6E /* HasSensor.swift */,
-				A0E0D10A1E7EF931005D3B6E /* Person.swift */,
+				A0F6EBAE1E8377BF0006451F /* HasDevice.swift */,
+				A0F6EBAF1E8377BF0006451F /* HasRiskFactor.swift */,
+				A0F6EBB01E8377BF0006451F /* HasSensor.swift */,
+				A0F6EBB11E8377BF0006451F /* Person.swift */,
 				A0FF49C31E4BE5470041EEBE /* Previna AVC.entitlements */,
 				A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */,
 				A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */,
@@ -266,20 +266,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F6EBB51E8377BF0006451F /* Person.swift in Sources */,
 				A0D1E2AD1E55FF8000349A18 /* WelcomeViewController.swift in Sources */,
 				A0FF49B41E4BE4B80041EEBE /* SecondViewController.swift in Sources */,
 				A03B1C1C1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift in Sources */,
 				A03B1C1E1E80D94C0012E36D /* UserManager.swift in Sources */,
 				A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */,
 				A0E58AB51E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift in Sources */,
-				A0E0D10C1E7EF931005D3B6E /* HasRiskFactor.swift in Sources */,
-				A0E0D10E1E7EF931005D3B6E /* Person.swift in Sources */,
-				A0E0D10D1E7EF931005D3B6E /* HasSensor.swift in Sources */,
-				A0E0D10B1E7EF931005D3B6E /* HasDevice.swift in Sources */,
 				A0FF49C81E4BEAD60041EEBE /* WizardPageViewController.swift in Sources */,
 				A0974F891E53E4AE005E712A /* ProfileSetupViewController.swift in Sources */,
+				A0F6EBB31E8377BF0006451F /* HasRiskFactor.swift in Sources */,
 				A0FF49B21E4BE4B80041EEBE /* FirstViewController.swift in Sources */,
+				A0F6EBB41E8377BF0006451F /* HasSensor.swift in Sources */,
 				A0FA77961E7F34DD00F7B5FA /* RestManager.swift in Sources */,
+				A0F6EBB21E8377BF0006451F /* HasDevice.swift in Sources */,
 				A0D1E2AF1E56194400349A18 /* HealthKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

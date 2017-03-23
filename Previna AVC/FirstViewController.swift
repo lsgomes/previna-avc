@@ -29,7 +29,9 @@ class FirstViewController: UIViewController {
         
         sender.setTitle("ATUALIZANDO....", for: .normal)
         
-        RestManager.instance.getRiskLevel(name: "John") { response in
+        let person = UserManager.instance.person
+        
+        RestManager.instance.calculateRiskForPerson(person: person) { response in
             print(response)
             self.riskPercentageLabel.text = response
             

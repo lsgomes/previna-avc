@@ -60,12 +60,13 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
         
         if (!ageTextField.text!.isEmpty)
         {
-            UserManager.instance.person?.hasAge = Int(ageTextField.text!)
+            UserManager.instance.person.hasAge = Int(ageTextField.text!)
         }
         
         if (!nameTextField.text!.isEmpty)
         {
-            UserManager.instance.person?.hasUserName = nameTextField.text
+            UserManager.instance.person.hasUserName = nameTextField.text
+            UserManager.instance.person.uri = nameTextField.text
         }
         
         validateSegmentControl(segmentControl: sexSegmentedControl, uri: MALE, expectedSegmentResult: SEGMENT_MALE, riskFactors: &riskFactors)
@@ -82,7 +83,7 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
         
         validateSegmentControl(segmentControl: ischemicHeartDiseaseSegmentedControl, uri: ISCHEMIC_HEART_DISEASE, riskFactors: &riskFactors)
         
-        UserManager.instance.person?.hasRiskFactor = riskFactors
+        UserManager.instance.person.hasRiskFactor = riskFactors
     }
     
     func validateSegmentControl(segmentControl: UISegmentedControl, uri: String, riskFactors: inout [HasRiskFactor]) {

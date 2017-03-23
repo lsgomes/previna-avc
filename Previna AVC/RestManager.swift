@@ -18,6 +18,31 @@ class RestManager {
     
     static let instance = RestManager()
     
+    func calculateRiskForPerson(person: Person, completion: @escaping (String) -> ()) {
+        
+        let endpoint = RestManager.REST_ENDPOINT + "/calculateRiskForPerson"
+ 
+        print("Sending: \(person.dictionaryRepresentation())")
+        
+        Alamofire.request(endpoint, method: .post, parameters: person.dictionaryRepresentation(), encoding: JSONEncoding.default).responseJSON { response in
+            
+            
+            switch (response.result) {
+                
+            case .success:
+                let risk = String(describing: response.result.value as! NSDecimalNumber)
+                completion(risk + "%")
+            case .failure:
+                let risk = "?"
+                print("REST Failure @ \(endpoint) with parameter \(person.dictionaryRepresentation()). Returning \(risk)")
+                completion(risk)
+            }
+
+        
+        }
+        
+    }
+    
     func getRiskLevel(name: String, completion: @escaping (String) -> ()) {
         
         let endpoint = RestManager.REST_ENDPOINT + "/getRiskLevel"

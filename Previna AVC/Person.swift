@@ -1,88 +1,92 @@
-/* 
-Copyright (c) 2017 Swift Models Generated from JSON powered by http://www.json4swift.com
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
+//
+//  Person.swift
+//
+//  Created by Lucas Dos Santos Gomes on 3/23/17
+//  Copyright (c) . All rights reserved.
+//
 
 import Foundation
- 
-/* For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
+import SwiftyJSON
 
-public class Person {
-	public var hasAge : Int?
-	public var hasRiskFactor : Array<HasRiskFactor>?
-	public var hasRiskLevel : Double?
-	public var hasPassword : String?
-	public var hasDevice : Array<HasDevice>?
-	public var hasUserName : String?
-	public var uri : String?
+public final class Person: NSCoding {
 
-/**
-    Returns an array of models based on given dictionary.
-    
-    Sample usage:
-    let json4Swift_Base_list = Json4Swift_Base.modelsFromDictionaryArray(someDictionaryArrayFromJSON)
+  // MARK: Declaration for string constants to be used to decode and also serialize.
+  private struct SerializationKeys {
+    static let hasDevice = "hasDevice"
+    static let uri = "uri"
+    static let hasRiskLevel = "hasRiskLevel"
+    static let hasRiskFactor = "hasRiskFactor"
+    static let hasAge = "hasAge"
+    static let hasPassword = "hasPassword"
+    static let hasUserName = "hasUserName"
+  }
 
-    - parameter array:  NSArray from JSON dictionary.
+  // MARK: Properties
+  public var hasDevice: [HasDevice]?
+  public var uri: String?
+  public var hasRiskLevel: Int?
+  public var hasRiskFactor: [HasRiskFactor]?
+  public var hasAge: Int?
+  public var hasPassword: String?
+  public var hasUserName: String?
 
-    - returns: Array of Json4Swift_Base Instances.
-*/
-    public class func modelsFromDictionaryArray(array:NSArray) -> [Person]
-    {
-        var models:[Person] = []
-        for item in array
-        {
-            models.append(Person(dictionary: item as! NSDictionary)!)
-        }
-        return models
-    }
+  // MARK: SwiftyJSON Initializers
+  /// Initiates the instance based on the object.
+  ///
+  /// - parameter object: The object of either Dictionary or Array kind that was passed.
+  /// - returns: An initialized instance of the class.
+  public convenience init(object: Any) {
+    self.init(json: JSON(object))
+  }
 
-/**
-    Constructs the object based on the given dictionary.
-    
-    Sample usage:
-    let json4Swift_Base = Json4Swift_Base(someDictionaryFromJSON)
+  /// Initiates the instance based on the JSON that was passed.
+  ///
+  /// - parameter json: JSON object from SwiftyJSON.
+  public required init(json: JSON) {
+    if let items = json[SerializationKeys.hasDevice].array { hasDevice = items.map { HasDevice(json: $0) } }
+    uri = json[SerializationKeys.uri].string
+    hasRiskLevel = json[SerializationKeys.hasRiskLevel].int
+    if let items = json[SerializationKeys.hasRiskFactor].array { hasRiskFactor = items.map { HasRiskFactor(json: $0) } }
+    hasAge = json[SerializationKeys.hasAge].int
+    hasPassword = json[SerializationKeys.hasPassword].string
+    hasUserName = json[SerializationKeys.hasUserName].string
+  }
 
-    - parameter dictionary:  NSDictionary from JSON.
+  /// Generates description of the object in the form of a NSDictionary.
+  ///
+  /// - returns: A Key value pair containing all valid values in the object.
+  public func dictionaryRepresentation() -> [String: Any] {
+    var dictionary: [String: Any] = [:]
+    if let value = hasDevice { dictionary[SerializationKeys.hasDevice] = value.map { $0.dictionaryRepresentation() } }
+    if let value = uri { dictionary[SerializationKeys.uri] = value }
+    if let value = hasRiskLevel { dictionary[SerializationKeys.hasRiskLevel] = value }
+    if let value = hasRiskFactor { dictionary[SerializationKeys.hasRiskFactor] = value.map { $0.dictionaryRepresentation() } }
+    if let value = hasAge { dictionary[SerializationKeys.hasAge] = value }
+    if let value = hasPassword { dictionary[SerializationKeys.hasPassword] = value }
+    if let value = hasUserName { dictionary[SerializationKeys.hasUserName] = value }
+    return dictionary
+  }
 
-    - returns: Json4Swift_Base Instance.
-*/
-	required public init?(dictionary: NSDictionary) {
+  // MARK: NSCoding Protocol
+  required public init(coder aDecoder: NSCoder) {
+    self.hasDevice = aDecoder.decodeObject(forKey: SerializationKeys.hasDevice) as? [HasDevice]
+    self.uri = aDecoder.decodeObject(forKey: SerializationKeys.uri) as? String
+    self.hasRiskLevel = aDecoder.decodeObject(forKey: SerializationKeys.hasRiskLevel) as? Int
+    self.hasRiskFactor = aDecoder.decodeObject(forKey: SerializationKeys.hasRiskFactor) as? [HasRiskFactor]
+    self.hasAge = aDecoder.decodeObject(forKey: SerializationKeys.hasAge) as? Int
+    self.hasPassword = aDecoder.decodeObject(forKey: SerializationKeys.hasPassword) as? String
+    self.hasUserName = aDecoder.decodeObject(forKey: SerializationKeys.hasUserName) as? String
+  }
 
-		hasAge = dictionary["hasAge"] as? Int
-		if (dictionary["hasRiskFactor"] != nil) { hasRiskFactor = HasRiskFactor.modelsFromDictionaryArray(array: dictionary["hasRiskFactor"] as! NSArray) }
-		hasRiskLevel = dictionary["hasRiskLevel"] as? Double
-		hasPassword = dictionary["hasPassword"] as? String
-		if (dictionary["hasDevice"] != nil) { hasDevice = HasDevice.modelsFromDictionaryArray(array: dictionary["hasDevice"] as! NSArray) }
-		hasUserName = dictionary["hasUserName"] as? String
-		uri = dictionary["uri"] as? String
-	}
-    
-    public init?() {
-        
-    }
+  public func encode(with aCoder: NSCoder) {
+    aCoder.encode(hasDevice, forKey: SerializationKeys.hasDevice)
+    aCoder.encode(uri, forKey: SerializationKeys.uri)
+    aCoder.encode(hasRiskLevel, forKey: SerializationKeys.hasRiskLevel)
+    aCoder.encode(hasRiskFactor, forKey: SerializationKeys.hasRiskFactor)
+    aCoder.encode(hasAge, forKey: SerializationKeys.hasAge)
+    aCoder.encode(hasPassword, forKey: SerializationKeys.hasPassword)
+    aCoder.encode(hasUserName, forKey: SerializationKeys.hasUserName)
+  }
 
-		
-/**
-    Returns the dictionary representation for the current instance.
-    
-    - returns: NSDictionary.
-*/
-	public func dictionaryRepresentation() -> NSDictionary {
-
-		let dictionary = NSMutableDictionary()
-
-		dictionary.setValue(self.hasAge, forKey: "hasAge")
-		dictionary.setValue(self.hasRiskLevel, forKey: "hasRiskLevel")
-		dictionary.setValue(self.hasPassword, forKey: "hasPassword")
-		dictionary.setValue(self.hasUserName, forKey: "hasUserName")
-		dictionary.setValue(self.uri, forKey: "uri")
-
-		return dictionary
-	}
-
+  public init() { }
 }

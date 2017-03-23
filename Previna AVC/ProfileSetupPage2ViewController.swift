@@ -44,19 +44,35 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
     let CRITICAL_OF_OTHERS = "Critical_of_others"
     let FEARFUL = "Fearful"
     
+    // MARK: Translations
+    let TRANSLATION_INACTIVE = "Sedentário"
+    let TRANSLATION_ACTIVE = "1-2 por semana"
+    let TRANSLATION_ATHLETE = "3+ por semana"
+    
+    let TRANSLATION_ABSTAIN = "Abstenho"
+    let TRANSLATION_DRINKER = "7+ por semana"
+    let TRANSLATION_FORMER_ALCOHOLIC = "Ex-álcoolatra"
+    let TRANSLATION_DRINKS = "1-6 por semana"
+    
+    let TRANSLATION_SMOKER = "Fumante"
+    let TRANSLATION_FORMER_SMOKER = "Ex-fumante"
+    let TRANSLATION_NON_SMOKER = "Não-fumante"
+    
+    let TRANSLATION_HIGH_SCHOOL_DIPLOMA = "Ensino médio"
+    let TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA = "Ensino fundamental"
+    let TRANSLATION_COLLEGE_DIPLOMA = "Ensino superior"
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        setDropMenuAttributes(dropMenu: physicalActivityDropMenu, items: ["Sedentário", "1-2 por semana", "3+ por semana"])
+        setDropMenuAttributes(dropMenu: physicalActivityDropMenu, items: [TRANSLATION_ATHLETE, TRANSLATION_ACTIVE, TRANSLATION_INACTIVE])
         
-        setDropMenuAttributes(dropMenu: alcoholDropMenu, items: ["Abstenho", "7+ por semana", "1-6 por semana", "Ex-álcoolatra"])
+        setDropMenuAttributes(dropMenu: alcoholDropMenu, items: [TRANSLATION_DRINKS, TRANSLATION_DRINKER, TRANSLATION_ABSTAIN, TRANSLATION_FORMER_ALCOHOLIC])
 
+        setDropMenuAttributes(dropMenu: smokeDropMenu, items: [TRANSLATION_NON_SMOKER, TRANSLATION_SMOKER, TRANSLATION_FORMER_SMOKER])
         
-        setDropMenuAttributes(dropMenu: smokeDropMenu, items: ["Fumante", "Ex-fumante", "Não-fumante"])
-        
-        setDropMenuAttributes(dropMenu: schoolDropMenu, items: ["Ensino médio", "Ensino superior", "Ensino fundamental"])
+        setDropMenuAttributes(dropMenu: schoolDropMenu, items: [TRANSLATION_COLLEGE_DIPLOMA, TRANSLATION_HIGH_SCHOOL_DIPLOMA, TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA])
         
     }
     
@@ -100,62 +116,12 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
         })
     }
     
-    
     func itemSelected(withIndex: Int, name: String, dropMenu: DKDropMenu) {
+        
+        print("itemSelected: withIndex: \(withIndex) name: \(name)")
         
         alcoholDropMenu.isHidden = false
         smokeDropMenu.isHidden = false
-        
-        var riskFactors = UserManager.instance.person?.hasRiskFactor
-        
-        if (dropMenu == physicalActivityDropMenu) {
-            switch withIndex {
-            case 0:
-                addRiskFactor(uri: INACTIVE, riskFactors: &riskFactors!)
-            case 1:
-                addRiskFactor(uri: ACTIVE, riskFactors: &riskFactors!)
-            default:
-                break;
-            }
-        }
-        
-        if (dropMenu == alcoholDropMenu) {
-            switch withIndex {
-            case 0:
-                addRiskFactor(uri: ABSTAIN, riskFactors: &riskFactors!)
-            case 1:
-                addRiskFactor(uri: DRINKER, riskFactors: &riskFactors!)
-            case 3:
-                addRiskFactor(uri: FORMER_ALCOHOLIC, riskFactors: &riskFactors!)
-            default:
-                break;
-            }
-        }
-        
-        if (dropMenu == smokeDropMenu) {
-            switch withIndex {
-            case 0:
-                addRiskFactor(uri: SMOKER, riskFactors: &riskFactors!)
-            case 1:
-                addRiskFactor(uri: FORMER_SMOKER, riskFactors: &riskFactors!)
-            default:
-                break;
-            }
-        }
-        
-        if (dropMenu == schoolDropMenu) {
-            switch withIndex {
-            case 0:
-                addRiskFactor(uri: HIGH_SCHOOL_DIPLOMA, riskFactors: &riskFactors!)
-            case 2:
-                addRiskFactor(uri: NO_HIGH_SCHOOL_DIPLOMA, riskFactors: &riskFactors!)
-            default:
-                break;
-            }
-        }
-        
-        UserManager.instance.person?.hasRiskFactor = riskFactors
-        
     }
     
     func addRiskFactor(uri: String, riskFactors: inout [HasRiskFactor]) {
@@ -166,7 +132,7 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
     
     func validateForm() {
         
-        var riskFactors = UserManager.instance.person?.hasRiskFactor
+        var riskFactors = UserManager.instance.person.hasRiskFactor
         
         validateSegmentControl(segmentControl: crySegmentControl, uri: CRY_EASILY, riskFactors: &riskFactors!)
 
@@ -174,13 +140,69 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
         
         validateSegmentControl(segmentControl: anxietySegmentControl, uri: FEARFUL, riskFactors: &riskFactors!)
 
-        UserManager.instance.person?.hasRiskFactor = riskFactors
-    }
+        switch alcoholDropMenu.selectedItem! {
+            
+            case TRANSLATION_DRINKER:
+                addRiskFactor(uri: DRINKER, riskFactors: &riskFactors!)
+            
+            case TRANSLATION_ABSTAIN:
+                addRiskFactor(uri: ABSTAIN, riskFactors: &riskFactors!)
+            
+            case TRANSLATION_FORMER_ALCOHOLIC:
+                addRiskFactor(uri: FORMER_ALCOHOLIC, riskFactors: &riskFactors!)
+            
+            default:
+                break
+        }
+        
+        switch physicalActivityDropMenu.selectedItem! {
+            
+            case TRANSLATION_ACTIVE:
+                addRiskFactor(uri: ACTIVE, riskFactors: &riskFactors!)
+            
+            case TRANSLATION_INACTIVE:
+                addRiskFactor(uri: INACTIVE, riskFactors: &riskFactors!)
+            
+            default:
+                break
+        }
+        
+        switch smokeDropMenu.selectedItem! {
+            
+            case TRANSLATION_SMOKER:
+                addRiskFactor(uri: SMOKER, riskFactors: &riskFactors!)
+            
+            case TRANSLATION_FORMER_SMOKER:
+                addRiskFactor(uri: FORMER_SMOKER, riskFactors: &riskFactors!)
+            
+            default:
+                break;
+        }
+        
+        switch schoolDropMenu.selectedItem! {
+            case TRANSLATION_HIGH_SCHOOL_DIPLOMA:
+                addRiskFactor(uri: HIGH_SCHOOL_DIPLOMA, riskFactors: &riskFactors!)
+            case TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA:
+                addRiskFactor(uri: NO_HIGH_SCHOOL_DIPLOMA, riskFactors: &riskFactors!)
+            default:
+                break;
+        }
+        
     
+        UserManager.instance.person.hasRiskFactor = riskFactors
+    }
+
     func validateSegmentControl(segmentControl: UISegmentedControl, uri: String, riskFactors: inout [HasRiskFactor]) {
         
         if (segmentControl.selectedSegmentIndex == SEGMENT_YES) {
             addRiskFactor(uri: uri, riskFactors: &riskFactors)
+        }
+    }
+    
+    func validateDropMenu(dropMenu: DKDropMenu, selectedItem: String, riskUri: String, riskFactors: inout [HasRiskFactor]) {
+        
+        if (dropMenu.selectedItem == selectedItem) {
+            addRiskFactor(uri: riskUri, riskFactors: &riskFactors)
         }
     }
     
