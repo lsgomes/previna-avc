@@ -33,15 +33,18 @@ class FirstViewController: UIViewController {
         
         RestManager.instance.calculateRiskForPerson(person: person) { response in
             print(response)
-            self.riskPercentageLabel.text = response
             
             switch (response) {
                 
             case "?":
+                
+                self.riskPercentageLabel.text = response
                 self.riskLabel.text = "Pressione em ATUALIZAR para calcular seu risco."
                 sender.setTitle("ATUALIZAR", for: .normal)
-            default:
                 
+            default:
+
+                self.riskPercentageLabel.text = response + "%"
                 let date = Date()
                 let calendar = Calendar.current
                 let hour = calendar.component(.hour, from: date)

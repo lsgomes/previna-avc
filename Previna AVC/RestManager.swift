@@ -54,8 +54,8 @@ class RestManager {
             switch (response.result) {
                 
             case .success:
-                let risk = String(describing: response.result.value as! NSDecimalNumber)
-                completion(risk + "%")
+                let risk = String(describing: response.result.value) //  as! NSDecimalNumber
+                completion(risk)
             case .failure:
                 let risk = "?"
                 print("REST Failure @ \(endpoint) with parameter \(parameter). Returning \(risk)")

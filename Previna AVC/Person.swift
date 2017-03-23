@@ -29,6 +29,13 @@ public final class Person: NSCoding {
   public var hasAge: Int?
   public var hasPassword: String?
   public var hasUserName: String?
+    
+    
+    
+  //MARK: Archiving Paths
+  static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+  static let ArchiveURL = DocumentsDirectory.appendingPathComponent("person")
+
 
   // MARK: SwiftyJSON Initializers
   /// Initiates the instance based on the object.

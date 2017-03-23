@@ -150,7 +150,29 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
             </objects>
-            <point key="canvasLocation" x="-2238" y="0.0"/>
+            <point key="canvasLocation" x="-3968" y="750"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="O1A-d3-I5p">
+            <objects>
+                <viewController id="Oaq-pA-qbs" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RWv-13-gIH"/>
+                        <viewControllerLayoutGuide type="bottom" id="RRB-L1-7i3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vvY-AV-Chb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="bQX-7K-sHF" kind="custom" identifier="segueToWizard" id="L8p-BX-hjt"/>
+                        <segue destination="49e-Tb-3d3" kind="custom" identifier="segueToCalculator" id="t29-D4-gta"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cKS-4e-R0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2586" y="0.0"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="b8Y-nL-vVW">
@@ -629,4 +651,7 @@
         <image name="note2" width="320" height="292"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qwx-re-vLC"/>
+    </inferredMetricsTieBreakers>
 </document>

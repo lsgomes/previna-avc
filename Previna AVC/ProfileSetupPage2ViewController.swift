@@ -216,6 +216,7 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
     
     @IBAction func continueAction(_ sender: UIButton) {
         validateForm()
+        UserManager.instance.savePerson()
         self.performSegue(withIdentifier: "TabBarSegue", sender: nil)
     }
     

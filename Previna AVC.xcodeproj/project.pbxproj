@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A03329E51E846724005C3D87 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03329E41E846724005C3D87 /* StartViewController.swift */; };
 		A03B1C1C1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B1C1B1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift */; };
 		A03B1C1E1E80D94C0012E36D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B1C1D1E80D94C0012E36D /* UserManager.swift */; };
 		A0974F891E53E4AE005E712A /* ProfileSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		348DC6AE897B4A2115C8C70A /* Pods-Previna AVC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Previna AVC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Previna AVC/Pods-Previna AVC.debug.xcconfig"; sourceTree = "<group>"; };
+		A03329E41E846724005C3D87 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		A03B1C1B1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetupPage2ViewController.swift; sourceTree = "<group>"; };
 		A03B1C1D1E80D94C0012E36D /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetupViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				A0FA77951E7F34DD00F7B5FA /* RestManager.swift */,
 				A03B1C1B1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift */,
 				A03B1C1D1E80D94C0012E36D /* UserManager.swift */,
+				A03329E41E846724005C3D87 /* StartViewController.swift */,
 			);
 			path = "Previna AVC";
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F6EBB51E8377BF0006451F /* Person.swift in Sources */,
+				A03329E51E846724005C3D87 /* StartViewController.swift in Sources */,
 				A0D1E2AD1E55FF8000349A18 /* WelcomeViewController.swift in Sources */,
 				A0FF49B41E4BE4B80041EEBE /* SecondViewController.swift in Sources */,
 				A03B1C1C1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift in Sources */,
