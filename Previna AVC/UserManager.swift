@@ -6,6 +6,8 @@
 //  Copyright © 2017 Lucas Dos Santos Gomes. All rights reserved.
 //
 
+import Foundation
+
 class UserManager {
     
     static let instance = UserManager()
@@ -25,16 +27,21 @@ class UserManager {
     }
     
     func loadPerson() {
-        person = NSKeyedUnarchiver.unarchiveObject(withFile: Person.ArchiveURL.path) as Person
+        person = NSKeyedUnarchiver.unarchiveObject(withFile: Person.ArchiveURL.path) as! Person
     }
     
-    func fileExists() {
+    func fileExists() -> Bool {
         
-        if (Person.ArchiveURL.checkResourceIsReachable()) {
-            return true
-        }
+        return (try? Person.ArchiveURL.checkResourceIsReachable()) ?? false
         
-        return false
+//        do {
+//            let exists = try Person.ArchiveURL.checkResourceIsReachable()
+//            print("File person exists? \(exists)")
+//            return exists
+//        } catch {
+//            print("Exception when loading person file. Returning false")
+//            return false
+//        }
     }
 
 }

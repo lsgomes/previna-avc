@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-public final class HasRiskFactor: NSCoding {
+public final class HasRiskFactor: NSObject, NSCoding {
 
   // MARK: Declaration for string constants to be used to decode and also serialize.
   private struct SerializationKeys {
@@ -58,6 +58,6 @@ public final class HasRiskFactor: NSCoding {
     aCoder.encode(hasWeight, forKey: SerializationKeys.hasWeight)
   }
   
-  public init() { }
+  public override init() { super.init() }
 
 }

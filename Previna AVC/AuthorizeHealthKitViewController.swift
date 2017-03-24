@@ -17,18 +17,16 @@ class AuthorizeHealthKitViewController: UIViewController {
         
         print("HealthKitViewController.allowAccess()")
         
-        
         let completion: ((Bool, Error?) -> Void)! = {
             (success, error) -> Void in
             
-            
             if success {
-                // Should move code to here?
+            
             } else {
                 
                 print("You didn't allow HealthKit to access these read/write data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: \(error). If you're using a simulator, try it on a device.")
                 
-                return
+           
             }
 
         }
@@ -37,6 +35,5 @@ class AuthorizeHealthKitViewController: UIViewController {
         
         let pageViewController = self.parent as? WizardPageViewController
         pageViewController?.segueToPage(name: WizardPageViewController.PAGE_3)
-        
     }
 }

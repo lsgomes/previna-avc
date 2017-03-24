@@ -32,9 +32,9 @@ class HealthKitManager {
         
         let biologicalSexType = HKQuantityType.characteristicType(forIdentifier: .biologicalSex)!
         let dateOfBirthType = HKQuantityType.characteristicType(forIdentifier: .dateOfBirth)!
-        let bodyMassType = HKQuantityType.quantityType(forIdentifier: .bodyMass)!
+
         
-        let readDataTypes: Set<HKObjectType> = [biologicalSexType, dateOfBirthType, bodyMassType]
+        let readDataTypes: Set<HKObjectType> = [biologicalSexType, dateOfBirthType]
         
         return readDataTypes
     }

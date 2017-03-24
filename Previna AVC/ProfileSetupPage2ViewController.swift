@@ -15,10 +15,11 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
     @IBOutlet var alcoholDropMenu: DKDropMenu!
     @IBOutlet var smokeDropMenu: DKDropMenu!
     @IBOutlet var schoolDropMenu: DKDropMenu!
+
+    @IBOutlet var cryDropMenu: DKDropMenu!
+    @IBOutlet var angryDropMenu: DKDropMenu!
+    @IBOutlet var anxietyDropMenu: DKDropMenu!
     
-    @IBOutlet var crySegmentControl: UISegmentedControl!
-    @IBOutlet var angrySegmentControl: UISegmentedControl!
-    @IBOutlet var anxietySegmentControl: UISegmentedControl!
     
     let SEGMENT_YES = 0;
     
@@ -44,6 +45,7 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
     let CRITICAL_OF_OTHERS = "Critical_of_others"
     let FEARFUL = "Fearful"
     
+    
     // MARK: Translations
     let TRANSLATION_INACTIVE = "Sedentário"
     let TRANSLATION_ACTIVE = "1-2 por semana"
@@ -62,6 +64,10 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
     let TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA = "Ensino fundamental"
     let TRANSLATION_COLLEGE_DIPLOMA = "Ensino superior"
     
+    let TRANSLATION_OFTEN_OR_ALWAYS = "Muitas vezes"
+    let TRANSLATION_SOMETIMES_OR_NEVER = "Às vezes"
+
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -74,6 +80,12 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
         
         setDropMenuAttributes(dropMenu: schoolDropMenu, items: [TRANSLATION_COLLEGE_DIPLOMA, TRANSLATION_HIGH_SCHOOL_DIPLOMA, TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA])
         
+        setDropMenuAttributes(dropMenu: cryDropMenu, items: [TRANSLATION_OFTEN_OR_ALWAYS, TRANSLATION_SOMETIMES_OR_NEVER])
+        
+        setDropMenuAttributes(dropMenu: angryDropMenu, items: [TRANSLATION_OFTEN_OR_ALWAYS, TRANSLATION_SOMETIMES_OR_NEVER])
+        
+         setDropMenuAttributes(dropMenu: anxietyDropMenu, items: [TRANSLATION_OFTEN_OR_ALWAYS, TRANSLATION_SOMETIMES_OR_NEVER])
+        
     }
     
     func collapsedChanged(dropMenu: DKDropMenu, collapsed: Bool) {
@@ -83,6 +95,7 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
                 
             case schoolDropMenu:
                 fadein(dropMenu: alcoholDropMenu)
+                fadein(dropMenu: smokeDropMenu)
                 
             case physicalActivityDropMenu:
                 fadein(dropMenu: alcoholDropMenu)
@@ -134,11 +147,6 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
         
         var riskFactors = UserManager.instance.person.hasRiskFactor
         
-        validateSegmentControl(segmentControl: crySegmentControl, uri: CRY_EASILY, riskFactors: &riskFactors!)
-
-        validateSegmentControl(segmentControl: angrySegmentControl, uri: CRITICAL_OF_OTHERS, riskFactors: &riskFactors!)
-        
-        validateSegmentControl(segmentControl: anxietySegmentControl, uri: FEARFUL, riskFactors: &riskFactors!)
 
         switch alcoholDropMenu.selectedItem! {
             
@@ -188,20 +196,19 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
                 break;
         }
         
+        validateFrequencyDropMenu(dropMenu: cryDropMenu, riskUri: CRY_EASILY, riskFactors: &riskFactors!)
     
+        validateFrequencyDropMenu(dropMenu: angryDropMenu, riskUri: CRITICAL_OF_OTHERS, riskFactors: &riskFactors!)
+
+        validateFrequencyDropMenu(dropMenu: anxietyDropMenu, riskUri: FEARFUL, riskFactors: &riskFactors!)
+        
+        
         UserManager.instance.person.hasRiskFactor = riskFactors
     }
-
-    func validateSegmentControl(segmentControl: UISegmentedControl, uri: String, riskFactors: inout [HasRiskFactor]) {
-        
-        if (segmentControl.selectedSegmentIndex == SEGMENT_YES) {
-            addRiskFactor(uri: uri, riskFactors: &riskFactors)
-        }
-    }
     
-    func validateDropMenu(dropMenu: DKDropMenu, selectedItem: String, riskUri: String, riskFactors: inout [HasRiskFactor]) {
+    func validateFrequencyDropMenu(dropMenu: DKDropMenu, riskUri: String, riskFactors: inout [HasRiskFactor]) {
         
-        if (dropMenu.selectedItem == selectedItem) {
+        if (dropMenu.selectedItem == TRANSLATION_OFTEN_OR_ALWAYS) {
             addRiskFactor(uri: riskUri, riskFactors: &riskFactors)
         }
     }

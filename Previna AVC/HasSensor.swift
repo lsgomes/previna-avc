@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-public final class HasSensor: NSCoding {
+public final class HasSensor: NSObject, NSCoding {
 
   // MARK: Declaration for string constants to be used to decode and also serialize.
   private struct SerializationKeys {

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-public final class Person: NSCoding {
+public final class Person: NSObject, NSCoding {
 
   // MARK: Declaration for string constants to be used to decode and also serialize.
   private struct SerializationKeys {
@@ -95,5 +95,5 @@ public final class Person: NSCoding {
     aCoder.encode(hasUserName, forKey: SerializationKeys.hasUserName)
   }
 
-  public init() { }
+  public override init() { super.init() }
 }
