@@ -16,15 +16,16 @@ class FirstViewController: UIViewController {
     @IBOutlet var riskLabel: UITextView!
     
     var itemSize = 170
-    var size = 170
+    var size = 200
+    var tipSize = 250
     
-    func createTip() -> TipView {
+    func createTip(text: String) -> TipView {
         let image = UIImage(named: "note2")
-        let imageView = UIImageView(frame:CGRect(x: 0, y: 0, width: size, height: size))
+        let imageView = UIImageView(frame:CGRect(x: 0, y: 0, width: tipSize, height: itemSize))
         imageView.image = image
         
-        let label = UILabel(frame:CGRect(x: 17, y: -5, width: 140, height: size))
-        label.text = "Recomendação: \n\nPratique mais exercícios físicos. \n\nÚltima vez: terça-feira"
+        let label = UILabel(frame:CGRect(x: 20, y: -5, width: 240, height: itemSize))
+        label.text = text
         label.numberOfLines = 0
         
         let tipView = TipView(frame: CGRect.zero)
@@ -42,8 +43,9 @@ class FirstViewController: UIViewController {
         
 
 
-        horizontalScrollView.addItem(createTip())
-        horizontalScrollView.addItem(createTip())
+        horizontalScrollView.addItem(createTip(text: "Dica 1: \n\nPratique mais exercícios físicos. \n\nÚltima vez: terça-feira"))
+        horizontalScrollView.addItem(createTip(text: "Dica 2: \n\nPratique mais exercícios físicos. \n\nÚltima vez: terça-feira"))
+        horizontalScrollView.addItem(createTip(text: "Dica 3: \n\nPratique mais exercícios físicos. \n\nÚltima vez: terça-feira"))
 
         //horizontalScrollView.addItem(tipView)
     
@@ -52,10 +54,13 @@ class FirstViewController: UIViewController {
             
         let button = UIButton(frame: CGRect.zero)
             button.backgroundColor = UIColor.blue
-            horizontalScrollView.addItem(button)
+            //horizontalScrollView.addItem(button)
         }
         
         self.view.addSubview(horizontalScrollView)
+        
+        horizontalScrollView.setItemsMarginOnce()
+
     }
     
 
@@ -95,15 +100,18 @@ class FirstViewController: UIViewController {
     
     func setHorizontalViewProperties() -> ASHorizontalScrollView {
         
-        let horizontalScrollView = ASHorizontalScrollView(frame:CGRect(x: 75, y: 265, width: size * 2 , height: size + 10)) //xywh
+        let horizontalScrollView = ASHorizontalScrollView(frame:CGRect(x: 0, y: 255, width: 320 , height: size)) // W: IPHONE SCREEN SIZE (5S = 320)
         
         horizontalScrollView.arrangeType = .byNumber
+        //horizontalScrollView.arrangeType = .byFrame
         
-        horizontalScrollView.marginSettings_320 = MarginSettings(leftMargin: 10, numberOfItemsPerScreen: 1.5)
+        //horizontalScrollView.marginSettings_320 = MarginSettings(leftMargin: 1, miniMarginBetweenItems: 1, miniAppearWidthOfLastItem: 20)
         
-        horizontalScrollView.defaultMarginSettings.numberOfItemsPerScreen = 1.5
+        horizontalScrollView.marginSettings_320 = MarginSettings(leftMargin: 0, numberOfItemsPerScreen: 1.25)
         
-        horizontalScrollView.uniformItemSize = CGSize(width: itemSize, height: itemSize)
+        //horizontalScrollView.defaultMarginSettings.numberOfItemsPerScreen = 1.25
+        
+        horizontalScrollView.uniformItemSize = CGSize(width: tipSize, height: itemSize)
         
         horizontalScrollView.setItemsMarginOnce()
         

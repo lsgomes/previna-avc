@@ -19,6 +19,10 @@ public final class Person: NSObject, NSCoding {
     static let hasAge = "hasAge"
     static let hasPassword = "hasPassword"
     static let hasUserName = "hasUserName"
+    static let hasTips = "hasTips"
+    static let hasAchievements = "hasAchievements"
+
+
   }
 
   // MARK: Properties
@@ -29,7 +33,9 @@ public final class Person: NSObject, NSCoding {
   public var hasAge: Int?
   public var hasPassword: String?
   public var hasUserName: String?
-    
+  public var hasTips: [String]?
+  public var hasAchievements: [String]?
+  
     
     
   //MARK: Archiving Paths
@@ -55,6 +61,8 @@ public final class Person: NSObject, NSCoding {
     hasRiskLevel = json[SerializationKeys.hasRiskLevel].int
     if let items = json[SerializationKeys.hasRiskFactor].array { hasRiskFactor = items.map { HasRiskFactor(json: $0) } }
     hasAge = json[SerializationKeys.hasAge].int
+    if let items = json[SerializationKeys.hasAchievements].array { hasAchievements = items.map { $0.stringValue } }
+    if let items = json[SerializationKeys.hasTips].array { hasTips = items.map { $0.stringValue } }
     hasPassword = json[SerializationKeys.hasPassword].string
     hasUserName = json[SerializationKeys.hasUserName].string
   }
@@ -71,6 +79,9 @@ public final class Person: NSObject, NSCoding {
     if let value = hasAge { dictionary[SerializationKeys.hasAge] = value }
     if let value = hasPassword { dictionary[SerializationKeys.hasPassword] = value }
     if let value = hasUserName { dictionary[SerializationKeys.hasUserName] = value }
+    if let value = hasAchievements { dictionary[SerializationKeys.hasAchievements] = value }
+    if let value = hasTips { dictionary[SerializationKeys.hasTips] = value }
+
     return dictionary
   }
 
@@ -83,6 +94,9 @@ public final class Person: NSObject, NSCoding {
     self.hasAge = aDecoder.decodeObject(forKey: SerializationKeys.hasAge) as? Int
     self.hasPassword = aDecoder.decodeObject(forKey: SerializationKeys.hasPassword) as? String
     self.hasUserName = aDecoder.decodeObject(forKey: SerializationKeys.hasUserName) as? String
+    self.hasAchievements = aDecoder.decodeObject(forKey: SerializationKeys.hasAchievements) as? [String]
+    self.hasTips = aDecoder.decodeObject(forKey: SerializationKeys.hasTips) as? [String]
+
   }
 
   public func encode(with aCoder: NSCoder) {
@@ -93,6 +107,8 @@ public final class Person: NSObject, NSCoding {
     aCoder.encode(hasAge, forKey: SerializationKeys.hasAge)
     aCoder.encode(hasPassword, forKey: SerializationKeys.hasPassword)
     aCoder.encode(hasUserName, forKey: SerializationKeys.hasUserName)
+    aCoder.encode(hasAchievements, forKey: SerializationKeys.hasAchievements)
+    aCoder.encode(hasTips, forKey: SerializationKeys.hasTips)
   }
 
   public override init() { super.init() }
