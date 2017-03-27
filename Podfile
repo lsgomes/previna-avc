@@ -8,5 +8,5 @@ target 'Previna AVC' do
   # Pods for Previna AVC
   pod 'SwiftyJSON', '~> 3.1.4’
   pod 'Alamofire', '~> 4.4'
-  pod 'DKDropMenu'
+  pod 'ASHorizontalScrollView', '~> 1.5.1'
 end

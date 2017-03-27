@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DKDropMenu
 
 class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDelegate {
     

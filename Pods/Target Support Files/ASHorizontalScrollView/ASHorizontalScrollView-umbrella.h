@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double DKDropMenuVersionNumber;
-FOUNDATION_EXPORT const unsigned char DKDropMenuVersionString[];
+FOUNDATION_EXPORT double ASHorizontalScrollViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char ASHorizontalScrollViewVersionString[];
 

@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Previna AVC/FirstViewController.swift"
-            timestampString = "511645156.747732"
+            timestampString = "512260647.972579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "10"
@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Previna AVC/FirstViewController.swift"
-            timestampString = "511933348.753949"
+            timestampString = "512276352.346143"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "updateAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -197,11 +197,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Previna AVC/ProfileSetupPage2ViewController.swift"
-            timestampString = "512007918.687009"
+            timestampString = "512260647.972579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "continueAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -213,11 +213,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Previna AVC/ProfileSetupPage2ViewController.swift"
-            timestampString = "512007918.687009"
+            timestampString = "512260647.972579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "itemSelected(withIndex:name:dropMenu:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -229,11 +229,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Previna AVC/ProfileSetupPage2ViewController.swift"
-            timestampString = "512007918.687009"
+            timestampString = "512260647.972579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "collapsedChanged(dropMenu:collapsed:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -245,51 +245,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Previna AVC/FirstViewController.swift"
-            timestampString = "511933241.235878"
+            timestampString = "512276352.346143"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "updateAction(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Previna_AVC.FirstViewController.updateAction (__ObjC.UIButton) -&gt; ()"
-                  moduleName = "Previna AVC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lucas/Desktop/Previna%20AVC/Previna%20AVC/FirstViewController.swift"
-                  timestampString = "512020746.720697"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "244">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Previna_AVC.FirstViewController.(updateAction (__ObjC.UIButton) -&gt; ()).(closure #1)"
-                  moduleName = "Previna AVC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lucas/Desktop/Previna%20AVC/Previna%20AVC/FirstViewController.swift"
-                  timestampString = "512020746.725502"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Previna AVC/RestManager.swift"
@@ -302,14 +270,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Previna_AVC.RestManager.calculateRiskForPerson (person : Previna_AVC.Person, completion : (Swift.String) -&gt; ()) -&gt; ()"
                   moduleName = "Previna AVC"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lucas/Desktop/Previna%20AVC/Previna%20AVC/RestManager.swift"
-                  timestampString = "512020746.734759"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/RestManager.swift"
+                  timestampString = "512274341.602384"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
@@ -317,14 +285,14 @@
                   offsetFromSymbolStart = "508">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Previna_AVC.RestManager.(calculateRiskForPerson (person : Previna_AVC.Person, completion : (Swift.String) -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "Previna AVC"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lucas/Desktop/Previna%20AVC/Previna%20AVC/RestManager.swift"
-                  timestampString = "512020746.739659"
+                  urlString = "file:///Users/lucas/Desktop/previna-avc/Previna%20AVC/RestManager.swift"
+                  timestampString = "512274341.605998"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -341,11 +309,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Previna AVC/ProfileSetupPage2ViewController.swift"
-            timestampString = "512007918.687009"
+            timestampString = "512260647.972579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "validateForm()"
             landmarkType = "7">
          </BreakpointContent>
@@ -357,11 +325,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Previna AVC/ProfileSetupPage2ViewController.swift"
-            timestampString = "512007918.687009"
+            timestampString = "512260647.972579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "validateForm()"
             landmarkType = "7">
          </BreakpointContent>
@@ -389,11 +357,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Previna AVC/ProfileSetupPage2ViewController.swift"
-            timestampString = "512007277.73681"
+            timestampString = "512260647.972579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
             landmarkName = "validateForm()"
             landmarkType = "7">
          </BreakpointContent>
@@ -405,12 +373,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Previna AVC/SecondViewController.swift"
-            timestampString = "512020166.29621"
+            timestampString = "512260647.972579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "dropMenuSetSelectedItem(riskFactor:selectItem:dropMenu:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Previna AVC/TipView.swift"
+            timestampString = "512266288.994006"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "init(frame:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

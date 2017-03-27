@@ -13,6 +13,8 @@
 		A0974F891E53E4AE005E712A /* ProfileSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */; };
 		A0D1E2AD1E55FF8000349A18 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */; };
 		A0D1E2AF1E56194400349A18 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */; };
+		A0DB6CB11E88859F002F26B6 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB6CB01E88859F002F26B6 /* TipView.swift */; };
+		A0DE9E7A1E8712AB0040B913 /* DKDropMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE9E791E8712AB0040B913 /* DKDropMenu.swift */; };
 		A0E58AB51E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */; };
 		A0F6EBB21E8377BF0006451F /* HasDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBAE1E8377BF0006451F /* HasDevice.swift */; };
 		A0F6EBB31E8377BF0006451F /* HasRiskFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBAF1E8377BF0006451F /* HasRiskFactor.swift */; };
@@ -38,6 +40,8 @@
 		A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetupViewController.swift; sourceTree = "<group>"; };
 		A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		A0DB6CB01E88859F002F26B6 /* TipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
+		A0DE9E791E8712AB0040B913 /* DKDropMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DKDropMenu.swift; path = ../../../Documents/DKDropMenu.swift; sourceTree = "<group>"; };
 		A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizeHealthKitViewController.swift; sourceTree = "<group>"; };
 		A0F6EBAE1E8377BF0006451F /* HasDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasDevice.swift; sourceTree = "<group>"; };
 		A0F6EBAF1E8377BF0006451F /* HasRiskFactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasRiskFactor.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 		A0FF49AE1E4BE4B80041EEBE /* Previna AVC */ = {
 			isa = PBXGroup;
 			children = (
+				A0DE9E791E8712AB0040B913 /* DKDropMenu.swift */,
 				A0F6EBAE1E8377BF0006451F /* HasDevice.swift */,
 				A0F6EBAF1E8377BF0006451F /* HasRiskFactor.swift */,
 				A0F6EBB01E8377BF0006451F /* HasSensor.swift */,
@@ -116,6 +121,7 @@
 				A03B1C1B1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift */,
 				A03B1C1D1E80D94C0012E36D /* UserManager.swift */,
 				A03329E41E846724005C3D87 /* StartViewController.swift */,
+				A0DB6CB01E88859F002F26B6 /* TipView.swift */,
 			);
 			path = "Previna AVC";
 			sourceTree = "<group>";
@@ -277,6 +283,8 @@
 				A03B1C1E1E80D94C0012E36D /* UserManager.swift in Sources */,
 				A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */,
 				A0E58AB51E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift in Sources */,
+				A0DB6CB11E88859F002F26B6 /* TipView.swift in Sources */,
+				A0DE9E7A1E8712AB0040B913 /* DKDropMenu.swift in Sources */,
 				A0FF49C81E4BEAD60041EEBE /* WizardPageViewController.swift in Sources */,
 				A0974F891E53E4AE005E712A /* ProfileSetupViewController.swift in Sources */,
 				A0F6EBB31E8377BF0006451F /* HasRiskFactor.swift in Sources */,

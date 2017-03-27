@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DKDropMenu
 
 class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DKDropMenuDelegate {
 

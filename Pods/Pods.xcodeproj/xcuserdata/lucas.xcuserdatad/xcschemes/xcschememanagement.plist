@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Alamofire.xcscheme</key>
+		<key>ASHorizontalScrollView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>DKDropMenu.xcscheme</key>
+		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,37 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0422706392B66AD4F30FD9FC07148773</key>
+		<key>5262ED7ECF5156E65A4823D05E427F78</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>200C42DEEBCF81DE14E4A7ECE7B5FB05</key>
+		<key>7314180BE9DF7EC9AED878748EC34864</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>30F06E56AAB367B34E11F19584156561</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>35753FFAC94E4E30249C261EB4F29321</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>516A23513D9A04F361E57A1FF1AEB122</key>
+		<key>7661F5D9C2DAA7B96878A66C790F619B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DEA172A9A2DD44119ECB1398F88001E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

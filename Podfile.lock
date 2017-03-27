@@ -1,18 +1,18 @@
 PODS:
   - Alamofire (4.4.0)
-  - DKDropMenu (0.2.0)
+  - ASHorizontalScrollView (1.5.1)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
-  - DKDropMenu
+  - ASHorizontalScrollView (~> 1.5.1)
   - SwiftyJSON (~> 3.1.4)
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  DKDropMenu: d734c2e6accb97b5c26e2324240e84008e47dec6
+  ASHorizontalScrollView: 9c98b9226509540075b6398c92f68fb474bea7e9
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 94d272dc21cd3a32543422faa19f40a3b710f7da
+PODFILE CHECKSUM: 2919d64ac233d9d9e2a0cea1226ca863974d47f9
 
 COCOAPODS: 1.2.0

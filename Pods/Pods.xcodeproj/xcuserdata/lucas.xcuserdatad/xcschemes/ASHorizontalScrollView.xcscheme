@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '200C42DEEBCF81DE14E4A7ECE7B5FB05'
-               BlueprintName = 'DKDropMenu'
+               BlueprintIdentifier = '7314180BE9DF7EC9AED878748EC34864'
+               BlueprintName = 'ASHorizontalScrollView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'DKDropMenu.framework'>
+               BuildableName = 'ASHorizontalScrollView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
