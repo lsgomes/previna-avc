@@ -22,18 +22,27 @@ class AuthorizeHealthKitViewController: UIViewController {
             
             if success {
             
+               DispatchQueue.main.async {
+                    let pageViewController = self.parent as? WizardPageViewController
+                    pageViewController?.segueToPage(name: WizardPageViewController.PAGE_3)
+                }
+                
             } else {
                 
                 print("You didn't allow HealthKit to access these read/write data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: \(error). If you're using a simulator, try it on a device.")
-                
            
+                DispatchQueue.main.async {
+                    let pageViewController = self.parent as? WizardPageViewController
+                    pageViewController?.segueToPage(name: WizardPageViewController.PAGE_3)
+                }
+                
             }
-
+            
+           
         }
         
         HealthKitManager.instance.authorizeHealthKit(completion: completion)
         
-        let pageViewController = self.parent as? WizardPageViewController
-        pageViewController?.segueToPage(name: WizardPageViewController.PAGE_3)
+      
     }
 }

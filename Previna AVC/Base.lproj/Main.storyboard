@@ -246,6 +246,35 @@
             </objects>
             <point key="canvasLocation" x="750" y="359.15492957746477"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="bl0-bA-pdo">
+            <objects>
+                <tableViewController id="as9-Wy-MRw" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="frh-v6-KyT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="LPu-OB-hUb">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LPu-OB-hUb" id="GW7-b1-GXd">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="as9-Wy-MRw" id="7X0-c0-PNg"/>
+                            <outlet property="delegate" destination="as9-Wy-MRw" id="BMs-hb-Q63"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="jVu-oC-bkQ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RqG-WG-QHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749" y="1020"/>
+        </scene>
         <!--Wizard Page View Controller-->
         <scene sceneID="Ioe-Hi-jhe">
             <objects>
@@ -599,6 +628,7 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="Q6h-8L-VoC"/>
+                        <segue destination="as9-Wy-MRw" kind="relationship" relationship="viewControllers" id="nOw-t0-r6o"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>

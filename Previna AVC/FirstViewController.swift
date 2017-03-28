@@ -15,17 +15,19 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var riskPercentageLabel: UILabel!
     @IBOutlet var riskLabel: UITextView!
     
+    var horizontalScrollView: ASHorizontalScrollView! // TODO
+    
     var itemSize = 170
     var size = 200
     var tipSize = 250
     
-    func createTip(text: String) -> TipView {
+    func createTip(text: String, index: Int) -> TipView {
         let image = UIImage(named: "note2")
         let imageView = UIImageView(frame:CGRect(x: 0, y: 0, width: tipSize, height: itemSize))
         imageView.image = image
         
         let label = UILabel(frame:CGRect(x: 20, y: -5, width: 240, height: itemSize))
-        label.text = text
+        label.text = "Dica \(index):\n\n" + text
         label.numberOfLines = 0
         
         let tipView = TipView(frame: CGRect.zero)
@@ -36,34 +38,26 @@ class FirstViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        let horizontalScrollView = setHorizontalViewProperties()
+        horizontalScrollView = setHorizontalViewProperties()
         
-
-
-        horizontalScrollView.addItem(createTip(text: "Dica 1: \n\nPratique mais exercícios físicos. \n\nÚltima vez: terça-feira"))
-        horizontalScrollView.addItem(createTip(text: "Dica 2: \n\nPratique mais exercícios físicos. \n\nÚltima vez: terça-feira"))
-        horizontalScrollView.addItem(createTip(text: "Dica 3: \n\nPratique mais exercícios físicos. \n\nÚltima vez: terça-feira"))
-
-        //horizontalScrollView.addItem(tipView)
-    
-        
-        for _ in 1...3 {
-            
-        let button = UIButton(frame: CGRect.zero)
-            button.backgroundColor = UIColor.blue
-            //horizontalScrollView.addItem(button)
-        }
+        listTips()
         
         self.view.addSubview(horizontalScrollView)
         
         horizontalScrollView.setItemsMarginOnce()
-
     }
     
-
+    func listTips() {
+        for (index, element) in UserManager.instance.person.hasRiskFactor!.enumerated() {
+            if (element.hasTip != nil) {
+                let tip = createTip(text: element.hasTip!, index: index)
+                horizontalScrollView.addItem(tip)
+            }
+        }
+    }
     
     @IBAction func updateAction(_ sender: UIButton) {
         
@@ -75,26 +69,29 @@ class FirstViewController: UIViewController {
         RestManager.instance.calculateRiskForPerson(person: person) { response in
             print(response)
             
-            switch (response) {
+            if (response) {
                 
-            case "?":
-                
-                self.riskPercentageLabel.text = response
-                self.riskLabel.text = "Pressione em ATUALIZAR para calcular seu risco."
-                sender.setTitle("ATUALIZAR", for: .normal)
-                
-            default:
-
-                self.riskPercentageLabel.text = response + "%"
+                self.riskPercentageLabel.text = String(describing: UserManager.instance.person.hasRiskLevel) + "%"
                 let date = Date()
                 let calendar = Calendar.current
                 let hour = calendar.component(.hour, from: date)
                 let minutes = calendar.component(.minute, from: date)
                 
-                self.riskLabel.text = "Este é seu risco atual de AVC.\n Última atualização: Hoje às \(hour):\(minutes)"
-            
-            sender.setTitle("ATUALIZAR", for: .normal)
+                self.riskLabel.text = "Este é seu risco em 10 anos de AVC.\n Última atualização: Hoje às \(hour):\(minutes)"
+                sender.setTitle("ATUALIZAR", for: .normal)
+                
+                if (self.horizontalScrollView.removeAllItems()) {
+                    self.listTips()
+
+                }
+
             }
+            else {
+                self.riskLabel.text = "Pressione em ATUALIZAR para calcular seu risco de AVC em 10 anos."
+                sender.setTitle("ATUALIZAR", for: .normal)
+            }
+            
+
         }
     }
     

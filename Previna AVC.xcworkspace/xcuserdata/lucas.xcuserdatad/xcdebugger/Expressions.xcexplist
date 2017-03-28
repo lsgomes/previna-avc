@@ -3,7 +3,12 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "FirstViewController.(updateAction(Any) -&gt; ()).(closure #1):FirstViewController.swift">
+         contextName = "DKDropMenu.touchesEnded(Set&lt;UITouch&gt;, with : UIEvent?) -&gt; ():DKDropMenu.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "collapsed">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "RestManager.(getRiskLevel(name : String) -&gt; String).(closure #1):RestManager.swift">
@@ -17,15 +22,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FirstViewController.updateAction(Any) -&gt; ():FirstViewController.swift">
+         contextName = "FirstViewController.(updateAction(Any) -&gt; ()).(closure #1):FirstViewController.swift">
       </ContextState>
       <ContextState
-         contextName = "ProfileSetupViewController.validateForm() -&gt; ():ProfileSetupViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UserManager.instance.person">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "RestManager.getRiskLevel(name : String) -&gt; String:RestManager.swift">
       </ContextState>
       <ContextState
          contextName = "ProfileSetupViewController.continueAction(UIButton) -&gt; ():ProfileSetupViewController.swift">
@@ -36,7 +36,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "RestManager.getRiskLevel(name : String) -&gt; String:RestManager.swift">
+         contextName = "FirstViewController.updateAction(Any) -&gt; ():FirstViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ProfileSetupViewController.validateForm() -&gt; ():ProfileSetupViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserManager.instance.person">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

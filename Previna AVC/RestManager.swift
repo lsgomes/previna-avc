@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class RestManager {
     
@@ -18,7 +19,7 @@ class RestManager {
     
     static let instance = RestManager()
     
-    func calculateRiskForPerson(person: Person, completion: @escaping (String) -> ()) {
+    func calculateRiskForPerson(person: Person, completion: @escaping (Bool) -> ()) {
         
         let endpoint = RestManager.REST_ENDPOINT + "/calculateRiskForPerson"
  
@@ -30,15 +31,17 @@ class RestManager {
             switch (response.result) {
                 
             case .success:
-                let risk = String(describing: response.result.value as! NSDecimalNumber)
-                completion(risk + "%")
+                if let result = response.result.value {
+                    let json = JSON(result)
+                    let person = Person(json: json)
+                    UserManager.instance.person = person
+                    completion(true)
+                }
             case .failure:
-                let risk = "?"
-                print("REST Failure @ \(endpoint) with parameter \(person.dictionaryRepresentation()). Returning \(risk)")
-                completion(risk)
+                print("REST Failure @ \(endpoint) with parameter \(person.dictionaryRepresentation()).")
+                completion(false)
             }
 
-        
         }
         
     }

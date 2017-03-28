@@ -14,11 +14,15 @@ public final class HasRiskFactor: NSObject, NSCoding {
   private struct SerializationKeys {
     static let uri = "uri"
     static let hasWeight = "hasWeight"
+    static let hasTip = "hasTip"
+    static let hasAchievement = "hasAchievement"
   }
 
   // MARK: Properties
   public var uri: String?
   public var hasWeight: Int?
+  public var hasTip: String?
+  public var hasAchievement: String?
 
   // MARK: SwiftyJSON Initializers
   /// Initiates the instance based on the object.
@@ -35,6 +39,8 @@ public final class HasRiskFactor: NSObject, NSCoding {
   public required init(json: JSON) {
     uri = json[SerializationKeys.uri].string
     hasWeight = json[SerializationKeys.hasWeight].int
+    hasTip = json[SerializationKeys.hasTip].string
+    hasAchievement = json[SerializationKeys.hasAchievement].string
   }
 
   /// Generates description of the object in the form of a NSDictionary.
@@ -44,6 +50,8 @@ public final class HasRiskFactor: NSObject, NSCoding {
     var dictionary: [String: Any] = [:]
     if let value = uri { dictionary[SerializationKeys.uri] = value }
     if let value = hasWeight { dictionary[SerializationKeys.hasWeight] = value }
+    if let value = hasTip { dictionary[SerializationKeys.hasTip] = value }
+    if let value = hasAchievement { dictionary[SerializationKeys.hasAchievement] = value }
     return dictionary
   }
 
@@ -51,11 +59,17 @@ public final class HasRiskFactor: NSObject, NSCoding {
   required public init(coder aDecoder: NSCoder) {
     self.uri = aDecoder.decodeObject(forKey: SerializationKeys.uri) as? String
     self.hasWeight = aDecoder.decodeObject(forKey: SerializationKeys.hasWeight) as? Int
+    self.hasTip = aDecoder.decodeObject(forKey: SerializationKeys.hasTip) as? String
+    self.hasAchievement = aDecoder.decodeObject(forKey: SerializationKeys.hasAchievement) as? String
+
   }
 
   public func encode(with aCoder: NSCoder) {
     aCoder.encode(uri, forKey: SerializationKeys.uri)
     aCoder.encode(hasWeight, forKey: SerializationKeys.hasWeight)
+    aCoder.encode(hasTip, forKey: SerializationKeys.hasTip)
+    aCoder.encode(hasAchievement, forKey: SerializationKeys.hasAchievement)
+
   }
   
   public override init() { super.init() }
