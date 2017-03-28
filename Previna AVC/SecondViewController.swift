@@ -30,8 +30,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDel
         baseProfile = BaseProfilePage2ViewController(delegate: self, physicalActivityDropMenu: physicalActivityDropMenu, alcoholDropMenu: alcoholDropMenu, smokeDropMenu: smokeDropMenu, schoolDropMenu: schoolDropMenu, cryDropMenu: cryDropMenu, angryDropMenu: angryDropMenu, anxietyDropMenu: anxietyDropMenu)
   
         baseProfile.setupViewDidLoad(setSelectedItemForDropMenus: true)
-        
-  
     }
     
     func collapsedChanged(dropMenu: DKDropMenu, collapsed: Bool) {

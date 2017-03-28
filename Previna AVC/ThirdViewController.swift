@@ -10,6 +10,15 @@ import UIKit
 
 class ThirdViewController: UITableViewController {
 
+    let achievements: [String] =
+        ["Bebendo com moderação", "Se exercitando 2 vezes por semana", "Se exercitando 3 vezes por semana",
+        "Vivendo de forma alegre", "Nível de ansiedade sob controle", "Nível de irritação sob controle",
+        "Não voltou a beber", "Não voltou a fumar"]
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Suas Conquistas"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,35 +29,53 @@ class ThirdViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+        return achievements.count
+        
+//        guard let riskFactors = UserManager.instance.person.hasRiskFactor else {
+//            
+//            return 0
+//        }
+//        
+//        return riskFactors.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let row = indexPath.row
 
-        // Configure the cell...
-
+        cell.textLabel?.text = achievements[row]
+        
+        if (row % 2 == 0) {
+            
+            let image = UIImage(named: "medal")
+            cell.imageView?.image = image
+        }
+        
+//        if let riskFactors = UserManager.instance.person.hasRiskFactor {
+//            
+//            cell.textLabel?.text = riskFactors[row].hasAchievement
+//
+//        }
+        
         return cell
     }
-    */
+    
 
     /*
-    // Override to support conditional editing of the table view.
+    // Override to support conditional editing of th  e table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true

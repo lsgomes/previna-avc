@@ -40,8 +40,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Pressione em ATUALIZAR para calcular seu risco." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PVL-xH-15b">
-                                <rect key="frame" x="16" y="193" width="288" height="67"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Pressione em ATUALIZAR para calcular seu risco de AVC em 10 anos." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PVL-xH-15b">
+                                <rect key="frame" x="16" y="193" width="288" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -246,21 +246,34 @@
             </objects>
             <point key="canvasLocation" x="750" y="359.15492957746477"/>
         </scene>
-        <!--Item-->
+        <!--Conquistas-->
         <scene sceneID="bl0-bA-pdo">
             <objects>
-                <tableViewController id="as9-Wy-MRw" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="frh-v6-KyT">
+                <tableViewController id="as9-Wy-MRw" customClass="ThirdViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="frh-v6-KyT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="LPu-OB-hUb">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="OvL-ud-yaa" imageView="8IX-Rz-gld" style="IBUITableViewCellStyleDefault" id="LPu-OB-hUb">
+                                <rect key="frame" x="0.0" y="56" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LPu-OB-hUb" id="GW7-b1-GXd">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OvL-ud-yaa">
+                                            <rect key="frame" x="62" y="0.0" width="243" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="medal_grey" id="8IX-Rz-gld">
+                                            <rect key="frame" x="15" y="5" width="32" height="32"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -269,7 +282,7 @@
                             <outlet property="delegate" destination="as9-Wy-MRw" id="BMs-hb-Q63"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="jVu-oC-bkQ"/>
+                    <tabBarItem key="tabBarItem" title="Conquistas" image="medal32" id="jVu-oC-bkQ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RqG-WG-QHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -784,6 +797,8 @@
         <image name="document" width="275" height="158"/>
         <image name="first" width="30" height="30"/>
         <image name="health app icon" width="110" height="110"/>
+        <image name="medal32" width="24" height="24"/>
+        <image name="medal_grey" width="32" height="32"/>
         <image name="note2" width="320" height="292"/>
         <image name="second" width="30" height="30"/>
     </resources>

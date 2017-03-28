@@ -132,6 +132,7 @@ class BaseProfilePage2ViewController {
         dropMenu.itemHeight = 30
         dropMenu.add(names: items)
         dropMenu.delegate = delegate
+        dropMenu.backgroundColor = .lightGray
     }
     
     func dropMenuSetSelectedItem(riskFactor: String, selectItem: String, dropMenu: DKDropMenu) {
