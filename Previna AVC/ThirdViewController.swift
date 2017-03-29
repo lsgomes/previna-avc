@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ThirdViewController: UITableViewController {
+class ThirdViewController: UITableViewController, UITabBarControllerDelegate {
 
     let achievements: [String] =
         ["Bebendo com moderação", "Se exercitando 2 vezes por semana", "Se exercitando 3 vezes por semana",
         "Vivendo de forma alegre", "Nível de ansiedade sob controle", "Nível de irritação sob controle",
         "Não voltou a beber", "Não voltou a fumar"]
+    
+    let medalImage = UIImage(named: "medal")
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Suas Conquistas"
@@ -21,12 +23,9 @@ class ThirdViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       //self.tableView.reloadData()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     // MARK: - Table view data source
@@ -58,10 +57,20 @@ class ThirdViewController: UITableViewController {
 
         cell.textLabel?.text = achievements[row]
         
-        if (row % 2 == 0) {
+        
+        if let riskFactors = UserManager.instance.person.hasRiskFactor {
             
-            let image = UIImage(named: "medal")
-            cell.imageView?.image = image
+            for riskFactor in riskFactors {
+            
+                if let achievement = riskFactor.hasAchievement {
+                    
+                    if achievement == achievements[row] {
+                        cell.imageView?.image = medalImage
+                    }
+                }
+                
+            }
+    
         }
         
 //        if let riskFactors = UserManager.instance.person.hasRiskFactor {

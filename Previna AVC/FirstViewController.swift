@@ -26,7 +26,7 @@ class FirstViewController: UIViewController {
         let imageView = UIImageView(frame:CGRect(x: 0, y: 0, width: tipSize, height: itemSize))
         imageView.image = image
         
-        let label = UILabel(frame:CGRect(x: 20, y: -5, width: 240, height: itemSize))
+        let label = UILabel(frame:CGRect(x: 20, y: -25, width: 230, height: itemSize))
         label.text = "Dica \(index):\n\n" + text
         label.numberOfLines = 0
         

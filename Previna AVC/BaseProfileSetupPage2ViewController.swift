@@ -24,15 +24,20 @@ class BaseProfilePage2ViewController {
     // MARK: Physical_activity
     let INACTIVE = "Inactive"
     let ACTIVE = "Active"
+    let VERY_ACTIVE = "Very_active"
+
     
     // MARK: Alcohol_consumption
     let ABSTAIN = "Abstain"
     let DRINKER = "Drinker"
     let FORMER_ALCOHOLIC = "Former_alcoholic"
+    let DRINK_IN_MODERATION = "Drink_in_moderation"
     
     // MARK: Smoking_status
     let SMOKER = "Smoker"
     let FORMER_SMOKER = "Former_smoker"
+    let NEVER_SMOKED = "Former_smoker"
+
     
     // MARK: Education
     let HIGH_SCHOOL_DIPLOMA = "High_school_diploma_and_some_college"
@@ -43,20 +48,24 @@ class BaseProfilePage2ViewController {
     let CRITICAL_OF_OTHERS = "Critical_of_others"
     let FEARFUL = "Fearful"
     
+    let NOT_CRYING_EASILY = "Not_crying_easily"
+    let NOT_CRITICAL_OF_OTHERS = "Not_critical_of_others"
+    let NOT_FEARFUL = "Not_fearful"
+    
     
     // MARK: Translations
     let TRANSLATION_INACTIVE = "Sedentário"
     let TRANSLATION_ACTIVE = "1-2 por semana"
-    let TRANSLATION_ATHLETE = "3+ por semana"
+    let TRANSLATION_VERY_ACTIVE = "3+ por semana"
     
     let TRANSLATION_ABSTAIN = "Abstenho"
     let TRANSLATION_DRINKER = "7+ por semana"
     let TRANSLATION_FORMER_ALCOHOLIC = "Ex-álcoolatra"
-    let TRANSLATION_DRINKS = "1-6 por semana"
+    let TRANSLATION_DRINK_IN_MODERATION = "1-6 por semana"
     
     let TRANSLATION_SMOKER = "Fumante"
     let TRANSLATION_FORMER_SMOKER = "Ex-fumante"
-    let TRANSLATION_NON_SMOKER = "Não-fumante"
+    let TRANSLATION_NEVER_SMOKED = "Não-fumante"
     
     let TRANSLATION_HIGH_SCHOOL_DIPLOMA = "Ensino médio"
     let TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA = "Ensino fundamental"
@@ -82,12 +91,12 @@ class BaseProfilePage2ViewController {
   
     public func setupViewDidLoad(setSelectedItemForDropMenus: Bool) {
         
-        setDropMenuAttributes(dropMenu: physicalActivityDropMenu, items: [TRANSLATION_ATHLETE, TRANSLATION_ACTIVE, TRANSLATION_INACTIVE], delegate: delegate)
+        setDropMenuAttributes(dropMenu: physicalActivityDropMenu, items: [TRANSLATION_VERY_ACTIVE, TRANSLATION_ACTIVE, TRANSLATION_INACTIVE], delegate: delegate)
 
         
-        setDropMenuAttributes(dropMenu: alcoholDropMenu, items: [TRANSLATION_DRINKS, TRANSLATION_DRINKER, TRANSLATION_ABSTAIN, TRANSLATION_FORMER_ALCOHOLIC], delegate: delegate)
+        setDropMenuAttributes(dropMenu: alcoholDropMenu, items: [TRANSLATION_DRINK_IN_MODERATION, TRANSLATION_DRINKER, TRANSLATION_ABSTAIN, TRANSLATION_FORMER_ALCOHOLIC], delegate: delegate)
         
-        setDropMenuAttributes(dropMenu: smokeDropMenu, items: [TRANSLATION_NON_SMOKER, TRANSLATION_SMOKER, TRANSLATION_FORMER_SMOKER], delegate: delegate)
+        setDropMenuAttributes(dropMenu: smokeDropMenu, items: [TRANSLATION_NEVER_SMOKED, TRANSLATION_SMOKER, TRANSLATION_FORMER_SMOKER], delegate: delegate)
 
         
         setDropMenuAttributes(dropMenu: schoolDropMenu, items: [TRANSLATION_COLLEGE_DIPLOMA, TRANSLATION_HIGH_SCHOOL_DIPLOMA, TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA], delegate: delegate)
@@ -132,7 +141,6 @@ class BaseProfilePage2ViewController {
         dropMenu.itemHeight = 30
         dropMenu.add(names: items)
         dropMenu.delegate = delegate
-        dropMenu.backgroundColor = .lightGray
     }
     
     func dropMenuSetSelectedItem(riskFactor: String, selectItem: String, dropMenu: DKDropMenu) {
@@ -210,12 +218,15 @@ class BaseProfilePage2ViewController {
         removeRiskFactor(name: DRINKER, riskFactors: &riskFactors)
         removeRiskFactor(name: ABSTAIN, riskFactors: &riskFactors)
         removeRiskFactor(name: FORMER_ALCOHOLIC, riskFactors: &riskFactors)
+        removeRiskFactor(name: DRINK_IN_MODERATION, riskFactors: &riskFactors)
         
         removeRiskFactor(name: ACTIVE, riskFactors: &riskFactors)
         removeRiskFactor(name: INACTIVE, riskFactors: &riskFactors)
-        
+        removeRiskFactor(name: VERY_ACTIVE, riskFactors: &riskFactors)
+
         removeRiskFactor(name: SMOKER, riskFactors: &riskFactors)
         removeRiskFactor(name: FORMER_SMOKER, riskFactors: &riskFactors)
+        removeRiskFactor(name: NEVER_SMOKED, riskFactors: &riskFactors)
         
         removeRiskFactor(name: HIGH_SCHOOL_DIPLOMA, riskFactors: &riskFactors)
         removeRiskFactor(name: NO_HIGH_SCHOOL_DIPLOMA, riskFactors: &riskFactors)
@@ -223,6 +234,10 @@ class BaseProfilePage2ViewController {
         removeRiskFactor(name: CRY_EASILY, riskFactors: &riskFactors)
         removeRiskFactor(name: CRITICAL_OF_OTHERS, riskFactors: &riskFactors)
         removeRiskFactor(name: FEARFUL, riskFactors: &riskFactors)
+        
+        removeRiskFactor(name: NOT_CRYING_EASILY, riskFactors: &riskFactors)
+        removeRiskFactor(name: NOT_CRITICAL_OF_OTHERS, riskFactors: &riskFactors)
+        removeRiskFactor(name: NOT_FEARFUL, riskFactors: &riskFactors)
         
         UserManager.instance.person.hasRiskFactor = riskFactors
         
@@ -256,7 +271,9 @@ class BaseProfilePage2ViewController {
             
         case TRANSLATION_FORMER_ALCOHOLIC:
             addRiskFactor(uri: FORMER_ALCOHOLIC, riskFactors: &riskFactors!)
-            
+        
+        case TRANSLATION_DRINK_IN_MODERATION:
+            addRiskFactor(uri: DRINK_IN_MODERATION, riskFactors: &riskFactors!)
         default:
             break
         }
@@ -269,6 +286,9 @@ class BaseProfilePage2ViewController {
         case TRANSLATION_INACTIVE:
             addRiskFactor(uri: INACTIVE, riskFactors: &riskFactors!)
             
+        case TRANSLATION_VERY_ACTIVE:
+            addRiskFactor(uri: VERY_ACTIVE, riskFactors: &riskFactors!)
+            
         default:
             break
         }
@@ -280,6 +300,9 @@ class BaseProfilePage2ViewController {
             
         case TRANSLATION_FORMER_SMOKER:
             addRiskFactor(uri: FORMER_SMOKER, riskFactors: &riskFactors!)
+
+        case TRANSLATION_NEVER_SMOKED:
+            addRiskFactor(uri: NEVER_SMOKED, riskFactors: &riskFactors!)
             
         default:
             break;
@@ -294,22 +317,40 @@ class BaseProfilePage2ViewController {
             break;
         }
         
-        validateFrequencyDropMenu(dropMenu: cryDropMenu, riskUri: CRY_EASILY, riskFactors: &riskFactors!)
+        switch cryDropMenu.selectedItem! {
+            
+        case TRANSLATION_OFTEN_OR_ALWAYS:
+            addRiskFactor(uri: CRY_EASILY, riskFactors: &riskFactors!)
+        case TRANSLATION_SOMETIMES_OR_NEVER:
+            addRiskFactor(uri: NOT_CRYING_EASILY, riskFactors: &riskFactors!)
+        default:
+            break;
+        }
         
-        validateFrequencyDropMenu(dropMenu: angryDropMenu, riskUri: CRITICAL_OF_OTHERS, riskFactors: &riskFactors!)
         
-        validateFrequencyDropMenu(dropMenu: anxietyDropMenu, riskUri: FEARFUL, riskFactors: &riskFactors!)
+        switch angryDropMenu.selectedItem! {
+            
+        case TRANSLATION_OFTEN_OR_ALWAYS:
+            addRiskFactor(uri: CRITICAL_OF_OTHERS, riskFactors: &riskFactors!)
+        case TRANSLATION_SOMETIMES_OR_NEVER:
+            addRiskFactor(uri: NOT_CRITICAL_OF_OTHERS, riskFactors: &riskFactors!)
+        default:
+            break;
+        }
         
+        switch anxietyDropMenu.selectedItem! {
+            
+        case TRANSLATION_OFTEN_OR_ALWAYS:
+            addRiskFactor(uri: FEARFUL, riskFactors: &riskFactors!)
+        case TRANSLATION_SOMETIMES_OR_NEVER:
+            addRiskFactor(uri: NOT_FEARFUL, riskFactors: &riskFactors!)
+        default:
+            break;
+        }
         
         UserManager.instance.person.hasRiskFactor = riskFactors
     }
     
-    func validateFrequencyDropMenu(dropMenu: DKDropMenu, riskUri: String, riskFactors: inout [HasRiskFactor]) {
-        
-        if (dropMenu.selectedItem == TRANSLATION_OFTEN_OR_ALWAYS) {
-            addRiskFactor(uri: riskUri, riskFactors: &riskFactors)
-        }
-    }
     
     func validateFormSavePerson() {
         
