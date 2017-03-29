@@ -22,11 +22,16 @@ class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDel
     @IBOutlet var alcoholDropMenu: DKDropMenu!
     @IBOutlet var smokeDropMenu: DKDropMenu!
     
+    @IBOutlet var saveButton: UIButton!
+    
+    var timer = Timer()
+    let delay = 2.0
+    
     var baseProfile: BaseProfilePage2ViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         baseProfile = BaseProfilePage2ViewController(delegate: self, physicalActivityDropMenu: physicalActivityDropMenu, alcoholDropMenu: alcoholDropMenu, smokeDropMenu: smokeDropMenu, schoolDropMenu: schoolDropMenu, cryDropMenu: cryDropMenu, angryDropMenu: angryDropMenu, anxietyDropMenu: anxietyDropMenu)
   
         baseProfile.setupViewDidLoad(setSelectedItemForDropMenus: true)
@@ -46,10 +51,17 @@ class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDel
 
  
     @IBAction func saveAction(_ sender: UIButton) {
+        timer.invalidate()
+        sender.setTitle("SALVO!", for: .normal)
         baseProfile.removeModifiableRiskFactors()
         baseProfile.validateFormSavePerson()
+        timer = Timer.scheduledTimer(timeInterval: delay, target: self, selector: #selector(setButtonTextToSave), userInfo: nil, repeats: false)
+
     }
     
+    func setButtonTextToSave() {
+        saveButton.setTitle("SALVAR", for: .normal)
+    }
     
 }
 

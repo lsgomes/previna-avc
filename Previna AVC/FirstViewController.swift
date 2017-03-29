@@ -15,6 +15,8 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var riskPercentageLabel: UILabel!
     @IBOutlet var riskLabel: UITextView!
     
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     var horizontalScrollView: ASHorizontalScrollView! // TODO
     
     var itemSize = 170
@@ -68,7 +70,8 @@ class FirstViewController: UIViewController {
     @IBAction func updateAction(_ sender: UIButton) {
         
         
-        sender.setTitle("ATUALIZANDO....", for: .normal)
+        sender.setTitle("ATUALIZANDO", for: .normal)
+        activityIndicator.startAnimating()
         
         let person = UserManager.instance.person
         
@@ -90,11 +93,13 @@ class FirstViewController: UIViewController {
                     self.listTips()
 
                 }
+                self.activityIndicator.stopAnimating()
 
             }
             else {
                 self.riskLabel.text = "Pressione em ATUALIZAR para calcular seu risco de AVC em 10 anos."
                 sender.setTitle("ATUALIZAR", for: .normal)
+                self.activityIndicator.stopAnimating()
             }
             
 

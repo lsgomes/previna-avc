@@ -10,6 +10,7 @@
 		A03329E51E846724005C3D87 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03329E41E846724005C3D87 /* StartViewController.swift */; };
 		A03B1C1C1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B1C1B1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift */; };
 		A03B1C1E1E80D94C0012E36D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B1C1D1E80D94C0012E36D /* UserManager.swift */; };
+		A088A1651E8B4E8300D15E6C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */; };
 		A0919DD31E89E4E100B05B8B /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */; };
 		A0919DD51E89F09F00B05B8B /* BaseProfileSetupPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0919DD41E89F09F00B05B8B /* BaseProfileSetupPage2ViewController.swift */; };
 		A0974F891E53E4AE005E712A /* ProfileSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */; };
@@ -39,6 +40,7 @@
 		A03329E41E846724005C3D87 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		A03B1C1B1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetupPage2ViewController.swift; sourceTree = "<group>"; };
 		A03B1C1D1E80D94C0012E36D /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		A0919DD41E89F09F00B05B8B /* BaseProfileSetupPage2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProfileSetupPage2ViewController.swift; sourceTree = "<group>"; };
 		A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetupViewController.swift; sourceTree = "<group>"; };
@@ -124,10 +126,11 @@
 				A0DB6CB01E88859F002F26B6 /* TipView.swift */,
 				A0919DD41E89F09F00B05B8B /* BaseProfileSetupPage2ViewController.swift */,
 				A03B1C1B1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift */,
-				A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */,
 				A0FA77951E7F34DD00F7B5FA /* RestManager.swift */,
 				A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */,
+				A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */,
 				A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */,
+				A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */,
 			);
 			path = "Previna AVC";
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				A0F6EBB31E8377BF0006451F /* HasRiskFactor.swift in Sources */,
 				A0FF49B21E4BE4B80041EEBE /* FirstViewController.swift in Sources */,
 				A0F6EBB41E8377BF0006451F /* HasSensor.swift in Sources */,
+				A088A1651E8B4E8300D15E6C /* MainTabBarController.swift in Sources */,
 				A0FA77961E7F34DD00F7B5FA /* RestManager.swift in Sources */,
 				A0F6EBB21E8377BF0006451F /* HasDevice.swift in Sources */,
 				A0D1E2AF1E56194400349A18 /* HealthKitManager.swift in Sources */,
