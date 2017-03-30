@@ -26,9 +26,6 @@ class AuthorizeHealthKitViewController: UIViewController {
             
                DispatchQueue.main.async {
                 
-                    // Hypertension
-                    HealthKitManager.instance.getHighBloodPressure()
-                
                     let pageViewController = self.parent as? WizardPageViewController
                     pageViewController?.segueToPage(name: WizardPageViewController.PAGE_3)
                 }

@@ -18,12 +18,7 @@ class HealthKitManager {
     
     let SYSTOLIC_TYPE = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodPressureSystolic)!
     let DIASTOLIC_TYPE = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodPressureDiastolic)!
-    
-    var GlobalMainQueue: DispatchQueue {
-        return DispatchQueue.main
-    }
-    
-    let queryGroup = DispatchGroup()
+
     
     func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Void) {
         
@@ -52,7 +47,7 @@ class HealthKitManager {
         return readDataTypes
     }
     
-    func getHighBloodPressure(completion: @escaping (Bool) -> ()) {
+    func updateHighBloodPressureComponent(segmentControl: UISegmentedControl) {
         
         let type = HKQuantityType.correlationType(forIdentifier: HKCorrelationTypeIdentifier.bloodPressure)!
 
@@ -62,48 +57,34 @@ class HealthKitManager {
         
         let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: true)
         
-        let sampleQuery = HKSampleQuery(sampleType: type, predicate: predicate, limit: 0, sortDescriptors: [sortDescriptor], resultsHandler: determineHighBloodPressure)
-
-        queryGroup.enter()
-        self.healthKitStore.execute(sampleQuery)
-        
-        queryGroup.notify(queue: GlobalMainQueue) {
-            //completion(GlobalMainQueue.)
-        }
-        
-    }
-    
-    private func determineHighBloodPressure(query: HKSampleQuery, results: [HKSample]?, error: Error?) {
-    
-        if let data = results as? [HKCorrelation] {
+        let sampleQuery = HKSampleQuery(sampleType: type, predicate : predicate, limit: 0, sortDescriptors: [sortDescriptor]) {
+            query, results, error in
             
-            if let systolicSample = data.first?.objects(for: self.SYSTOLIC_TYPE).first as? HKQuantitySample,
-               let diastolicSample = data.first?.objects(for: self.DIASTOLIC_TYPE).first as? HKQuantitySample {
+            guard let results = results as? [HKCorrelation] else { return }
+            
+            if let systolicSample = results.first?.objects(for: self.SYSTOLIC_TYPE).first as? HKQuantitySample,
+               let diastolicSample = results.first?.objects(for: self.DIASTOLIC_TYPE).first as? HKQuantitySample {
                 
                 let systolic = systolicSample.quantity.doubleValue(for: HKUnit.millimeterOfMercury())
                 let diastolic = diastolicSample.quantity.doubleValue(for: HKUnit.millimeterOfMercury())
-
-                print("\(systolic) / \(diastolic)")
                 
-                if (!getDateOfBirth().isEmpty && Int(getDateOfBirth())! > 59) {
+                if (!self.getDateOfBirth().isEmpty && Int(self.getDateOfBirth())! > 59) {
                     
                     if (systolic > 149 && diastolic > 89)
                     {
-                        UserManager.instance.addRiskFactor(uri: RiskFactor.HYPERTENSION.rawValue)
+                        completion(true)
                     }
                     
                 } else if (systolic > 139 && diastolic > 89) {
-                    // has hypertension risk Factor
-                    UserManager.instance.addRiskFactor(uri: RiskFactor.HYPERTENSION.rawValue)
-
+                    
+                    completion(true)
                 }
-                
-                queryGroup.leave()
             }
+            
         }
         
+        self.healthKitStore.execute(sampleQuery)
     }
-    
     
     func getDateOfBirth() -> String {
         
