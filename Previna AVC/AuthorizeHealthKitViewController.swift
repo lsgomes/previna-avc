@@ -13,6 +13,8 @@ class AuthorizeHealthKitViewController: UIViewController {
     
     @IBOutlet weak var allowAccessButton: UIButton!
     
+    @IBOutlet var navigationBar: UINavigationBar!
+    
     @IBAction func allowAccess(_ sender: UIButton) {
         
         print("HealthKitViewController.allowAccess()")
@@ -23,6 +25,10 @@ class AuthorizeHealthKitViewController: UIViewController {
             if success {
             
                DispatchQueue.main.async {
+                
+                    // Hypertension
+                    HealthKitManager.instance.getHighBloodPressure()
+                
                     let pageViewController = self.parent as? WizardPageViewController
                     pageViewController?.segueToPage(name: WizardPageViewController.PAGE_3)
                 }
@@ -42,7 +48,13 @@ class AuthorizeHealthKitViewController: UIViewController {
         }
         
         HealthKitManager.instance.authorizeHealthKit(completion: completion)
-        
-      
+
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 64.0)
+    }
+
 }

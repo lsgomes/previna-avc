@@ -21,38 +21,6 @@ class BaseProfilePage2ViewController {
     
     var delegate: DKDropMenuDelegate!
     
-    // MARK: Physical_activity
-    let INACTIVE = "Inactive"
-    let ACTIVE = "Active"
-    let VERY_ACTIVE = "Very_active"
-
-    
-    // MARK: Alcohol_consumption
-    let ABSTAIN = "Abstain"
-    let DRINKER = "Drinker"
-    let FORMER_ALCOHOLIC = "Former_alcoholic"
-    let DRINK_IN_MODERATION = "Drink_in_moderation"
-    
-    // MARK: Smoking_status
-    let SMOKER = "Smoker"
-    let FORMER_SMOKER = "Former_smoker"
-    let NEVER_SMOKED = "Former_smoker"
-
-    
-    // MARK: Education
-    let HIGH_SCHOOL_DIPLOMA = "High_school_diploma_and_some_college"
-    let NO_HIGH_SCHOOL_DIPLOMA = "No_high_school_diploma"
-    
-    // MARK: Psychological_factors
-    let CRY_EASILY = "Cry_easily"
-    let CRITICAL_OF_OTHERS = "Critical_of_others"
-    let FEARFUL = "Fearful"
-    
-    let NOT_CRYING_EASILY = "Not_crying_easily"
-    let NOT_CRITICAL_OF_OTHERS = "Not_critical_of_others"
-    let NOT_FEARFUL = "Not_fearful"
-    
-    
     // MARK: Translations
     let TRANSLATION_INACTIVE = "Sedentário"
     let TRANSLATION_ACTIVE = "1-2 por semana"
@@ -73,6 +41,8 @@ class BaseProfilePage2ViewController {
     
     let TRANSLATION_OFTEN_OR_ALWAYS = "Muitas vezes"
     let TRANSLATION_SOMETIMES_OR_NEVER = "Às vezes"
+    
+    let riskFactors = [RiskFactor.ACTIVE.rawValue]
     
     public init( delegate: DKDropMenuDelegate, physicalActivityDropMenu:  DKDropMenu, alcoholDropMenu:  DKDropMenu, smokeDropMenu:  DKDropMenu, schoolDropMenu:  DKDropMenu, cryDropMenu:  DKDropMenu, angryDropMenu:  DKDropMenu, anxietyDropMenu:  DKDropMenu ) {
         
@@ -114,30 +84,30 @@ class BaseProfilePage2ViewController {
         
         if (setSelectedItemForDropMenus) {
             
-            dropMenuSetSelectedItem(riskFactor: ACTIVE, selectItem: TRANSLATION_ACTIVE, dropMenu: physicalActivityDropMenu)
-            dropMenuSetSelectedItem(riskFactor: INACTIVE, selectItem: TRANSLATION_INACTIVE, dropMenu: physicalActivityDropMenu)
+            dropMenuSetSelectedItem(riskFactor: RiskFactor.ACTIVE.rawValue, selectItem: TRANSLATION_ACTIVE, dropMenu: physicalActivityDropMenu)
+            dropMenuSetSelectedItem(riskFactor: RiskFactor.INACTIVE.rawValue, selectItem: TRANSLATION_INACTIVE, dropMenu: physicalActivityDropMenu)
             
-            dropMenuSetSelectedItem(riskFactor: DRINKER, selectItem: TRANSLATION_DRINKER, dropMenu: alcoholDropMenu)
-            dropMenuSetSelectedItem(riskFactor: ABSTAIN, selectItem: TRANSLATION_ABSTAIN, dropMenu: alcoholDropMenu)
-            dropMenuSetSelectedItem(riskFactor: FORMER_ALCOHOLIC, selectItem: TRANSLATION_FORMER_ALCOHOLIC, dropMenu: alcoholDropMenu)
+            dropMenuSetSelectedItem(riskFactor: RiskFactor.DRINKER.rawValue, selectItem: TRANSLATION_DRINKER, dropMenu: alcoholDropMenu)
+            dropMenuSetSelectedItem(riskFactor: RiskFactor.ABSTAIN.rawValue, selectItem: TRANSLATION_ABSTAIN, dropMenu: alcoholDropMenu)
+            dropMenuSetSelectedItem(riskFactor: RiskFactor.FORMER_ALCOHOLIC.rawValue, selectItem: TRANSLATION_FORMER_ALCOHOLIC, dropMenu: alcoholDropMenu)
             
-            dropMenuSetSelectedItem(riskFactor: SMOKER, selectItem: TRANSLATION_SMOKER, dropMenu: smokeDropMenu)
-            dropMenuSetSelectedItem(riskFactor: FORMER_SMOKER, selectItem: TRANSLATION_FORMER_SMOKER, dropMenu: smokeDropMenu)
+            dropMenuSetSelectedItem(riskFactor: RiskFactor.SMOKER.rawValue, selectItem: TRANSLATION_SMOKER, dropMenu: smokeDropMenu)
+            dropMenuSetSelectedItem(riskFactor: RiskFactor.FORMER_SMOKER.rawValue, selectItem: TRANSLATION_FORMER_SMOKER, dropMenu: smokeDropMenu)
             
-            dropMenuSetSelectedItem(riskFactor: HIGH_SCHOOL_DIPLOMA, selectItem: TRANSLATION_HIGH_SCHOOL_DIPLOMA, dropMenu: schoolDropMenu)
-            dropMenuSetSelectedItem(riskFactor: NO_HIGH_SCHOOL_DIPLOMA, selectItem: TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA, dropMenu: schoolDropMenu)
+            dropMenuSetSelectedItem(riskFactor: RiskFactor.HIGH_SCHOOL_DIPLOMA.rawValue, selectItem: TRANSLATION_HIGH_SCHOOL_DIPLOMA, dropMenu: schoolDropMenu)
+            dropMenuSetSelectedItem(riskFactor: RiskFactor.NO_HIGH_SCHOOL_DIPLOMA.rawValue, selectItem: TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA, dropMenu: schoolDropMenu)
             
             
-            dropMenuSetSelectedItem(riskFactor: CRY_EASILY, selectItem: TRANSLATION_OFTEN_OR_ALWAYS, dropMenu: cryDropMenu)
-            dropMenuSetSelectedItem(riskFactor: CRITICAL_OF_OTHERS, selectItem: TRANSLATION_OFTEN_OR_ALWAYS, dropMenu: angryDropMenu)
-            dropMenuSetSelectedItem(riskFactor: FEARFUL, selectItem: TRANSLATION_OFTEN_OR_ALWAYS, dropMenu: anxietyDropMenu)
+            dropMenuSetSelectedItem(riskFactor: RiskFactor.CRY_EASILY.rawValue, selectItem: TRANSLATION_OFTEN_OR_ALWAYS, dropMenu: cryDropMenu)
+            dropMenuSetSelectedItem(riskFactor: RiskFactor.CRITICAL_OF_OTHERS.rawValue, selectItem: TRANSLATION_OFTEN_OR_ALWAYS, dropMenu: angryDropMenu)
+            dropMenuSetSelectedItem(riskFactor: RiskFactor.FEARFUL.rawValue, selectItem: TRANSLATION_OFTEN_OR_ALWAYS, dropMenu: anxietyDropMenu)
 
         }
     }
     
     func setDropMenuAttributes(dropMenu: DKDropMenu, items: [String], delegate: DKDropMenuDelegate) {
         dropMenu.selectedColor = .gray
-        dropMenu.textColor = .black
+        //dropMenu.textColor =
         dropMenu.itemHeight = 30
         dropMenu.add(names: items)
         dropMenu.delegate = delegate
@@ -215,29 +185,30 @@ class BaseProfilePage2ViewController {
         
         var riskFactors = UserManager.instance.person.hasRiskFactor!
         
-        removeRiskFactor(name: DRINKER, riskFactors: &riskFactors)
-        removeRiskFactor(name: ABSTAIN, riskFactors: &riskFactors)
-        removeRiskFactor(name: FORMER_ALCOHOLIC, riskFactors: &riskFactors)
-        removeRiskFactor(name: DRINK_IN_MODERATION, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.DRINKER.rawValue, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.ABSTAIN.rawValue, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.FORMER_ALCOHOLIC.rawValue, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.DRINK_IN_MODERATION.rawValue, riskFactors: &riskFactors)
         
-        removeRiskFactor(name: ACTIVE, riskFactors: &riskFactors)
-        removeRiskFactor(name: INACTIVE, riskFactors: &riskFactors)
-        removeRiskFactor(name: VERY_ACTIVE, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.ACTIVE.rawValue, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.INACTIVE.rawValue, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.VERY_ACTIVE.rawValue, riskFactors: &riskFactors)
 
-        removeRiskFactor(name: SMOKER, riskFactors: &riskFactors)
-        removeRiskFactor(name: FORMER_SMOKER, riskFactors: &riskFactors)
-        removeRiskFactor(name: NEVER_SMOKED, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.SMOKER.rawValue, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.FORMER_SMOKER.rawValue, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.NEVER_SMOKED.rawValue, riskFactors: &riskFactors)
         
-        removeRiskFactor(name: HIGH_SCHOOL_DIPLOMA, riskFactors: &riskFactors)
-        removeRiskFactor(name: NO_HIGH_SCHOOL_DIPLOMA, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.HIGH_SCHOOL_DIPLOMA.rawValue, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.NO_HIGH_SCHOOL_DIPLOMA.rawValue, riskFactors: &riskFactors)
         
-        removeRiskFactor(name: CRY_EASILY, riskFactors: &riskFactors)
-        removeRiskFactor(name: CRITICAL_OF_OTHERS, riskFactors: &riskFactors)
-        removeRiskFactor(name: FEARFUL, riskFactors: &riskFactors)
         
-        removeRiskFactor(name: NOT_CRYING_EASILY, riskFactors: &riskFactors)
-        removeRiskFactor(name: NOT_CRITICAL_OF_OTHERS, riskFactors: &riskFactors)
-        removeRiskFactor(name: NOT_FEARFUL, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.CRY_EASILY.rawValue, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.CRITICAL_OF_OTHERS.rawValue, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.FEARFUL.rawValue, riskFactors: &riskFactors)
+        
+        removeRiskFactor(name: RiskFactor.NOT_CRYING_EASILY.rawValue, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.NOT_CRITICAL_OF_OTHERS.rawValue, riskFactors: &riskFactors)
+        removeRiskFactor(name: RiskFactor.NOT_FEARFUL.rawValue, riskFactors: &riskFactors)
         
         UserManager.instance.person.hasRiskFactor = riskFactors
         
@@ -264,16 +235,16 @@ class BaseProfilePage2ViewController {
         switch alcoholDropMenu.selectedItem! {
             
         case TRANSLATION_DRINKER:
-            addRiskFactor(uri: DRINKER, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.DRINKER.rawValue, riskFactors: &riskFactors!)
             
         case TRANSLATION_ABSTAIN:
-            addRiskFactor(uri: ABSTAIN, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.ABSTAIN.rawValue, riskFactors: &riskFactors!)
             
         case TRANSLATION_FORMER_ALCOHOLIC:
-            addRiskFactor(uri: FORMER_ALCOHOLIC, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.FORMER_ALCOHOLIC.rawValue, riskFactors: &riskFactors!)
         
         case TRANSLATION_DRINK_IN_MODERATION:
-            addRiskFactor(uri: DRINK_IN_MODERATION, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.DRINK_IN_MODERATION.rawValue, riskFactors: &riskFactors!)
         default:
             break
         }
@@ -281,13 +252,13 @@ class BaseProfilePage2ViewController {
         switch physicalActivityDropMenu.selectedItem! {
             
         case TRANSLATION_ACTIVE:
-            addRiskFactor(uri: ACTIVE, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.ACTIVE.rawValue, riskFactors: &riskFactors!)
             
         case TRANSLATION_INACTIVE:
-            addRiskFactor(uri: INACTIVE, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.INACTIVE.rawValue, riskFactors: &riskFactors!)
             
         case TRANSLATION_VERY_ACTIVE:
-            addRiskFactor(uri: VERY_ACTIVE, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.VERY_ACTIVE.rawValue, riskFactors: &riskFactors!)
             
         default:
             break
@@ -296,13 +267,13 @@ class BaseProfilePage2ViewController {
         switch smokeDropMenu.selectedItem! {
             
         case TRANSLATION_SMOKER:
-            addRiskFactor(uri: SMOKER, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.SMOKER.rawValue, riskFactors: &riskFactors!)
             
         case TRANSLATION_FORMER_SMOKER:
-            addRiskFactor(uri: FORMER_SMOKER, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.FORMER_SMOKER.rawValue, riskFactors: &riskFactors!)
 
         case TRANSLATION_NEVER_SMOKED:
-            addRiskFactor(uri: NEVER_SMOKED, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.NEVER_SMOKED.rawValue, riskFactors: &riskFactors!)
             
         default:
             break;
@@ -310,9 +281,9 @@ class BaseProfilePage2ViewController {
         
         switch schoolDropMenu.selectedItem! {
         case TRANSLATION_HIGH_SCHOOL_DIPLOMA:
-            addRiskFactor(uri: HIGH_SCHOOL_DIPLOMA, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.HIGH_SCHOOL_DIPLOMA.rawValue, riskFactors: &riskFactors!)
         case TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA:
-            addRiskFactor(uri: NO_HIGH_SCHOOL_DIPLOMA, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.NO_HIGH_SCHOOL_DIPLOMA.rawValue, riskFactors: &riskFactors!)
         default:
             break;
         }
@@ -320,9 +291,9 @@ class BaseProfilePage2ViewController {
         switch cryDropMenu.selectedItem! {
             
         case TRANSLATION_OFTEN_OR_ALWAYS:
-            addRiskFactor(uri: CRY_EASILY, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.CRY_EASILY.rawValue, riskFactors: &riskFactors!)
         case TRANSLATION_SOMETIMES_OR_NEVER:
-            addRiskFactor(uri: NOT_CRYING_EASILY, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.NOT_CRYING_EASILY.rawValue, riskFactors: &riskFactors!)
         default:
             break;
         }
@@ -331,9 +302,9 @@ class BaseProfilePage2ViewController {
         switch angryDropMenu.selectedItem! {
             
         case TRANSLATION_OFTEN_OR_ALWAYS:
-            addRiskFactor(uri: CRITICAL_OF_OTHERS, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.CRITICAL_OF_OTHERS.rawValue, riskFactors: &riskFactors!)
         case TRANSLATION_SOMETIMES_OR_NEVER:
-            addRiskFactor(uri: NOT_CRITICAL_OF_OTHERS, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.NOT_CRITICAL_OF_OTHERS.rawValue, riskFactors: &riskFactors!)
         default:
             break;
         }
@@ -341,9 +312,9 @@ class BaseProfilePage2ViewController {
         switch anxietyDropMenu.selectedItem! {
             
         case TRANSLATION_OFTEN_OR_ALWAYS:
-            addRiskFactor(uri: FEARFUL, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.FEARFUL.rawValue, riskFactors: &riskFactors!)
         case TRANSLATION_SOMETIMES_OR_NEVER:
-            addRiskFactor(uri: NOT_FEARFUL, riskFactors: &riskFactors!)
+            addRiskFactor(uri: RiskFactor.NOT_FEARFUL.rawValue, riskFactors: &riskFactors!)
         default:
             break;
         }

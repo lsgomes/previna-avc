@@ -17,8 +17,10 @@ class FirstViewController: UIViewController {
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    var horizontalScrollView: ASHorizontalScrollView! // TODO
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
+    var horizontalScrollView: ASHorizontalScrollView! // TODO
+
     var itemSize = 170
     var size = 200
     var tipSize = 250
@@ -42,6 +44,8 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 55.0)
         
         horizontalScrollView = setHorizontalViewProperties()
         

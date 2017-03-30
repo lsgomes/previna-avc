@@ -21,24 +21,20 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var heartFailureSegmentedControl: UISegmentedControl!
     @IBOutlet var ischemicHeartDiseaseSegmentedControl: UISegmentedControl!
     
-    let MALE = "Male";
-    let HYPERTENSION = "Hypertension";
-    let DIABETES = "Diabetes";
-    let RENAL_DISEASE = "Renal_disease"
-    let PERIPHERAL_DISEASE = "Peripheral_arterial_disease"
-    let HEART_FAILURE = "Congestive_heart_failure"
-    let ISCHEMIC_HEART_DISEASE = "Ischemic_heart_disease"
-
+    @IBOutlet var navigationBar: UINavigationBar!
+    
     let SEGMENT_MALE = 0;
     let SEGMENT_FEMALE = 1;
     
     let SEGMENT_YES = 0;
     let SEGMENT_NO = 1;
-    
+  
     override func viewDidLoad() {
 
         print("ProfileSetupViewController.viewDidLoad()")
-        
+
+        navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 64.0)
+
         nameTextField.delegate = self
         ageTextField.delegate = self
                 
@@ -52,6 +48,11 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
                 sexSegmentedControl.selectedSegmentIndex = SEGMENT_MALE
 
         }
+        
+        if (UserManager.instance.hasRiskFactor(uri: RiskFactor.HYPERTENSION.rawValue)) {
+            hypertensionSegmentedControl.selectedSegmentIndex = 0
+        }
+    
     }
     
     func validateForm() {
@@ -69,19 +70,19 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
             UserManager.instance.person.uri = nameTextField.text
         }
         
-        validateSegmentControl(segmentControl: sexSegmentedControl, uri: MALE, expectedSegmentResult: SEGMENT_MALE, riskFactors: &riskFactors)
+        validateSegmentControl(segmentControl: sexSegmentedControl, uri: RiskFactor.MALE.rawValue, expectedSegmentResult: SEGMENT_MALE, riskFactors: &riskFactors)
 
-        validateSegmentControl(segmentControl: hypertensionSegmentedControl, uri: HYPERTENSION, riskFactors: &riskFactors)
+        validateSegmentControl(segmentControl: hypertensionSegmentedControl, uri: RiskFactor.HYPERTENSION.rawValue, riskFactors: &riskFactors)
 
-        validateSegmentControl(segmentControl: diabetesSegmentedControl, uri: DIABETES, riskFactors: &riskFactors)
+        validateSegmentControl(segmentControl: diabetesSegmentedControl, uri: RiskFactor.DIABETES.rawValue, riskFactors: &riskFactors)
         
-        validateSegmentControl(segmentControl: renalDiseaseSegmentedControl, uri: RENAL_DISEASE, riskFactors: &riskFactors)
+        validateSegmentControl(segmentControl: renalDiseaseSegmentedControl, uri: RiskFactor.RENAL_DISEASE.rawValue, riskFactors: &riskFactors)
     
-        validateSegmentControl(segmentControl: peripheralDiseaseSegmentedControl, uri: PERIPHERAL_DISEASE, riskFactors: &riskFactors)
+        validateSegmentControl(segmentControl: peripheralDiseaseSegmentedControl, uri: RiskFactor.PERIPHERAL_DISEASE.rawValue, riskFactors: &riskFactors)
         
-        validateSegmentControl(segmentControl: heartFailureSegmentedControl, uri: HEART_FAILURE, riskFactors: &riskFactors)
+        validateSegmentControl(segmentControl: heartFailureSegmentedControl, uri: RiskFactor.HEART_FAILURE.rawValue, riskFactors: &riskFactors)
         
-        validateSegmentControl(segmentControl: ischemicHeartDiseaseSegmentedControl, uri: ISCHEMIC_HEART_DISEASE, riskFactors: &riskFactors)
+        validateSegmentControl(segmentControl: ischemicHeartDiseaseSegmentedControl, uri: RiskFactor.ISCHEMIC_HEART_DISEASE.rawValue, riskFactors: &riskFactors)
         
         UserManager.instance.person.hasRiskFactor = riskFactors
     }
@@ -89,18 +90,14 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
     func validateSegmentControl(segmentControl: UISegmentedControl, uri: String, riskFactors: inout [HasRiskFactor]) {
         
         if (segmentControl.selectedSegmentIndex == SEGMENT_YES) {
-            let risk = HasRiskFactor()
-            risk.uri = uri
-            riskFactors.append(risk)
+            UserManager.instance.addRiskFactor(uri: uri)
         }
     }
     
     func validateSegmentControl(segmentControl: UISegmentedControl, uri: String, expectedSegmentResult: Int, riskFactors: inout [HasRiskFactor]) {
         
         if (segmentControl.selectedSegmentIndex == expectedSegmentResult) {
-            let risk = HasRiskFactor()
-            risk.uri = uri
-            riskFactors.append(risk)
+            UserManager.instance.addRiskFactor(uri: uri)
         }
     }
     

@@ -30,7 +30,7 @@ class TipView: UIView {
     
     
     public func setProperties(imageName: String, text: String) {
-        let image = UIImage(named: imageName)
+//        let image = UIImage(named: imageName)
 //        imageView = UIImageView(image: image)
 //        label = UILabel()
 //        label.text = text

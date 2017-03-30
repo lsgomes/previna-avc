@@ -15,8 +15,15 @@ class HealthKitManager {
     
     let healthKitStore: HKHealthStore = HKHealthStore()
     
+    
     let SYSTOLIC_TYPE = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodPressureSystolic)!
     let DIASTOLIC_TYPE = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodPressureDiastolic)!
+    
+    var GlobalMainQueue: DispatchQueue {
+        return DispatchQueue.main
+    }
+    
+    let queryGroup = DispatchGroup()
     
     func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Void) {
         
@@ -45,12 +52,10 @@ class HealthKitManager {
         return readDataTypes
     }
     
-    func hasHighBloodPressure() -> Bool {
+    func getHighBloodPressure(completion: @escaping (Bool) -> ()) {
         
         let type = HKQuantityType.correlationType(forIdentifier: HKCorrelationTypeIdentifier.bloodPressure)!
 
-        
-        
         let startDate = Date.distantPast
         let endDate   = Date()
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
@@ -59,44 +64,12 @@ class HealthKitManager {
         
         let sampleQuery = HKSampleQuery(sampleType: type, predicate: predicate, limit: 0, sortDescriptors: [sortDescriptor], resultsHandler: determineHighBloodPressure)
 
-        
-        let sampleQuery2 = HKSampleQuery(sampleType: type, predicate: predicate, limit: 0, sortDescriptors: [sortDescriptor])
-        { (sampleQuery, results, error ) -> Void in
-            
-            if let dataList = results as? [HKCorrelation] {
-                
-                for data in dataList
-                {
-                    if let data1 = data.objects(for: self.self.SYSTOLIC_TYPE).first as? HKQuantitySample,
-                       let data2 = data.objects(for: self.self.DIASTOLIC_TYPE).first as? HKQuantitySample {
-                        
-                        let value1 = data1.quantity.doubleValue(for: HKUnit.millimeterOfMercury())
-                        let value2 = data2.quantity.doubleValue(for: HKUnit.millimeterOfMercury())
-                        
-                        print("\(value1) / \(value2)")
-                        
-                        if let age = UserManager.instance.person.hasAge {
-                            
-                            if (age > 60) {
-                                
-                                if (value1 == 150 && value2 == 90) {
-                                }
-                                
-                            }
-                            else {
-                                
-                                if (value1 == 140 && value2 == 90) {
-                                }
-                                
-                            }
-                        }
-                        
-                    }
-                }
-            }
-        }
-        
+        queryGroup.enter()
         self.healthKitStore.execute(sampleQuery)
+        
+        queryGroup.notify(queue: GlobalMainQueue) {
+            //completion(GlobalMainQueue.)
+        }
         
     }
     
@@ -112,27 +85,25 @@ class HealthKitManager {
 
                 print("\(systolic) / \(diastolic)")
                 
-                if let age = UserManager.instance.person.hasAge {
+                if (!getDateOfBirth().isEmpty && Int(getDateOfBirth())! > 59) {
                     
-                    if (age > 59) {
-                        if (systolic > 149 && diastolic > 89) {
-                            // has hypertension risk Factor
-                        }
-
+                    if (systolic > 149 && diastolic > 89)
+                    {
+                        UserManager.instance.addRiskFactor(uri: RiskFactor.HYPERTENSION.rawValue)
                     }
-                
-                
-
-                if (systolic > 139 && diastolic > 89) {
+                    
+                } else if (systolic > 139 && diastolic > 89) {
                     // has hypertension risk Factor
+                    UserManager.instance.addRiskFactor(uri: RiskFactor.HYPERTENSION.rawValue)
+
                 }
                 
-                
-                
+                queryGroup.leave()
             }
         }
         
     }
+    
     
     func getDateOfBirth() -> String {
         
@@ -205,7 +176,7 @@ class HealthKitManager {
     //        HKQuantityTypeIdentifier.stepCount
     //        HKQuantityTypeIdentifier.heartRate
     //        HKQuantityTypeIdentifier.flightsClimbed
-
+    
     private init() {} //This prevents others from using the default '()' initializer for this class.
 
 }
