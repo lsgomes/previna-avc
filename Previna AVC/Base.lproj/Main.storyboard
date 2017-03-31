@@ -99,7 +99,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Risco" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Risco" image="risco" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="activityIndicator" destination="z0V-4U-knD" id="qZa-Ab-TXX"/>
                         <outlet property="navigationBar" destination="MPw-Dv-IHq" id="KqY-2I-1QM"/>
@@ -231,11 +231,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5B8-CT-VOH">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qVb-nd-sOk">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Prontuário" id="5KQ-iw-f3h"/>
+                                    <navigationItem title="Prontuário" id="Gy2-jQ-u8j"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -246,14 +246,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Perfil" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="perfil" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="alcoholDropMenu" destination="Opf-xq-dvr" id="oWd-Jq-TIk"/>
                         <outlet property="angryDropMenu" destination="TrG-IQ-kOo" id="HyK-xp-hkR"/>
                         <outlet property="anxietyDropMenu" destination="lkd-Uy-Pa6" id="q8B-lU-maz"/>
                         <outlet property="cryDropMenu" destination="XEE-ny-4eD" id="QHG-DB-s1D"/>
-                        <outlet property="navBar" destination="5B8-CT-VOH" id="dWn-L0-Gi6"/>
-                        <outlet property="navigationBar" destination="5B8-CT-VOH" id="yOC-KW-kvg"/>
+                        <outlet property="navigationBar" destination="qVb-nd-sOk" id="5gb-Zs-Dxp"/>
                         <outlet property="physicalActivityDropMenu" destination="fmq-tv-xDj" id="HpP-jc-jGm"/>
                         <outlet property="saveButton" destination="oV2-wq-MXE" id="9GF-OI-yVm"/>
                         <outlet property="schoolDropMenu" destination="fH4-wT-qE8" id="ZHV-7U-dcp"/>
@@ -840,12 +839,12 @@
     <resources>
         <image name="app icon" width="128" height="128"/>
         <image name="document" width="275" height="158"/>
-        <image name="first" width="30" height="30"/>
         <image name="health app icon" width="110" height="110"/>
         <image name="medal32" width="24" height="24"/>
         <image name="medal_grey" width="32" height="32"/>
         <image name="note2" width="320" height="292"/>
-        <image name="second" width="30" height="30"/>
+        <image name="perfil" width="25" height="25"/>
+        <image name="risco" width="24" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qwx-re-vLC"/>

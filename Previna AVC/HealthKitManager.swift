@@ -33,7 +33,7 @@ class HealthKitManager {
         healthKitStore.requestAuthorization(toShare: nil, read: readDataTypes, completion: completion)
     }
     
-    private func dataTypesToRead() -> Set<HKObjectType> {
+    fileprivate func dataTypesToRead() -> Set<HKObjectType> {
         
         let biologicalSexType = HKQuantityType.characteristicType(forIdentifier: .biologicalSex)!
         let dateOfBirthType = HKQuantityType.characteristicType(forIdentifier: .dateOfBirth)!
@@ -41,50 +41,182 @@ class HealthKitManager {
         let bloodPressureSystolic = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodPressureSystolic)!
         let bloodPressureDiastolic = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodPressureDiastolic)!
 
-        
-        let readDataTypes: Set<HKObjectType> = [biologicalSexType, dateOfBirthType, bloodPressureSystolic, bloodPressureDiastolic]
+        let bloodGlocuse = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodGlucose)!
+
+        let readDataTypes: Set<HKObjectType> = [biologicalSexType, dateOfBirthType, bloodPressureSystolic, bloodPressureDiastolic, bloodGlocuse]
         
         return readDataTypes
     }
     
-    func updateHighBloodPressureComponent(segmentControl: UISegmentedControl) {
+    func getDiabetes(completion: @escaping (Bool) -> () ) {
         
+        let type = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodGlucose)!
+        
+        let unit = HKUnit(from: "mg/dL")
+        
+        self.readMostRecentSample(sampleType: type) {
+            sample, error in
+            
+            if error != nil { completion(false) }
+            
+            guard let sample = sample else { return completion(false) }
+            
+            let result = sample as! HKQuantitySample
+            
+            let glucose = result.quantity.doubleValue(for: unit)
+            
+            if (glucose > 110) {
+                completion(true)
+            }
+        }
+    }
+    
+    func getHighBloodPressure(completion: @escaping (Bool) -> () ) {
+  
         let type = HKQuantityType.correlationType(forIdentifier: HKCorrelationTypeIdentifier.bloodPressure)!
+        
+        let unit = HKUnit.millimeterOfMercury()
+        
+        self.readMostRecentSamples(sampleType: type) {
+            sample, error in
+            
+            if error != nil { completion(false) }
+            
+            guard let sample = sample as! [HKQuantitySample]! else { return completion(false) }
+            
+            let systolic = sample.first?.quantity.doubleValue(for: unit)
+            let diastolic = sample.last?.quantity.doubleValue(for: unit)
+            
+            if (!self.getDateOfBirth().isEmpty && Int(self.getDateOfBirth())! > 59) {
+                
+                if (Int(systolic!) > 149 && Int(diastolic!) > 89)
+                {
+                    completion(true)
+                }
+                
+            } else if (Int(systolic!) > 139 && Int(diastolic!) > 89) {
+                
+                completion(true)
 
-        let startDate = Date.distantPast
-        let endDate   = Date()
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
+            } else {
+                
+                completion(false)
+            }
+        }
+    }
+    
+    func readMostRecentSample(sampleType:HKSampleType, completion: @escaping (HKSample?, Error?) -> () )    {
         
-        let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: true)
+        // 1. Build the Predicate
+        let past = Date.distantPast
+        let now   = Date()
+        let mostRecentPredicate = HKQuery.predicateForSamples(withStart: past, end:now, options: [])
         
-        let sampleQuery = HKSampleQuery(sampleType: type, predicate : predicate, limit: 0, sortDescriptors: [sortDescriptor]) {
+        // 2. Build the sort descriptor to return the samples in descending order
+        let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: false)
+        // 3. we want to limit the number of samples returned by the query to just 1 (the most recent)
+        let limit = 1
+        
+        // 4. Build samples query
+        let sampleQuery = HKSampleQuery(sampleType: sampleType, predicate: mostRecentPredicate, limit: limit, sortDescriptors: [sortDescriptor])
+        { (sampleQuery, results, error ) -> Void in
+            
+            if let error = error {
+                completion(nil, error)
+                return;
+            }
+            
+            // Get the first sample
+            let mostRecentSample = results!.first as? HKQuantitySample
+            
+            // Execute the completion closure
+            completion(mostRecentSample, nil)
+        }
+        // 5. Execute the Query
+        self.healthKitStore.execute(sampleQuery)
+    }
+    
+    func readMostRecentSamples(sampleType:HKSampleType, completion: @escaping ([HKSample]?, Error?) -> ()) {
+        
+        // 1. Build the Predicate
+        let past = Date.distantPast
+        let now   = Date()
+        let mostRecentPredicate = HKQuery.predicateForSamples(withStart: past, end:now, options: [])
+        
+        // 2. Build the sort descriptor to return the samples in descending order
+        let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: false)
+        // 3. we want to limit the number of samples returned by the query to just 1 (the most recent)
+        let limit = 1
+
+        let sampleQuery = HKSampleQuery(sampleType: sampleType, predicate : mostRecentPredicate, limit: limit, sortDescriptors: [sortDescriptor]) {
             query, results, error in
+            
+            if let error = error {
+                completion(nil, error)
+                return;
+            }
             
             guard let results = results as? [HKCorrelation] else { return }
             
-            if let systolicSample = results.first?.objects(for: self.SYSTOLIC_TYPE).first as? HKQuantitySample,
-               let diastolicSample = results.first?.objects(for: self.DIASTOLIC_TYPE).first as? HKQuantitySample {
-                
-                let systolic = systolicSample.quantity.doubleValue(for: HKUnit.millimeterOfMercury())
-                let diastolic = diastolicSample.quantity.doubleValue(for: HKUnit.millimeterOfMercury())
-                
-                if (!self.getDateOfBirth().isEmpty && Int(self.getDateOfBirth())! > 59) {
-                    
-                    if (systolic > 149 && diastolic > 89)
-                    {
-                        completion(true)
-                    }
-                    
-                } else if (systolic > 139 && diastolic > 89) {
-                    
-                    completion(true)
-                }
-            }
+            // Get the first sample
+            guard
+                let mostRecentSystolicSample = results.first?.objects(for: self.SYSTOLIC_TYPE).first as? HKQuantitySample,
+                let mostRecentDiastolicSample = results.first?.objects(for: self.DIASTOLIC_TYPE).first as? HKQuantitySample
+                else { return }
+
+            let mostRecentSamples = [mostRecentSystolicSample, mostRecentDiastolicSample]
             
+            // Execute the completion closure
+            completion(mostRecentSamples, nil)
         }
-        
+
         self.healthKitStore.execute(sampleQuery)
     }
+    
+    
+//    func updateHighBloodPressureComponent(segmentControl: UISegmentedControl) {
+//        
+//        let type = HKQuantityType.correlationType(forIdentifier: HKCorrelationTypeIdentifier.bloodPressure)!
+//
+//        let startDate = Date.distantPast
+//        let endDate   = Date()
+//        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
+//        
+//        let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: false)
+//        
+//        let sampleQuery = HKSampleQuery(sampleType: type, predicate : predicate, limit: 0, sortDescriptors: [sortDescriptor]) {
+//            query, results, error in
+//            
+//            guard let results = results as? [HKCorrelation] else { return }
+//            
+//            if let systolicSample = results.first?.objects(for: self.SYSTOLIC_TYPE).first as? HKQuantitySample,
+//               let diastolicSample = results.first?.objects(for: self.DIASTOLIC_TYPE).first as? HKQuantitySample {
+//                
+//                let systolic = systolicSample.quantity.doubleValue(for: HKUnit.millimeterOfMercury())
+//                let diastolic = diastolicSample.quantity.doubleValue(for: HKUnit.millimeterOfMercury())
+//                
+//                if (!self.getDateOfBirth().isEmpty && Int(self.getDateOfBirth())! > 59) {
+//                    
+//                    if (systolic > 149 && diastolic > 89)
+//                    {
+//                        segmentControl.selectedSegmentIndex = 0
+//                    }
+//                    
+//                } else if (systolic > 139 && diastolic > 89) {
+//                    
+//                    segmentControl.selectedSegmentIndex = 0
+//
+//                } else {
+//                    
+//                    segmentControl.selectedSegmentIndex = 1
+//
+//                }
+//            }
+//            
+//        }
+//        
+//        self.healthKitStore.execute(sampleQuery)
+//    }
     
     func getDateOfBirth() -> String {
         
@@ -158,6 +290,6 @@ class HealthKitManager {
     //        HKQuantityTypeIdentifier.heartRate
     //        HKQuantityTypeIdentifier.flightsClimbed
     
-    private init() {} //This prevents others from using the default '()' initializer for this class.
+    fileprivate init() {} //This prevents others from using the default '()' initializer for this class.
 
 }

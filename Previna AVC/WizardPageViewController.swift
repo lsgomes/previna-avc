@@ -17,15 +17,17 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
     static let PAGE_4 = "WizardPage4"
 
     
-    private(set) lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newViewController(title: PAGE_1),
-                self.newViewController(title: PAGE_2),
-                self.newViewController(title: PAGE_3),
-                self.newViewController(title: PAGE_4)
+//    private(set) lazy var orderedViewControllers: [UIViewController] = {
+//        return [self.newViewController(title: PAGE_1),
+//                self.newViewController(title: PAGE_2),
+//                self.newViewController(title: PAGE_3),
+//                self.newViewController(title: PAGE_4)
+//
+//    ]
+//    } ()
 
-    ]
-    } ()
-
+    
+    var orderedViewControllers: [UIViewController] = []
     
     private func newViewController(title: String) -> UIViewController {
         
@@ -52,6 +54,15 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        orderedViewControllers = {
+                return [self.newViewController(title: WizardPageViewController.PAGE_1),
+                        self.newViewController(title: WizardPageViewController.PAGE_2),
+                        self.newViewController(title: WizardPageViewController.PAGE_3),
+                        self.newViewController(title: WizardPageViewController.PAGE_4)
+        
+            ]
+            } ()
 
         dataSource = self
         

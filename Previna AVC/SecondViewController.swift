@@ -24,12 +24,12 @@ class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDel
     
     @IBOutlet var saveButton: UIButton!
     
+    @IBOutlet var navigationBar: UINavigationBar!
+    
     var timer = Timer()
     let delay = 2.0
     
     var baseProfile: BaseProfilePage2ViewController!
-    
-    @IBOutlet var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()

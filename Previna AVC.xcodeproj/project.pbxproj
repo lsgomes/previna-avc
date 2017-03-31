@@ -86,6 +86,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0D98B381E8DD81B00BE8BB9 /* Wizard */ = {
+			isa = PBXGroup;
+			children = (
+				A03329E41E846724005C3D87 /* StartViewController.swift */,
+				A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */,
+				A0FF49C71E4BEAD60041EEBE /* WizardPageViewController.swift */,
+				A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */,
+				A03B1C1B1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift */,
+				A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */,
+			);
+			name = Wizard;
+			sourceTree = "<group>";
+		};
+		A0D98B391E8DD83900BE8BB9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A09599E21E8CB2F200974DC7 /* RiskFactor.swift */,
+				A0DB6CB01E88859F002F26B6 /* TipView.swift */,
+				A0D7F62B1E8C8B9000D6FC48 /* DKDropMenu.swift */,
+				A0F6EBAE1E8377BF0006451F /* HasDevice.swift */,
+				A0F6EBAF1E8377BF0006451F /* HasRiskFactor.swift */,
+				A0F6EBB01E8377BF0006451F /* HasSensor.swift */,
+				A0F6EBB11E8377BF0006451F /* Person.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A0D98B3A1E8DD85100BE8BB9 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */,
+				A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */,
+				A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */,
+				A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */,
+				A0919DD41E89F09F00B05B8B /* BaseProfileSetupPage2ViewController.swift */,
+			);
+			name = Tab;
+			sourceTree = "<group>";
+		};
+		A0D98B3B1E8DD89300BE8BB9 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A0FA77951E7F34DD00F7B5FA /* RestManager.swift */,
+				A03B1C1D1E80D94C0012E36D /* UserManager.swift */,
+				A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
 		A0FF49A31E4BE4B70041EEBE = {
 			isa = PBXGroup;
 			children = (
@@ -107,33 +156,16 @@
 		A0FF49AE1E4BE4B80041EEBE /* Previna AVC */ = {
 			isa = PBXGroup;
 			children = (
-				A0D7F62B1E8C8B9000D6FC48 /* DKDropMenu.swift */,
-				A0F6EBAE1E8377BF0006451F /* HasDevice.swift */,
-				A0F6EBAF1E8377BF0006451F /* HasRiskFactor.swift */,
-				A0F6EBB01E8377BF0006451F /* HasSensor.swift */,
-				A0F6EBB11E8377BF0006451F /* Person.swift */,
+				A0D98B3B1E8DD89300BE8BB9 /* Manager */,
+				A0D98B3A1E8DD85100BE8BB9 /* Tab */,
+				A0D98B381E8DD81B00BE8BB9 /* Wizard */,
 				A0FF49C31E4BE5470041EEBE /* Previna AVC.entitlements */,
 				A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */,
 				A0FF49B51E4BE4B80041EEBE /* Main.storyboard */,
 				A0FF49B81E4BE4B80041EEBE /* Assets.xcassets */,
 				A0FF49BA1E4BE4B80041EEBE /* LaunchScreen.storyboard */,
 				A0FF49BD1E4BE4B80041EEBE /* Info.plist */,
-				A0FF49C71E4BEAD60041EEBE /* WizardPageViewController.swift */,
-				A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */,
-				A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */,
-				A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */,
-				A03329E41E846724005C3D87 /* StartViewController.swift */,
-				A0DB6CB01E88859F002F26B6 /* TipView.swift */,
-				A0919DD41E89F09F00B05B8B /* BaseProfileSetupPage2ViewController.swift */,
-				A03B1C1B1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift */,
-				A0FA77951E7F34DD00F7B5FA /* RestManager.swift */,
-				A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */,
-				A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */,
-				A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */,
-				A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */,
-				A03B1C1D1E80D94C0012E36D /* UserManager.swift */,
-				A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */,
-				A09599E21E8CB2F200974DC7 /* RiskFactor.swift */,
+				A0D98B391E8DD83900BE8BB9 /* Model */,
 			);
 			path = "Previna AVC";
 			sourceTree = "<group>";
@@ -194,6 +226,7 @@
 					A0FF49AB1E4BE4B70041EEBE = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = N5H55YKWYG;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {

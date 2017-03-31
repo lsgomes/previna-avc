@@ -33,8 +33,10 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
 
         print("ProfileSetupViewController.viewDidLoad()")
 
+        gatherInformationFromHealthKit()
+        
         navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 64.0)
-
+        
         nameTextField.delegate = self
         ageTextField.delegate = self
                 
@@ -49,10 +51,33 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
 
         }
         
-        if (UserManager.instance.hasRiskFactor(uri: RiskFactor.HYPERTENSION.rawValue)) {
-            hypertensionSegmentedControl.selectedSegmentIndex = 0
-        }
     
+    }
+    
+    func gatherInformationFromHealthKit() {
+        
+        HealthKitManager.instance.getDiabetes() { hasDiabetes in
+            
+            self.setSegmentControlHealthKit(riskFactor: hasDiabetes, segmentControl: self.diabetesSegmentedControl)
+        }
+        
+        HealthKitManager.instance.getHighBloodPressure() { hasHighBloodPressure in
+   
+            self.setSegmentControlHealthKit(riskFactor: hasHighBloodPressure, segmentControl: self.hypertensionSegmentedControl)
+
+        }
+
+    }
+    
+    func setSegmentControlHealthKit(riskFactor: Bool, segmentControl: UISegmentedControl ) {
+        
+        if (riskFactor) {
+            segmentControl.selectedSegmentIndex = SEGMENT_YES
+        }
+        else {
+            segmentControl.selectedSegmentIndex = SEGMENT_NO
+        }
+        
     }
     
     func validateForm() {
