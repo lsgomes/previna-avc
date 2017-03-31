@@ -61,6 +61,8 @@ class BaseProfilePage2ViewController {
   
     public func setupViewDidLoad(setSelectedItemForDropMenus: Bool) {
         
+        
+        
         setDropMenuAttributes(dropMenu: physicalActivityDropMenu, items: [TRANSLATION_VERY_ACTIVE, TRANSLATION_ACTIVE, TRANSLATION_INACTIVE], delegate: delegate)
 
         
@@ -119,6 +121,30 @@ class BaseProfilePage2ViewController {
         
         if riskFactors.contains(where: { $0.uri == riskFactor }) {
             dropMenu.selectedItem = selectItem
+        }
+    }
+    
+    func gatherInformationFromHealthKit() {
+        
+        HealthKitManager.instance.retrieveStepCount() { stepsDouble in
+            
+            let steps = Int(stepsDouble)
+            
+            if (steps < 5000) {
+                
+                self.physicalActivityDropMenu.selectedItem = self.TRANSLATION_INACTIVE
+            }
+            else if (steps >= 12500) {
+                
+                self.physicalActivityDropMenu.selectedItem = self.TRANSLATION_VERY_ACTIVE
+
+            }
+            else if (steps >= 5000) {
+                self.physicalActivityDropMenu.selectedItem = self.TRANSLATION_ACTIVE
+
+            }
+            
+            
         }
     }
     

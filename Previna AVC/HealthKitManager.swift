@@ -42,10 +42,59 @@ class HealthKitManager {
         let bloodPressureDiastolic = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodPressureDiastolic)!
 
         let bloodGlocuse = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodGlucose)!
+        
+        let steps = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
 
-        let readDataTypes: Set<HKObjectType> = [biologicalSexType, dateOfBirthType, bloodPressureSystolic, bloodPressureDiastolic, bloodGlocuse]
+
+        let readDataTypes: Set<HKObjectType> = [biologicalSexType, dateOfBirthType, bloodPressureSystolic, bloodPressureDiastolic, bloodGlocuse, steps]
         
         return readDataTypes
+    }
+    
+    func retrieveStepCount(completion: @escaping (_ stepRetrieved: Double) -> Void) {
+        
+        //   Define the Step Quantity Type
+        let stepsCount = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
+        
+        //   Get the start of the day
+        let date = NSDate()
+        let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+        let newDate = cal.startOfDay(for: date as Date)
+        
+        //  Set the Predicates & Interval
+        let predicate = HKQuery.predicateForSamples(withStart: newDate as Date, end: NSDate() as Date, options: .strictStartDate)
+        let interval: NSDateComponents = NSDateComponents()
+        interval.day = 1
+        
+        //  Perform the Query
+        let query = HKStatisticsCollectionQuery(quantityType: stepsCount!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: newDate as Date, intervalComponents:interval as DateComponents)
+        
+        query.initialResultsHandler = { query, results, error in
+            
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            if let myResults = results
+            {
+                myResults.enumerateStatistics(from: newDate as Date, to: Date() as Date) {
+                    statistics, stop in
+                    
+                    if let quantity = statistics.sumQuantity() {
+                        
+                        let steps = quantity.doubleValue(for: HKUnit.count())
+                        
+                        print("Steps = \(steps)")
+                        completion(steps)
+                    }
+                }
+            }
+            
+            
+        }
+        
+        self.healthKitStore.execute(query)
     }
     
     func getDiabetes(completion: @escaping (Bool) -> () ) {
@@ -62,7 +111,6 @@ class HealthKitManager {
             guard let sample = sample else { return completion(false) }
             
             let result = sample as! HKQuantitySample
-            
             let glucose = result.quantity.doubleValue(for: unit)
             
             if (glucose > 110) {

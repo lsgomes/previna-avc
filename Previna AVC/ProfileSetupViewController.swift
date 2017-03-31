@@ -66,7 +66,10 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
             self.setSegmentControlHealthKit(riskFactor: hasHighBloodPressure, segmentControl: self.hypertensionSegmentedControl)
 
         }
-
+        
+        HealthKitManager.instance.retrieveStepCount() { steps in
+            print(steps)
+        }
     }
     
     func setSegmentControlHealthKit(riskFactor: Bool, segmentControl: UISegmentedControl ) {
