@@ -46,9 +46,10 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
         switch (sex) {
             case "Feminino":
                 sexSegmentedControl.selectedSegmentIndex = SEGMENT_FEMALE
-            default:
+            case "Masculino":
                 sexSegmentedControl.selectedSegmentIndex = SEGMENT_MALE
-
+            default:
+            break
         }
         
     
@@ -56,23 +57,23 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
     
     func gatherInformationFromHealthKit() {
         
-        HealthKitManager.instance.getDiabetes() { hasDiabetes in
+        HealthKitManager.instance.getDiabetes() { hasDiabetes, error in
             
-            self.setSegmentControlHealthKit(riskFactor: hasDiabetes, segmentControl: self.diabetesSegmentedControl)
+            self.setSegmentControlHealthKit(riskFactor: hasDiabetes, segmentControl: self.diabetesSegmentedControl, error: error)
         }
         
-        HealthKitManager.instance.getHighBloodPressure() { hasHighBloodPressure in
+        HealthKitManager.instance.getHighBloodPressure() { hasHighBloodPressure, error in
    
-            self.setSegmentControlHealthKit(riskFactor: hasHighBloodPressure, segmentControl: self.hypertensionSegmentedControl)
+            self.setSegmentControlHealthKit(riskFactor: hasHighBloodPressure, segmentControl: self.hypertensionSegmentedControl, error: error)
 
-        }
-        
-        HealthKitManager.instance.retrieveStepCount() { steps in
-            print(steps)
         }
     }
     
-    func setSegmentControlHealthKit(riskFactor: Bool, segmentControl: UISegmentedControl ) {
+    func setSegmentControlHealthKit(riskFactor: Bool, segmentControl: UISegmentedControl, error: Error? ) {
+        
+        if (error == nil) {
+            return
+        }
         
         if (riskFactor) {
             segmentControl.selectedSegmentIndex = SEGMENT_YES

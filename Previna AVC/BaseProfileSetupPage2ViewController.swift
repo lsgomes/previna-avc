@@ -62,7 +62,6 @@ class BaseProfilePage2ViewController {
     public func setupViewDidLoad(setSelectedItemForDropMenus: Bool) {
         
         
-        
         setDropMenuAttributes(dropMenu: physicalActivityDropMenu, items: [TRANSLATION_VERY_ACTIVE, TRANSLATION_ACTIVE, TRANSLATION_INACTIVE], delegate: delegate)
 
         
@@ -105,6 +104,8 @@ class BaseProfilePage2ViewController {
             dropMenuSetSelectedItem(riskFactor: RiskFactor.FEARFUL.rawValue, selectItem: TRANSLATION_OFTEN_OR_ALWAYS, dropMenu: anxietyDropMenu)
 
         }
+        
+        gatherInformationFromHealthKit()
     }
     
     func setDropMenuAttributes(dropMenu: DKDropMenu, items: [String], delegate: DKDropMenuDelegate) {
@@ -126,10 +127,10 @@ class BaseProfilePage2ViewController {
     
     func gatherInformationFromHealthKit() {
         
-        HealthKitManager.instance.retrieveStepCount() { stepsDouble in
+        HealthKitManager.instance.retrieveWeekSteps() { steps in
             
-            let steps = Int(stepsDouble)
-            
+            guard let steps = steps else { return }
+
             if (steps < 5000) {
                 
                 self.physicalActivityDropMenu.selectedItem = self.TRANSLATION_INACTIVE
@@ -144,7 +145,34 @@ class BaseProfilePage2ViewController {
 
             }
             
+            self.physicalActivityDropMenu.setNeedsDisplay()
             
+            print("Setting physicalActivityDropMenu to \(self.physicalActivityDropMenu.selectedItem)")
+            
+            // notify user UP DOWN
+        }
+        
+        HealthKitManager.instance.retrieveWeekAlcohol() { alcohol in
+            
+            guard let alcohol = alcohol else { return }
+            
+            if (alcohol > 0.06) {
+                self.alcoholDropMenu.selectedItem = self.TRANSLATION_DRINKER
+            }
+            else if (alcohol >= 0.012 && alcohol < 0.025) {
+                self.alcoholDropMenu.selectedItem = self.TRANSLATION_DRINK_IN_MODERATION
+
+            }
+            else if (alcohol < 0.012) {
+                self.alcoholDropMenu.selectedItem = self.TRANSLATION_ABSTAIN
+
+            }
+            
+            self.alcoholDropMenu.setNeedsDisplay()
+            
+            print("Setting alcoholDropMenu to \(self.physicalActivityDropMenu.selectedItem)")
+
+            // notify USER up down
         }
     }
     

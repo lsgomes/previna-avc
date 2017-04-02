@@ -55,7 +55,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDel
         baseProfile.itemSelected(withIndex: withIndex, name: name, dropMenu: dropMenu)
     }
 
-
+    
  
     @IBAction func saveAction(_ sender: UIButton) {
         timer.invalidate()
@@ -68,6 +68,13 @@ class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDel
     
     func setButtonTextToSave() {
         saveButton.setTitle("SALVAR", for: .normal)
+    }
+    
+    func updateWithHealthKitData() {
+        
+        baseProfile.gatherInformationFromHealthKit()
+        // nofity up
+        // not hdien
     }
     
 }

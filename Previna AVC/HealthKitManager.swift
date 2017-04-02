@@ -45,8 +45,9 @@ class HealthKitManager {
         
         let steps = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
 
-
-        let readDataTypes: Set<HKObjectType> = [biologicalSexType, dateOfBirthType, bloodPressureSystolic, bloodPressureDiastolic, bloodGlocuse, steps]
+        let bloodAlcohol = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodAlcoholContent)!
+        
+        let readDataTypes: Set<HKObjectType> = [biologicalSexType, dateOfBirthType, bloodPressureSystolic, bloodPressureDiastolic, bloodGlocuse, steps, bloodAlcohol]
         
         return readDataTypes
     }
@@ -97,7 +98,151 @@ class HealthKitManager {
         self.healthKitStore.execute(query)
     }
     
-    func getDiabetes(completion: @escaping (Bool) -> () ) {
+    func retrieveWeekSteps(completion: @escaping (Int?) -> () ) {
+        
+        let calendar = Calendar.current
+        
+        var interval = DateComponents()
+        interval.day = 7
+        
+        // Set the anchor date to Monday at 3:00 a.m.
+        var anchorComponents = calendar.dateComponents([.day, .month, .year, .weekday], from: Date())
+        
+        let offset = (7 + anchorComponents.weekday! - 2) % 7
+        anchorComponents.day! -= offset
+        anchorComponents.hour = 3
+        
+        guard let anchorDate = calendar.date(from: anchorComponents) else {
+            print("*** unable to create a valid date from the given components ***")
+            return completion(nil)
+        }
+        
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount) else {
+            print("*** Unable to create a step count type ***")
+            return completion(nil)
+        }
+        
+        // Create the query
+        let query = HKStatisticsCollectionQuery(quantityType: quantityType,
+                                                quantitySamplePredicate: nil,
+                                                options: .cumulativeSum,
+                                                anchorDate: anchorDate,
+                                                intervalComponents: interval)
+        
+        // Set the results handler
+        query.initialResultsHandler = {
+            query, results, error in
+            
+            guard let statsCollection = results else {
+                // Perform proper error handling here
+                print("*** An error occurred while calculating the statistics: \(error?.localizedDescription) ***")
+                return completion(nil)
+            }
+            
+            let endDate = Date()
+            
+            guard let startDate = calendar.date(byAdding: .month, value: 0, to: endDate) else {
+                print("*** Unable to calculate the start date ***")
+                return completion(nil)
+
+            }
+            
+            // Plot the weekly step counts over the past 1 months
+            statsCollection.enumerateStatistics(from: startDate, to: endDate) { statistics, stop in
+                
+                if let quantity = statistics.sumQuantity() {
+                    let date = statistics.startDate
+                    let value = quantity.doubleValue(for: HKUnit.count())
+                    
+                    print("Start date= \(date)")
+                    print("Steps/7= \(value / 7)")
+
+                    completion(Int(value / 7))
+                    // Call a custom method to plot each data point.
+                    //self.plotWeeklyStepCount(value, forDate: date)
+                }
+            }
+        }
+        
+        self.healthKitStore.execute(query)
+        
+        
+    }
+    
+    func retrieveWeekAlcohol(completion: @escaping (Double?) -> () ) {
+        
+        let calendar = Calendar.current
+        
+        var interval = DateComponents()
+        interval.day = 7
+        
+        // Set the anchor date to Monday at 3:00 a.m.
+        var anchorComponents = calendar.dateComponents([.day, .month, .year, .weekday], from: Date())
+        
+        let offset = (7 + anchorComponents.weekday! - 2) % 7
+        anchorComponents.day! -= offset
+        anchorComponents.hour = 3
+        
+        
+        guard let anchorDate = calendar.date(from: anchorComponents) else {
+            print("*** unable to create a valid date from the given components ***")
+            return completion(nil)
+        }
+        
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodAlcoholContent) else {
+            print("*** Unable to create a step count type ***")
+            return completion(nil)
+        }
+        
+        // Create the query
+        let query = HKStatisticsCollectionQuery(quantityType: quantityType,
+                                                quantitySamplePredicate: nil,
+                                                options: .discreteAverage,
+                                                anchorDate: anchorDate,
+                                                intervalComponents: interval)
+        
+        // Set the results handler
+        query.initialResultsHandler = {
+            query, results, error in
+            
+            guard let statsCollection = results else {
+                // Perform proper error handling here
+                print("*** An error occurred while calculating the statistics: \(error?.localizedDescription) ***")
+                return completion(nil)
+            }
+            
+            let endDate = Date()
+
+            
+            guard let startDate = calendar.date(byAdding: .month, value: 0, to: endDate) else {
+                print("*** Unable to calculate the start date ***")
+                return completion(nil)
+            }
+            
+            // Plot the weekly step counts over the past 1 months
+            statsCollection.enumerateStatistics(from: startDate, to: endDate) { statistics, stop in
+                
+                if let quantity = statistics.averageQuantity() {
+                    let date = statistics.startDate
+                    let value = quantity.doubleValue(for: HKUnit.percent())
+                    
+                    print("Start date= \(date)")
+                    print("Alcohol= \(value)")
+                    
+                    completion(value)
+                    // Call a custom method to plot each data point.
+                    //self.plotWeeklyStepCount(value, forDate: date)
+                }
+            }
+        }
+        
+        self.healthKitStore.execute(query)
+        
+        
+    }
+
+    
+    func getDiabetes(completion: @escaping (Bool, Error?) -> () ) {
         
         let type = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodGlucose)!
         
@@ -106,20 +251,20 @@ class HealthKitManager {
         self.readMostRecentSample(sampleType: type) {
             sample, error in
             
-            if error != nil { completion(false) }
+            if error != nil { completion(false, error) }
             
-            guard let sample = sample else { return completion(false) }
+            guard let sample = sample else { return completion(false, error) }
             
             let result = sample as! HKQuantitySample
             let glucose = result.quantity.doubleValue(for: unit)
             
             if (glucose > 110) {
-                completion(true)
+                completion(true, nil)
             }
         }
     }
     
-    func getHighBloodPressure(completion: @escaping (Bool) -> () ) {
+    func getHighBloodPressure(completion: @escaping (Bool, Error?) -> () ) {
   
         let type = HKQuantityType.correlationType(forIdentifier: HKCorrelationTypeIdentifier.bloodPressure)!
         
@@ -128,9 +273,9 @@ class HealthKitManager {
         self.readMostRecentSamples(sampleType: type) {
             sample, error in
             
-            if error != nil { completion(false) }
+            if error != nil { completion(false, error) }
             
-            guard let sample = sample as! [HKQuantitySample]! else { return completion(false) }
+            guard let sample = sample as! [HKQuantitySample]! else { return completion(false, error) }
             
             let systolic = sample.first?.quantity.doubleValue(for: unit)
             let diastolic = sample.last?.quantity.doubleValue(for: unit)
@@ -139,16 +284,16 @@ class HealthKitManager {
                 
                 if (Int(systolic!) > 149 && Int(diastolic!) > 89)
                 {
-                    completion(true)
+                    completion(true, nil)
                 }
                 
             } else if (Int(systolic!) > 139 && Int(diastolic!) > 89) {
                 
-                completion(true)
+                completion(true, nil)
 
             } else {
                 
-                completion(false)
+                completion(false, nil)
             }
         }
     }

@@ -92,6 +92,8 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
         pageControl.currentPageIndicatorTintColor = UIColor.darkGray
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.backgroundColor = .clear
+        
+        print("Loaded")
     }
 
     public func segueToPage(name: String)
