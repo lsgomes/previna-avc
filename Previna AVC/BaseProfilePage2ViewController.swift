@@ -44,7 +44,7 @@ class BaseProfilePage2ViewController {
     
     let riskFactors = [RiskFactor.ACTIVE.rawValue]
     
-    public init( delegate: DKDropMenuDelegate, physicalActivityDropMenu:  DKDropMenu, alcoholDropMenu:  DKDropMenu, smokeDropMenu:  DKDropMenu, schoolDropMenu:  DKDropMenu, cryDropMenu:  DKDropMenu, angryDropMenu:  DKDropMenu, anxietyDropMenu:  DKDropMenu ) {
+    public init( delegate: DKDropMenuDelegate, physicalActivityDropMenu: DKDropMenu, alcoholDropMenu:  DKDropMenu, smokeDropMenu:  DKDropMenu, schoolDropMenu: DKDropMenu, cryDropMenu: DKDropMenu, angryDropMenu: DKDropMenu, anxietyDropMenu: DKDropMenu ) {
         
         self.delegate = delegate
         
@@ -156,21 +156,21 @@ class BaseProfilePage2ViewController {
             
             guard let alcohol = alcohol else { return }
             
-            if (alcohol > 0.06) {
+            if (alcohol > 0.0006) {
                 self.alcoholDropMenu.selectedItem = self.TRANSLATION_DRINKER
             }
-            else if (alcohol >= 0.012 && alcohol < 0.025) {
+            else if (alcohol >= 0.00012 && alcohol < 0.00025) {
                 self.alcoholDropMenu.selectedItem = self.TRANSLATION_DRINK_IN_MODERATION
 
             }
-            else if (alcohol < 0.012) {
+            else if (alcohol < 0.00012) {
                 self.alcoholDropMenu.selectedItem = self.TRANSLATION_ABSTAIN
 
             }
             
             self.alcoholDropMenu.setNeedsDisplay()
             
-            print("Setting alcoholDropMenu to \(self.physicalActivityDropMenu.selectedItem)")
+            print("Setting alcoholDropMenu to \(self.alcoholDropMenu.selectedItem)")
 
             // notify USER up down
         }

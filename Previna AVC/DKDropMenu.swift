@@ -32,7 +32,7 @@ import UIKit
 
 /// Delegate protocol for receiving change in list selection
 @objc public protocol DKDropMenuDelegate {
-    func itemSelected(withIndex: Int, name: String, dropMenu: DKDropMenu)
+    func itemSelected(withIndex: Int, name:String, dropMenu: DKDropMenu)
     @objc optional func collapsedChanged(dropMenu: DKDropMenu, collapsed: Bool)
 }
 
@@ -41,7 +41,7 @@ import UIKit
 public class DKDropMenu: UIView {
     
     @IBInspectable public var itemHeight: CGFloat = 44
-    @IBInspectable public var selectedFontName: String = "HelveticaNeue-Bold"
+    @IBInspectable public var selectedFontName: String = "HelveticaNeue-Thin"
     @IBInspectable public var listFontName: String = "HelveticaNeue-Thin"
     @IBInspectable public var textColor: UIColor = UIColor.darkGray
     @IBInspectable public var outlineColor: UIColor = UIColor.lightGray
@@ -70,7 +70,7 @@ public class DKDropMenu: UIView {
                 }
                 self.frame = tempFrame
                 self.invalidateIntrinsicContentSize()
-                }, completion: nil)
+            }, completion: nil)
             setNeedsDisplay()
         }
     }
@@ -107,7 +107,7 @@ public class DKDropMenu: UIView {
             //draw item text
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = .center
-            let attrs = [NSFontAttributeName: UIFont(name: selectedFontName, size: 16)!, NSParagraphStyleAttributeName: paragraphStyle, NSForegroundColorAttributeName: textColor]
+            let attrs = [NSFontAttributeName: UIFont(name: selectedFontName, size: 14)!, NSParagraphStyleAttributeName: paragraphStyle, NSForegroundColorAttributeName: textColor]
             if (collapsed) {
                 let tempS = "\(sele)"  //put chevron down facing here if right unicode found
                 tempS.draw(in: CGRect(x: 20, y: itemHeight / 2 - 10, width: frame.size.width - 40, height: 20), withAttributes: attrs)
@@ -151,7 +151,7 @@ public class DKDropMenu: UIView {
                 //draw item text
                 let paragraphStyle = NSMutableParagraphStyle()
                 paragraphStyle.alignment = .center
-                let attrs = [NSFontAttributeName: UIFont(name: listFontName, size: 16)!, NSParagraphStyleAttributeName: paragraphStyle, NSForegroundColorAttributeName: textColor]
+                let attrs = [NSFontAttributeName: UIFont(name: listFontName, size: 14)!, NSParagraphStyleAttributeName: paragraphStyle, NSForegroundColorAttributeName: textColor]
                 item.draw(in: CGRect(x: 20, y: currentY + (itemHeight / 2 - 10), width: frame.size.width - 40, height: 20), withAttributes: attrs)
                 currentY += itemHeight
             }
@@ -181,13 +181,13 @@ public class DKDropMenu: UIView {
                 var tempFrame = self.frame
                 tempFrame.size.height = self.itemHeight * CGFloat(self.items.count)
                 self.frame = tempFrame
-                }, completion: nil)
+            }, completion: nil)
         }
         
         //refresh display
         setNeedsDisplay()
     }
-
+    
     /// Remove a single item from the menu
     public func remove(at index: Int) {
         if (items[index] == selectedItem) {
@@ -200,13 +200,13 @@ public class DKDropMenu: UIView {
                 var tempFrame = self.frame
                 tempFrame.size.height = self.itemHeight * CGFloat(self.items.count)
                 self.frame = tempFrame
-                }, completion: nil)
+            }, completion: nil)
         } else if (!collapsed) {
             UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseOut, animations: {
                 var tempFrame = self.frame
                 tempFrame.size.height = self.itemHeight
                 self.frame = tempFrame
-                }, completion: nil)
+            }, completion: nil)
         }
         
         setNeedsDisplay()
@@ -228,7 +228,7 @@ public class DKDropMenu: UIView {
                 var tempFrame = self.frame
                 tempFrame.size.height = self.itemHeight
                 self.frame = tempFrame
-                }, completion: nil)
+            }, completion: nil)
         }
         
         setNeedsDisplay()

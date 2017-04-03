@@ -169,6 +169,52 @@ class HealthKitManager {
         
     }
     
+    func retrieveAlcohol(completion: @escaping (_ stepRetrieved: Double) -> Void) {
+        
+        //   Define the Step Quantity Type
+        let stepsCount = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodAlcoholContent)
+        
+        //   Get the start of the day
+        let date = NSDate()
+        let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+        let newDate = cal.startOfDay(for: date as Date)
+        
+        //  Set the Predicates & Interval
+        let predicate = HKQuery.predicateForSamples(withStart: newDate as Date, end: NSDate() as Date, options: .strictStartDate)
+        let interval: NSDateComponents = NSDateComponents()
+        interval.day = 1
+        
+        //  Perform the Query
+        let query = HKStatisticsCollectionQuery(quantityType: stepsCount!, quantitySamplePredicate: predicate, options: [.discreteAverage], anchorDate: newDate as Date, intervalComponents:interval as DateComponents)
+        
+        query.initialResultsHandler = { query, results, error in
+            
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            if let myResults = results
+            {
+                myResults.enumerateStatistics(from: newDate as Date, to: Date() as Date) {
+                    statistics, stop in
+                    
+                    if let quantity = statistics.averageQuantity() {
+                        
+                        let alcohol = quantity.doubleValue(for: HKUnit.percent())
+                        
+                        print("Alcohol = \(alcohol)")
+                        completion(alcohol)
+                    }
+                }
+            }
+            
+            
+        }
+        
+        self.healthKitStore.execute(query)
+    }
+    
     func retrieveWeekAlcohol(completion: @escaping (Double?) -> () ) {
         
         let calendar = Calendar.current
@@ -224,9 +270,13 @@ class HealthKitManager {
                 
                 if let quantity = statistics.averageQuantity() {
                     let date = statistics.startDate
+                    let date2 = statistics.endDate
+
                     let value = quantity.doubleValue(for: HKUnit.percent())
                     
                     print("Start date= \(date)")
+                    print("End date= \(date2)")
+
                     print("Alcohol= \(value)")
                     
                     completion(value)
@@ -238,7 +288,11 @@ class HealthKitManager {
         
         self.healthKitStore.execute(query)
         
+        let a = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodAlcoholContent)
         
+        readMostRecentSample(sampleType: a!) { s in
+            print("recent sample \(s)")
+        }
     }
 
     

@@ -28,6 +28,7 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
                 
         navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 64.0)
         
+        
         baseProfile = BaseProfilePage2ViewController(delegate: self, physicalActivityDropMenu: physicalActivityDropMenu, alcoholDropMenu: alcoholDropMenu, smokeDropMenu: smokeDropMenu, schoolDropMenu: schoolDropMenu, cryDropMenu: cryDropMenu, angryDropMenu: angryDropMenu, anxietyDropMenu: anxietyDropMenu)
         
         baseProfile.setupViewDidLoad(setSelectedItemForDropMenus: false)
