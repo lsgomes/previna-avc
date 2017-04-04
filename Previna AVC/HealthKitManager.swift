@@ -112,6 +112,7 @@ class HealthKitManager {
         anchorComponents.day! -= offset
         anchorComponents.hour = 3
         
+        let seven = calendar.date(byAdding: .day, value: -7, to:Date())
         guard let anchorDate = calendar.date(from: anchorComponents) else {
             print("*** unable to create a valid date from the given components ***")
             return completion(nil)
@@ -126,7 +127,7 @@ class HealthKitManager {
         let query = HKStatisticsCollectionQuery(quantityType: quantityType,
                                                 quantitySamplePredicate: nil,
                                                 options: .cumulativeSum,
-                                                anchorDate: anchorDate,
+                                                anchorDate: seven!,
                                                 intervalComponents: interval)
         
         // Set the results handler
@@ -148,7 +149,7 @@ class HealthKitManager {
             }
             
             // Plot the weekly step counts over the past 1 months
-            statsCollection.enumerateStatistics(from: startDate, to: endDate) { statistics, stop in
+            statsCollection.enumerateStatistics(from: seven!, to: endDate) { statistics, stop in
                 
                 if let quantity = statistics.sumQuantity() {
                     let date = statistics.startDate

@@ -195,7 +195,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmq-tv-xDj" customClass="DKDropMenu" customModule="Previna_AVC">
-                                <rect key="frame" x="132" y="258" width="172" height="29"/>
+                                <rect key="frame" x="132" y="258" width="146" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -238,6 +238,10 @@
                                     <navigationItem title="Prontuário" id="Gy2-jQ-u8j"/>
                                 </items>
                             </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="up arrow" translatesAutoresizingMaskIntoConstraints="NO" id="FB0-Xa-MAr">
+                                <rect key="frame" x="280" y="260" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <variation key="default">
@@ -741,7 +745,6 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="Q6h-8L-VoC"/>
                         <segue destination="as9-Wy-MRw" kind="relationship" relationship="viewControllers" id="nOw-t0-r6o"/>
-                        <segue destination="Lx8-ts-Yu3" kind="relationship" relationship="viewControllers" id="cIp-uK-zYz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -900,6 +903,7 @@
         <image name="note2" width="320" height="292"/>
         <image name="perfil" width="25" height="25"/>
         <image name="risco" width="24" height="25"/>
+        <image name="up arrow" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qwx-re-vLC"/>

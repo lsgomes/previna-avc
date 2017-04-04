@@ -180,17 +180,49 @@ class BaseProfilePage2ViewController {
         if (!collapsed) {
             
             switch (dropMenu) {
+        
                 
-            case schoolDropMenu:
+            case cryDropMenu:
+                fadein(dropMenu: angryDropMenu)
+                fadein(dropMenu: anxietyDropMenu)
+                fadein(dropMenu: physicalActivityDropMenu)
+                fadein(dropMenu: schoolDropMenu)
                 fadein(dropMenu: alcoholDropMenu)
+                fadein(dropMenu: smokeDropMenu)
+
+            case  angryDropMenu:
+                fadein(dropMenu: cryDropMenu)
+                fadein(dropMenu: anxietyDropMenu)
+                fadein(dropMenu: physicalActivityDropMenu)
+                fadein(dropMenu: schoolDropMenu)
+                fadein(dropMenu: alcoholDropMenu)
+                fadein(dropMenu: smokeDropMenu)
+
+            case schoolDropMenu:
+                fadein(dropMenu: cryDropMenu)
+                fadein(dropMenu: angryDropMenu)
+                fadein(dropMenu: anxietyDropMenu)
+                fadein(dropMenu: alcoholDropMenu)
+                fadein(dropMenu: physicalActivityDropMenu)
                 fadein(dropMenu: smokeDropMenu)
                 
             case physicalActivityDropMenu:
+                fadein(dropMenu: cryDropMenu)
+                fadein(dropMenu: angryDropMenu)
+                fadein(dropMenu: anxietyDropMenu)
                 fadein(dropMenu: alcoholDropMenu)
                 fadein(dropMenu: smokeDropMenu)
+                fadein(dropMenu: schoolDropMenu)
+
                 
             case alcoholDropMenu:
+                fadein(dropMenu: cryDropMenu)
+                fadein(dropMenu: angryDropMenu)
+                fadein(dropMenu: anxietyDropMenu)
+                fadein(dropMenu: physicalActivityDropMenu)
                 fadein(dropMenu: smokeDropMenu)
+                fadein(dropMenu: schoolDropMenu)
+
                 
             default:
                 break
@@ -200,6 +232,12 @@ class BaseProfilePage2ViewController {
         else {
             fadeout(dropMenu: alcoholDropMenu)
             fadeout(dropMenu: smokeDropMenu)
+            fadeout(dropMenu: angryDropMenu)
+            fadeout(dropMenu: anxietyDropMenu)
+            fadeout(dropMenu: physicalActivityDropMenu)
+            fadeout(dropMenu: cryDropMenu)
+            fadeout(dropMenu: schoolDropMenu)
+
         }
 
     }
