@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          self.window!.addSubview(whiteness)
          */
 
+        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert , .badge , .sound], categories: nil))
         
         return true
     }

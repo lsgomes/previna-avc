@@ -22,6 +22,7 @@
 		A0E56B3E1E91D9DF009DEA0F /* ModifiableRiskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E56B3D1E91D9DF009DEA0F /* ModifiableRiskCell.swift */; };
 		A0E56B401E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E56B3F1E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift */; };
 		A0E58AB51E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */; };
+		A0F380D31E927BE3000359F4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F380D21E927BE3000359F4 /* NotificationManager.swift */; };
 		A0F6EBB21E8377BF0006451F /* HasDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBAE1E8377BF0006451F /* HasDevice.swift */; };
 		A0F6EBB31E8377BF0006451F /* HasRiskFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBAF1E8377BF0006451F /* HasRiskFactor.swift */; };
 		A0F6EBB41E8377BF0006451F /* HasSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBB01E8377BF0006451F /* HasSensor.swift */; };
@@ -55,6 +56,7 @@
 		A0E56B3D1E91D9DF009DEA0F /* ModifiableRiskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifiableRiskCell.swift; sourceTree = "<group>"; };
 		A0E56B3F1E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifiableRiskTableViewController.swift; sourceTree = "<group>"; };
 		A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizeHealthKitViewController.swift; sourceTree = "<group>"; };
+		A0F380D21E927BE3000359F4 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		A0F6EBAE1E8377BF0006451F /* HasDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasDevice.swift; sourceTree = "<group>"; };
 		A0F6EBAF1E8377BF0006451F /* HasRiskFactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasRiskFactor.swift; sourceTree = "<group>"; };
 		A0F6EBB01E8377BF0006451F /* HasSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasSensor.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				A0FA77951E7F34DD00F7B5FA /* RestManager.swift */,
 				A03B1C1D1E80D94C0012E36D /* UserManager.swift */,
 				A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */,
+				A0F380D21E927BE3000359F4 /* NotificationManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				A088A1651E8B4E8300D15E6C /* MainTabBarController.swift in Sources */,
 				A0E56B3E1E91D9DF009DEA0F /* ModifiableRiskCell.swift in Sources */,
 				A0FA77961E7F34DD00F7B5FA /* RestManager.swift in Sources */,
+				A0F380D31E927BE3000359F4 /* NotificationManager.swift in Sources */,
 				A0F6EBB21E8377BF0006451F /* HasDevice.swift in Sources */,
 				A0D1E2AF1E56194400349A18 /* HealthKitManager.swift in Sources */,
 			);
