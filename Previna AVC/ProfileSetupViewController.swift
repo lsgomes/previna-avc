@@ -34,7 +34,7 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
         print("ProfileSetupViewController.viewDidLoad()")
 
         gatherInformationFromHealthKit()
-        
+
         navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 64.0)
         
         nameTextField.delegate = self
@@ -132,9 +132,22 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func continueAction(_ sender: UIButton) {
     
+        if (nameTextField.text!.isEmpty) {
+            NotificationManager.instance.displayAlert(title: "Nome não preenchido", message: "Preencha seu nome para continuar", dismiss: "Ok", viewController: self)
+            return
+        }
+        
+        if (nameTextField.text!.isEmpty) {
+            NotificationManager.instance.displayAlert(title: "Idade não preenchida", message: "Preencha sua idade para continuar", dismiss: "Ok", viewController: self)
+            return
+        }
+        
+        
+        // TODO: rest call verify if name already exists
         validateForm()
         let pageViewController = self.parent as? WizardPageViewController
         pageViewController?.segueToPage(name: WizardPageViewController.PAGE_4)
+        
 
     }
     

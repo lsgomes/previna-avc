@@ -11,6 +11,8 @@ import UIKit
 
 class NotificationManager {
     
+    static let instance = NotificationManager()
+    
     func checkNotificationEnabled() -> Bool {
         // Check if the user has enabled notifications for this app and return True / False
         guard let settings = UIApplication.shared.currentUserNotificationSettings else { return false }
@@ -61,13 +63,18 @@ class NotificationManager {
     
     private func displayNotificationsDisabled(viewController: UIViewController) {
         
+        displayAlert(title: "Notificações desabilitadas para o aplicativo Previna AVC", message: "Por favor, habilite as notificações em Ajustes -> Notificações -> Previna AVC", dismiss: "FECHAR", viewController: viewController)
+    }
+    
+    public func displayAlert(title: String, message: String, dismiss: String, viewController: UIViewController) {
+        
         let alertController = UIAlertController(
-            title: "Notificações desabilitadas para o aplicativo Previna AVC",
-            message: "Por favor, habilite as notificações em Ajustes -> Notificações -> Previna AVC",
+            title: title,
+            message: message,
             preferredStyle: UIAlertControllerStyle.alert)
         
         alertController.addAction(UIAlertAction(
-            title: "FECHAR",
+            title: dismiss,
             style: UIAlertActionStyle.default,
             handler: nil))
         

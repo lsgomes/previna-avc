@@ -10,7 +10,6 @@ import UIKit
 
 class ModifiableRiskTableViewController: UITableViewController, DKDropMenuDelegate {
 
-    var cryDropMenu: DKDropMenu = DKDropMenu()
     var angryDropMenu: DKDropMenu = DKDropMenu()
     var anxietyDropMenu: DKDropMenu = DKDropMenu()
 
@@ -22,34 +21,52 @@ class ModifiableRiskTableViewController: UITableViewController, DKDropMenuDelega
     var timer = Timer()
     let delay = 2.0
     
-    var baseProfile: BaseProfilePage2ViewController!
-    
-    var riskFactors = ["Chora?", "Se irrita?", "Sente ansioso?", "Atividade física", "Álcool?", "Cigarro?"]
-    var dropMenus: [DKDropMenu] = []
+
+    var map: [String : DKDropMenu] = [:]
     
     //var image: UIImage = UIImage(named: "up arrow")!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dropMenus = [cryDropMenu, angryDropMenu, anxietyDropMenu, physicalActivityDropMenu, alcoholDropMenu, smokeDropMenu]
+        
+        map = ["Frequência de choro?" : createDropMenu(items: ["a", "b"]),
+               "Frequência de irritação?" : angryDropMenu,
+               "Frequência de ansiosidade" : anxietyDropMenu,
+               "Atividade física" : physicalActivityDropMenu,
+               "Álcool": alcoholDropMenu,
+               "Cigarro" : smokeDropMenu
+              ]
+        
+//        setDropMenuAttributes(dropMenu: &cryDropMenu, items: ["asda", "basd"], delegate: self)
 
         
 //        baseProfile = BaseProfilePage2ViewController(delegate: self, physicalActivityDropMenu: physicalActivityDropMenu, alcoholDropMenu: alcoholDropMenu, smokeDropMenu: smokeDropMenu, schoolDropMenu: schoolDropMenu, cryDropMenu: cryDropMenu, angryDropMenu: angryDropMenu, anxietyDropMenu: anxietyDropMenu)
 //        
 //        baseProfile.setupViewDidLoad(setSelectedItemForDropMenus: false)
+//
+        
 //        
-        
-        
-        for menu in dropMenus {
-            menu.selectedColor = .gray
-            menu.textColor = UIColor.black
-            menu.itemHeight = 30
-            menu.delegate = self
-            menu.add(names: riskFactors)
-        }
+//        for menu in dropMenus {
+//            menu.selectedColor = .gray
+//            menu.textColor = UIColor.black
+//            menu.itemHeight = 30
+//            menu.delegate = self
+//            menu.add(names: riskFactors)
+//        }
 
 
+    }
+    
+    func createDropMenu(items: [String]) -> DKDropMenu {
+        let dropMenu = DKDropMenu()
+        dropMenu.selectedColor = .gray
+        dropMenu.textColor = .black
+        dropMenu.itemHeight = 30
+        dropMenu.add(names: items)
+        dropMenu.delegate = self
+        return dropMenu
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -58,24 +75,21 @@ class ModifiableRiskTableViewController: UITableViewController, DKDropMenuDelega
     
     func collapsedChanged(dropMenu: DKDropMenu, collapsed: Bool) {
         
-        baseProfile.collapseChanged(dropMenu: dropMenu, collapsed: collapsed)
+        //baseProfile.collapseChanged(dropMenu: dropMenu, collapsed: collapsed)
     }
     
     
     func itemSelected(withIndex: Int, name: String, dropMenu: DKDropMenu) {
-        
-        baseProfile.itemSelected(withIndex: withIndex, name: name, dropMenu: dropMenu)
+            print("\(name) selected");
+        //baseProfile.itemSelected(withIndex: withIndex, name: name, dropMenu: dropMenu)
     }
     
     func updateWithHealthKitData() {
         
-        baseProfile.gatherInformationFromHealthKit()
+        //baseProfile.gatherInformationFromHealthKit()
         // nofity up
         // not hdien
     }
-    
-    
-    
 
 
     // MARK: - Table view data source
@@ -87,16 +101,20 @@ class ModifiableRiskTableViewController: UITableViewController, DKDropMenuDelega
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return riskFactors.count
+        return map.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "riskCell", for: indexPath) as! ModifiableRiskCell
-
-        cell.label.text = riskFactors[indexPath.row]
-        cell.dropMenu = dropMenus[indexPath.row]
-        cell.dropMenu.add(name: "a")
+        
+        let key = Array(map.keys)[indexPath.row]
+        //let value = map[key]
+        //let value = array[indexPath.row]
+        
+        cell.label.text = key
+        cell.dropMenu.add(names: ["aba", "dedo", "show"])
+        cell.imView.image = UIImage(named: "up arrow")
         //cell.arrow = UIImageView(image: image)
         //cell.arrow
         // Configure the cell...

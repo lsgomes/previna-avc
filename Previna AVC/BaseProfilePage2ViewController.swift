@@ -21,6 +21,8 @@ class BaseProfilePage2ViewController {
     
     var delegate: DKDropMenuDelegate!
     
+    var image: UIImageView!
+    
     // MARK: Translations
     let TRANSLATION_INACTIVE = "Sedentário"
     let TRANSLATION_ACTIVE = "1-2 por semana"
@@ -44,18 +46,20 @@ class BaseProfilePage2ViewController {
     
     let riskFactors = [RiskFactor.ACTIVE.rawValue]
     
-    public init( delegate: DKDropMenuDelegate, physicalActivityDropMenu: DKDropMenu, alcoholDropMenu:  DKDropMenu, smokeDropMenu:  DKDropMenu, schoolDropMenu: DKDropMenu, cryDropMenu: DKDropMenu, angryDropMenu: DKDropMenu, anxietyDropMenu: DKDropMenu ) {
+    public init( delegate: DKDropMenuDelegate, physicalActivityDropMenu: DKDropMenu, alcoholDropMenu:  DKDropMenu, smokeDropMenu:  DKDropMenu, schoolDropMenu: DKDropMenu?, cryDropMenu: DKDropMenu, angryDropMenu: DKDropMenu, anxietyDropMenu: DKDropMenu, image: UIImageView? ) {
         
         self.delegate = delegate
         
         self.cryDropMenu = cryDropMenu
         self.angryDropMenu = angryDropMenu
         self.anxietyDropMenu = anxietyDropMenu
-        
         self.schoolDropMenu = schoolDropMenu
+        
         self.physicalActivityDropMenu = physicalActivityDropMenu
         self.alcoholDropMenu = alcoholDropMenu
         self.smokeDropMenu = smokeDropMenu
+        
+        self.image = image
         
     }
   
@@ -69,9 +73,8 @@ class BaseProfilePage2ViewController {
         
         setDropMenuAttributes(dropMenu: smokeDropMenu, items: [TRANSLATION_NEVER_SMOKED, TRANSLATION_SMOKER, TRANSLATION_FORMER_SMOKER], delegate: delegate)
 
-        
         setDropMenuAttributes(dropMenu: schoolDropMenu, items: [TRANSLATION_COLLEGE_DIPLOMA, TRANSLATION_HIGH_SCHOOL_DIPLOMA, TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA], delegate: delegate)
-
+    
         
         setDropMenuAttributes(dropMenu: cryDropMenu, items: [TRANSLATION_OFTEN_OR_ALWAYS, TRANSLATION_SOMETIMES_OR_NEVER], delegate: delegate)
 
@@ -96,6 +99,8 @@ class BaseProfilePage2ViewController {
             dropMenuSetSelectedItem(riskFactor: RiskFactor.FORMER_SMOKER.rawValue, selectItem: TRANSLATION_FORMER_SMOKER, dropMenu: smokeDropMenu)
             
             dropMenuSetSelectedItem(riskFactor: RiskFactor.HIGH_SCHOOL_DIPLOMA.rawValue, selectItem: TRANSLATION_HIGH_SCHOOL_DIPLOMA, dropMenu: schoolDropMenu)
+            
+            
             dropMenuSetSelectedItem(riskFactor: RiskFactor.NO_HIGH_SCHOOL_DIPLOMA.rawValue, selectItem: TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA, dropMenu: schoolDropMenu)
             
             
@@ -108,7 +113,9 @@ class BaseProfilePage2ViewController {
         gatherInformationFromHealthKit()
     }
     
-    func setDropMenuAttributes(dropMenu: DKDropMenu, items: [String], delegate: DKDropMenuDelegate) {
+    func setDropMenuAttributes(dropMenu: DKDropMenu?, items: [String], delegate: DKDropMenuDelegate) {
+        
+        guard let dropMenu = dropMenu else { return }
         dropMenu.selectedColor = .gray
         //dropMenu.textColor =
         dropMenu.itemHeight = 30
@@ -116,7 +123,9 @@ class BaseProfilePage2ViewController {
         dropMenu.delegate = delegate
     }
     
-    func dropMenuSetSelectedItem(riskFactor: String, selectItem: String, dropMenu: DKDropMenu) {
+    func dropMenuSetSelectedItem(riskFactor: String, selectItem: String, dropMenu: DKDropMenu?) {
+        
+        guard let dropMenu = dropMenu else { return }
         
         let riskFactors = UserManager.instance.person.hasRiskFactor!
         
@@ -145,9 +154,16 @@ class BaseProfilePage2ViewController {
 
             }
             
+            
+            if (self.image != nil)
+            {
+                self.image.isHidden = false
+            }
+            
             self.physicalActivityDropMenu.setNeedsDisplay()
             
             print("Setting physicalActivityDropMenu to \(self.physicalActivityDropMenu.selectedItem)")
+     
             
             // notify user UP DOWN
         }
@@ -176,7 +192,16 @@ class BaseProfilePage2ViewController {
         }
     }
     
-    public func collapseChanged(dropMenu: DKDropMenu, collapsed: Bool) {
+    public func collapseChanged(dropMenu: DKDropMenu?, collapsed: Bool) {
+        
+        //guard let dropMenu = dropMenu else { return }
+        
+        if (dropMenu == nil) {
+            return
+        }
+        
+        let dropMenu: DKDropMenu = dropMenu!
+        
         if (!collapsed) {
             
             switch (dropMenu) {
@@ -190,7 +215,7 @@ class BaseProfilePage2ViewController {
                 fadein(dropMenu: alcoholDropMenu)
                 fadein(dropMenu: smokeDropMenu)
 
-            case  angryDropMenu:
+            case angryDropMenu:
                 fadein(dropMenu: cryDropMenu)
                 fadein(dropMenu: anxietyDropMenu)
                 fadein(dropMenu: physicalActivityDropMenu)
@@ -198,13 +223,13 @@ class BaseProfilePage2ViewController {
                 fadein(dropMenu: alcoholDropMenu)
                 fadein(dropMenu: smokeDropMenu)
 
-            case schoolDropMenu:
-                fadein(dropMenu: cryDropMenu)
-                fadein(dropMenu: angryDropMenu)
-                fadein(dropMenu: anxietyDropMenu)
-                fadein(dropMenu: alcoholDropMenu)
-                fadein(dropMenu: physicalActivityDropMenu)
-                fadein(dropMenu: smokeDropMenu)
+//            case schoolDropMenu:
+//                fadein(dropMenu: cryDropMenu)
+//                fadein(dropMenu: angryDropMenu)
+//                fadein(dropMenu: anxietyDropMenu)
+//                fadein(dropMenu: alcoholDropMenu)
+//                fadein(dropMenu: physicalActivityDropMenu)
+//                fadein(dropMenu: smokeDropMenu)
                 
             case physicalActivityDropMenu:
                 fadein(dropMenu: cryDropMenu)
@@ -242,14 +267,18 @@ class BaseProfilePage2ViewController {
 
     }
     
-    func fadein(dropMenu: DKDropMenu) {
+    func fadein(dropMenu: DKDropMenu?) {
+        
+        guard let dropMenu = dropMenu else { return }
         
         UIView.animate(withDuration: 0.2, animations: {
             dropMenu.alpha = 0.0
         })
     }
     
-    func fadeout(dropMenu: DKDropMenu) {
+    func fadeout(dropMenu: DKDropMenu?) {
+        
+        guard let dropMenu = dropMenu else { return }
         
         UIView.animate(withDuration: 1.0, animations: {
             dropMenu.alpha = 1.0
@@ -371,14 +400,19 @@ class BaseProfilePage2ViewController {
             break;
         }
         
-        switch schoolDropMenu.selectedItem! {
-        case TRANSLATION_HIGH_SCHOOL_DIPLOMA:
-            addRiskFactor(uri: RiskFactor.HIGH_SCHOOL_DIPLOMA.rawValue, riskFactors: &riskFactors!)
-        case TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA:
-            addRiskFactor(uri: RiskFactor.NO_HIGH_SCHOOL_DIPLOMA.rawValue, riskFactors: &riskFactors!)
-        default:
-            break;
+        if (schoolDropMenu != nil ) {
+            
+            switch schoolDropMenu.selectedItem! {
+            case TRANSLATION_HIGH_SCHOOL_DIPLOMA:
+                addRiskFactor(uri: RiskFactor.HIGH_SCHOOL_DIPLOMA.rawValue, riskFactors: &riskFactors!)
+            case TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA:
+                addRiskFactor(uri: RiskFactor.NO_HIGH_SCHOOL_DIPLOMA.rawValue, riskFactors: &riskFactors!)
+            default:
+                break;
+            }
         }
+        
+        
         
         switch cryDropMenu.selectedItem! {
             

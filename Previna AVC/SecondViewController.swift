@@ -26,6 +26,10 @@ class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDel
     
     @IBOutlet var navigationBar: UINavigationBar!
     
+    @IBOutlet var image: UIImageView!
+    
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     var timer = Timer()
     let delay = 2.0
     
@@ -39,7 +43,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDel
         navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 55.0)
         
         
-        baseProfile = BaseProfilePage2ViewController(delegate: self, physicalActivityDropMenu: physicalActivityDropMenu, alcoholDropMenu: alcoholDropMenu, smokeDropMenu: smokeDropMenu, schoolDropMenu: schoolDropMenu, cryDropMenu: cryDropMenu, angryDropMenu: angryDropMenu, anxietyDropMenu: anxietyDropMenu)
+        baseProfile = BaseProfilePage2ViewController(delegate: self, physicalActivityDropMenu: physicalActivityDropMenu, alcoholDropMenu: alcoholDropMenu, smokeDropMenu: smokeDropMenu, schoolDropMenu: schoolDropMenu, cryDropMenu: cryDropMenu, angryDropMenu: angryDropMenu, anxietyDropMenu: anxietyDropMenu, image: image)
   
         baseProfile.setupViewDidLoad(setSelectedItemForDropMenus: true)
     }
