@@ -45,18 +45,15 @@ class RiskTableViewController: UIViewController {
     
     @IBOutlet var saveButton: UIButton!
     
+    override func viewWillAppear(_ animated: Bool) {
+        // no lines where there aren't cells
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         TRANSLATION_FREQUENCY = [TRANSLATION_OFTEN_OR_ALWAYS, TRANSLATION_SOMETIMES, TRANSLATION_NEVER]
-        
-        map = ["😭 Frequência de choro? " : TRANSLATION_FREQUENCY,
-               "😡 Frequência de irritação? " : TRANSLATION_FREQUENCY,
-               "😨 Frequência de ansiosidade?" : TRANSLATION_FREQUENCY,
-               "🏃 Atividade física" : [TRANSLATION_VERY_ACTIVE, TRANSLATION_ACTIVE, TRANSLATION_INACTIVE],
-               "🍺 Álcool": [TRANSLATION_DRINK_IN_MODERATION, TRANSLATION_DRINKER, TRANSLATION_ABSTAIN, TRANSLATION_FORMER_ALCOHOLIC],
-               "🚬 Cigarro" : [TRANSLATION_NEVER_SMOKED, TRANSLATION_SMOKER, TRANSLATION_FORMER_SMOKER]
-        ]
         
         map = ["😭 Choro: " : TRANSLATION_FREQUENCY,
                "😡 Irritação: " : TRANSLATION_FREQUENCY,
@@ -85,6 +82,7 @@ class RiskTableViewController: UIViewController {
         
         self.view.sendSubview(toBack: saveButton)
         self.view.sendSubview(toBack: tableView)
+
 
 //        navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 55.0)
     }

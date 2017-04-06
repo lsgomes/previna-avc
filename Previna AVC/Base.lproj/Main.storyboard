@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,30 +30,20 @@
                                 <rect key="frame" x="68" y="303" width="184" height="98"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="app icon" translatesAutoresizingMaskIntoConstraints="NO" id="vpN-zB-p4i">
-                                <rect key="frame" x="40" y="64" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app icon" translatesAutoresizingMaskIntoConstraints="NO" id="vpN-zB-p4i">
+                                <rect key="frame" x="40" y="194" width="239" height="128"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="63" y="108" width="195" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
+                                <rect key="frame" x="63" y="238" width="194" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="JOy-ZX-sud"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Pressione em ATUALIZAR para calcular seu risco de AVC em 10 anos." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PVL-xH-15b">
-                                <rect key="frame" x="16" y="193" width="288" height="77"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
-                                </accessibility>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qy5-ma-n6t">
-                                <rect key="frame" x="76" y="443" width="169" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qy5-ma-n6t">
+                                <rect key="frame" x="76" y="443" width="168" height="49"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.19215686269999999" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,13 +54,14 @@
                                     <action selector="updateAction:" destination="9pv-A4-QxB" eventType="touchUpInside" id="SZ6-Ej-Eyu"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="z0V-4U-knD">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="z0V-4U-knD">
                                 <rect key="frame" x="215" y="457" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MPw-Dv-IHq">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPw-Dv-IHq">
+                                <rect key="frame" x="0.0" y="11" width="320" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="bpd-ey-io7"/>
+                                </constraints>
                                 <items>
                                     <navigationItem title="Bem vindo, Lucas!" id="ylr-zX-xTg"/>
                                 </items>
@@ -89,8 +81,61 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AP8-Ch-nJm">
+                                <rect key="frame" x="60" y="69" width="200" height="97"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="6bf-rR-Qvu">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="26"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="idea" translatesAutoresizingMaskIntoConstraints="NO" id="Un4-Ma-Dx8">
+                                                <rect key="frame" x="0.0" y="0.0" width="37" height="26"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="37" id="bmh-cq-euS"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calcular Risco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZN-lJ-R3r">
+                                                <rect key="frame" x="37" y="0.0" width="163" height="26"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="26" id="1d5-Qg-ugj"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressione em ATUALIZAR para calcular seu risco de AVC em 10 anos." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWU-UH-jJ0">
+                                        <rect key="frame" x="0.0" y="36" width="200" height="61"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="WrM-28-0uu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Qy5-ma-n6t" secondAttribute="bottom" constant="27" id="ENO-LM-LiH"/>
+                            <constraint firstItem="Qy5-ma-n6t" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="60" id="Fzg-Fj-uUX"/>
+                            <constraint firstItem="MPw-Dv-IHq" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="Gbw-vj-JMz"/>
+                            <constraint firstAttribute="trailing" secondItem="MPw-Dv-IHq" secondAttribute="trailing" id="Kg0-xZ-Roz"/>
+                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="AP8-Ch-nJm" secondAttribute="bottom" constant="72" id="Mgf-Zn-daG"/>
+                            <constraint firstItem="AP8-Ch-nJm" firstAttribute="top" secondItem="MPw-Dv-IHq" secondAttribute="bottom" constant="21" id="Rrr-FH-q7I"/>
+                            <constraint firstItem="A5M-7J-77L" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="47" id="SRf-AL-QZX"/>
+                            <constraint firstItem="Qy5-ma-n6t" firstAttribute="centerY" secondItem="z0V-4U-knD" secondAttribute="centerY" id="VY5-Gz-7Ie"/>
+                            <constraint firstItem="vpN-zB-p4i" firstAttribute="centerX" secondItem="A5M-7J-77L" secondAttribute="centerX" id="YMt-NS-Duv"/>
+                            <constraint firstItem="vpN-zB-p4i" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="24" id="Zfc-g0-PRh"/>
+                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="Qy5-ma-n6t" secondAttribute="centerX" id="af9-HB-j8Q"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="z0V-4U-knD" secondAttribute="bottom" constant="42" id="fiI-jU-zHG"/>
+                            <constraint firstItem="MPw-Dv-IHq" firstAttribute="centerX" secondItem="AP8-Ch-nJm" secondAttribute="centerX" id="fkN-Zj-iJJ"/>
+                            <constraint firstItem="vpN-zB-p4i" firstAttribute="top" secondItem="AP8-Ch-nJm" secondAttribute="bottom" constant="28" id="poV-c0-e0i"/>
+                            <constraint firstItem="AP8-Ch-nJm" firstAttribute="centerX" secondItem="A5M-7J-77L" secondAttribute="centerX" id="ua6-Lf-jaK"/>
+                            <constraint firstItem="MPw-Dv-IHq" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="11" id="wN2-SF-OTk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z0V-4U-knD" secondAttribute="trailing" constant="69" id="xiC-Qr-GZf"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="pRf-XC-kdo"/>
@@ -103,7 +148,6 @@
                     <connections>
                         <outlet property="activityIndicator" destination="z0V-4U-knD" id="qZa-Ab-TXX"/>
                         <outlet property="navigationBar" destination="MPw-Dv-IHq" id="KqY-2I-1QM"/>
-                        <outlet property="riskLabel" destination="PVL-xH-15b" id="jwj-du-ZYs"/>
                         <outlet property="riskPercentageLabel" destination="A5M-7J-77L" id="S2r-Pq-Tzw"/>
                     </connections>
                 </viewController>
@@ -303,7 +347,6 @@
         <!--Item-->
         <scene sceneID="I2R-4u-y82">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L97-Bd-8RE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="EF2-ps-HIT" customClass="RiskTableViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YZE-pO-OKd"/>
@@ -328,7 +371,7 @@
                                 <rect key="frame" x="0.0" y="113" width="320" height="406"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="riskCell" rowHeight="57" id="dbx-vf-iwW" customClass="ModifiableRiskCell" customModule="Previna_AVC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="56" width="320" height="57"/>
@@ -353,7 +396,7 @@
                                                             <real key="value" value="31"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="selectedColor">
-                                                            <color key="value" cocoaTouchSystemColor="lightTextColor"/>
+                                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="selectedFontName" value="HelveticaNeue-Light"/>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="listFontName" value="HelveticaNeue-Light"/>
@@ -390,6 +433,7 @@
                         <outlet property="tableView" destination="Id5-KU-xGH" id="tL9-dT-zdx"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L97-Bd-8RE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1485" y="-325.35211267605632"/>
         </scene>
@@ -406,7 +450,7 @@
                                 <rect key="frame" x="0.0" y="56" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hN1-Es-5fe" id="iZs-Af-gBh">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="IU9-iz-vzX">
@@ -1056,6 +1100,7 @@
         <image name="app icon" width="128" height="128"/>
         <image name="document" width="275" height="158"/>
         <image name="health app icon" width="110" height="110"/>
+        <image name="idea" width="32" height="32"/>
         <image name="medal32" width="24" height="24"/>
         <image name="medal_grey" width="32" height="32"/>
         <image name="note2" width="320" height="292"/>
