@@ -105,15 +105,13 @@ class HealthKitManager {
         var interval = DateComponents()
         interval.day = 7
         
-        // Set the anchor date to Monday at 3:00 a.m.
-        var anchorComponents = calendar.dateComponents([.day, .month, .year, .weekday], from: Date())
+        let subtractDays = calendar.date(byAdding: .day, value: -6, to:Date())
+        var subtractDateComponents = calendar.dateComponents([.day, .month, .year, .weekday], from: subtractDays!)
         
-        let offset = (7 + anchorComponents.weekday! - 2) % 7
-        anchorComponents.day! -= offset
-        anchorComponents.hour = 3
+        // Anchor date 0 defaults to 3:00 a.m.
+        subtractDateComponents.hour = 0
         
-        let seven = calendar.date(byAdding: .day, value: -7, to:Date())
-        guard let anchorDate = calendar.date(from: anchorComponents) else {
+        guard let weekAgo = calendar.date(from: subtractDateComponents) else {
             print("*** unable to create a valid date from the given components ***")
             return completion(nil)
         }
@@ -127,7 +125,7 @@ class HealthKitManager {
         let query = HKStatisticsCollectionQuery(quantityType: quantityType,
                                                 quantitySamplePredicate: nil,
                                                 options: .cumulativeSum,
-                                                anchorDate: seven!,
+                                                anchorDate: weekAgo,
                                                 intervalComponents: interval)
         
         // Set the results handler
@@ -142,20 +140,17 @@ class HealthKitManager {
             
             let endDate = Date()
             
-            guard let startDate = calendar.date(byAdding: .month, value: 0, to: endDate) else {
-                print("*** Unable to calculate the start date ***")
-                return completion(nil)
-
-            }
-            
             // Plot the weekly step counts over the past 1 months
-            statsCollection.enumerateStatistics(from: seven!, to: endDate) { statistics, stop in
+            statsCollection.enumerateStatistics(from: weekAgo, to: endDate) { statistics, stop in
                 
                 if let quantity = statistics.sumQuantity() {
                     let date = statistics.startDate
                     let value = quantity.doubleValue(for: HKUnit.count())
                     
                     print("Start date= \(date)")
+                    print("End date= \(endDate)")
+
+                    print("Steps total= \(value)")
                     print("Steps/7= \(value / 7)")
 
                     completion(Int(value / 7))
