@@ -30,6 +30,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDel
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet var label: UILabel!
+    
     var timer = Timer()
     let delay = 2.0
     
@@ -38,6 +40,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //label.layer.borderWidth = 1.0
         //view.addSubview(navigationBar)
         
         navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 55.0)

@@ -10,10 +10,10 @@ import UIKit
 
 class ModifiableRiskCell: UITableViewCell {
 
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var dropMenu: DKDropMenu!
+    @IBOutlet weak var label: UILabel?
+    @IBOutlet weak var dropMenu: DKDropMenu?
+    @IBOutlet weak var imView: UIImageView?
     
-    @IBOutlet weak var imView: UIImageView!
 //    override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
 //             super.init(style: style, reuseIdentifier: reuseIdentifier)
 //            //dropMenu.frame

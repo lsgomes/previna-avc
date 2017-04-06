@@ -10,6 +10,7 @@
 		A03329E51E846724005C3D87 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03329E41E846724005C3D87 /* StartViewController.swift */; };
 		A03B1C1C1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B1C1B1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift */; };
 		A03B1C1E1E80D94C0012E36D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B1C1D1E80D94C0012E36D /* UserManager.swift */; };
+		A05EDB001E95DF90007984CB /* RiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */; };
 		A088A1651E8B4E8300D15E6C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */; };
 		A0919DD31E89E4E100B05B8B /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */; };
 		A0919DD51E89F09F00B05B8B /* BaseProfilePage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0919DD41E89F09F00B05B8B /* BaseProfilePage2ViewController.swift */; };
@@ -44,6 +45,7 @@
 		A03329E41E846724005C3D87 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		A03B1C1B1E80BEA10012E36D /* ProfileSetupPage2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetupPage2ViewController.swift; sourceTree = "<group>"; };
 		A03B1C1D1E80D94C0012E36D /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiskTableViewController.swift; sourceTree = "<group>"; };
 		A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		A0919DD41E89F09F00B05B8B /* BaseProfilePage2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProfilePage2ViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */,
 				A0919DD41E89F09F00B05B8B /* BaseProfilePage2ViewController.swift */,
 				A0E56B3F1E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift */,
+				A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */,
 			);
 			name = Tab;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				A0D7F62C1E8C8B9000D6FC48 /* DKDropMenu.swift in Sources */,
 				A0F6EBB41E8377BF0006451F /* HasSensor.swift in Sources */,
 				A088A1651E8B4E8300D15E6C /* MainTabBarController.swift in Sources */,
+				A05EDB001E95DF90007984CB /* RiskTableViewController.swift in Sources */,
 				A0E56B3E1E91D9DF009DEA0F /* ModifiableRiskCell.swift in Sources */,
 				A0FA77961E7F34DD00F7B5FA /* RestManager.swift in Sources */,
 				A0F380D31E927BE3000359F4 /* NotificationManager.swift in Sources */,

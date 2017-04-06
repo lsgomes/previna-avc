@@ -71,7 +71,7 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
     
     func setSegmentControlHealthKit(riskFactor: Bool, segmentControl: UISegmentedControl, error: Error? ) {
         
-        if (error == nil) {
+        if (error != nil) {
             return
         }
         

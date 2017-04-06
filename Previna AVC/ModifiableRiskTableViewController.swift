@@ -31,13 +31,15 @@ class ModifiableRiskTableViewController: UITableViewController, DKDropMenuDelega
         super.viewDidLoad()
         
         
-        map = ["Frequência de choro?" : createDropMenu(items: ["a", "b"]),
-               "Frequência de irritação?" : angryDropMenu,
-               "Frequência de ansiosidade" : anxietyDropMenu,
-               "Atividade física" : physicalActivityDropMenu,
-               "Álcool": alcoholDropMenu,
-               "Cigarro" : smokeDropMenu
+        map = ["😭 Frequência de choro?" : createDropMenu(items: ["a", "b"]),
+               "😡 Frequência de irritação?" : angryDropMenu,
+               "😨 Frequência de ansiosidade?" : anxietyDropMenu,
+               "🏃 Atividade física" : physicalActivityDropMenu,
+               "🍺 Álcool": alcoholDropMenu,
+               "🚬 Cigarro" : smokeDropMenu
               ]
+        
+        //self.view.sendSubview(toBack: UIView)
         
 //        setDropMenuAttributes(dropMenu: &cryDropMenu, items: ["asda", "basd"], delegate: self)
 
@@ -112,9 +114,9 @@ class ModifiableRiskTableViewController: UITableViewController, DKDropMenuDelega
         //let value = map[key]
         //let value = array[indexPath.row]
         
-        cell.label.text = key
-        cell.dropMenu.add(names: ["aba", "dedo", "show"])
-        cell.imView.image = UIImage(named: "up arrow")
+        cell.label?.text = key
+        cell.dropMenu?.add(names: ["aba", "dedo", "show"])
+        cell.imView?.image = UIImage(named: "up arrow")
         //cell.arrow = UIImageView(image: image)
         //cell.arrow
         // Configure the cell...
