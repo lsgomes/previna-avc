@@ -13,15 +13,16 @@ import ASHorizontalScrollView
 class FirstViewController: UIViewController {
     
     @IBOutlet weak var riskPercentageLabel: UILabel!
-    @IBOutlet var riskLabel: UITextView!
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     
-    var horizontalScrollView: ASHorizontalScrollView! // TODO
+    @IBOutlet var riskLabel: UILabel!
+    
+    @IBOutlet var horizontalScrollView: ASHorizontalScrollView! // TODO
 
-    var itemSize = 170
+    var itemSize = 150
     var size = 200
     var tipSize = 250
     
@@ -49,15 +50,15 @@ class FirstViewController: UIViewController {
         navigationBar.topItem?.title = "Bem vindo, \(UserManager.instance.person.hasUserName!)!"
         navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 60.0)
         
-        horizontalScrollView = setHorizontalViewProperties()
+        setHorizontalViewProperties()
         
         listTips()
         
         self.view.addSubview(horizontalScrollView)
         
-        horizontalScrollView.addItem(createTip(text: "Pratique mais exercícios físicos", index: 1))
-        horizontalScrollView.addItem(createTip(text: "Beba com moderação", index: 2))
-        horizontalScrollView.addItem(createTip(text: "Tente parar de fumar", index: 3))
+        //horizontalScrollView.addItem(createTip(text: "Pratique mais exercícios físicos", index: 1))
+        //horizontalScrollView.addItem(createTip(text: "Beba com moderação", index: 2))
+        //horizontalScrollView.addItem(createTip(text: "Tente parar de fumar", index: 3))
 
 
     
@@ -112,9 +113,9 @@ class FirstViewController: UIViewController {
         }
     }
     
-    func setHorizontalViewProperties() -> ASHorizontalScrollView {
+    func setHorizontalViewProperties() {
         
-        let horizontalScrollView = ASHorizontalScrollView(frame:CGRect(x: 0, y: 255, width: 320 , height: size)) // W: IPHONE SCREEN SIZE (5S = 320)
+//        let horizontalScrollView = ASHorizontalScrollView(frame:CGRect(x: 0, y: 255, width: 320 , height: size)) // W: IPHONE SCREEN SIZE (5S = 320)
         
         horizontalScrollView.arrangeType = .byNumber
         //horizontalScrollView.arrangeType = .byFrame
@@ -129,7 +130,7 @@ class FirstViewController: UIViewController {
         
         horizontalScrollView.setItemsMarginOnce()
         
-        return horizontalScrollView
+        //return horizontalScrollView
         
     }
 }
