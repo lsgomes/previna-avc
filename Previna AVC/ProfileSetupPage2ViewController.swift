@@ -42,7 +42,7 @@ class ProfileSetupPage2ViewController: UIViewController, UITextFieldDelegate, DK
 
     }
     
-    func itemSelected(withIndex: Int, name: String, dropMenu: DKDropMenu) {
+    func itemSelected(_ withIndex: Int, name: String, dropMenu: DKDropMenu) {
         
         baseProfile.itemSelected(withIndex: withIndex, name: name, dropMenu: dropMenu)
 

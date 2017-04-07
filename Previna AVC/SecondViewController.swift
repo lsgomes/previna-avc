@@ -47,7 +47,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDel
         
         
         baseProfile = BaseProfilePage2ViewController(delegate: self, physicalActivityDropMenu: physicalActivityDropMenu, alcoholDropMenu: alcoholDropMenu, smokeDropMenu: smokeDropMenu, schoolDropMenu: schoolDropMenu, cryDropMenu: cryDropMenu, angryDropMenu: angryDropMenu, anxietyDropMenu: anxietyDropMenu, image: image)
-  
+
         baseProfile.setupViewDidLoad(setSelectedItemForDropMenus: true)
     }
     
@@ -57,7 +57,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDel
     }
     
     
-    func itemSelected(withIndex: Int, name: String, dropMenu: DKDropMenu) {
+    func itemSelected(_ withIndex: Int, name: String, dropMenu: DKDropMenu) {
     
         baseProfile.itemSelected(withIndex: withIndex, name: name, dropMenu: dropMenu)
     }

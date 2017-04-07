@@ -56,9 +56,9 @@ class FirstViewController: UIViewController {
         
         self.view.addSubview(horizontalScrollView)
         
-        //horizontalScrollView.addItem(createTip(text: "Pratique mais exercícios físicos", index: 1))
-        //horizontalScrollView.addItem(createTip(text: "Beba com moderação", index: 2))
-        //horizontalScrollView.addItem(createTip(text: "Tente parar de fumar", index: 3))
+        horizontalScrollView.addItem(createTip(text: "Pratique mais exercícios físicos", index: 1))
+        horizontalScrollView.addItem(createTip(text: "Beba com moderação", index: 2))
+        horizontalScrollView.addItem(createTip(text: "Tente parar de fumar", index: 3))
 
 
     

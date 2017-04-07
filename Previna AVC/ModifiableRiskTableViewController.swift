@@ -81,7 +81,7 @@ class ModifiableRiskTableViewController: UITableViewController, DKDropMenuDelega
     }
     
     
-    func itemSelected(withIndex: Int, name: String, dropMenu: DKDropMenu) {
+    func itemSelected(_ withIndex: Int, name: String, dropMenu: DKDropMenu) {
             print("\(name) selected");
         //baseProfile.itemSelected(withIndex: withIndex, name: name, dropMenu: dropMenu)
     }

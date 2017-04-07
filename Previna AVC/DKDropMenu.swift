@@ -32,51 +32,74 @@ import UIKit
 
 /// Delegate protocol for receiving change in list selection
 @objc public protocol DKDropMenuDelegate {
-    func itemSelected(withIndex: Int, name:String, dropMenu: DKDropMenu)
-    @objc optional func collapsedChanged(dropMenu: DKDropMenu, collapsed: Bool)
+    func itemSelected(_ withIndex: Int, name:String, dropMenu: DKDropMenu)
+    @objc optional func collapsedChangedForNewRect(_ NewRect: CGRect)
 }
 
 /// A simple drop down list like expandable menu for iOS
 @IBDesignable
-public class DKDropMenu: UIView {
+open class DKDropMenu: UIView {
     
-    @IBInspectable public var itemHeight: CGFloat = 44
-    @IBInspectable public var selectedFontName: String = "HelveticaNeue-Thin"
-    @IBInspectable public var listFontName: String = "HelveticaNeue-Thin"
-    @IBInspectable public var textColor: UIColor = UIColor.darkGray
-    @IBInspectable public var outlineColor: UIColor = UIColor.lightGray
-    @IBInspectable public var selectedColor: UIColor = UIColor.green
-    weak public var delegate: DKDropMenuDelegate? = nil  //notified when a selection occurs
-    private var items: [String] = [String]()
-    public var selectedItem: String? = nil {
+    @IBInspectable open var itemHeight: CGFloat = 44
+    @IBInspectable open var selectedFontName: String = "HelveticaNeue-Thin"
+    @IBInspectable open var listFontName: String = "HelveticaNeue-Thin"
+    @IBInspectable open var textColor: UIColor = UIColor.darkGray
+    @IBInspectable open var outlineColor: UIColor = UIColor.lightGray
+    @IBInspectable open var selectedColor: UIColor = UIColor.green
+    weak open var delegate: DKDropMenuDelegate? = nil  //notified when a selection occurs
+    fileprivate var items: [String] = [String]()
+    open var selectedItem: String? = nil {
         didSet {
             setNeedsDisplay()
         }
     }
-    public var collapsed: Bool = true {
+    open var collapsed: Bool = true {
         didSet {
-            delegate?.collapsedChanged?(dropMenu: self, collapsed: collapsed)
-            //animate collapsing or opening
-            UIView.animate(withDuration: 0.5, delay: 0, options: .transitionCrossDissolve, animations: {
-                var tempFrame = self.frame
-                if (self.collapsed) {
-                    tempFrame.size.height = self.itemHeight
-                } else {
-                    if (self.items.count > 1 && self.selectedItem != nil) {
-                        tempFrame.size.height = self.itemHeight * CGFloat(self.items.count)
-                    } else if (self.items.count > 0 && self.selectedItem == nil) {
-                        tempFrame.size.height = self.itemHeight * CGFloat(self.items.count) + self.itemHeight
-                    }
+            
+            var tempFrame = self.frame
+            if (self.collapsed) {
+                tempFrame.size.height = self.itemHeight
+            } else {
+                if (self.items.count > 1 && self.selectedItem != nil) {
+                    tempFrame.size.height = self.itemHeight * CGFloat(self.items.count)
+                } else if (self.items.count > 0 && self.selectedItem == nil) {
+                    tempFrame.size.height = self.itemHeight * CGFloat(self.items.count) + self.itemHeight
                 }
-                self.frame = tempFrame
-                self.invalidateIntrinsicContentSize()
-            }, completion: nil)
-            setNeedsDisplay()
-        }
+            }
+            delegate?.collapsedChangedForNewRect?(tempFrame)
+            //animate collapsing or opening
+            //            UIView.animateWithDuration(0.5, delay: 0, options: .TransitionCrossDissolve, animations: {
+            //
+            //                self.frame = tempFrame
+            //                self.invalidateIntrinsicContentSize()
+            //                }, completion: nil)
+            self.frame = tempFrame
+            self.invalidateIntrinsicContentSize()
+            setNeedsDisplay()        }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required public init!(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        NotificationCenter.default.addObserver(self, selector: #selector(DKDropMenu.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+    
+    func rotated()
+    {
+        self.invalidateIntrinsicContentSize()
+        setNeedsDisplay()
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "rotated"), object: nil)
     }
     
     // MARK: Overridden standard UIView methods
-    override public func sizeThatFits(_ size: CGSize) -> CGSize {
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
         if (items.count < 2 || collapsed) {
             return CGSize(width: size.width, height: itemHeight)
         } else {
@@ -84,7 +107,7 @@ public class DKDropMenu: UIView {
         }
     }
     
-    override public var intrinsicContentSize: CGSize {
+    override open var intrinsicContentSize: CGSize {
         if (items.count < 2 || collapsed) {
             return CGSize(width: bounds.size.width, height: itemHeight)
         } else {
@@ -92,7 +115,7 @@ public class DKDropMenu: UIView {
         }
     }
     
-    override public func draw(_ rect: CGRect) {
+    override open func draw(_ rect: CGRect) {
         // Drawing code
         //draw first box regardless
         let context = UIGraphicsGetCurrentContext()
@@ -160,14 +183,14 @@ public class DKDropMenu: UIView {
     
     // MARK: Add or remove items
     /// Add an array of items to the menu
-    public func add(names: [String]) {
+    open func add(_ names: [String]) {
         for name in names {
             add(name: name)
         }
     }
     
     /// Add a single item to the menu
-    public func add(name: String) {
+    open func add(name: String) {
         //if we have no selected items, we'll take it
         if items.isEmpty {
             selectedItem = name
@@ -189,7 +212,7 @@ public class DKDropMenu: UIView {
     }
     
     /// Remove a single item from the menu
-    public func remove(at index: Int) {
+    open func remove(at index: Int) {
         if (items[index] == selectedItem) {
             selectedItem = nil
         }
@@ -213,14 +236,14 @@ public class DKDropMenu: UIView {
     }
     
     /// Remove the first occurence of item named *name*
-    public func remove(name: String) {
+    open func remove(_ name: String) {
         if let index = items.index(of: name) {
             remove(at: index)
         }
     }
     
     /// Remove all items
-    public func removeAll() {
+    open func removeAll() {
         selectedItem = nil
         items.removeAll()
         if (!collapsed) {
@@ -235,7 +258,7 @@ public class DKDropMenu: UIView {
     }
     
     // MARK: Events
-    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch: UITouch = touches.first!
         let point: CGPoint = touch.location(in: self)
         if point.y > itemHeight {
@@ -246,7 +269,7 @@ public class DKDropMenu: UIView {
                         thought += 1
                     }
                 }
-                dele.itemSelected(withIndex: thought, name: items[thought], dropMenu: self)
+                dele.itemSelected(thought, name: items[thought], dropMenu: self)
                 selectedItem = items[thought]
             }
         }

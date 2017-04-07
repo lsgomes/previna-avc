@@ -14,7 +14,8 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
     static let PAGE_1 = "WizardPage1"
     static let PAGE_2 = "WizardPage2"
     static let PAGE_3 = "WizardPage3"
-    static let PAGE_4 = "WizardPage4"
+    //static let PAGE_4 = "WizardPage4"
+    static let PAGE_4 = "RiskTable"
 
     
 //    private(set) lazy var orderedViewControllers: [UIViewController] = {
