@@ -137,7 +137,7 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        if (nameTextField.text!.isEmpty) {
+        if (ageTextField.text!.isEmpty) {
             NotificationManager.instance.displayAlert(title: "Idade não preenchida", message: "Preencha sua idade para continuar", dismiss: "Ok", viewController: self)
             return
         }

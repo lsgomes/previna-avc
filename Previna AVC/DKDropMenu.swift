@@ -66,16 +66,17 @@ open class DKDropMenu: UIView {
                     tempFrame.size.height = self.itemHeight * CGFloat(self.items.count) + self.itemHeight
                 }
             }
-            delegate?.collapsedChangedForNewRect?(tempFrame)
+            delegate?.collapsedChangedForNewRect!(tempFrame)
             //animate collapsing or opening
-            //            UIView.animateWithDuration(0.5, delay: 0, options: .TransitionCrossDissolve, animations: {
-            //
-            //                self.frame = tempFrame
-            //                self.invalidateIntrinsicContentSize()
-            //                }, completion: nil)
+            UIView.animate(withDuration: 0.5, delay: 0, options: .transitionCrossDissolve, animations: {
+            
             self.frame = tempFrame
             self.invalidateIntrinsicContentSize()
-            setNeedsDisplay()        }
+            }, completion: nil)
+            //self.frame = tempFrame
+            //self.invalidateIntrinsicContentSize()
+            setNeedsDisplay()
+        }
     }
     
     override init(frame: CGRect) {

@@ -379,15 +379,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Id5-KU-xGH">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Id5-KU-xGH">
                                 <rect key="frame" x="0.0" y="113" width="320" height="406"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="riskCell" rowHeight="57" id="dbx-vf-iwW" customClass="ModifiableRiskCell" customModule="Previna_AVC" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="riskCell" rowHeight="57" id="dbx-vf-iwW" customClass="ModifiableRiskCell" customModule="Previna_AVC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="56" width="320" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" contentMode="center" tableViewCell="dbx-vf-iwW" id="Oev-T4-GbT">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="dbx-vf-iwW" id="Oev-T4-GbT">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -400,7 +400,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZY-Fg-D7W" customClass="DKDropMenu" customModule="Previna_AVC" customModuleProvider="target">
+                                                <view autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cZY-Fg-D7W" customClass="DKDropMenu" customModule="Previna_AVC" customModuleProvider="target">
                                                     <rect key="frame" x="173" y="5" width="139" height="34"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -416,6 +416,11 @@
                                                         <userDefinedRuntimeAttribute type="string" keyPath="selectedFontName" value="HelveticaNeue-Light"/>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="listFontName" value="HelveticaNeue-Light"/>
                                                     </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="HJU-Cv-Rf3"/>
+                                                        </mask>
+                                                    </variation>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -454,6 +459,7 @@
                                 </state>
                                 <connections>
                                     <action selector="saveAction:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Ekj-VY-5dV"/>
+                                    <action selector="saveAction:" destination="EF2-ps-HIT" eventType="touchUpInside" id="j8I-xo-LY8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -478,6 +484,7 @@
                     <connections>
                         <outlet property="saveButton" destination="Q6z-Y3-N7F" id="4Yg-yo-wCk"/>
                         <outlet property="tableView" destination="Id5-KU-xGH" id="tL9-dT-zdx"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="RiskTableToTabBar" id="d7o-8H-NvT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L97-Bd-8RE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -681,19 +688,25 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" image="app icon" translatesAutoresizingMaskIntoConstraints="NO" id="XtR-5g-Xwr">
-                                <rect key="frame" x="96" y="108" width="128" height="128"/>
+                                <rect key="frame" x="96" y="101" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="g67-bL-H6D"/>
                                     <constraint firstAttribute="height" constant="128" id="jBV-9Y-2cb"/>
                                 </constraints>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aT1-ur-20n">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aT1-ur-20n">
                                 <rect key="frame" x="0.0" y="10" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Bem-vindo ao Previna AVC!" id="crP-CJ-qbw"/>
                                 </items>
                             </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Este aplicativo irá ajudar você a prevenir o acidente vascular cerebral (AVC)." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TY-nz-Fc7">
+                                <rect key="frame" x="40" y="261" width="240" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem-vindo ao Previna AVC!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmr-p3-KUw">
                                 <rect key="frame" x="44" y="267" width="232" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -701,32 +714,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Este aplicativo irá ajudar você a prevenir o acidente vascular cerebral (AVC)." textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NY5-7B-sNj">
-                                <rect key="frame" x="35" y="270" width="250" height="84"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="41u-27-k6E"/>
-                                    <constraint firstAttribute="height" constant="84" id="jF6-ho-EGe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="XtR-5g-Xwr" secondAttribute="trailing" constant="80" id="1EA-KG-ZBJ"/>
-                            <constraint firstItem="NY5-7B-sNj" firstAttribute="leading" secondItem="Zbp-p4-2UF" secondAttribute="leadingMargin" constant="19" id="4JY-KI-Hf6"/>
+                            <constraint firstAttribute="trailing" secondItem="aT1-ur-20n" secondAttribute="trailing" id="1Hy-K9-Jqc"/>
+                            <constraint firstItem="aT1-ur-20n" firstAttribute="top" secondItem="Zbp-p4-2UF" secondAttribute="top" constant="10" id="1jW-EO-1hg"/>
                             <constraint firstItem="y0C-9M-3F2" firstAttribute="leading" secondItem="Zbp-p4-2UF" secondAttribute="leadingMargin" constant="60" id="7wG-Rb-lbd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NY5-7B-sNj" secondAttribute="trailing" constant="19" id="Bjg-1X-VMA"/>
+                            <constraint firstItem="XtR-5g-Xwr" firstAttribute="top" secondItem="aT1-ur-20n" secondAttribute="bottom" constant="47" id="FeW-f3-dS5"/>
                             <constraint firstItem="XtR-5g-Xwr" firstAttribute="leading" secondItem="Zbp-p4-2UF" secondAttribute="leadingMargin" constant="80" id="Kbo-PM-P4o"/>
                             <constraint firstItem="2n6-Jd-hdy" firstAttribute="top" secondItem="y0C-9M-3F2" secondAttribute="bottom" constant="84" id="Pmi-Fj-j40"/>
-                            <constraint firstItem="NY5-7B-sNj" firstAttribute="top" secondItem="XtR-5g-Xwr" secondAttribute="bottom" constant="34" id="jUZ-Ol-LvP"/>
+                            <constraint firstItem="aT1-ur-20n" firstAttribute="leading" secondItem="Zbp-p4-2UF" secondAttribute="leading" id="V3X-Zv-s2K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="y0C-9M-3F2" secondAttribute="trailing" constant="60" id="l1Q-R0-m95"/>
-                            <constraint firstItem="NY5-7B-sNj" firstAttribute="centerY" secondItem="Zbp-p4-2UF" secondAttribute="centerY" constant="28" id="m2u-go-jfZ"/>
-                            <constraint firstItem="NY5-7B-sNj" firstAttribute="leading" secondItem="Zbp-p4-2UF" secondAttribute="leadingMargin" constant="19" id="mVT-J0-h2Y"/>
-                            <constraint firstItem="y0C-9M-3F2" firstAttribute="top" secondItem="NY5-7B-sNj" secondAttribute="bottom" constant="75" id="nPK-48-lzl"/>
-                            <constraint firstItem="y0C-9M-3F2" firstAttribute="top" secondItem="NY5-7B-sNj" secondAttribute="bottom" constant="75" id="nsG-5e-RbQ"/>
-                            <constraint firstItem="NY5-7B-sNj" firstAttribute="top" secondItem="XtR-5g-Xwr" secondAttribute="bottom" constant="34" id="q9K-Db-LAx"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -1200,6 +1199,6 @@
         <image name="up arrow" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qwx-re-vLC"/>
+        <segue reference="d7o-8H-NvT"/>
     </inferredMetricsTieBreakers>
 </document>

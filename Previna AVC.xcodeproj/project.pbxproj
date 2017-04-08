@@ -111,9 +111,9 @@
 			isa = PBXGroup;
 			children = (
 				A0E56B3D1E91D9DF009DEA0F /* ModifiableRiskCell.swift */,
+				A0D7F62B1E8C8B9000D6FC48 /* DKDropMenu.swift */,
 				A09599E21E8CB2F200974DC7 /* RiskFactor.swift */,
 				A0DB6CB01E88859F002F26B6 /* TipView.swift */,
-				A0D7F62B1E8C8B9000D6FC48 /* DKDropMenu.swift */,
 				A0F6EBAE1E8377BF0006451F /* HasDevice.swift */,
 				A0F6EBAF1E8377BF0006451F /* HasRiskFactor.swift */,
 				A0F6EBB01E8377BF0006451F /* HasSensor.swift */,

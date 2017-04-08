@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RiskTableViewController: UIViewController {
+class RiskTableViewController: UIViewController, DKDropMenuDelegate {
 
     // MARK: Translations
     let TRANSLATION_INACTIVE = "Sedentário"
@@ -84,8 +84,19 @@ class RiskTableViewController: UIViewController {
         self.view.sendSubview(toBack: tableView)
 
 
+        print(self.parent!)
+        tableView.layer.masksToBounds = false
 //        navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 55.0)
     }
+    
+    @IBAction func saveAction(_ sender: UIButton) {
+        
+        if (self.parent is WizardPageViewController) {
+            
+            self.performSegue(withIdentifier: "RiskTableToTabBar", sender: nil)
+        }
+    }
+    
 }
 
 extension RiskTableViewController: UITableViewDataSource, UITableViewDelegate {
@@ -113,10 +124,19 @@ extension RiskTableViewController: UITableViewDataSource, UITableViewDelegate {
 //        cell.imView = UIImageView()
         
         cell.label?.text = key
-        cell.dropMenu?.add(names: map[key]!)
+        cell.dropMenu?.add(map[key]!)
         //cell.imView?.image = image
         
         return cell
+    }
+    
+    func collapsedChanged(dropMenu: DKDropMenu, collapsed: Bool) {
+        
+    }
+    
+    
+    func itemSelected(_ withIndex: Int, name: String, dropMenu: DKDropMenu) {
+        print("\(name) selected");
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

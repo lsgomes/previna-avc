@@ -66,7 +66,7 @@ class ModifiableRiskTableViewController: UITableViewController, DKDropMenuDelega
         dropMenu.selectedColor = .gray
         dropMenu.textColor = .black
         dropMenu.itemHeight = 30
-        dropMenu.add(names: items)
+        dropMenu.add(items)
         dropMenu.delegate = self
         return dropMenu
     }
@@ -115,7 +115,7 @@ class ModifiableRiskTableViewController: UITableViewController, DKDropMenuDelega
         //let value = array[indexPath.row]
         
         cell.label?.text = key
-        cell.dropMenu?.add(names: ["aba", "dedo", "show"])
+        cell.dropMenu?.add(["aba", "dedo", "show"])
         cell.imView?.image = UIImage(named: "up arrow")
         //cell.arrow = UIImageView(image: image)
         //cell.arrow
