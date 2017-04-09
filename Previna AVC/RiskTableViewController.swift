@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RiskTableViewController: UIViewController, DKDropMenuDelegate {
+class RiskTableViewController: UIViewController {
 
     // MARK: Translations
     let TRANSLATION_INACTIVE = "Sedentário"
@@ -41,6 +41,8 @@ class RiskTableViewController: UIViewController, DKDropMenuDelegate {
     
     let cellIdentifier = "riskCell"
     
+    @IBOutlet var headerText: UILabel!
+    
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var saveButton: UIButton!
@@ -52,6 +54,15 @@ class RiskTableViewController: UIViewController, DKDropMenuDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (self.parent is WizardPageViewController) {
+            headerText.text = "Preencha os campos a seguir para completar seu perfil."
+            saveButton.setTitle("CONCLUIR", for: .normal)
+        }
+        else if (self.parent is MainTabBarController) {
+            headerText.text = "Se algum hábito de saúde seu mudou, atualize aqui."
+            saveButton.setTitle("SALVAR", for: .normal)
+        }
 
         TRANSLATION_FREQUENCY = [TRANSLATION_OFTEN_OR_ALWAYS, TRANSLATION_SOMETIMES, TRANSLATION_NEVER]
         
@@ -85,7 +96,6 @@ class RiskTableViewController: UIViewController, DKDropMenuDelegate {
 
 
         print(self.parent!)
-        tableView.layer.masksToBounds = false
 //        navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 55.0)
     }
     
@@ -99,7 +109,11 @@ class RiskTableViewController: UIViewController, DKDropMenuDelegate {
     
 }
 
-extension RiskTableViewController: UITableViewDataSource, UITableViewDelegate {
+extension RiskTableViewController: UITableViewDataSource, UITableViewDelegate, DKDropMenuDelegate {
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 124
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return map.count
@@ -125,19 +139,12 @@ extension RiskTableViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.label?.text = key
         cell.dropMenu?.add(map[key]!)
+        cell.dropMenu?.delegate = self
         //cell.imView?.image = image
         
         return cell
     }
-    
-    func collapsedChanged(dropMenu: DKDropMenu, collapsed: Bool) {
-        
-    }
-    
-    
-    func itemSelected(_ withIndex: Int, name: String, dropMenu: DKDropMenu) {
-        print("\(name) selected");
-    }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
@@ -145,5 +152,76 @@ extension RiskTableViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "DEFINA SUA FREQUÊNCIA DE:"
+    }
+    
+   // func collapsedChanged(_ dropMenu: DKDropMenu, _ collapsed: Bool)
+    func collapsedChangedForNewRect(_ NewRect: CGRect, _ collapsed: Bool, _ dropMenu :DKDropMenu)
+    {
+        //        let visibleCells = tableView.visibleCells as! [ModifiableRiskCell]
+
+        var taloco: NSLayoutConstraint? = nil
+        
+//        for cell in tableView.visibleCells {
+//            let const = cell.contentView
+//            for constraint in const.constraints {
+//                //print("\(constraint.identifier) ** \(constraint)")
+//                if (constraint.identifier == "UIView-Encapsulated-Layout-Height") {
+//                    taloco = constraint
+//                }
+//            }
+//        }
+
+  
+        
+        
+        self.view.layoutIfNeeded()
+        for constraint in dropMenu.constraints {
+            if (constraint.identifier == "dropMenuHeight") {
+                constraint.constant = NewRect.size.height
+            }
+        }
+        
+        if (taloco != nil) {
+            //taloco?.constant = NewRect.size.height
+        }
+        //self.constrantOfDropDownView.constant = NewRect.size.height;
+        UIView.animate(withDuration: 0.5, delay: 0, options: .transitionCrossDissolve, animations: {
+            self.view.layoutIfNeeded()
+            
+        }, completion: nil)
+        
+        
+        //indexPathsForVisibleRows
+//        let visibleCells = tableView.visibleCells as! [ModifiableRiskCell]
+//        
+//        for cell in visibleCells {
+//            
+//            cell.layer.masksToBounds = false
+//            
+//            if (cell.dropMenu != dropMenu) {
+//                //cell.dropMenu?.isHidden = true
+//                let vsf = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.width, height: 33)
+//                //cell.bounds = vsf
+//                //cell.frame = vsf
+//                
+//            } else {
+//                print("cell bounds: \(cell.bounds)")
+//                print("cell bounds: \(cell.frame)")
+//                
+//                print(cell.frame.origin)
+//                let vsf = CGRect(x: cell.frame.origin.x, y: cell.frame.origin.y, width: cell.frame.width, height: 124)
+//                //cell.bounds = vsf
+//
+//                //cell.frame = vsf
+//                //cell.bounds = CGRect(x: 0, y: 0, width: 320, height: 124)
+//
+//            }
+//            
+//        }
+    }
+    
+    
+    func itemSelected(_ withIndex: Int, name: String, dropMenu: DKDropMenu) {
+        print("\(name) selected");
     }
 }

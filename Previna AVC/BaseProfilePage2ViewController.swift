@@ -119,7 +119,7 @@ class BaseProfilePage2ViewController {
         dropMenu.selectedColor = .gray
         //dropMenu.textColor =
         dropMenu.itemHeight = 30
-        dropMenu.add(names: items)
+        dropMenu.add(items)
         dropMenu.delegate = delegate
     }
     

@@ -132,16 +132,16 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func continueAction(_ sender: UIButton) {
     
-        if (nameTextField.text!.isEmpty) {
-            NotificationManager.instance.displayAlert(title: "Nome não preenchido", message: "Preencha seu nome para continuar", dismiss: "Ok", viewController: self)
-            return
-        }
-        
-        if (ageTextField.text!.isEmpty) {
-            NotificationManager.instance.displayAlert(title: "Idade não preenchida", message: "Preencha sua idade para continuar", dismiss: "Ok", viewController: self)
-            return
-        }
-        
+//        if (nameTextField.text!.isEmpty) {
+//            NotificationManager.instance.displayAlert(title: "Nome não preenchido", message: "Preencha seu nome para continuar", dismiss: "Ok", viewController: self)
+//            return
+//        }
+//        
+//        if (ageTextField.text!.isEmpty) {
+//            NotificationManager.instance.displayAlert(title: "Idade não preenchida", message: "Preencha sua idade para continuar", dismiss: "Ok", viewController: self)
+//            return
+//        }
+//        
         
         // TODO: rest call verify if name already exists
         validateForm()

@@ -33,7 +33,8 @@ import UIKit
 /// Delegate protocol for receiving change in list selection
 @objc public protocol DKDropMenuDelegate {
     func itemSelected(_ withIndex: Int, name:String, dropMenu: DKDropMenu)
-    @objc optional func collapsedChangedForNewRect(_ NewRect: CGRect)
+    @objc optional func collapsedChangedForNewRect(_ NewRect: CGRect, _ collapsed: Bool, _ dropMenu :DKDropMenu)
+    //@objc optional func collapsedChanged(_ dropMenu: DKDropMenu, _ collapsed: Bool)
 }
 
 /// A simple drop down list like expandable menu for iOS
@@ -55,26 +56,63 @@ open class DKDropMenu: UIView {
     }
     open var collapsed: Bool = true {
         didSet {
+
+            print(self.bounds)
+            print(self.frame)
             
+//            delegate?.collapsedChanged?(self, collapsed)
+//            //animate collapsing or opening
+//            UIView.animate(withDuration: 0.5, delay: 0, options: .transitionCrossDissolve, animations: {
+//                var tempFrame = self.frame
+//                if (self.collapsed) {
+//                    tempFrame.size.height = self.itemHeight
+//                } else {
+//                    if (self.items.count > 1 && self.selectedItem != nil) {
+//                        tempFrame.size.height = self.itemHeight * CGFloat(self.items.count)
+//                    } else if (self.items.count > 0 && self.selectedItem == nil) {
+//                        tempFrame.size.height = self.itemHeight * CGFloat(self.items.count) + self.itemHeight
+//                    }
+//                }
+//                self.frame = tempFrame
+//                self.invalidateIntrinsicContentSize()
+//            }, completion: nil)
+//            setNeedsDisplay()
+            
+
             var tempFrame = self.frame
+            var tempBounds = self.bounds
+            var tempLayerBounds = self.layer.bounds
             if (self.collapsed) {
                 tempFrame.size.height = self.itemHeight
+                tempBounds = CGRect(x: 0, y: 0, width: 139, height: 31)
+               //tempLayerBounds = CGRect(x: 0, y: 0, width: 139, height: 31)
+
             } else {
                 if (self.items.count > 1 && self.selectedItem != nil) {
-                    tempFrame.size.height = self.itemHeight * CGFloat(self.items.count)
+                    let height = self.itemHeight * CGFloat(self.items.count)
+                    tempFrame.size.height = height
+                    tempBounds = CGRect(x: 0, y: 0, width: 139, height: height)
+                    //tempLayerBounds = CGRect(x: 0, y: 0, width: 139, height: height)
                 } else if (self.items.count > 0 && self.selectedItem == nil) {
-                    tempFrame.size.height = self.itemHeight * CGFloat(self.items.count) + self.itemHeight
+                    let height = self.itemHeight * CGFloat(self.items.count) + self.itemHeight
+                    tempFrame.size.height = height
+                    tempBounds = CGRect(x: 0, y: 0, width: 139, height: height)
+                    //tempLayerBounds = CGRect(x: 0, y: 0, width: 139, height: height)
+
                 }
             }
-            delegate?.collapsedChangedForNewRect!(tempFrame)
+            //delegate?.collapsedChanged?(self, collapsed)
+            delegate?.collapsedChangedForNewRect!(tempFrame, collapsed, self)
             //animate collapsing or opening
-            UIView.animate(withDuration: 0.5, delay: 0, options: .transitionCrossDissolve, animations: {
-            
+//            UIView.animate(withDuration: 0.5, delay: 0, options: .transitionCrossDissolve, animations: {
+//            
+//            self.frame = tempFrame
+//                //self.bounds = tempBounds
+//                //self.layer.bounds = tempLayerBounds
+//            self.invalidateIntrinsicContentSize()
+//            }, completion: nil)
             self.frame = tempFrame
             self.invalidateIntrinsicContentSize()
-            }, completion: nil)
-            //self.frame = tempFrame
-            //self.invalidateIntrinsicContentSize()
             setNeedsDisplay()
         }
     }
@@ -86,6 +124,7 @@ open class DKDropMenu: UIView {
     required public init!(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         NotificationCenter.default.addObserver(self, selector: #selector(DKDropMenu.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+
     }
     
     func rotated()
@@ -276,4 +315,17 @@ open class DKDropMenu: UIView {
         }
         collapsed = !collapsed
     }
+    
+//    override open func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+//        if (!self.clipsToBounds && !self.isHidden && self.alpha > 0.0) {
+//            let subviews = self.subviews.reversed()
+//            for member in subviews {
+//                let subPoint = member.convert(point, from: self)
+//                if let result:UIView = member.hitTest(subPoint, with:event) {
+//                    return result;
+//                }
+//            }
+//        }
+//        return nil
+//    }
 }
