@@ -21,7 +21,9 @@ class BaseProfilePage2ViewController {
     
     var delegate: DKDropMenuDelegate!
     
-    var image: UIImageView!
+    var button: UIButton
+    
+    let dropMenus: [DKDropMenu]
     
     // MARK: Translations
     let TRANSLATION_INACTIVE = "Sedentário"
@@ -38,15 +40,18 @@ class BaseProfilePage2ViewController {
     let TRANSLATION_NEVER_SMOKED = "Não-fumante"
     
     let TRANSLATION_HIGH_SCHOOL_DIPLOMA = "Ensino médio"
-    let TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA = "Ensino fundamental"
+    let TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA = "Fundamental"
     let TRANSLATION_COLLEGE_DIPLOMA = "Ensino superior"
     
     let TRANSLATION_OFTEN_OR_ALWAYS = "Muitas vezes"
-    let TRANSLATION_SOMETIMES_OR_NEVER = "Às vezes"
+    let TRANSLATION_SOMETIMES = "Às vezes"
+    let TRANSLATION_NEVER = "Nunca"
+
+    var TRANSLATION_FREQUENCY: [String] = []
     
     let riskFactors = [RiskFactor.ACTIVE.rawValue]
     
-    public init( delegate: DKDropMenuDelegate, physicalActivityDropMenu: DKDropMenu, alcoholDropMenu:  DKDropMenu, smokeDropMenu:  DKDropMenu, schoolDropMenu: DKDropMenu?, cryDropMenu: DKDropMenu, angryDropMenu: DKDropMenu, anxietyDropMenu: DKDropMenu, image: UIImageView? ) {
+    public init( delegate: DKDropMenuDelegate, physicalActivityDropMenu: DKDropMenu, alcoholDropMenu:  DKDropMenu, smokeDropMenu:  DKDropMenu, schoolDropMenu: DKDropMenu?, cryDropMenu: DKDropMenu, angryDropMenu: DKDropMenu, anxietyDropMenu: DKDropMenu, button: UIButton) {
         
         self.delegate = delegate
         
@@ -59,7 +64,11 @@ class BaseProfilePage2ViewController {
         self.alcoholDropMenu = alcoholDropMenu
         self.smokeDropMenu = smokeDropMenu
         
-        self.image = image
+        self.button = button
+        
+        self.dropMenus = [cryDropMenu, angryDropMenu, anxietyDropMenu, schoolDropMenu!, physicalActivityDropMenu, alcoholDropMenu, smokeDropMenu]
+        
+        self.TRANSLATION_FREQUENCY = [TRANSLATION_OFTEN_OR_ALWAYS, TRANSLATION_SOMETIMES, TRANSLATION_NEVER]
         
     }
   
@@ -76,13 +85,13 @@ class BaseProfilePage2ViewController {
         setDropMenuAttributes(dropMenu: schoolDropMenu, items: [TRANSLATION_COLLEGE_DIPLOMA, TRANSLATION_HIGH_SCHOOL_DIPLOMA, TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA], delegate: delegate)
     
         
-        setDropMenuAttributes(dropMenu: cryDropMenu, items: [TRANSLATION_OFTEN_OR_ALWAYS, TRANSLATION_SOMETIMES_OR_NEVER], delegate: delegate)
+        setDropMenuAttributes(dropMenu: cryDropMenu, items: TRANSLATION_FREQUENCY, delegate: delegate)
 
         
-        setDropMenuAttributes(dropMenu: angryDropMenu, items: [TRANSLATION_OFTEN_OR_ALWAYS, TRANSLATION_SOMETIMES_OR_NEVER], delegate: delegate)
+        setDropMenuAttributes(dropMenu: angryDropMenu, items: TRANSLATION_FREQUENCY, delegate: delegate)
 
         
-        setDropMenuAttributes(dropMenu: anxietyDropMenu, items: [TRANSLATION_OFTEN_OR_ALWAYS, TRANSLATION_SOMETIMES_OR_NEVER], delegate: delegate)
+        setDropMenuAttributes(dropMenu: anxietyDropMenu, items: TRANSLATION_FREQUENCY, delegate: delegate)
         
         // BS
         
@@ -116,9 +125,9 @@ class BaseProfilePage2ViewController {
     func setDropMenuAttributes(dropMenu: DKDropMenu?, items: [String], delegate: DKDropMenuDelegate) {
         
         guard let dropMenu = dropMenu else { return }
-        dropMenu.selectedColor = .gray
+        dropMenu.selectedColor = .lightGray
         //dropMenu.textColor =
-        dropMenu.itemHeight = 30
+        dropMenu.itemHeight = 31
         dropMenu.add(items)
         dropMenu.delegate = delegate
     }
@@ -155,11 +164,6 @@ class BaseProfilePage2ViewController {
             }
             
             
-            if (self.image != nil)
-            {
-                self.image.isHidden = false
-            }
-            
             self.physicalActivityDropMenu.setNeedsDisplay()
             
             print("Setting physicalActivityDropMenu to \(self.physicalActivityDropMenu.selectedItem)")
@@ -192,98 +196,9 @@ class BaseProfilePage2ViewController {
         }
     }
     
-    public func collapseChanged(dropMenu: DKDropMenu?, collapsed: Bool) {
-        
-        //guard let dropMenu = dropMenu else { return }
-        
-        if (dropMenu == nil) {
-            return
-        }
-        
-        let dropMenu: DKDropMenu = dropMenu!
-        
-        if (!collapsed) {
-            
-            switch (dropMenu) {
-        
-                
-            case cryDropMenu:
-                fadein(dropMenu: angryDropMenu)
-                fadein(dropMenu: anxietyDropMenu)
-                fadein(dropMenu: physicalActivityDropMenu)
-                fadein(dropMenu: schoolDropMenu)
-                fadein(dropMenu: alcoholDropMenu)
-                fadein(dropMenu: smokeDropMenu)
-
-            case angryDropMenu:
-                fadein(dropMenu: cryDropMenu)
-                fadein(dropMenu: anxietyDropMenu)
-                fadein(dropMenu: physicalActivityDropMenu)
-                fadein(dropMenu: schoolDropMenu)
-                fadein(dropMenu: alcoholDropMenu)
-                fadein(dropMenu: smokeDropMenu)
-
-//            case schoolDropMenu:
-//                fadein(dropMenu: cryDropMenu)
-//                fadein(dropMenu: angryDropMenu)
-//                fadein(dropMenu: anxietyDropMenu)
-//                fadein(dropMenu: alcoholDropMenu)
-//                fadein(dropMenu: physicalActivityDropMenu)
-//                fadein(dropMenu: smokeDropMenu)
-                
-            case physicalActivityDropMenu:
-                fadein(dropMenu: cryDropMenu)
-                fadein(dropMenu: angryDropMenu)
-                fadein(dropMenu: anxietyDropMenu)
-                fadein(dropMenu: alcoholDropMenu)
-                fadein(dropMenu: smokeDropMenu)
-                fadein(dropMenu: schoolDropMenu)
-
-                
-            case alcoholDropMenu:
-                fadein(dropMenu: cryDropMenu)
-                fadein(dropMenu: angryDropMenu)
-                fadein(dropMenu: anxietyDropMenu)
-                fadein(dropMenu: physicalActivityDropMenu)
-                fadein(dropMenu: smokeDropMenu)
-                fadein(dropMenu: schoolDropMenu)
-
-                
-            default:
-                break
-            }
-            
-        }
-        else {
-            fadeout(dropMenu: alcoholDropMenu)
-            fadeout(dropMenu: smokeDropMenu)
-            fadeout(dropMenu: angryDropMenu)
-            fadeout(dropMenu: anxietyDropMenu)
-            fadeout(dropMenu: physicalActivityDropMenu)
-            fadeout(dropMenu: cryDropMenu)
-            fadeout(dropMenu: schoolDropMenu)
-
-        }
-
-    }
+  
     
-    func fadein(dropMenu: DKDropMenu?) {
-        
-        guard let dropMenu = dropMenu else { return }
-        
-        UIView.animate(withDuration: 0.2, animations: {
-            dropMenu.alpha = 0.0
-        })
-    }
-    
-    func fadeout(dropMenu: DKDropMenu?) {
-        
-        guard let dropMenu = dropMenu else { return }
-        
-        UIView.animate(withDuration: 1.0, animations: {
-            dropMenu.alpha = 1.0
-        })
-    }
+
     
     
     func itemSelected(withIndex: Int, name: String, dropMenu: DKDropMenu) {
@@ -418,7 +333,9 @@ class BaseProfilePage2ViewController {
             
         case TRANSLATION_OFTEN_OR_ALWAYS:
             addRiskFactor(uri: RiskFactor.CRY_EASILY.rawValue, riskFactors: &riskFactors!)
-        case TRANSLATION_SOMETIMES_OR_NEVER:
+        case TRANSLATION_SOMETIMES:
+            addRiskFactor(uri: RiskFactor.NOT_CRYING_EASILY.rawValue, riskFactors: &riskFactors!)
+        case TRANSLATION_NEVER:
             addRiskFactor(uri: RiskFactor.NOT_CRYING_EASILY.rawValue, riskFactors: &riskFactors!)
         default:
             break;
@@ -429,8 +346,10 @@ class BaseProfilePage2ViewController {
             
         case TRANSLATION_OFTEN_OR_ALWAYS:
             addRiskFactor(uri: RiskFactor.CRITICAL_OF_OTHERS.rawValue, riskFactors: &riskFactors!)
-        case TRANSLATION_SOMETIMES_OR_NEVER:
+        case TRANSLATION_SOMETIMES:
             addRiskFactor(uri: RiskFactor.NOT_CRITICAL_OF_OTHERS.rawValue, riskFactors: &riskFactors!)
+        case TRANSLATION_NEVER:
+           addRiskFactor(uri: RiskFactor.NOT_CRITICAL_OF_OTHERS.rawValue, riskFactors: &riskFactors!)
         default:
             break;
         }
@@ -439,7 +358,9 @@ class BaseProfilePage2ViewController {
             
         case TRANSLATION_OFTEN_OR_ALWAYS:
             addRiskFactor(uri: RiskFactor.FEARFUL.rawValue, riskFactors: &riskFactors!)
-        case TRANSLATION_SOMETIMES_OR_NEVER:
+        case TRANSLATION_SOMETIMES:
+            addRiskFactor(uri: RiskFactor.NOT_FEARFUL.rawValue, riskFactors: &riskFactors!)
+        case TRANSLATION_NEVER:
             addRiskFactor(uri: RiskFactor.NOT_FEARFUL.rawValue, riskFactors: &riskFactors!)
         default:
             break;

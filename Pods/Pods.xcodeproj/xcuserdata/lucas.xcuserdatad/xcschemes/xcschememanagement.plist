@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Eureka.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Previna AVC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,17 +32,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5262ED7ECF5156E65A4823D05E427F78</key>
+		<key>1281DDE556E8DC53D126A8FD621FAF32</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>675A114988AE198732ED4AD726408964</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6CF517ACFE6387234ECE07B73428D53E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>7314180BE9DF7EC9AED878748EC34864</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7661F5D9C2DAA7B96878A66C790F619B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

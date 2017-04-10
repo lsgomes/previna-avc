@@ -11,11 +11,11 @@ import HealthKit
 
 class WizardPageViewController: UIPageViewController //, UIPageViewControllerDelegate
 {
-    static let PAGE_1 = "WizardPage1"
+    static let PAGE_1 = "formTwoViewController"
     static let PAGE_2 = "WizardPage2"
     static let PAGE_3 = "WizardPage3"
     //static let PAGE_4 = "WizardPage4"
-    static let PAGE_4 = "RiskTable"
+    static let PAGE_4 = "SecondViewController"
 
     
 //    private(set) lazy var orderedViewControllers: [UIViewController] = {
@@ -27,13 +27,14 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
 //    ]
 //    } ()
 
-    
     var orderedViewControllers: [UIViewController] = []
     
     private func newViewController(title: String) -> UIViewController {
         
         print("WizardPageViewController.newViewController(): " + title)
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: title)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: title)
+        let navigationController = UINavigationController(rootViewController: vc)
+        return navigationController
     }
     
     var currentIndex:Int {
@@ -55,6 +56,8 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         orderedViewControllers = {
                 return [self.newViewController(title: WizardPageViewController.PAGE_1),

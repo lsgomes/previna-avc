@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderView" customModule="Previna_AVC" customModuleProvider="target">
+            <connections>
+                <outlet property="noteImage" destination="2AM-Zo-mkr" id="hVc-Zk-rOD"/>
+                <outlet property="noteText" destination="bE6-1k-Plv" id="6FJ-b0-uXD"/>
+                <outlet property="titleLabel" destination="Bak-yz-sdV" id="wc4-lM-BfV"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="note2" translatesAutoresizingMaskIntoConstraints="NO" id="2AM-Zo-mkr">
+                    <rect key="frame" x="40" y="3" width="240" height="77"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DEFINA SUA FREQUÊNCIA DE:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bak-yz-sdV">
+                    <rect key="frame" x="15" y="82" width="280" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.84999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="bE6-1k-Plv">
+                    <rect key="frame" x="63" y="10" width="199" height="55"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="2AM-Zo-mkr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="2lF-p5-D5H"/>
+                <constraint firstItem="Bak-yz-sdV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="4DB-x0-xUf"/>
+                <constraint firstItem="2AM-Zo-mkr" firstAttribute="trailing" secondItem="Bak-yz-sdV" secondAttribute="trailing" constant="-15" id="7LC-C5-hnl"/>
+                <constraint firstItem="bE6-1k-Plv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="63" id="9pq-9s-8V1"/>
+                <constraint firstItem="Bak-yz-sdV" firstAttribute="top" secondItem="bE6-1k-Plv" secondAttribute="bottom" constant="17" id="DAM-Hg-aBj"/>
+                <constraint firstItem="Bak-yz-sdV" firstAttribute="top" secondItem="2AM-Zo-mkr" secondAttribute="bottom" constant="2" id="R2q-Yp-Uxt"/>
+                <constraint firstItem="2AM-Zo-mkr" firstAttribute="centerX" secondItem="bE6-1k-Plv" secondAttribute="centerX" constant="-2.5" id="XdE-xu-9iH"/>
+                <constraint firstItem="2AM-Zo-mkr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="iOQ-9C-189"/>
+                <constraint firstItem="bE6-1k-Plv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="j7n-WX-J4w"/>
+                <constraint firstItem="2AM-Zo-mkr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vvD-cd-D47"/>
+                <constraint firstAttribute="bottom" secondItem="Bak-yz-sdV" secondAttribute="bottom" constant="5" id="wYw-1s-b6V"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-1" y="-190.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="note2" width="320" height="292"/>
+    </resources>
+</document>

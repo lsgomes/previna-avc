@@ -97,6 +97,16 @@ class RiskTableViewController: UIViewController {
 
         print(self.parent!)
 //        navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 55.0)
+        
+        recursion(views: self.view)
+    }
+    
+    func recursion (views: UIView) {
+    
+        for subviews in views.subviews {
+            print("View: \(subviews) Bounds: \(subviews.bounds) Layer: \(subviews.layer.position)")
+            recursion(views: subviews)
+        }
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
