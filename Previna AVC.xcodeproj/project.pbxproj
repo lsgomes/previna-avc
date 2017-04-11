@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A01B39051E9C6C09007008E0 /* FormOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01B39041E9C6C09007008E0 /* FormOneViewController.swift */; };
+		A0207D961E9C91B90089FE09 /* HeaderViewImageNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0207D951E9C91B90089FE09 /* HeaderViewImageNib.xib */; };
+		A0207D981E9C91CF0089FE09 /* HeaderViewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0207D971E9C91CF0089FE09 /* HeaderViewImage.swift */; };
 		A03329E51E846724005C3D87 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03329E41E846724005C3D87 /* StartViewController.swift */; };
 		A03B1C1E1E80D94C0012E36D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B1C1D1E80D94C0012E36D /* UserManager.swift */; };
 		A05EDB001E95DF90007984CB /* RiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */; };
@@ -47,6 +50,9 @@
 
 /* Begin PBXFileReference section */
 		348DC6AE897B4A2115C8C70A /* Pods-Previna AVC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Previna AVC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Previna AVC/Pods-Previna AVC.debug.xcconfig"; sourceTree = "<group>"; };
+		A01B39041E9C6C09007008E0 /* FormOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormOneViewController.swift; sourceTree = "<group>"; };
+		A0207D951E9C91B90089FE09 /* HeaderViewImageNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewImageNib.xib; sourceTree = "<group>"; };
+		A0207D971E9C91CF0089FE09 /* HeaderViewImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewImage.swift; sourceTree = "<group>"; };
 		A03329E41E846724005C3D87 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		A03B1C1D1E80D94C0012E36D /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiskTableViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +128,9 @@
 			children = (
 				A0F0F3131E9983410082A1D5 /* SegmentControlCell.swift */,
 				A09C42851E9B28B800EA0B3A /* HeaderViewNib.xib */,
+				A0207D951E9C91B90089FE09 /* HeaderViewImageNib.xib */,
 				A09C42831E9B274A00EA0B3A /* HeaderView.swift */,
+				A0207D971E9C91CF0089FE09 /* HeaderViewImage.swift */,
 				A0E56B3D1E91D9DF009DEA0F /* ModifiableRiskCell.swift */,
 				A0D7F62B1E8C8B9000D6FC48 /* DKDropMenu.swift */,
 				A09599E21E8CB2F200974DC7 /* RiskFactor.swift */,
@@ -147,6 +155,7 @@
 				A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */,
 				A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */,
 				A0A16EE81E9AF37D00BDA2FB /* FormTwoViewController.swift */,
+				A01B39041E9C6C09007008E0 /* FormOneViewController.swift */,
 			);
 			name = Tab;
 			sourceTree = "<group>";
@@ -290,6 +299,7 @@
 				A0FF49B91E4BE4B80041EEBE /* Assets.xcassets in Resources */,
 				A0FF49B71E4BE4B80041EEBE /* Main.storyboard in Resources */,
 				A09C42861E9B28B800EA0B3A /* HeaderViewNib.xib in Resources */,
+				A0207D961E9C91B90089FE09 /* HeaderViewImageNib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +362,7 @@
 				A0A16EE91E9AF37D00BDA2FB /* FormTwoViewController.swift in Sources */,
 				A0F0F3141E9983410082A1D5 /* SegmentControlCell.swift in Sources */,
 				A03329E51E846724005C3D87 /* StartViewController.swift in Sources */,
+				A01B39051E9C6C09007008E0 /* FormOneViewController.swift in Sources */,
 				A0D1E2AD1E55FF8000349A18 /* WelcomeViewController.swift in Sources */,
 				A0FF49B41E4BE4B80041EEBE /* SecondViewController.swift in Sources */,
 				A03B1C1E1E80D94C0012E36D /* UserManager.swift in Sources */,
@@ -370,6 +381,7 @@
 				A0D7F62C1E8C8B9000D6FC48 /* DKDropMenu.swift in Sources */,
 				A0F6EBB41E8377BF0006451F /* HasSensor.swift in Sources */,
 				A088A1651E8B4E8300D15E6C /* MainTabBarController.swift in Sources */,
+				A0207D981E9C91CF0089FE09 /* HeaderViewImage.swift in Sources */,
 				A05EDB001E95DF90007984CB /* RiskTableViewController.swift in Sources */,
 				A0E56B3E1E91D9DF009DEA0F /* ModifiableRiskCell.swift in Sources */,
 				A0F0F3181E998D6E0082A1D5 /* TextFieldCell.swift in Sources */,

@@ -26,8 +26,8 @@ class AuthorizeHealthKitViewController: UIViewController {
             
                DispatchQueue.main.async {
                 
-                    let pageViewController = self.parent as? WizardPageViewController
-                    pageViewController?.segueToPage(name: WizardPageViewController.PAGE_3)
+                    self.segue()
+
                 }
                 
             } else {
@@ -35,8 +35,7 @@ class AuthorizeHealthKitViewController: UIViewController {
                 print("You didn't allow HealthKit to access these read/write data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: \(error). If you're using a simulator, try it on a device.")
            
                 DispatchQueue.main.async {
-                    let pageViewController = self.parent as? WizardPageViewController
-                    pageViewController?.segueToPage(name: WizardPageViewController.PAGE_3)
+                    self.segue()
                 }
                 
             }
@@ -48,9 +47,17 @@ class AuthorizeHealthKitViewController: UIViewController {
 
     }
     
+    func segue() {
+        let navigationController = self.parent as! UINavigationController
+        let pageViewController = navigationController.parent as! WizardPageViewController
+        pageViewController.segueToPage(name: WizardPageViewController.PAGE_3)
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Permitir Acesso à Saúde"
         navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 64.0)
     }
 

@@ -18,67 +18,68 @@ class FormTwoViewController: FormViewController {
         //tableView?.bounces = false
         view.backgroundColor = .white
         self.navigationItem.title = "Perfil"
-        
-        let p = self.parent
-        
-        if (p is WizardPageViewController) {
-            print("é")
-        }
-        
+      
         TRANSLATION_FREQUENCY =
             [TRANSLATION_OFTEN_OR_ALWAYS,
              TRANSLATION_SOMETIMES,
              TRANSLATION_NEVER]
 
-        form +++ Section()
+        form +++ Section("SectionOne")
             { section in
                 var header = HeaderFooterView<HeaderView>(.class)
                 header.height = {107}
                 
                 header.onSetupView = { view, _ in
                     
-                        view.noteText.text = "Preencha os campos a seguir para completar seu perfil."
+                        view.noteText.text = "📝 Preencha os campos a seguir para completar seu perfil."
                         //saveButton.setTitle("CONCLUIR", for: .normal)
                 }
                 
                 section.header = header
             }
-//            <<< TextRow()  { row in
-//            row.title = "🍺 Álcool: "
-//            row.placeholder = "Enter text here"
-            <<< createRow("🍺 Álcool:",
+
+            <<< createRow("alcoholRow", "🍺 Álcool:",
                                [TRANSLATION_DRINKER,
                                TRANSLATION_DRINK_IN_MODERATION,
                                TRANSLATION_ABSTAIN,
                                TRANSLATION_FORMER_ALCOHOLIC])
         
-            <<< createRow("🚶 Atividade física:",
+            <<< createRow("activityRow", "🚶 Atividade física:",
                                [TRANSLATION_VERY_ACTIVE,
                                 TRANSLATION_ACTIVE,
                                 TRANSLATION_INACTIVE])
         
-            <<< createRow("😡 Irritação: ", TRANSLATION_FREQUENCY)
+            <<< createRow("angryRow", "😡 Irritação: ", TRANSLATION_FREQUENCY)
         
-            <<< createRow("😨 Ansiosidade:", TRANSLATION_FREQUENCY)
+            <<< createRow("anxietyRow", "😨 Ansiosidade:", TRANSLATION_FREQUENCY)
         
-            <<< createRow("😭 Choro: ", TRANSLATION_FREQUENCY)
+            <<< createRow("cryRow", "😭 Choro: ", TRANSLATION_FREQUENCY)
         
-            <<< createRow("🚬 Cigarro:",
+            <<< createRow("smokeRow", "🚬 Cigarro:",
                                [TRANSLATION_NEVER_SMOKED,
                                 TRANSLATION_SMOKER,
                                 TRANSLATION_FORMER_SMOKER])
         
-            <<< createRow("📖 Educação:",
+            <<< createRow("educationRow","📖 Educação:",
                           [TRANSLATION_COLLEGE_DIPLOMA,
                            TRANSLATION_HIGH_SCHOOL_DIPLOMA,
                            TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA])
         
-            <<< ButtonRow() { button in
+            <<< ButtonRow("buttonRow") { button in
                 button.title = "CONTINUAR"
                 }.cellSetup { cell, _ in
-                    
+                    cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
                     cell.backgroundColor = UIColor(red:0.98, green:0.19, blue:0.41, alpha:1.0)
                     cell.tintColor = UIColor.white
+                }.onCellSelection { cell, row in
+                    
+                    if (self.parent is UINavigationController) {
+                        
+                        self.performSegue(withIdentifier: "formTwoSegue", sender: nil)
+                    }
+//                    let navigationController = self.parent as! UINavigationController
+//                    let pageViewController = navigationController.parent as! WizardPageViewController
+//                    pageViewController.segueToPage(name: WizardPageViewController.PAGE_4)
                 }
 
 
@@ -86,9 +87,9 @@ class FormTwoViewController: FormViewController {
     
     }
     
-    func createRow(_ title: String, _ options: [String]) -> PickerInputRow<String> {
+    func createRow(_ tag: String, _ title: String, _ options: [String]) -> PickerInputRow<String> {
     
-        let alertRow = PickerInputRow<String>() {
+        let alertRow = PickerInputRow<String>(tag) {
             $0.title = title
             //$0.selectorTitle = "Selecione uma opção:"
             $0.options = options

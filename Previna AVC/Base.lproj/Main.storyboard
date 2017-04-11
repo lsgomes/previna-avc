@@ -391,7 +391,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cZY-Fg-D7W" customClass="DKDropMenu" customModule="Previna_AVC" customModuleProvider="target">
+                                                <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cZY-Fg-D7W" customClass="DKDropMenu" customModule="Previna_AVC" customModuleProvider="target">
                                                     <rect key="frame" x="173" y="5" width="139" height="31"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -494,7 +494,7 @@
                                 <rect key="frame" x="0.0" y="56" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hN1-Es-5fe" id="iZs-Af-gBh">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="IU9-iz-vzX">
@@ -690,11 +690,11 @@
                                     <navigationItem title="Bem-vindo ao Previna AVC!" id="crP-CJ-qbw"/>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Este aplicativo irá ajudar você a prevenir o acidente vascular cerebral (AVC)." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TY-nz-Fc7">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Este aplicativo irá ajudar você a prevenir o acidente vascular cerebral (AVC)." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TY-nz-Fc7">
                                 <rect key="frame" x="40" y="261" width="240" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem-vindo ao Previna AVC!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmr-p3-KUw">
@@ -750,24 +750,33 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="O aplicativo irá ler seu sexo idade, e outras informações, se possível, para calcular seu risco." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hVU-E8-ECT">
-                                <rect key="frame" x="40" y="256" width="240" height="104"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="104" id="xhn-dQ-3b2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="health app icon" translatesAutoresizingMaskIntoConstraints="NO" id="Shg-7k-ZCq">
                                 <rect key="frame" x="40" y="107" width="240" height="118"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11w-qx-amK">
+                                <rect key="frame" x="0.0" y="10" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="wlN-Bx-AvA"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Permitir Acesso à Saúde" id="o1W-n6-r0L"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O aplicativo irá ler seu sexo, idade, e outras informações, se possível, para calcular seu risco." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="8Hc-xn-U2b">
+                                <rect key="frame" x="40" y="256" width="240" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="104" id="eiy-Pm-l2k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgE-fi-xGq">
-                                <rect key="frame" x="76" y="409" width="169" height="49"/>
+                                <rect key="frame" x="76" y="429" width="169" height="49"/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.19215686269999999" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="PI4-Lf-IwX"/>
+                                    <constraint firstAttribute="height" constant="49" id="FJN-k2-08t"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -776,31 +785,23 @@
                                     <action selector="allowAccess:" destination="Ffk-SP-K78" eventType="touchUpInside" id="t5L-5f-P2W"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11w-qx-amK">
-                                <rect key="frame" x="0.0" y="10" width="320" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="O3K-PX-vbS"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Permitir Acesso à Saúde" id="o1W-n6-r0L"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Shg-7k-ZCq" firstAttribute="leading" secondItem="BfE-wR-Qda" secondAttribute="leadingMargin" constant="24" id="Io4-3w-OMC"/>
-                            <constraint firstItem="11w-qx-amK" firstAttribute="centerX" secondItem="Shg-7k-ZCq" secondAttribute="centerX" id="KuM-vS-bmF"/>
-                            <constraint firstItem="11w-qx-amK" firstAttribute="top" secondItem="BfE-wR-Qda" secondAttribute="top" constant="10" id="L3D-85-K63"/>
-                            <constraint firstItem="hVU-E8-ECT" firstAttribute="top" secondItem="Shg-7k-ZCq" secondAttribute="bottom" constant="31" id="PZa-cD-8II"/>
-                            <constraint firstItem="Shg-7k-ZCq" firstAttribute="top" secondItem="11w-qx-amK" secondAttribute="bottom" constant="53" id="V7w-Vv-jfh"/>
-                            <constraint firstItem="NgE-fi-xGq" firstAttribute="top" secondItem="hVU-E8-ECT" secondAttribute="bottom" constant="49" id="dha-RQ-MR1"/>
-                            <constraint firstItem="Shg-7k-ZCq" firstAttribute="trailing" secondItem="hVU-E8-ECT" secondAttribute="trailing" id="g2Y-jk-Ymv"/>
-                            <constraint firstItem="Shg-7k-ZCq" firstAttribute="leading" secondItem="hVU-E8-ECT" secondAttribute="leading" id="neK-Ay-nhk"/>
-                            <constraint firstItem="hVU-E8-ECT" firstAttribute="centerX" secondItem="NgE-fi-xGq" secondAttribute="centerX" id="ohz-dX-BgY"/>
-                            <constraint firstItem="58T-yT-4kW" firstAttribute="top" secondItem="NgE-fi-xGq" secondAttribute="bottom" constant="110" id="qgG-Wj-Zcj"/>
-                            <constraint firstItem="11w-qx-amK" firstAttribute="leading" secondItem="BfE-wR-Qda" secondAttribute="leading" id="rY5-OK-1an"/>
-                            <constraint firstAttribute="trailing" secondItem="11w-qx-amK" secondAttribute="trailing" id="wHa-4S-vkp"/>
-                            <constraint firstItem="NgE-fi-xGq" firstAttribute="leading" secondItem="BfE-wR-Qda" secondAttribute="leadingMargin" constant="60" id="z8B-bb-MzQ"/>
+                            <constraint firstItem="Shg-7k-ZCq" firstAttribute="leading" secondItem="8Hc-xn-U2b" secondAttribute="leading" id="8wQ-UQ-sfQ"/>
+                            <constraint firstAttribute="trailing" secondItem="11w-qx-amK" secondAttribute="trailing" id="ApV-4b-Sid"/>
+                            <constraint firstItem="8Hc-xn-U2b" firstAttribute="top" secondItem="Shg-7k-ZCq" secondAttribute="bottom" constant="31" id="Ffs-Fw-QfV"/>
+                            <constraint firstItem="11w-qx-amK" firstAttribute="centerX" secondItem="Shg-7k-ZCq" secondAttribute="centerX" id="Fl6-YJ-RkJ"/>
+                            <constraint firstItem="NgE-fi-xGq" firstAttribute="top" secondItem="8Hc-xn-U2b" secondAttribute="bottom" constant="69" id="Iuc-PY-5hr"/>
+                            <constraint firstItem="58T-yT-4kW" firstAttribute="top" secondItem="NgE-fi-xGq" secondAttribute="bottom" constant="90" id="MZ9-uV-3j5"/>
+                            <constraint firstItem="Shg-7k-ZCq" firstAttribute="top" secondItem="11w-qx-amK" secondAttribute="bottom" constant="53" id="Ns7-rf-LZt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Hc-xn-U2b" secondAttribute="trailing" constant="24" id="cec-ep-9X5"/>
+                            <constraint firstItem="11w-qx-amK" firstAttribute="top" secondItem="BfE-wR-Qda" secondAttribute="topMargin" constant="10" id="d0l-00-TO4"/>
+                            <constraint firstItem="11w-qx-amK" firstAttribute="leading" secondItem="BfE-wR-Qda" secondAttribute="leading" id="lWp-fx-WL0"/>
+                            <constraint firstItem="Shg-7k-ZCq" firstAttribute="trailing" secondItem="8Hc-xn-U2b" secondAttribute="trailing" id="tGo-qc-vww"/>
+                            <constraint firstItem="8Hc-xn-U2b" firstAttribute="leading" secondItem="BfE-wR-Qda" secondAttribute="leadingMargin" constant="24" id="uB2-jP-gQN"/>
+                            <constraint firstItem="8Hc-xn-U2b" firstAttribute="centerX" secondItem="NgE-fi-xGq" secondAttribute="centerX" id="uqm-fc-urd"/>
+                            <constraint firstItem="NgE-fi-xGq" firstAttribute="leading" secondItem="BfE-wR-Qda" secondAttribute="leadingMargin" constant="60" id="yGI-Xr-5gy"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -1011,6 +1012,24 @@
             </objects>
             <point key="canvasLocation" x="-1481.25" y="750"/>
         </scene>
+        <!--Form One View Controller-->
+        <scene sceneID="3LA-XX-DNr">
+            <objects>
+                <viewController storyboardIdentifier="formOneViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="I0A-n1-vsk" customClass="FormOneViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kUe-pW-2T6"/>
+                        <viewControllerLayoutGuide type="bottom" id="hDy-xh-GoY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GL9-8x-rr4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nKh-hg-oAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2267" y="1478"/>
+        </scene>
         <!--formTwo-->
         <scene sceneID="fSR-Ix-Gun">
             <objects>
@@ -1024,6 +1043,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="formTwoSegue" id="1M7-XM-5W1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4C-BW-FOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1227,6 +1249,6 @@
         <image name="risco" width="24" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d7o-8H-NvT"/>
+        <segue reference="1M7-XM-5W1"/>
     </inferredMetricsTieBreakers>
 </document>

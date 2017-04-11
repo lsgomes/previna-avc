@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderViewImage" customModule="Previna_AVC" customModuleProvider="target">
+            <connections>
+                <outlet property="noteImage" destination="2AM-Zo-mkr" id="hVc-Zk-rOD"/>
+                <outlet property="noteText" destination="bE6-1k-Plv" id="6FJ-b0-uXD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note2" translatesAutoresizingMaskIntoConstraints="NO" id="2AM-Zo-mkr">
+                    <rect key="frame" x="40" y="3" width="240" height="77"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.84999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="bE6-1k-Plv">
+                    <rect key="frame" x="63" y="10" width="199" height="55"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="2AM-Zo-mkr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="1aU-UW-9hU"/>
+                <constraint firstAttribute="bottom" secondItem="2AM-Zo-mkr" secondAttribute="bottom" id="CZX-3e-KHd"/>
+                <constraint firstItem="2AM-Zo-mkr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="EVI-VR-Ldq"/>
+                <constraint firstAttribute="bottom" secondItem="bE6-1k-Plv" secondAttribute="bottom" constant="15" id="FGC-dv-AOF"/>
+                <constraint firstItem="2AM-Zo-mkr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="Pgh-Wp-AZs"/>
+                <constraint firstAttribute="trailing" secondItem="bE6-1k-Plv" secondAttribute="trailing" constant="58" id="U2h-4b-IaA"/>
+                <constraint firstItem="bE6-1k-Plv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="63" id="hby-wq-6ba"/>
+                <constraint firstItem="bE6-1k-Plv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="zHP-Ql-nAr"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-1" y="-204"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="note2" width="320" height="292"/>
+    </resources>
+</document>

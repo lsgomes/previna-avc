@@ -11,11 +11,10 @@ import HealthKit
 
 class WizardPageViewController: UIPageViewController //, UIPageViewControllerDelegate
 {
-    static let PAGE_1 = "formTwoViewController"
+    static let PAGE_1 = "WizardPage1"
     static let PAGE_2 = "WizardPage2"
-    static let PAGE_3 = "WizardPage3"
-    //static let PAGE_4 = "WizardPage4"
-    static let PAGE_4 = "SecondViewController"
+    static let PAGE_3 = "formOneViewController"
+    static let PAGE_4 = "formTwoViewController"
 
     
 //    private(set) lazy var orderedViewControllers: [UIViewController] = {
@@ -105,13 +104,18 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
         var page : UIViewController?
         
         for viewController in orderedViewControllers {
-            if viewController.restorationIdentifier == name {
-                page = viewController
-                break;
+
+            for child in viewController.childViewControllers {
+                if (child.restorationIdentifier == name) {
+                    page = viewController
+                    print("Found \(page) : \(viewController)")
+                    break
+                }
             }
+            
         }
         
-        print("WizardPageViewController.segueToPage(): " + page!.restorationIdentifier!)
+        //print("WizardPageViewController.segueToPage(): " + page!.restorationIdentifier!)
         
         setViewControllers([page!], direction: .forward, animated: true, completion: nil)
     }
