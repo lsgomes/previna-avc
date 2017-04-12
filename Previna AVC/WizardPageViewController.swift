@@ -16,6 +16,7 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
     static let PAGE_3 = "formOneViewController"
     static let PAGE_4 = "formTwoViewController"
 
+    var pageControl: UIPageControl?
     
 //    private(set) lazy var orderedViewControllers: [UIViewController] = {
 //        return [self.newViewController(title: PAGE_1),
@@ -90,11 +91,11 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
                                animated: true, completion: nil)
         }
         
-        let pageControl = UIPageControl.appearance(whenContainedInInstancesOf: [type(of: self)])
+        pageControl = UIPageControl.appearance(whenContainedInInstancesOf: [type(of: self)])
         
-        pageControl.currentPageIndicatorTintColor = UIColor.darkGray
-        pageControl.pageIndicatorTintColor = UIColor.lightGray
-        pageControl.backgroundColor = .clear
+        pageControl!.currentPageIndicatorTintColor = UIColor.darkGray
+        pageControl!.pageIndicatorTintColor = UIColor.lightGray
+        pageControl!.backgroundColor = .clear
         
         print("Loaded")
     }

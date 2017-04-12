@@ -69,6 +69,8 @@ class FirstViewController: UIViewController {
     }
     
     func listTips() {
+        
+        
         for (index, element) in UserManager.instance.person.hasRiskFactor!.enumerated() {
             if (element.hasTip != nil) {
                 let tip = createTip(text: element.hasTip!, index: index)

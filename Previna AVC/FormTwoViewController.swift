@@ -14,6 +14,23 @@ class FormTwoViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        map = [TRANSLATION_DRINKER: RiskFactor.DRINKER.rawValue,
+               TRANSLATION_DRINK_IN_MODERATION: RiskFactor.DRINK_IN_MODERATION.rawValue,
+               TRANSLATION_ABSTAIN: RiskFactor.ABSTAIN.rawValue,
+               TRANSLATION_FORMER_ALCOHOLIC: RiskFactor.FORMER_ALCOHOLIC.rawValue,
+        
+               TRANSLATION_VERY_ACTIVE: RiskFactor.VERY_ACTIVE.rawValue,
+               TRANSLATION_ACTIVE: RiskFactor.ACTIVE.rawValue,
+               TRANSLATION_INACTIVE: RiskFactor.INACTIVE.rawValue,
+        
+               TRANSLATION_NEVER_SMOKED: RiskFactor.NEVER_SMOKED.rawValue,
+               TRANSLATION_SMOKER: RiskFactor.SMOKER.rawValue,
+               TRANSLATION_FORMER_SMOKER: RiskFactor.FORMER_SMOKER.rawValue,
+               
+               TRANSLATION_HIGH_SCHOOL_DIPLOMA: RiskFactor.HIGH_SCHOOL_DIPLOMA.rawValue,
+               TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA: RiskFactor.NO_HIGH_SCHOOL_DIPLOMA.rawValue
+        ]
+        
         //tableView?.isScrollEnabled = false
         //tableView?.bounces = false
         view.backgroundColor = .white
@@ -24,7 +41,7 @@ class FormTwoViewController: FormViewController {
              TRANSLATION_SOMETIMES,
              TRANSLATION_NEVER]
 
-        form +++ Section("SectionOne")
+        form +++ Section()
             { section in
                 var header = HeaderFooterView<HeaderView>(.class)
                 header.height = {107}
@@ -73,8 +90,11 @@ class FormTwoViewController: FormViewController {
                     cell.tintColor = UIColor.white
                 }.onCellSelection { cell, row in
                     
-                    if (self.parent is UINavigationController) {
-                        
+                    let firstTimeSetup = self.parent is UINavigationController!
+                    
+                    self.validateForm(deleteModifiableRisks: !firstTimeSetup)
+
+                    if (firstTimeSetup) {
                         self.performSegue(withIdentifier: "formTwoSegue", sender: nil)
                     }
 //                    let navigationController = self.parent as! UINavigationController
@@ -82,9 +102,55 @@ class FormTwoViewController: FormViewController {
 //                    pageViewController.segueToPage(name: WizardPageViewController.PAGE_4)
                 }
 
-
-        
+    }
     
+    func validateForm(deleteModifiableRisks: Bool) {
+        
+        if (deleteModifiableRisks)
+        {
+            for risk in UserManager.instance.person.hasRiskFactor! {
+                if (map.values.contains(risk.uri!))
+                {
+                    //UserManager.instance                    risk.remove
+                }
+            }
+            // DELETE RISKS
+        }
+        
+        let values = form.values()
+                
+        for value in values.keys {
+            validateRiskFactor(value, values)
+        }
+        
+        validateFrequency("angryRow", RiskFactor.CRITICAL_OF_OTHERS.rawValue, elseRisk: RiskFactor.NOT_CRITICAL_OF_OTHERS.rawValue, values)
+        
+        validateFrequency("anxietyRow", RiskFactor.FEARFUL.rawValue, elseRisk: RiskFactor.NOT_FEARFUL.rawValue, values)
+        
+        validateFrequency("cryRow", RiskFactor.CRY_EASILY.rawValue, elseRisk: RiskFactor.NOT_CRYING_EASILY.rawValue, values)
+       
+        
+    }
+    
+    func validateRiskFactor(_ rowName: String, _ dict: [String: Any?]) {
+        
+        if let selectedRow = dict[rowName] as! String! {
+            print(selectedRow)
+            if let riskFactor = map[selectedRow] {
+                UserManager.instance.addRiskFactor(uri: riskFactor)
+            }
+        }
+    }
+    
+    func validateFrequency(_ rowName: String, _ riskFactor: String, elseRisk: String, _ dict: [String: Any?]) {
+        if let selectedRow = dict[rowName] as! String!
+        {
+            if (selectedRow == TRANSLATION_OFTEN_OR_ALWAYS) {
+                UserManager.instance.addRiskFactor(uri: riskFactor)
+            } else {
+                UserManager.instance.addRiskFactor(uri: elseRisk)
+            }
+        }
     }
     
     func createRow(_ tag: String, _ title: String, _ options: [String]) -> PickerInputRow<String> {
@@ -124,7 +190,7 @@ class FormTwoViewController: FormViewController {
     
     var TRANSLATION_FREQUENCY : [String] = []
     
-    
+    var map : [String : String] = [:]
     
     
     

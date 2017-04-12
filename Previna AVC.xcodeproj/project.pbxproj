@@ -117,6 +117,7 @@
 				A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */,
 				A0FF49C71E4BEAD60041EEBE /* WizardPageViewController.swift */,
 				A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */,
+				A01B39041E9C6C09007008E0 /* FormOneViewController.swift */,
 				A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */,
 				A0F0F3151E9985B90082A1D5 /* StaticRiskViewController.swift */,
 			);
@@ -155,7 +156,6 @@
 				A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */,
 				A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */,
 				A0A16EE81E9AF37D00BDA2FB /* FormTwoViewController.swift */,
-				A01B39041E9C6C09007008E0 /* FormOneViewController.swift */,
 			);
 			name = Tab;
 			sourceTree = "<group>";
