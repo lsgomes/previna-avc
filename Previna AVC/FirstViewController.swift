@@ -51,7 +51,7 @@ class FirstViewController: UIViewController {
             navigationBar.topItem?.title = "Bem vindo, \(UserManager.instance.person.hasUserName!)!"
 
         }
-        navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 60.0)
+        //navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 60.0)
         
         setHorizontalViewProperties()
         

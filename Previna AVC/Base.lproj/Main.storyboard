@@ -336,7 +336,6 @@
                         <outlet property="saveButton" destination="hzT-o0-Y33" id="mxu-MF-MBk"/>
                         <outlet property="schoolDropMenu" destination="K33-Ta-Lwl" id="XCT-sd-6qR"/>
                         <outlet property="smokeDropMenu" destination="ctv-az-Q02" id="Iu5-IJ-5VA"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="toMainTabBar" id="Osl-iG-OWa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -610,7 +609,7 @@
         <!--Wizard Page View Controller-->
         <scene sceneID="Ioe-Hi-jhe">
             <objects>
-                <pageViewController storyboardIdentifier="WizardController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="bQX-7K-sHF" customClass="WizardPageViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="WizardController" autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="bQX-7K-sHF" customClass="WizardPageViewController" customModule="Previna_AVC" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVt-mX-RD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationBar contentMode="scaleToFill" id="kPV-Zx-CGI">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1043,13 +1042,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="formTwoSegue" id="1M7-XM-5W1"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="perfil" id="VZa-4Q-rce"/>
+                    <navigationItem key="navigationItem" id="U0E-ch-GXU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4C-BW-FOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1481" y="1467"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Omv-V9-2af">
+            <objects>
+                <navigationController id="LQA-eA-1w3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Q9l-FX-4fK"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IUe-KU-bex">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="V65-Gy-7ns" kind="relationship" relationship="rootViewController" id="EqE-y2-Z5i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xVy-yQ-Z8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="64" y="2105"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1063,10 +1078,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="Q6h-8L-VoC"/>
-                        <segue destination="as9-Wy-MRw" kind="relationship" relationship="viewControllers" id="nOw-t0-r6o"/>
-                        <segue destination="Lx8-ts-Yu3" kind="relationship" relationship="viewControllers" id="StI-nd-653"/>
-                        <segue destination="EF2-ps-HIT" kind="relationship" relationship="viewControllers" id="gmc-9T-UqL"/>
+                        <segue destination="as9-Wy-MRw" kind="relationship" relationship="viewControllers" id="MQ9-62-mrj"/>
+                        <segue destination="LQA-eA-1w3" kind="relationship" relationship="viewControllers" id="OZa-sW-NUa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -1249,6 +1262,6 @@
         <image name="risco" width="24" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1M7-XM-5W1"/>
+        <segue reference="t29-D4-gta"/>
     </inferredMetricsTieBreakers>
 </document>

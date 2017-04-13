@@ -95,7 +95,15 @@ class FormTwoViewController: FormViewController {
                     self.validateForm(deleteModifiableRisks: !firstTimeSetup)
 
                     if (firstTimeSetup) {
-                        self.performSegue(withIdentifier: "formTwoSegue", sender: nil)
+                        //self.performSegue(withIdentifier: "formTwoSegue", sender: nil)
+                        
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        // vc is the Storyboard ID that you added
+                        // as! ... Add your ViewController class name that you want to navigate to
+                        let controller = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! MainTabBarController
+                        self.present(controller, animated: true, completion: { () -> Void in
+                        })
+                        
                     }
 //                    let navigationController = self.parent as! UINavigationController
 //                    let pageViewController = navigationController.parent as! WizardPageViewController
