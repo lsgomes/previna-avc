@@ -46,17 +46,29 @@ class UserManager {
     
     func removeRiskFactor(name: String) {
         
-        guard (person.hasRiskFactor != nil) else { return }
-        
-        let index = person.hasRiskFactor!.index(where: {element in
-            element.uri == name
-        })
-        
-        if (index != nil) {
-            person.hasRiskFactor!.remove(at: index!)
+        if let risks = person.hasRiskFactor {
+            
+            for (i, risk) in risks.enumerated().reversed()
+            {
+                if risk.uri == name
+                {
+                    print("Removing risk from user: \(risk.uri!)")
+                    person.hasRiskFactor!.remove(at: i)
+                }
+            }
+            
+
         }
         
-    }
+//        let index = person.hasRiskFactor!.index(where: {element in
+//            element.uri == name
+//        })
+//        
+//        if (index != nil) {
+//            person.hasRiskFactor!.remove(at: index!)
+//        }
+        
+          }
     
     func addRiskFactor(uri: String) {
                 
@@ -69,6 +81,8 @@ class UserManager {
             }
             let risk = HasRiskFactor()
             risk.uri = uri
+            print("Adding risk \(uri) to user")
+
             person.hasRiskFactor!.append(risk)
         }
     }

@@ -10,6 +10,8 @@ import UIKit
 
 class ThirdViewController: UITableViewController, UITabBarControllerDelegate {
 
+    @IBOutlet var headerView: HeaderViewImage!
+    
     let achievements: [String] =
         ["Bebendo com moderação", "Se exercitando 2 vezes por semana", "Se exercitando 3 vezes por semana",
         "Vivendo de forma alegre", "Nível de ansiedade sob controle", "Nível de irritação sob controle",
@@ -17,13 +19,19 @@ class ThirdViewController: UITableViewController, UITabBarControllerDelegate {
     
     let medalImage = UIImage(named: "medal")
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Suas Conquistas"
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "Suas Conquistas"
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.topItem?.title = "Conquistas"
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        headerView.noteText.text = "🏅 Suas conquistas obtidas aparecerão como medalhas douradas."
        //self.tableView.reloadData()
 
     }

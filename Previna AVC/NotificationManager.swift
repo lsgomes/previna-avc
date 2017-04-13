@@ -50,6 +50,11 @@ class NotificationManager {
             displayNotificationsDisabled(viewController: viewController)
         }
         
+        if checkNotificationExists(taskTypeId: taskTypeId) {
+            print("Notification \(taskTypeId) already exists, not creating another one.")
+            return
+        }
+        
         let notification = UILocalNotification()
         notification.fireDate = alertDate
         notification.alertBody = "Task \(taskTypeId)"

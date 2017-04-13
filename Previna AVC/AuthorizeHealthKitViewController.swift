@@ -12,9 +12,7 @@ import HealthKit
 class AuthorizeHealthKitViewController: UIViewController {
     
     @IBOutlet weak var allowAccessButton: UIButton!
-    
-    @IBOutlet var navigationBar: UINavigationBar!
-    
+        
     @IBAction func allowAccess(_ sender: UIButton) {
         
         print("HealthKitViewController.allowAccess()")
@@ -58,7 +56,7 @@ class AuthorizeHealthKitViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "Permitir Acesso à Saúde"
-        navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 64.0)
+        
     }
 
 }

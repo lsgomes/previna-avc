@@ -51,13 +51,26 @@ class FormOneViewController: FormViewController {
                 row.title = "📆 Idade:"
                 row.placeholder = "Digite sua idade aqui"
                 row.cell.textLabel?.font = UIFont(name: row.cell.textLabel!.font!.fontName, size: 15)
+                if let age = Int(HealthKitManager.instance.getDateOfBirth())
+                {
+                row.baseValue = age
+                print("HealthKit: setting Age to \(age)")
+                }
+
 
             }
             <<< PickerInputRow<String>("sexRow") { row in
                 row.title = "👫 Sexo: "
                 row.options = [TRANSLATION_MALE, TRANSLATION_FEMALE]
-                row.value = row.options.first    // initially selected
                 row.cell.textLabel?.font = UIFont(name: row.cell.textLabel!.font!.fontName, size: 15)
+                
+                let sex = HealthKitManager.instance.getBiologicalSex()
+                if (!sex.isEmpty) {
+                    row.value = sex
+                } else {
+                    row.value = row.options.first    // initially selected
+                }
+                print("HealthKit: setting Sex to \(sex)")
 
             }
             
@@ -93,6 +106,10 @@ class FormOneViewController: FormViewController {
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        updateWithHealthKitData()
+    }
+    
     func validateForm() {
      
         let values = form.values()
@@ -126,6 +143,42 @@ class FormOneViewController: FormViewController {
     func validateRiskFactor(_ rowName: String, _ riskFactorEnum: String, _ dict: [String: Any?]) {
         if (dict[rowName] as? Bool) != nil {
             UserManager.instance.addRiskFactor(uri: riskFactorEnum)
+        }
+    }
+    
+    func updateWithHealthKitData() {
+        
+        
+        HealthKitManager.instance.getDiabetes() { hasDiabetes, error in
+            
+            if (error != nil) {
+                return
+            }
+            
+            if let row = self.form.rowBy(tag: "diabetesRow") as! CheckRow! {
+                row.baseValue = hasDiabetes
+                print("HealthKit: setting Diabetes to \(hasDiabetes)")
+                if (hasDiabetes) {
+                    //NotificationManager.instance.displayAlert(title: "Fator de risco identificado", message: "Diabetes identificada. Preenchendo perfil.", dismiss: "OK", viewController: self)
+                }
+            }
+            
+        }
+        
+        HealthKitManager.instance.getHighBloodPressure() { hasHighBloodPressure, error in
+            
+            if (error != nil) {
+                return
+            }
+            
+            if let row = self.form.rowBy(tag: "hypertensionRow") as! CheckRow! {
+                row.baseValue = hasHighBloodPressure
+                print("HealthKit: setting High Blood Pressure to \(hasHighBloodPressure)")
+
+                if (hasHighBloodPressure) {
+                    //NotificationManager.instance.displayAlert(title: "Fator de risco identificado", message: "Pressão alta identificada. Preenchendo perfil.", dismiss: "OK", viewController: self)
+                }
+            }
         }
     }
     

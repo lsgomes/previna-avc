@@ -18,16 +18,16 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
 
     var pageControl: UIPageControl?
     
-//    private(set) lazy var orderedViewControllers: [UIViewController] = {
-//        return [self.newViewController(title: PAGE_1),
-//                self.newViewController(title: PAGE_2),
-//                self.newViewController(title: PAGE_3),
-//                self.newViewController(title: PAGE_4)
-//
-//    ]
-//    } ()
+    private(set) lazy var orderedViewControllers: [UIViewController] = {
+        return [self.newViewController(title: PAGE_1),
+                self.newViewController(title: PAGE_2),
+                self.newViewController(title: PAGE_3),
+                self.newViewController(title: PAGE_4)
 
-    var orderedViewControllers: [UIViewController] = []
+    ]
+    } ()
+
+    //var orderedViewControllers: [UIViewController] = []
     
     private func newViewController(title: String) -> UIViewController {
         
@@ -59,14 +59,14 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
         
         
         
-        orderedViewControllers = {
-                return [self.newViewController(title: WizardPageViewController.PAGE_1),
-                        self.newViewController(title: WizardPageViewController.PAGE_2),
-                        self.newViewController(title: WizardPageViewController.PAGE_3),
-                        self.newViewController(title: WizardPageViewController.PAGE_4)
-        
-            ]
-            } ()
+//        orderedViewControllers = {
+//                return [self.newViewController(title: WizardPageViewController.PAGE_1),
+//                        self.newViewController(title: WizardPageViewController.PAGE_2),
+//                        self.newViewController(title: WizardPageViewController.PAGE_3),
+//                        self.newViewController(title: WizardPageViewController.PAGE_4)
+//        
+//            ]
+//            } ()
 
         dataSource = self
         
@@ -96,9 +96,7 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
         pageControl!.currentPageIndicatorTintColor = UIColor.darkGray
         pageControl!.pageIndicatorTintColor = UIColor.lightGray
         pageControl!.backgroundColor = .clear
-        
-        print("Loaded")
-    }
+            }
 
     public func segueToPage(name: String)
     {
@@ -109,7 +107,6 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
             for child in viewController.childViewControllers {
                 if (child.restorationIdentifier == name) {
                     page = viewController
-                    print("Found \(page) : \(viewController)")
                     break
                 }
             }

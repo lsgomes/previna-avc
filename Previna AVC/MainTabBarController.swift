@@ -19,16 +19,16 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
-        if (viewController is SecondViewController) {
-            let vc = viewController as! SecondViewController
-            vc.updateWithHealthKitData()
-            print("SecondViewController()")
-        }
+//        if (viewController is FormTwoViewController) {
+//            let vc = viewController as! FormTwoViewController
+//            vc.updateWithHealthKitData()
+//            print("Switched to FormTwoViewController()")
+//        }
         
         if (viewController is ThirdViewController) {
             let vc = viewController as! ThirdViewController
             vc.tableView.reloadData()
-            print("ThirdViewController()")
+            print("Switched to ThirdViewController()")
 
         }
 //        let tabBarIndex = tabBarController.selectedIndex

@@ -10,7 +10,7 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     
-    @IBOutlet var navigationBar: UINavigationBar!
+    //@IBOutlet var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,7 @@ class WelcomeViewController: UIViewController {
         navigationItem.title = "Bem-vindo ao Previna AVC!"
 
         
-        navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 64.0)
+        //navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 64.0)
     }
     
     @IBAction func continueButton(_ sender: UIButton) {

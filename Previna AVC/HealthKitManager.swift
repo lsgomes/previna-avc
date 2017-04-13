@@ -284,11 +284,11 @@ class HealthKitManager {
         
         self.healthKitStore.execute(query)
         
-        let a = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodAlcoholContent)
-        
-        readMostRecentSample(sampleType: a!) { s in
-            print("recent sample \(s)")
-        }
+//        let a = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodAlcoholContent)
+//        
+//        readMostRecentSample(sampleType: a!) { s in
+//            print("recent sample \(s)")
+//        }
     }
 
     

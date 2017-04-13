@@ -24,7 +24,9 @@
 		A0D1E2AD1E55FF8000349A18 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */; };
 		A0D1E2AF1E56194400349A18 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */; };
 		A0D7F62C1E8C8B9000D6FC48 /* DKDropMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D7F62B1E8C8B9000D6FC48 /* DKDropMenu.swift */; };
+		A0D8F54D1E9F076500B72019 /* StackTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8F54C1E9F076500B72019 /* StackTip.swift */; };
 		A0DB6CB11E88859F002F26B6 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB6CB01E88859F002F26B6 /* TipView.swift */; };
+		A0E4B9F21E9F050100B181CF /* StackTipNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0E4B9F11E9F050100B181CF /* StackTipNib.xib */; };
 		A0E56B3E1E91D9DF009DEA0F /* ModifiableRiskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E56B3D1E91D9DF009DEA0F /* ModifiableRiskCell.swift */; };
 		A0E56B401E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E56B3F1E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift */; };
 		A0E58AB51E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */; };
@@ -67,7 +69,9 @@
 		A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		A0D7F62B1E8C8B9000D6FC48 /* DKDropMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKDropMenu.swift; sourceTree = "<group>"; };
+		A0D8F54C1E9F076500B72019 /* StackTip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTip.swift; sourceTree = "<group>"; };
 		A0DB6CB01E88859F002F26B6 /* TipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
+		A0E4B9F11E9F050100B181CF /* StackTipNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StackTipNib.xib; sourceTree = "<group>"; };
 		A0E56B3D1E91D9DF009DEA0F /* ModifiableRiskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifiableRiskCell.swift; sourceTree = "<group>"; };
 		A0E56B3F1E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifiableRiskTableViewController.swift; sourceTree = "<group>"; };
 		A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizeHealthKitViewController.swift; sourceTree = "<group>"; };
@@ -110,16 +114,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0D8F54E1E9F177A00B72019 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				A0919DD41E89F09F00B05B8B /* BaseProfilePage2ViewController.swift */,
+				A0E56B3F1E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift */,
+				A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */,
+				A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */,
+				A0F0F3151E9985B90082A1D5 /* StaticRiskViewController.swift */,
+				A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */,
+			);
+			name = Deprecated;
+			sourceTree = "<group>";
+		};
 		A0D98B381E8DD81B00BE8BB9 /* Wizard */ = {
 			isa = PBXGroup;
 			children = (
+				A01B39041E9C6C09007008E0 /* FormOneViewController.swift */,
 				A03329E41E846724005C3D87 /* StartViewController.swift */,
 				A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */,
 				A0FF49C71E4BEAD60041EEBE /* WizardPageViewController.swift */,
 				A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */,
-				A01B39041E9C6C09007008E0 /* FormOneViewController.swift */,
-				A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */,
-				A0F0F3151E9985B90082A1D5 /* StaticRiskViewController.swift */,
 			);
 			name = Wizard;
 			sourceTree = "<group>";
@@ -128,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				A0F0F3131E9983410082A1D5 /* SegmentControlCell.swift */,
+				A0D8F54C1E9F076500B72019 /* StackTip.swift */,
+				A0E4B9F11E9F050100B181CF /* StackTipNib.xib */,
 				A09C42851E9B28B800EA0B3A /* HeaderViewNib.xib */,
 				A0207D951E9C91B90089FE09 /* HeaderViewImageNib.xib */,
 				A09C42831E9B274A00EA0B3A /* HeaderView.swift */,
@@ -148,13 +165,9 @@
 		A0D98B3A1E8DD85100BE8BB9 /* Tab */ = {
 			isa = PBXGroup;
 			children = (
+				A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */,
 				A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */,
 				A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */,
-				A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */,
-				A0919DD41E89F09F00B05B8B /* BaseProfilePage2ViewController.swift */,
-				A0E56B3F1E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift */,
-				A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */,
-				A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */,
 				A0A16EE81E9AF37D00BDA2FB /* FormTwoViewController.swift */,
 			);
 			name = Tab;
@@ -192,6 +205,7 @@
 		A0FF49AE1E4BE4B80041EEBE /* Previna AVC */ = {
 			isa = PBXGroup;
 			children = (
+				A0D8F54E1E9F177A00B72019 /* Deprecated */,
 				A0D98B3B1E8DD89300BE8BB9 /* Manager */,
 				A0D98B3A1E8DD85100BE8BB9 /* Tab */,
 				A0D98B381E8DD81B00BE8BB9 /* Wizard */,
@@ -297,6 +311,7 @@
 			files = (
 				A0FF49BC1E4BE4B80041EEBE /* LaunchScreen.storyboard in Resources */,
 				A0FF49B91E4BE4B80041EEBE /* Assets.xcassets in Resources */,
+				A0E4B9F21E9F050100B181CF /* StackTipNib.xib in Resources */,
 				A0FF49B71E4BE4B80041EEBE /* Main.storyboard in Resources */,
 				A09C42861E9B28B800EA0B3A /* HeaderViewNib.xib in Resources */,
 				A0207D961E9C91B90089FE09 /* HeaderViewImageNib.xib in Resources */,
@@ -368,6 +383,7 @@
 				A03B1C1E1E80D94C0012E36D /* UserManager.swift in Sources */,
 				A0919DD31E89E4E100B05B8B /* ThirdViewController.swift in Sources */,
 				A09599E31E8CB2F200974DC7 /* RiskFactor.swift in Sources */,
+				A0D8F54D1E9F076500B72019 /* StackTip.swift in Sources */,
 				A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */,
 				A0E58AB51E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift in Sources */,
 				A0919DD51E89F09F00B05B8B /* BaseProfilePage2ViewController.swift in Sources */,

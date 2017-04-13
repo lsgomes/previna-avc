@@ -42,16 +42,23 @@ class FirstViewController: UIViewController {
         return tipView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if (UserManager.instance.person.hasUserName != nil) {
+            //navigationBar.topItem?.title = "Bem vindo, \(UserManager.instance.person.hasUserName!)!"
+            navigationController?.navigationBar.topItem?.title = "Bem vindo, \(UserManager.instance.person.hasUserName!)!"
+        }
+        else {
+            navigationController?.navigationBar.topItem?.title = "Bem vindo!"
+        }
+
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         //navigationBar.topItem?.prompt = "navigationBar.topItem?"
-        if (UserManager.instance.person.hasUserName != nil) {
-            navigationBar.topItem?.title = "Bem vindo, \(UserManager.instance.person.hasUserName!)!"
-
-        }
-        //navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 60.0)
+                //navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 60.0)
         
         setHorizontalViewProperties()
         

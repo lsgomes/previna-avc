@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StackTip" customModule="Previna_AVC" customModuleProvider="target">
+            <connections>
+                <outlet property="subtitle" destination="hxU-U5-H9K" id="IHh-bu-4Ai"/>
+                <outlet property="title" destination="tG1-ae-uQL" id="a39-cM-P8O"/>
+                <outlet property="titleImage" destination="dox-JI-1xL" id="cLh-ap-pOt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLK-vn-13E">
+                    <rect key="frame" x="75" y="0.0" width="32" height="32"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="idea" translatesAutoresizingMaskIntoConstraints="NO" id="dox-JI-1xL">
+                            <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                        </imageView>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Calcular Risco" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tG1-ae-uQL">
+                    <rect key="frame" x="105" y="0.0" width="141" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="141" id="y9Y-Wv-bJa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressione em ATUALIZAR para calcular seu risco de AVC em 10 anos." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.84999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="hxU-U5-H9K">
+                    <rect key="frame" x="38" y="40" width="244" height="61"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="mLK-vn-13E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="75" id="Hsx-m7-G90"/>
+                <constraint firstAttribute="trailing" secondItem="tG1-ae-uQL" secondAttribute="trailing" constant="74" id="Sv3-qH-X0C"/>
+                <constraint firstAttribute="trailing" secondItem="hxU-U5-H9K" secondAttribute="trailing" constant="38" id="Sy4-7y-bec"/>
+                <constraint firstItem="mLK-vn-13E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="big-z1-sF0"/>
+                <constraint firstItem="mLK-vn-13E" firstAttribute="top" secondItem="tG1-ae-uQL" secondAttribute="top" id="da8-xw-dLQ"/>
+                <constraint firstItem="hxU-U5-H9K" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="idw-Pb-8Sn"/>
+                <constraint firstItem="hxU-U5-H9K" firstAttribute="top" secondItem="mLK-vn-13E" secondAttribute="bottom" constant="8" symbolic="YES" id="o1r-Co-XO1"/>
+                <constraint firstItem="hxU-U5-H9K" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="38" id="yY3-qR-umX"/>
+                <constraint firstItem="hxU-U5-H9K" firstAttribute="top" secondItem="tG1-ae-uQL" secondAttribute="bottom" constant="8" symbolic="YES" id="zJg-VM-vEH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="13" y="-176"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="idea" width="32" height="32"/>
+    </resources>
+</document>
