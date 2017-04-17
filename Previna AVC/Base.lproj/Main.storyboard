@@ -127,6 +127,7 @@
                         <outlet property="horizontalScrollView" destination="B42-6M-Pgy" id="hcg-a5-zJF"/>
                         <outlet property="navigationBar" destination="MPw-Dv-IHq" id="KqY-2I-1QM"/>
                         <outlet property="riskPercentageLabel" destination="A5M-7J-77L" id="S2r-Pq-Tzw"/>
+                        <outlet property="stackTip" destination="dEA-no-flb" id="ni7-TV-dFA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

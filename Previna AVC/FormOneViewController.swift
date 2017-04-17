@@ -156,10 +156,20 @@ class FormOneViewController: FormViewController {
             }
             
             if let row = self.form.rowBy(tag: "diabetesRow") as! CheckRow! {
+                
+                
                 row.baseValue = hasDiabetes
+                row.value = hasDiabetes
+                
                 print("HealthKit: setting Diabetes to \(hasDiabetes)")
                 if (hasDiabetes) {
                     //NotificationManager.instance.displayAlert(title: "Fator de risco identificado", message: "Diabetes identificada. Preenchendo perfil.", dismiss: "OK", viewController: self)
+                }
+                
+                DispatchQueue.main.async {
+
+                
+                row.reload()
                 }
             }
             
@@ -172,11 +182,20 @@ class FormOneViewController: FormViewController {
             }
             
             if let row = self.form.rowBy(tag: "hypertensionRow") as! CheckRow! {
+                
+                
                 row.baseValue = hasHighBloodPressure
+                row.value = hasHighBloodPressure
                 print("HealthKit: setting High Blood Pressure to \(hasHighBloodPressure)")
-
+                
                 if (hasHighBloodPressure) {
                     //NotificationManager.instance.displayAlert(title: "Fator de risco identificado", message: "Pressão alta identificada. Preenchendo perfil.", dismiss: "OK", viewController: self)
+                }
+                
+                
+                DispatchQueue.main.async {
+
+                row.reload()
                 }
             }
         }

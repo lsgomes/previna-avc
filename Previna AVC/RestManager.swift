@@ -12,10 +12,11 @@ import SwiftyJSON
 
 class RestManager {
     
-    static let IP = "http://192.168.25.49"
+    static let IP = "https://previna-avc-server.azurewebsites.net"
     static let PORT = ":8081"
     static let ENDPOINT = "/rest"
-    static let REST_ENDPOINT = IP + PORT + ENDPOINT
+    //static let REST_ENDPOINT = IP + PORT + ENDPOINT
+    static let REST_ENDPOINT = IP + ENDPOINT
     
     static let instance = RestManager()
     
@@ -23,9 +24,16 @@ class RestManager {
         
         let endpoint = RestManager.REST_ENDPOINT + "/calculateRiskForPerson"
  
-        print("Sending: \(person.dictionaryRepresentation())")
+        let jsonPerson = JSON(person.dictionaryRepresentation())
         
-        Alamofire.request(endpoint, method: .post, parameters: person.dictionaryRepresentation(), encoding: JSONEncoding.default).responseJSON { response in
+        print("Sending: \(jsonPerson)")
+        
+        let headers =
+            ["Content-Type" : "application/json",
+             "Accept": "application/json"]
+        
+        //    public func encode(_ urlRequest: URLRequestConvertible, withJSONObject jsonObject: Any? = nil) throws -> URLRequest {
+        Alamofire.request(endpoint, method: .post, parameters: person.dictionaryRepresentation(), encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             
             switch (response.result) {
@@ -38,6 +46,12 @@ class RestManager {
                     completion(true)
                 }
             case .failure:
+                print(response.error!)
+                print(response.data!)
+                print(response.debugDescription)
+                print(response.description)
+                print(response.result)
+                //print(response.result.value!)
                 print("REST Failure @ \(endpoint) with parameter \(person.dictionaryRepresentation()).")
                 completion(false)
             }

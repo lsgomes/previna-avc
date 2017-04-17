@@ -18,8 +18,8 @@ class FirstViewController: UIViewController {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     
-    @IBOutlet var riskLabel: UILabel!
-    
+    @IBOutlet var stackTip: StackTip!
+
     @IBOutlet var horizontalScrollView: ASHorizontalScrollView! // TODO
 
     var itemSize = 150
@@ -66,10 +66,10 @@ class FirstViewController: UIViewController {
         
         self.view.addSubview(horizontalScrollView)
         
-        horizontalScrollView.addItem(createTip(text: "Pratique mais exercícios físicos", index: 1))
-        horizontalScrollView.addItem(createTip(text: "Beba com moderação", index: 2))
-        horizontalScrollView.addItem(createTip(text: "Tente parar de fumar", index: 3))
-
+//        horizontalScrollView.addItem(createTip(text: "Pratique mais exercícios físicos", index: 1))
+//        horizontalScrollView.addItem(createTip(text: "Beba com moderação", index: 2))
+//        horizontalScrollView.addItem(createTip(text: "Tente parar de fumar", index: 3))
+//
 
     
         horizontalScrollView.setItemsMarginOnce()
@@ -105,7 +105,7 @@ class FirstViewController: UIViewController {
                 let hour = calendar.component(.hour, from: date)
                 let minutes = calendar.component(.minute, from: date)
                 
-                self.riskLabel.text = "Este é seu risco em 10 anos de AVC.\n Última atualização: Hoje às \(hour):\(minutes)"
+                self.stackTip.subtitle.text = "Este é seu risco em 10 anos de AVC.\n Última atualização: Hoje às \(hour):\(minutes)"
                 sender.setTitle("ATUALIZAR", for: .normal)
                 
                 if (self.horizontalScrollView.removeAllItems()) {
@@ -116,7 +116,7 @@ class FirstViewController: UIViewController {
 
             }
             else {
-                self.riskLabel.text = "Pressione em ATUALIZAR para calcular seu risco de AVC em 10 anos."
+                self.stackTip.subtitle.text = "Pressione em ATUALIZAR para calcular seu risco de AVC em 10 anos."
                 sender.setTitle("ATUALIZAR", for: .normal)
                 self.activityIndicator.stopAnimating()
             }
