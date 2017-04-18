@@ -8,10 +8,37 @@
 
 import UIKit
 import Eureka
+import SwiftyDrop
 
 class FormOneViewController: FormViewController {
     
     var sbPageControl: UIPageControl!
+    
+    var identifiedRiskFactors: [String] = [String]()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        if (!identifiedRiskFactors.isEmpty) {
+            
+            var phrase: String = ""
+            
+            for text in identifiedRiskFactors {
+                let texty = text + ", "
+                phrase = phrase + texty
+            }
+            
+            let dropLast = String(phrase.characters.dropLast(2))
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                Drop.down("Informações obtidas: \(dropLast)", state: Custom.Pink, duration: 7.0)
+            }
+        }
+
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +103,10 @@ class FormOneViewController: FormViewController {
                     row.baseValue = age
                     row.value = age
                     print("HealthKit: setting Age to \(age)")
+                    identifiedRiskFactors.append("\(age) anos")
+                    //DispatchQueue.main.async {
+                        //Drop.down("Idade identificada: \(row.value!)", state: Custom.Pink, duration: 5.0)
+                    //}
                 }
                 else {
                     row.baseValue = 18
@@ -92,6 +123,12 @@ class FormOneViewController: FormViewController {
                 let sex = HealthKitManager.instance.getBiologicalSex()
                 if (!sex.isEmpty) {
                     row.value = sex
+                    identifiedRiskFactors.append("\(sex.lowercased())")
+
+//                    DispatchQueue.main.async {
+//                    Drop.down("Sexo identificado: \(row.value!)", state: Custom.Pink, duration: 5.0)
+//                    }
+
                 } else {
                     row.value = row.options.first    // initially selected
                 }
@@ -127,12 +164,15 @@ class FormOneViewController: FormViewController {
                     let pageViewController = navigationController.parent as! WizardPageViewController
                     pageViewController.segueToPage(name: WizardPageViewController.PAGE_4)
         }
+       
 
     
     }
     
     override func viewWillAppear(_ animated: Bool) {
         updateWithHealthKitData()
+        
+       
     }
     
     func validateForm() {
@@ -195,6 +235,10 @@ class FormOneViewController: FormViewController {
 
                 
                 row.reload()
+                    self.identifiedRiskFactors.append("diabetes")
+
+                    //Drop.down("Fator de risco identificado: Diabetes", state: Custom.Pink, duration: 5.0)
+
                 }
             }
             
@@ -221,6 +265,9 @@ class FormOneViewController: FormViewController {
                 DispatchQueue.main.async {
 
                 row.reload()
+                    self.identifiedRiskFactors.append("hipertensão")
+    //Drop.down("Fator de risco identificado: Hipertensão", state: Custom.Pink, duration: 5.0)
+
                 }
             }
         }

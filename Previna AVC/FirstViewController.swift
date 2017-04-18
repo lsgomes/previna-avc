@@ -97,9 +97,11 @@ class FirstViewController: UIViewController {
     
     func addNotificationsForTips() {
         
+        print("now: \(Date())")
+        
         for (index, element) in UserManager.instance.person.hasRiskFactor!.enumerated() {
             if (element.hasTip != nil) {
-                NotificationManager.instance.scheduleNotification(text: element.hasTip!, minutes: 120 * (index+1), taskTypeId: element.uri!, viewController: self)
+                NotificationManager.instance.scheduleNotification(text: element.hasTip!, minutes: 120 * index, taskTypeId: element.uri!, viewController: self)
             }
         }
 
@@ -168,6 +170,7 @@ class FirstViewController: UIViewController {
 
             }
             else {
+                NotificationManager.instance.displayAlert(title: "Atenção", message: "Não foi possível atualizar seu risco. Tente novamente.", dismiss: "OK", viewController: self)
                 self.stackTip.subtitle.text = "Pressione em ATUALIZAR para calcular seu risco de AVC em 10 anos."
                 sender.setTitle("ATUALIZAR", for: .normal)
                 self.activityIndicator.stopAnimating()

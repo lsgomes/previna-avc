@@ -20,6 +20,8 @@ class RestManager {
     
     static let instance = RestManager()
     
+    // alamofireManager
+    
     func calculateRiskForPerson(person: Person, completion: @escaping (Bool) -> ()) {
         
         let endpoint = RestManager.REST_ENDPOINT + "/calculateRiskForPerson"
@@ -32,12 +34,10 @@ class RestManager {
             ["Content-Type" : "application/json"]
 //             //"Accept": "application/json"]
         
-        let manager = Alamofire.SessionManager.default
-        manager.session.configuration.timeoutIntervalForRequest = 180
         
         
         //    public func encode(_ urlRequest: URLRequestConvertible, withJSONObject jsonObject: Any? = nil) throws -> URLRequest {
-        manager.request(endpoint, method: .post, parameters: person.dictionaryRepresentation(), encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        Alamofire.request(endpoint, method: .post, parameters: person.dictionaryRepresentation(), encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             
             switch (response.result) {

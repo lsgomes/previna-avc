@@ -8,10 +8,37 @@
 
 import UIKit
 import Eureka
+import SwiftyDrop
 
 class FormTwoViewController: FormViewController {
 
+    var identifiedRiskFactors: [String] = [String]()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        if (!identifiedRiskFactors.isEmpty) {
+            
+            var phrase: String = ""
+            
+            for text in identifiedRiskFactors {
+                let texty = text + ", "
+                phrase = phrase + texty
+            }
+            
+            let dropLast = String(phrase.characters.dropLast(2))
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                Drop.down("Informações obtidas: \(dropLast)", state: Custom.Pink, duration: 7.0)
+            }
+        }
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        
+        identifiedRiskFactors.removeAll()
         
 //        navigationController?.navigationBar.topItem?.title = "Perfil"
 //        navigationController?.navigationItem.title =  "Perfil"
@@ -205,7 +232,9 @@ class FormTwoViewController: FormViewController {
                 
             DispatchQueue.main.async {
                 
-                    row.reload()
+                row.reload()
+                self.identifiedRiskFactors.append("atividade física \(row.value!.lowercased())")
+                //Drop.down("Atividade física identificada: \(row.value!)", state: Custom.Pink)
             }
             
             
@@ -246,6 +275,9 @@ class FormTwoViewController: FormViewController {
             DispatchQueue.main.async {
                 
                 row.reload()
+                self.identifiedRiskFactors.append("consumo de álcool \(row.value!.lowercased())")
+                //Drop.down("Consumo de álcool identificado: \(row.value!)", state: Custom.Pink)
+
             }
             // notify USER up down
         }
@@ -263,16 +295,17 @@ class FormTwoViewController: FormViewController {
                     UserManager.instance.removeRiskFactor(name: risk.uri!)
                 }
                 
-                UserManager.instance.removeRiskFactor(name: RiskFactor.CRY_EASILY.rawValue)
-                UserManager.instance.removeRiskFactor(name: RiskFactor.CRITICAL_OF_OTHERS.rawValue)
-                UserManager.instance.removeRiskFactor(name: RiskFactor.FEARFUL.rawValue)
-                
-                UserManager.instance.removeRiskFactor(name: RiskFactor.NOT_CRYING_EASILY.rawValue)
-                UserManager.instance.removeRiskFactor(name: RiskFactor.NOT_CRITICAL_OF_OTHERS.rawValue)
-                UserManager.instance.removeRiskFactor(name: RiskFactor.NOT_FEARFUL.rawValue)
             }
+            
+            UserManager.instance.removeRiskFactor(name: RiskFactor.CRY_EASILY.rawValue)
+            UserManager.instance.removeRiskFactor(name: RiskFactor.CRITICAL_OF_OTHERS.rawValue)
+            UserManager.instance.removeRiskFactor(name: RiskFactor.FEARFUL.rawValue)
+            
+            UserManager.instance.removeRiskFactor(name: RiskFactor.NOT_CRYING_EASILY.rawValue)
+            UserManager.instance.removeRiskFactor(name: RiskFactor.NOT_CRITICAL_OF_OTHERS.rawValue)
+            UserManager.instance.removeRiskFactor(name: RiskFactor.NOT_FEARFUL.rawValue)
 
-        
+
         }
         
         let values = form.values()
@@ -366,4 +399,29 @@ class FormTwoViewController: FormViewController {
     }
     
 
+}
+
+
+enum Custom: DropStatable {
+    case Pink
+    var backgroundColor: UIColor? {
+        switch self {
+        case .Pink: return UIColor(red:0.98, green:0.19, blue:0.41, alpha:1.0)
+        }
+    }
+    var font: UIFont? {
+        switch self {
+        case .Pink: return UIFont.systemFont(ofSize: 15)
+        }
+    }
+    var textColor: UIColor? {
+        switch self {
+        case .Pink: return UIColor.white
+        }
+    }
+    var blurEffect: UIBlurEffect? {
+        switch self {
+        case .Pink: return nil
+        }
+    }
 }

@@ -2,20 +2,23 @@ PODS:
   - Alamofire (4.4.0)
   - ASHorizontalScrollView (1.5.1)
   - Eureka (2.0.1)
+  - SwiftyDrop (3.0.3)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - ASHorizontalScrollView (~> 1.5.1)
   - Eureka
+  - SwiftyDrop
   - SwiftyJSON (~> 3.1.4)
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   ASHorizontalScrollView: 9c98b9226509540075b6398c92f68fb474bea7e9
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
+  SwiftyDrop: 785f95aabc26c4d832576bb78dc4ba7d0594a95b
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 7c3eb6147abf0b849c15e333a999fec03190f6b9
+PODFILE CHECKSUM: 3497f865c6b22992d368a318c9dd0c9a08f2ade5
 
 COCOAPODS: 1.2.0

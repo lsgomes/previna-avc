@@ -10,4 +10,5 @@ target 'Previna AVC' do
   pod 'Alamofire', '~> 4.4'
   pod 'ASHorizontalScrollView', '~> 1.5.1'
   pod 'Eureka'
+  pod 'SwiftyDrop'
 end

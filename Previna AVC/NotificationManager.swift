@@ -69,7 +69,7 @@ class NotificationManager {
     
     private func displayNotificationsDisabled(viewController: UIViewController) {
         
-        displayAlert(title: "Notificações desabilitadas para o aplicativo Previna AVC", message: "Por favor, habilite as notificações em Ajustes -> Notificações -> Previna AVC", dismiss: "FECHAR", viewController: viewController)
+        displayAlert(title: "Notificações desabilitadas para o aplicativo Previna AVC", message: "Por favor, habilite as notificações em Ajustes -> Notificações -> Previna AVC", dismiss: "OK", viewController: viewController)
     }
     
     public func displayAlert(title: String, message: String, dismiss: String, viewController: UIViewController) {
