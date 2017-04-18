@@ -29,11 +29,15 @@ class RestManager {
         print("Sending: \(jsonPerson)")
         
         let headers =
-            ["Content-Type" : "application/json",
-             "Accept": "application/json"]
+            ["Content-Type" : "application/json"]
+//             //"Accept": "application/json"]
+        
+        let manager = Alamofire.SessionManager.default
+        manager.session.configuration.timeoutIntervalForRequest = 180
+        
         
         //    public func encode(_ urlRequest: URLRequestConvertible, withJSONObject jsonObject: Any? = nil) throws -> URLRequest {
-        Alamofire.request(endpoint, method: .post, parameters: person.dictionaryRepresentation(), encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        manager.request(endpoint, method: .post, parameters: person.dictionaryRepresentation(), encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             
             switch (response.result) {
@@ -51,6 +55,8 @@ class RestManager {
                 print(response.debugDescription)
                 print(response.description)
                 print(response.result)
+                print(response.request!)
+                print(response.request.debugDescription)
                 //print(response.result.value!)
                 print("REST Failure @ \(endpoint) with parameter \(person.dictionaryRepresentation()).")
                 completion(false)

@@ -100,6 +100,9 @@ class HealthKitManager {
     
     func retrieveWeekSteps(completion: @escaping (Int?) -> () ) {
         
+        print("retrieveWeekSteps")
+
+        
         let calendar = Calendar.current
         
         var interval = DateComponents()
@@ -212,6 +215,8 @@ class HealthKitManager {
     }
     
     func retrieveWeekAlcohol(completion: @escaping (Double?) -> () ) {
+        
+        print("retrieveWeekAlcohol")
         
         let calendar = Calendar.current
         

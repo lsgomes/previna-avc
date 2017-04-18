@@ -31,9 +31,9 @@ class FirstViewController: UIViewController {
         let imageView = UIImageView(frame:CGRect(x: 0, y: 0, width: tipSize, height: itemSize))
         imageView.image = image
         
-        let label = UILabel(frame:CGRect(x: 20, y: -25, width: 230, height: itemSize))
+        let label = UILabel(frame:CGRect(x: 20, y: -15, width: 215, height: itemSize))
         label.text = "Dica \(index):\n\n" + text
-        label.numberOfLines = 0
+        label.numberOfLines = 6
         
         let tipView = TipView(frame: CGRect.zero)
         tipView.addSubview(imageView)
@@ -64,6 +64,10 @@ class FirstViewController: UIViewController {
         
         listTips()
         
+        if let risk = UserManager.instance.person.hasRiskLevel {
+            self.riskPercentageLabel.text = String(describing: risk) + "%"
+        }
+        
         self.view.addSubview(horizontalScrollView)
         
 //        horizontalScrollView.addItem(createTip(text: "Pratique mais exercícios físicos", index: 1))
@@ -72,18 +76,53 @@ class FirstViewController: UIViewController {
 //
 
     
-        horizontalScrollView.setItemsMarginOnce()
+        //horizontalScrollView.setItemsMarginOnce()
     }
     
     func listTips() {
         
+        var number = 0
         
         for (index, element) in UserManager.instance.person.hasRiskFactor!.enumerated() {
             if (element.hasTip != nil) {
-                let tip = createTip(text: element.hasTip!, index: index)
+                number = number + 1
+                print("Creating tip note with text \(element.hasTip!)")
+                let tip = createTip(text: element.hasTip!, index: number)
                 horizontalScrollView.addItem(tip)
             }
         }
+        
+        horizontalScrollView.setItemsMarginOnce()
+    }
+    
+    func addNotificationsForTips() {
+        
+        for (index, element) in UserManager.instance.person.hasRiskFactor!.enumerated() {
+            if (element.hasTip != nil) {
+                NotificationManager.instance.scheduleNotification(text: element.hasTip!, minutes: 120 * (index+1), taskTypeId: element.uri!, viewController: self)
+            }
+        }
+
+        
+    }
+    
+    func removeAllNotifications() {
+        
+        for notification in NotificationManager.instance.listNotifications() {
+            if let info = notification.userInfo?["taskObjectId"] as? String {
+                NotificationManager.instance.removeNotification(taskTypeId: info)
+            }
+        }
+    }
+    
+    func removeNotificationsForTips() {
+        
+        for (index, element) in UserManager.instance.person.hasRiskFactor!.enumerated() {
+            if (element.hasTip != nil) {
+                NotificationManager.instance.removeNotification(taskTypeId: element.uri!)
+            }
+        }
+        
     }
     
     @IBAction func updateAction(_ sender: UIButton) {
@@ -94,25 +133,38 @@ class FirstViewController: UIViewController {
         
         let person = UserManager.instance.person
         
+        removeNotificationsForTips()
+        
         RestManager.instance.calculateRiskForPerson(person: person) { response in
             print(response)
             
             if (response) {
                 
-                self.riskPercentageLabel.text = String(describing: UserManager.instance.person.hasRiskLevel) + "%"
-                let date = Date()
-                let calendar = Calendar.current
-                let hour = calendar.component(.hour, from: date)
-                let minutes = calendar.component(.minute, from: date)
-                
-                self.stackTip.subtitle.text = "Este é seu risco em 10 anos de AVC.\n Última atualização: Hoje às \(hour):\(minutes)"
-                sender.setTitle("ATUALIZAR", for: .normal)
-                
-                if (self.horizontalScrollView.removeAllItems()) {
-                    self.listTips()
+                if (UserManager.instance.person.hasRiskLevel != nil) {
+                    self.riskPercentageLabel.text = String(describing: UserManager.instance.person.hasRiskLevel!) + "%"
+                    
+                    let date = Date()
+                    let calendar = Calendar.current
+                    let hour = calendar.component(.hour, from: date)
+                    let minutes = calendar.component(.minute, from: date)
+                    
+                    self.stackTip.subtitle.text = "Este é seu risco em 10 anos de AVC. Última atualização: Hoje às \(hour):\(minutes)"
 
                 }
+                
+                sender.setTitle("ATUALIZAR", for: .normal)
+                
+                self.horizontalScrollView.removeAllItems()
+                
+                self.listTips()
+                
+                //self.removeAllNotifications()
+                
+                self.addNotificationsForTips()
+                
                 self.activityIndicator.stopAnimating()
+                
+                //UserManager.instance.savePerson()
 
             }
             else {

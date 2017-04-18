@@ -219,7 +219,7 @@
                     </view>
                     <connections>
                         <segue destination="bQX-7K-sHF" kind="show" identifier="segueToWizard" animates="NO" id="L8p-BX-hjt"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="segueToCalculator" animates="NO" id="t29-D4-gta"/>
+                        <segue destination="LQA-eA-1w3" kind="show" identifier="segueToCalculator" id="wET-6b-n1i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKS-4e-R0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -476,7 +476,4 @@
         <image name="perfil" width="25" height="25"/>
         <image name="risco" width="24" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="5IE-MS-7ve"/>
-    </inferredMetricsTieBreakers>
 </document>

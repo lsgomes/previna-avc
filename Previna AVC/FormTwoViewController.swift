@@ -142,6 +142,8 @@ class FormTwoViewController: FormViewController {
                     let canUpdateProfile = self.parent?.restorationIdentifier == "navForPerfil"
                     
                     self.validateForm(deleteModifiableRisks: canUpdateProfile)
+                    
+                    UserManager.instance.savePerson()
 
                     if (!canUpdateProfile) {
                         //self.performSegue(withIdentifier: "formTwoSegue", sender: nil)
@@ -198,8 +200,13 @@ class FormTwoViewController: FormViewController {
             }
             
             print("HealthKit: setting activityRow to \(row.value!)")
-            row.updateCell()
-            //row.reload()
+            //row.updateCell()
+            
+                
+            DispatchQueue.main.async {
+                
+                    row.reload()
+            }
             
             
             // notify user UP DOWN
@@ -235,8 +242,11 @@ class FormTwoViewController: FormViewController {
             }
             
             print("Setting alcoholRow to \(row.value!)")
-            row.updateCell()
-
+            
+            DispatchQueue.main.async {
+                
+                row.reload()
+            }
             // notify USER up down
         }
     }

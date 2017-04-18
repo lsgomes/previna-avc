@@ -36,15 +36,15 @@ class NotificationManager {
         
     }
     
-    func scheduleNotification(minutes: Int, taskTypeId: String, viewController: UIViewController) {
+    func scheduleNotification(text: String, minutes: Int, taskTypeId: String, viewController: UIViewController) {
         
         let calendar = Calendar.current
         let date = calendar.date(byAdding: .minute, value: minutes, to: Date())
         
-        scheduleNotification(taskTypeId: taskTypeId, alertDate: date!, viewController: viewController)
+        scheduleNotification(text: text, taskTypeId: taskTypeId, alertDate: date!, viewController: viewController)
     }
     
-    func scheduleNotification(taskTypeId: String, alertDate: Date, viewController: UIViewController) {
+    func scheduleNotification(text: String, taskTypeId: String, alertDate: Date, viewController: UIViewController) {
         
         if (!checkNotificationEnabled()) {
             displayNotificationsDisabled(viewController: viewController)
@@ -57,13 +57,14 @@ class NotificationManager {
         
         let notification = UILocalNotification()
         notification.fireDate = alertDate
-        notification.alertBody = "Task \(taskTypeId)"
-        notification.alertAction = "Due : \(alertDate)"
+        notification.alertBody = text
+        //		notification.alertAction = "Due : \(alertDate)"
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.userInfo = ["taskObjectId": taskTypeId]
+        notification.repeatInterval = .day
         UIApplication.shared.scheduleLocalNotification(notification)
         
-        print("Notification set for taskTypeID: \(taskTypeId) at \(alertDate)")
+        print("Notification set for taskTypeID: \(taskTypeId) at \(alertDate) with text \(text)")
     }
     
     private func displayNotificationsDisabled(viewController: UIViewController) {

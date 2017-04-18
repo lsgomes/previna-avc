@@ -47,18 +47,43 @@ class FormOneViewController: FormViewController {
                 row.cell.textLabel?.font = UIFont(name: row.cell.textLabel!.font!.fontName, size: 15)
 
             }
-            <<< IntRow("ageRow") { row in
+//            <<< IntRow("ageRow") { row in
+//                row.title = "📆 Idade:"
+//                row.placeholder = "Digite sua idade aqui"
+//                row.cell.textLabel?.font = UIFont(name: row.cell.textLabel!.font!.fontName, size: 15)
+//                if let age = Int(HealthKitManager.instance.getDateOfBirth())
+//                {
+//                row.baseValue = age
+//                print("HealthKit: setting Age to \(age)")
+//                }
+//
+//
+//            }
+            <<< PickerInputRow<Int>("ageRow") { row in
                 row.title = "📆 Idade:"
-                row.placeholder = "Digite sua idade aqui"
+                
+                var ages: [Int] = []
+                
+                for i in 0...100 {
+                    ages.append(i)
+                }
+                
+                row.options = ages
                 row.cell.textLabel?.font = UIFont(name: row.cell.textLabel!.font!.fontName, size: 15)
+               
                 if let age = Int(HealthKitManager.instance.getDateOfBirth())
                 {
-                row.baseValue = age
-                print("HealthKit: setting Age to \(age)")
+                    row.baseValue = age
+                    row.value = age
+                    print("HealthKit: setting Age to \(age)")
                 }
-
-
+                else {
+                    row.baseValue = 18
+                    row.value = 18
+                }
+                
             }
+
             <<< PickerInputRow<String>("sexRow") { row in
                 row.title = "👫 Sexo: "
                 row.options = [TRANSLATION_MALE, TRANSLATION_FEMALE]
