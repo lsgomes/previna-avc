@@ -17,28 +17,45 @@ class FormTwoViewController: FormViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
-        if (!identifiedRiskFactors.isEmpty) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+
+            if (!self.identifiedRiskFactors.isEmpty) {
             
-            var phrase: String = ""
+                var phrase: String = ""
             
-            for text in identifiedRiskFactors {
-                let texty = text + ", "
-                phrase = phrase + texty
-            }
+                for text in self.identifiedRiskFactors {
+                    let texty = text + ", "
+                    phrase = phrase + texty
+                }
             
-            let dropLast = String(phrase.characters.dropLast(2))
+                let dropLast = String(phrase.characters.dropLast(2))
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
                 Drop.down("Informações obtidas: \(dropLast)", state: Custom.Pink, duration: 7.0)
+            
             }
         }
+        
+        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         identifiedRiskFactors.removeAll()
+        
+        if self.parent?.restorationIdentifier == "navForPerfil" {
+            let buttonRow: ButtonRow = form.rowBy(tag: "buttonRow")!
+            buttonRow.title = "SALVAR"
+            let section: Section = form.sectionBy(tag: "section1")!
+            let headerView = section.header?.viewForSection(section, type: .header) as! HeaderView
+            headerView.noteText.text = "📝 Se algum fator de risco mudou, atualize aqui."
+            
+            setMenusWithDataFromPerson()
+        }
+        
+        updateWithHealthKitDataSteps()
+        updateWithHealthKitAlcohol()
+        updateWithHealthKitData()
         
 //        navigationController?.navigationBar.topItem?.title = "Perfil"
 //        navigationController?.navigationItem.title =  "Perfil"
@@ -47,18 +64,56 @@ class FormTwoViewController: FormViewController {
         self.parent?.navigationController?.navigationBar.topItem?.title = "Perfil"
         self.parent?.navigationController?.navigationItem.title =  "Perfil"
 
-        if self.parent?.restorationIdentifier == "navForPerfil" {
-            let buttonRow: ButtonRow = form.rowBy(tag: "buttonRow")!
-            buttonRow.title = "SALVAR"
-            let section: Section = form.sectionBy(tag: "section1")!
-            let headerView = section.header?.viewForSection(section, type: .header) as! HeaderView
-            headerView.noteText.text = "📝 Se algum fator de risco mudou, atualize aqui."
-        }
-        
-        updateWithHealthKitDataSteps()
-        updateWithHealthKitAlcohol()
+       
+
 
     }
+    
+    func setMenusWithDataFromPerson() {
+        
+        
+        setMenuSelectedItem(riskFactor: RiskFactor.ACTIVE.rawValue, selectItem: TRANSLATION_ACTIVE, rowName: "activityRow")
+        setMenuSelectedItem(riskFactor: RiskFactor.INACTIVE.rawValue, selectItem: TRANSLATION_INACTIVE, rowName: "activityRow")
+        setMenuSelectedItem(riskFactor: RiskFactor.VERY_ACTIVE.rawValue, selectItem: TRANSLATION_VERY_ACTIVE, rowName: "activityRow")
+
+        
+        setMenuSelectedItem(riskFactor: RiskFactor.DRINK_IN_MODERATION.rawValue, selectItem: TRANSLATION_DRINK_IN_MODERATION, rowName: "alcoholRow")
+        setMenuSelectedItem(riskFactor: RiskFactor.DRINKER.rawValue, selectItem: TRANSLATION_DRINKER, rowName: "alcoholRow")
+        setMenuSelectedItem(riskFactor: RiskFactor.ABSTAIN.rawValue, selectItem: TRANSLATION_ABSTAIN, rowName: "alcoholRow")
+        setMenuSelectedItem(riskFactor: RiskFactor.FORMER_ALCOHOLIC.rawValue, selectItem: TRANSLATION_FORMER_ALCOHOLIC, rowName: "alcoholRow")
+        
+        setMenuSelectedItem(riskFactor: RiskFactor.SMOKER.rawValue, selectItem: TRANSLATION_SMOKER, rowName: "smokeRow")
+        setMenuSelectedItem(riskFactor: RiskFactor.FORMER_SMOKER.rawValue, selectItem: TRANSLATION_FORMER_SMOKER, rowName: "smokeRow")
+        setMenuSelectedItem(riskFactor: RiskFactor.NEVER_SMOKED.rawValue, selectItem: TRANSLATION_NEVER_SMOKED, rowName: "smokeRow")
+
+        
+        setMenuSelectedItem(riskFactor: RiskFactor.CRY_EASILY.rawValue, selectItem: TRANSLATION_OFTEN_OR_ALWAYS, rowName: "cryRow")
+        setMenuSelectedItem(riskFactor: RiskFactor.NOT_CRYING_EASILY.rawValue, selectItem: TRANSLATION_SOMETIMES, rowName: "cryRow")
+
+        
+        setMenuSelectedItem(riskFactor: RiskFactor.CRITICAL_OF_OTHERS.rawValue, selectItem: TRANSLATION_OFTEN_OR_ALWAYS, rowName: "angryRow")
+        setMenuSelectedItem(riskFactor: RiskFactor.NOT_CRITICAL_OF_OTHERS.rawValue, selectItem: TRANSLATION_SOMETIMES, rowName: "angryRow")
+
+        
+        setMenuSelectedItem(riskFactor: RiskFactor.FEARFUL.rawValue, selectItem: TRANSLATION_OFTEN_OR_ALWAYS, rowName: "anxietyRow")
+        setMenuSelectedItem(riskFactor: RiskFactor.NOT_FEARFUL.rawValue, selectItem: TRANSLATION_SOMETIMES, rowName: "anxietyRow")
+
+    }
+    
+    
+    func setMenuSelectedItem(riskFactor: String, selectItem: String, rowName: String) {
+        
+        if let riskFactors = UserManager.instance.person.hasRiskFactor {
+            
+            if riskFactors.contains(where: { $0.uri == riskFactor }) {
+                let row = form.rowBy(tag: rowName)
+                row?.baseValue = selectItem
+            }
+
+        }
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -226,14 +281,19 @@ class FormTwoViewController: FormViewController {
 
             }
             
+            self.identifiedRiskFactors.append("atividade física \(row.value!.lowercased())")
+
+            UserManager.instance.person.hasStepsCount = String(describing: steps)
+            print("HealthKit: setting person.hasStepsCount to \(steps)")
+
             print("HealthKit: setting activityRow to \(row.value!)")
             //row.updateCell()
             
-                
+            
+            
             DispatchQueue.main.async {
                 
                 row.reload()
-                self.identifiedRiskFactors.append("atividade física \(row.value!.lowercased())")
                 //Drop.down("Atividade física identificada: \(row.value!)", state: Custom.Pink)
             }
             
@@ -269,19 +329,58 @@ class FormTwoViewController: FormViewController {
 
                 
             }
+            self.identifiedRiskFactors.append("consumo de álcool \(row.value!.lowercased())")
+	
+            UserManager.instance.person.hasBloodAlcoholContent = String(describing: alcohol * 100)
+            print("HealthKit: setting person.hasBloodAlcoholContent to \(alcohol * 100)")
+
             
             print("Setting alcoholRow to \(row.value!)")
             
             DispatchQueue.main.async {
                 
                 row.reload()
-                self.identifiedRiskFactors.append("consumo de álcool \(row.value!.lowercased())")
                 //Drop.down("Consumo de álcool identificado: \(row.value!)", state: Custom.Pink)
 
             }
             // notify USER up down
         }
     }
+    
+    func updateWithHealthKitData() {
+        
+        
+        HealthKitManager.instance.getDiabetes() { hasDiabetes, glucose, error in
+            
+            if (error != nil) {
+                return
+            }
+            
+          UserManager.instance.person.hasBloodGlucose = String(describing: glucose!)
+            
+          print("HealthKit: setting person.hasBloodGlucose to \(glucose!)")
+
+        }
+        
+        HealthKitManager.instance.getHighBloodPressure() { hasHighBloodPressure, pressure, error in
+            
+            if (error != nil) {
+                return
+            }
+ 
+            if let pressure = pressure {
+                
+                UserManager.instance.person.hasBloodPressure = pressure
+                
+                print("HealthKit: setting person.hasBloodPressure to \(pressure)")
+
+            }
+            
+       
+        }
+        
+    }
+
     
     func validateForm(deleteModifiableRisks: Bool) {
         

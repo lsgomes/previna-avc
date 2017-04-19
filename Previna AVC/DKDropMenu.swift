@@ -81,7 +81,7 @@ open class DKDropMenu: UIView {
 
             var tempFrame = self.frame
             var tempBounds = self.bounds
-            var tempLayerBounds = self.layer.bounds
+            _ = self.layer.bounds
             if (self.collapsed) {
                 tempFrame.size.height = self.itemHeight
                 tempBounds = CGRect(x: 0, y: 0, width: 139, height: 31)

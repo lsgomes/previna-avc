@@ -57,6 +57,6 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSHealthShareUsageDescription</key>
-	<string>O aplicativo requer as informações de saúde para detecção de fatores dos seus fatores de risco.</string>
+	<string>O aplicativo requer as informações de saúde para detecção de seus fatores de risco.</string>
 </dict>
 </plist>

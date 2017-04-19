@@ -169,7 +169,6 @@ extension RiskTableViewController: UITableViewDataSource, UITableViewDelegate, D
     {
         //        let visibleCells = tableView.visibleCells as! [ModifiableRiskCell]
 
-        var taloco: NSLayoutConstraint? = nil
         
 //        for cell in tableView.visibleCells {
 //            let const = cell.contentView
@@ -191,9 +190,6 @@ extension RiskTableViewController: UITableViewDataSource, UITableViewDelegate, D
             }
         }
         
-        if (taloco != nil) {
-            //taloco?.constant = NewRect.size.height
-        }
         //self.constrantOfDropDownView.constant = NewRect.size.height;
         UIView.animate(withDuration: 0.5, delay: 0, options: .transitionCrossDissolve, animations: {
             self.view.layoutIfNeeded()

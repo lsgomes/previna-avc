@@ -214,7 +214,7 @@ class FormOneViewController: FormViewController {
     func updateWithHealthKitData() {
         
         
-        HealthKitManager.instance.getDiabetes() { hasDiabetes, error in
+        HealthKitManager.instance.getDiabetes() { hasDiabetes, glucose, error in
             
             if (error != nil) {
                 return
@@ -222,11 +222,14 @@ class FormOneViewController: FormViewController {
             
             if let row = self.form.rowBy(tag: "diabetesRow") as! CheckRow! {
                 
+                UserManager.instance.person.hasBloodGlucose = String(describing: glucose!)
                 
                 row.baseValue = hasDiabetes
                 row.value = hasDiabetes
                 
                 print("HealthKit: setting Diabetes to \(hasDiabetes)")
+                print("HealthKit: setting person.hasBloodGlucose to \(glucose!)")
+
                 if (hasDiabetes) {
                     //NotificationManager.instance.displayAlert(title: "Fator de risco identificado", message: "Diabetes identificada. Preenchendo perfil.", dismiss: "OK", viewController: self)
                 }
@@ -244,7 +247,7 @@ class FormOneViewController: FormViewController {
             
         }
         
-        HealthKitManager.instance.getHighBloodPressure() { hasHighBloodPressure, error in
+        HealthKitManager.instance.getHighBloodPressure() { hasHighBloodPressure, pressure, error in
             
             if (error != nil) {
                 return
@@ -252,21 +255,19 @@ class FormOneViewController: FormViewController {
             
             if let row = self.form.rowBy(tag: "hypertensionRow") as! CheckRow! {
                 
+                UserManager.instance.person.hasBloodPressure = pressure!
                 
                 row.baseValue = hasHighBloodPressure
                 row.value = hasHighBloodPressure
                 print("HealthKit: setting High Blood Pressure to \(hasHighBloodPressure)")
-                
-                if (hasHighBloodPressure) {
-                    //NotificationManager.instance.displayAlert(title: "Fator de risco identificado", message: "Pressão alta identificada. Preenchendo perfil.", dismiss: "OK", viewController: self)
-                }
+                print("HealthKit: setting person.hasBloodPressure to \(pressure!)")
+
                 
                 
                 DispatchQueue.main.async {
 
                 row.reload()
-                    self.identifiedRiskFactors.append("hipertensão")
-    //Drop.down("Fator de risco identificado: Hipertensão", state: Custom.Pink, duration: 5.0)
+                self.identifiedRiskFactors.append("hipertensão")
 
                 }
             }

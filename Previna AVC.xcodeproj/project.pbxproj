@@ -117,12 +117,12 @@
 		A0D8F54E1E9F177A00B72019 /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
-				A0919DD41E89F09F00B05B8B /* BaseProfilePage2ViewController.swift */,
 				A0E56B3F1E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift */,
 				A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */,
 				A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */,
 				A0F0F3151E9985B90082A1D5 /* StaticRiskViewController.swift */,
 				A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */,
+				A0919DD41E89F09F00B05B8B /* BaseProfilePage2ViewController.swift */,
 			);
 			name = Deprecated;
 			sourceTree = "<group>";
@@ -528,6 +528,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N5H55YKWYG;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -550,6 +551,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N5H55YKWYG;
 				FRAMEWORK_SEARCH_PATHS = (

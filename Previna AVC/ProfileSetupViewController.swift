@@ -57,16 +57,16 @@ class ProfileSetupViewController: UIViewController, UITextFieldDelegate {
     
     func gatherInformationFromHealthKit() {
         
-        HealthKitManager.instance.getDiabetes() { hasDiabetes, error in
-            
-            self.setSegmentControlHealthKit(riskFactor: hasDiabetes, segmentControl: self.diabetesSegmentedControl, error: error)
-        }
-        
-        HealthKitManager.instance.getHighBloodPressure() { hasHighBloodPressure, error in
-   
-            self.setSegmentControlHealthKit(riskFactor: hasHighBloodPressure, segmentControl: self.hypertensionSegmentedControl, error: error)
-
-        }
+//        HealthKitManager.instance.getDiabetes() { hasDiabetes, error in
+//            
+//            self.setSegmentControlHealthKit(riskFactor: hasDiabetes, segmentControl: self.diabetesSegmentedControl, error: error)
+//        }
+//        
+//        HealthKitManager.instance.getHighBloodPressure() { hasHighBloodPressure, error in
+//   
+//            self.setSegmentControlHealthKit(riskFactor: hasHighBloodPressure, segmentControl: self.hypertensionSegmentedControl, error: error)
+//
+//        }
     }
     
     func setSegmentControlHealthKit(riskFactor: Bool, segmentControl: UISegmentedControl, error: Error? ) {

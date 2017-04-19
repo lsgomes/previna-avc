@@ -83,7 +83,7 @@ class FirstViewController: UIViewController {
         
         var number = 0
         
-        for (index, element) in UserManager.instance.person.hasRiskFactor!.enumerated() {
+        for (_, element) in UserManager.instance.person.hasRiskFactor!.enumerated() {
             if (element.hasTip != nil) {
                 number = number + 1
                 print("Creating tip note with text \(element.hasTip!)")
@@ -101,7 +101,7 @@ class FirstViewController: UIViewController {
         
         for (index, element) in UserManager.instance.person.hasRiskFactor!.enumerated() {
             if (element.hasTip != nil) {
-                NotificationManager.instance.scheduleNotification(text: element.hasTip!, minutes: 120 * index, taskTypeId: element.uri!, viewController: self)
+                NotificationManager.instance.scheduleNotification(text: element.hasTip!, minutes: 60 * index, taskTypeId: element.uri!, viewController: self)
             }
         }
 
@@ -119,7 +119,7 @@ class FirstViewController: UIViewController {
     
     func removeNotificationsForTips() {
         
-        for (index, element) in UserManager.instance.person.hasRiskFactor!.enumerated() {
+        for (_, element) in UserManager.instance.person.hasRiskFactor!.enumerated() {
             if (element.hasTip != nil) {
                 NotificationManager.instance.removeNotification(taskTypeId: element.uri!)
             }

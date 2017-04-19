@@ -86,9 +86,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate, DKDropMenuDel
             }
             
         }
-        
-        guard let dropMenu: DKDropMenu = dropMenu else { return }
-        
+                
         if (!collapsed) {
             
             for selectedDropMenu in dropMenus {

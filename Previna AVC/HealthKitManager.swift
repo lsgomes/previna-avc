@@ -297,7 +297,7 @@ class HealthKitManager {
     }
 
     
-    func getDiabetes(completion: @escaping (Bool, Error?) -> () ) {
+    func getDiabetes(completion: @escaping (Bool, Double?, Error?) -> () ) {
         
         let type = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodGlucose)!
         
@@ -306,20 +306,20 @@ class HealthKitManager {
         self.readMostRecentSample(sampleType: type) {
             sample, error in
             
-            if error != nil { completion(false, error) }
+            if error != nil { completion(false, nil, error) }
             
-            guard let sample = sample else { return completion(false, error) }
+            guard let sample = sample else { return completion(false, nil, error) }
             
             let result = sample as! HKQuantitySample
             let glucose = result.quantity.doubleValue(for: unit)
             
             if (glucose > 110) {
-                completion(true, nil)
+                completion(true, glucose, nil)
             }
         }
     }
     
-    func getHighBloodPressure(completion: @escaping (Bool, Error?) -> () ) {
+    func getHighBloodPressure(completion: @escaping (Bool, String?, Error?) -> () ) {
   
         let type = HKQuantityType.correlationType(forIdentifier: HKCorrelationTypeIdentifier.bloodPressure)!
         
@@ -328,27 +328,29 @@ class HealthKitManager {
         self.readMostRecentSamples(sampleType: type) {
             sample, error in
             
-            if error != nil { completion(false, error) }
+            if error != nil { completion(false, nil, error) }
             
-            guard let sample = sample as! [HKQuantitySample]! else { return completion(false, error) }
+            guard let sample = sample as! [HKQuantitySample]! else { return completion(false, nil, error) }
             
             let systolic = sample.first?.quantity.doubleValue(for: unit)
             let diastolic = sample.last?.quantity.doubleValue(for: unit)
+            
+            let pressure = "\(systolic!)/\(diastolic!)"
             
             if (!self.getDateOfBirth().isEmpty && Int(self.getDateOfBirth())! > 59) {
                 
                 if (Int(systolic!) > 149 && Int(diastolic!) > 89)
                 {
-                    completion(true, nil)
+                    completion(true, pressure, nil)
                 }
                 
             } else if (Int(systolic!) > 139 && Int(diastolic!) > 89) {
                 
-                completion(true, nil)
+                completion(true, pressure, nil)
 
             } else {
                 
-                completion(false, nil)
+                completion(false, pressure, nil)
             }
         }
     }

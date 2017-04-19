@@ -19,6 +19,11 @@ public final class Person: NSObject, NSCoding {
     static let hasAge = "hasAge"
     static let hasPassword = "hasPassword"
     static let hasUserName = "hasUserName"
+    
+    static let hasBloodGlucose = "hasBloodGlucose"
+    static let hasBloodPressure = "hasBloodPressure"
+    static let hasBloodAlcoholContent = "hasBloodAlcoholContent"
+    static let hasStepsCount = "hasStepsCount"
 
   }
 
@@ -30,6 +35,12 @@ public final class Person: NSObject, NSCoding {
   public var hasAge: Int?
   public var hasPassword: String?
   public var hasUserName: String?
+    
+  public var hasBloodGlucose: String?
+  public var hasBloodPressure: String?
+  public var hasBloodAlcoholContent: String?
+  public var hasStepsCount: String?
+
 
   
     
@@ -59,6 +70,13 @@ public final class Person: NSObject, NSCoding {
     hasAge = json[SerializationKeys.hasAge].int
     hasPassword = json[SerializationKeys.hasPassword].string
     hasUserName = json[SerializationKeys.hasUserName].string
+    
+    hasBloodGlucose = json[SerializationKeys.hasBloodGlucose].string
+    hasBloodPressure = json[SerializationKeys.hasBloodPressure].string
+    hasBloodAlcoholContent = json[SerializationKeys.hasBloodAlcoholContent].string
+    hasStepsCount = json[SerializationKeys.hasStepsCount].string
+
+    
   }
 
   /// Generates description of the object in the form of a NSDictionary.
@@ -73,6 +91,11 @@ public final class Person: NSObject, NSCoding {
     if let value = hasAge { dictionary[SerializationKeys.hasAge] = value }
     if let value = hasPassword { dictionary[SerializationKeys.hasPassword] = value }
     if let value = hasUserName { dictionary[SerializationKeys.hasUserName] = value }
+    
+    if let value = hasBloodGlucose { dictionary[SerializationKeys.hasBloodGlucose] = value }
+    if let value = hasBloodPressure { dictionary[SerializationKeys.hasBloodPressure] = value }
+    if let value = hasBloodAlcoholContent { dictionary[SerializationKeys.hasBloodAlcoholContent] = value }
+    if let value = hasStepsCount { dictionary[SerializationKeys.hasStepsCount] = value }
 
     return dictionary
   }
@@ -86,6 +109,13 @@ public final class Person: NSObject, NSCoding {
     self.hasAge = aDecoder.decodeObject(forKey: SerializationKeys.hasAge) as? Int
     self.hasPassword = aDecoder.decodeObject(forKey: SerializationKeys.hasPassword) as? String
     self.hasUserName = aDecoder.decodeObject(forKey: SerializationKeys.hasUserName) as? String
+    
+    self.hasBloodGlucose = aDecoder.decodeObject(forKey: SerializationKeys.hasBloodGlucose) as? String
+    self.hasBloodPressure = aDecoder.decodeObject(forKey: SerializationKeys.hasBloodPressure) as? String
+    self.hasBloodAlcoholContent = aDecoder.decodeObject(forKey: SerializationKeys.hasBloodAlcoholContent) as? String
+    self.hasStepsCount = aDecoder.decodeObject(forKey: SerializationKeys.hasStepsCount) as? String
+
+    
 
   }
 
@@ -97,6 +127,12 @@ public final class Person: NSObject, NSCoding {
     aCoder.encode(hasAge, forKey: SerializationKeys.hasAge)
     aCoder.encode(hasPassword, forKey: SerializationKeys.hasPassword)
     aCoder.encode(hasUserName, forKey: SerializationKeys.hasUserName)
+    
+    aCoder.encode(hasBloodGlucose, forKey: SerializationKeys.hasBloodGlucose)
+    aCoder.encode(hasBloodPressure, forKey: SerializationKeys.hasBloodPressure)
+    aCoder.encode(hasBloodAlcoholContent, forKey: SerializationKeys.hasBloodAlcoholContent)
+    aCoder.encode(hasStepsCount, forKey: SerializationKeys.hasStepsCount)
+
   }
 
   public override init() { super.init() }
