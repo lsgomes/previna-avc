@@ -356,9 +356,13 @@ class FormTwoViewController: FormViewController {
                 return
             }
             
-          UserManager.instance.person.hasBloodGlucose = String(describing: glucose!)
+            if let glucose = glucose {
+                UserManager.instance.person.hasBloodGlucose = String(describing: glucose)
+                
+                print("HealthKit: setting person.hasBloodGlucose to \(glucose)")
+            }
             
-          print("HealthKit: setting person.hasBloodGlucose to \(glucose!)")
+  
 
         }
         

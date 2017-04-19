@@ -222,25 +222,24 @@ class FormOneViewController: FormViewController {
             
             if let row = self.form.rowBy(tag: "diabetesRow") as! CheckRow! {
                 
-                UserManager.instance.person.hasBloodGlucose = String(describing: glucose!)
+                if let glucose = glucose {
+                    UserManager.instance.person.hasBloodGlucose = String(describing: glucose)
+                    print("HealthKit: setting person.hasBloodGlucose to \(glucose)")
+
+                }
                 
                 row.baseValue = hasDiabetes
                 row.value = hasDiabetes
                 
                 print("HealthKit: setting Diabetes to \(hasDiabetes)")
-                print("HealthKit: setting person.hasBloodGlucose to \(glucose!)")
 
                 if (hasDiabetes) {
-                    //NotificationManager.instance.displayAlert(title: "Fator de risco identificado", message: "Diabetes identificada. Preenchendo perfil.", dismiss: "OK", viewController: self)
+                    self.identifiedRiskFactors.append("diabetes")
                 }
                 
                 DispatchQueue.main.async {
-
                 
-                row.reload()
-                    self.identifiedRiskFactors.append("diabetes")
-
-                    //Drop.down("Fator de risco identificado: Diabetes", state: Custom.Pink, duration: 5.0)
+                    row.reload()
 
                 }
             }
@@ -255,19 +254,24 @@ class FormOneViewController: FormViewController {
             
             if let row = self.form.rowBy(tag: "hypertensionRow") as! CheckRow! {
                 
-                UserManager.instance.person.hasBloodPressure = pressure!
+                if let pressure = pressure {
+                    UserManager.instance.person.hasBloodPressure = pressure
+                    print("HealthKit: setting person.hasBloodPressure to \(pressure)")
+
+                }
+                
                 
                 row.baseValue = hasHighBloodPressure
                 row.value = hasHighBloodPressure
                 print("HealthKit: setting High Blood Pressure to \(hasHighBloodPressure)")
-                print("HealthKit: setting person.hasBloodPressure to \(pressure!)")
-
                 
+                if (hasHighBloodPressure) {
+                    self.identifiedRiskFactors.append("hipertensão")
+                }
                 
                 DispatchQueue.main.async {
 
-                row.reload()
-                self.identifiedRiskFactors.append("hipertensão")
+                    row.reload()
 
                 }
             }
