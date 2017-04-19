@@ -101,7 +101,7 @@ class FirstViewController: UIViewController {
         
         for (index, element) in UserManager.instance.person.hasRiskFactor!.enumerated() {
             if (element.hasTip != nil) {
-                NotificationManager.instance.scheduleNotification(text: element.hasTip!, minutes: 60 * index, taskTypeId: element.uri!, viewController: self)
+                NotificationManager.instance.scheduleNotification(text: element.hasTip!, minutes: 120 * index, taskTypeId: element.uri!, viewController: self)
             }
         }
 
@@ -150,7 +150,7 @@ class FirstViewController: UIViewController {
                     let hour = calendar.component(.hour, from: date)
                     let minutes = calendar.component(.minute, from: date)
                     
-                    self.stackTip.subtitle.text = "Este é seu risco em 10 anos de AVC. Última atualização: Hoje às \(hour):\(minutes)"
+                    self.stackTip.subtitle.text = "Este é seu risco de AVC em 10 anos. Última atualização: Hoje às \(hour):\(minutes)"
 
                 }
                 
