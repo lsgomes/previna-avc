@@ -275,9 +275,9 @@
 				TargetAttributes = {
 					A0FF49AB1E4BE4B70041EEBE = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = N5H55YKWYG;
+						DevelopmentTeam = SGYT74R335;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -530,7 +530,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = N5H55YKWYG;
+				DEVELOPMENT_TEAM = SGYT74R335;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",
@@ -539,8 +539,10 @@
 				INFOPLIST_FILE = "Previna AVC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-AVC";
+				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-Avc-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f56fa702-ba99-4604-bbc3-4f176f2c9a55";
+				PROVISIONING_PROFILE_SPECIFIER = PrevinaAVC;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -551,9 +553,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = N5H55YKWYG;
+				DEVELOPMENT_TEAM = SGYT74R335;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",
@@ -562,8 +564,10 @@
 				INFOPLIST_FILE = "Previna AVC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-AVC";
+				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-Avc-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f56fa702-ba99-4604-bbc3-4f176f2c9a55";
+				PROVISIONING_PROFILE_SPECIFIER = PrevinaAVC;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
