@@ -20,6 +20,7 @@
 		A0974F891E53E4AE005E712A /* ProfileSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */; };
 		A09C42841E9B274A00EA0B3A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09C42831E9B274A00EA0B3A /* HeaderView.swift */; };
 		A09C42861E9B28B800EA0B3A /* HeaderViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = A09C42851E9B28B800EA0B3A /* HeaderViewNib.xib */; };
+		A09DCECE1EA864CD00FED0DB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09DCECD1EA864CD00FED0DB /* WebViewController.swift */; };
 		A0A16EE91E9AF37D00BDA2FB /* FormTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A16EE81E9AF37D00BDA2FB /* FormTwoViewController.swift */; };
 		A0D1E2AD1E55FF8000349A18 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */; };
 		A0D1E2AF1E56194400349A18 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */; };
@@ -65,6 +66,7 @@
 		A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetupViewController.swift; sourceTree = "<group>"; };
 		A09C42831E9B274A00EA0B3A /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A09C42851E9B28B800EA0B3A /* HeaderViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewNib.xib; sourceTree = "<group>"; };
+		A09DCECD1EA864CD00FED0DB /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		A0A16EE81E9AF37D00BDA2FB /* FormTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTwoViewController.swift; sourceTree = "<group>"; };
 		A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */,
 				A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */,
 				A0A16EE81E9AF37D00BDA2FB /* FormTwoViewController.swift */,
+				A09DCECD1EA864CD00FED0DB /* WebViewController.swift */,
 			);
 			name = Tab;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				A0E56B3E1E91D9DF009DEA0F /* ModifiableRiskCell.swift in Sources */,
 				A0F0F3181E998D6E0082A1D5 /* TextFieldCell.swift in Sources */,
 				A09C42841E9B274A00EA0B3A /* HeaderView.swift in Sources */,
+				A09DCECE1EA864CD00FED0DB /* WebViewController.swift in Sources */,
 				A0FA77961E7F34DD00F7B5FA /* RestManager.swift in Sources */,
 				A0F380D31E927BE3000359F4 /* NotificationManager.swift in Sources */,
 				A0F6EBB21E8377BF0006451F /* HasDevice.swift in Sources */,
