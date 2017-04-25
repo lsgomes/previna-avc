@@ -30,7 +30,7 @@ public final class Person: NSObject, NSCoding {
   // MARK: Properties
   public var hasDevice: [HasDevice]?
   public var uri: String?
-  public var hasRiskLevel: Int?
+  public var hasRiskLevel: Double?
   public var hasRiskFactor: [HasRiskFactor]?
   public var hasAge: Int?
   public var hasPassword: String?
@@ -65,7 +65,7 @@ public final class Person: NSObject, NSCoding {
   public required init(json: JSON) {
     if let items = json[SerializationKeys.hasDevice].array { hasDevice = items.map { HasDevice(json: $0) } }
     uri = json[SerializationKeys.uri].string
-    hasRiskLevel = json[SerializationKeys.hasRiskLevel].int
+    hasRiskLevel = json[SerializationKeys.hasRiskLevel].double
     if let items = json[SerializationKeys.hasRiskFactor].array { hasRiskFactor = items.map { HasRiskFactor(json: $0) } }
     hasAge = json[SerializationKeys.hasAge].int
     hasPassword = json[SerializationKeys.hasPassword].string
@@ -104,7 +104,7 @@ public final class Person: NSObject, NSCoding {
   required public init(coder aDecoder: NSCoder) {
     self.hasDevice = aDecoder.decodeObject(forKey: SerializationKeys.hasDevice) as? [HasDevice]
     self.uri = aDecoder.decodeObject(forKey: SerializationKeys.uri) as? String
-    self.hasRiskLevel = aDecoder.decodeObject(forKey: SerializationKeys.hasRiskLevel) as? Int
+    self.hasRiskLevel = aDecoder.decodeObject(forKey: SerializationKeys.hasRiskLevel) as? Double
     self.hasRiskFactor = aDecoder.decodeObject(forKey: SerializationKeys.hasRiskFactor) as? [HasRiskFactor]
     self.hasAge = aDecoder.decodeObject(forKey: SerializationKeys.hasAge) as? Int
     self.hasPassword = aDecoder.decodeObject(forKey: SerializationKeys.hasPassword) as? String
