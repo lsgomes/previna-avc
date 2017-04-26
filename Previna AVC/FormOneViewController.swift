@@ -72,7 +72,23 @@ class FormOneViewController: FormViewController {
                 row.title = "👤 Nome:" //👤
                 row.placeholder = "Digite seu nome aqui"
                 row.cell.textLabel?.font = UIFont(name: row.cell.textLabel!.font!.fontName, size: 15)
+                row.add(rule: RuleRequired())
+                row.add(rule: RuleSpaces())
+                row.validationOptions = .validatesAlways
 
+            }
+            .cellUpdate { cell, row in
+                
+                if (row.value != nil) {
+                    let trimmed = row.value! as String
+                    row.value = trimmed.trimmingCharacters(in: .whitespacesAndNewlines)
+
+                   
+                }
+                if !row.isValid {
+                    cell.titleLabel?.textColor = .red
+                    
+                }
             }
 //            <<< IntRow("ageRow") { row in
 //                row.title = "📆 Idade:"
@@ -157,12 +173,14 @@ class FormOneViewController: FormViewController {
                 }.onCellSelection { cell, row in
                     
                     // validation
-                    self.validateForm()
+                    let isValidForm = self.validateForm()
                     
-                    
-                    let navigationController = self.parent as! UINavigationController
-                    let pageViewController = navigationController.parent as! WizardPageViewController
-                    pageViewController.segueToPage(name: WizardPageViewController.PAGE_4)
+                    if (isValidForm) {
+                        let navigationController = self.parent as! UINavigationController
+                        let pageViewController = navigationController.parent as! WizardPageViewController
+                        pageViewController.segueToPage(name: WizardPageViewController.PAGE_4)
+                    }
+                  
         }
        
 
@@ -175,12 +193,34 @@ class FormOneViewController: FormViewController {
        
     }
     
-    func validateForm() {
+    func validateForm() -> Bool {
      
         let values = form.values()
+        
+        if values.isEmpty {
+            return false
+        }
+        
+        guard var name = values["nameRow"] as? String else
+        {
+            DispatchQueue.main.async {
+                NotificationManager.instance.displayAlert(title: "Atenção", message: "Digite seu primeiro nome.", dismiss: "OK", viewController: self)
+            }
+            return false
+        }
+        
+        name = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if (name.isEmpty || name.contains(" ")) {
+            
+            DispatchQueue.main.async {
+                NotificationManager.instance.displayAlert(title: "Atenção", message: "Digite apenas seu primeiro nome.", dismiss: "OK", viewController: self)
+            }
+            return false
+        }
   
-        UserManager.instance.person.hasUserName = values["nameRow"] as! String!
-        UserManager.instance.person.uri = values["nameRow"] as! String!
+        UserManager.instance.person.hasUserName = name
+        UserManager.instance.person.uri = name
 
         UserManager.instance.person.hasAge = values["ageRow"] as! Int!
         
@@ -202,6 +242,8 @@ class FormOneViewController: FormViewController {
         validateRiskFactor("heartRow", RiskFactor.HEART_FAILURE.rawValue, values)
 
         validateRiskFactor("coronaryRow", RiskFactor.ISCHEMIC_HEART_DISEASE.rawValue, values)
+        
+        return true
 
     }
     

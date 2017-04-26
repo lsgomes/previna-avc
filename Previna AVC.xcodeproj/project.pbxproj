@@ -14,6 +14,7 @@
 		A03B1C1E1E80D94C0012E36D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B1C1D1E80D94C0012E36D /* UserManager.swift */; };
 		A05EDB001E95DF90007984CB /* RiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */; };
 		A088A1651E8B4E8300D15E6C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */; };
+		A08BF9B81EB052F70083FB92 /* RuleSpaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08BF9B71EB052F70083FB92 /* RuleSpaces.swift */; };
 		A0919DD31E89E4E100B05B8B /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */; };
 		A0919DD51E89F09F00B05B8B /* BaseProfilePage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0919DD41E89F09F00B05B8B /* BaseProfilePage2ViewController.swift */; };
 		A09599E31E8CB2F200974DC7 /* RiskFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09599E21E8CB2F200974DC7 /* RiskFactor.swift */; };
@@ -60,6 +61,7 @@
 		A03B1C1D1E80D94C0012E36D /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiskTableViewController.swift; sourceTree = "<group>"; };
 		A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		A08BF9B71EB052F70083FB92 /* RuleSpaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleSpaces.swift; sourceTree = "<group>"; };
 		A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		A0919DD41E89F09F00B05B8B /* BaseProfilePage2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProfilePage2ViewController.swift; sourceTree = "<group>"; };
 		A09599E21E8CB2F200974DC7 /* RiskFactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiskFactor.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				A0F6EBB01E8377BF0006451F /* HasSensor.swift */,
 				A0F6EBB11E8377BF0006451F /* Person.swift */,
 				A0F0F3171E998D6E0082A1D5 /* TextFieldCell.swift */,
+				A08BF9B71EB052F70083FB92 /* RuleSpaces.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -278,9 +281,9 @@
 				TargetAttributes = {
 					A0FF49AB1E4BE4B70041EEBE = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SGYT74R335;
+						DevelopmentTeam = N5H55YKWYG;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -387,6 +390,7 @@
 				A0919DD31E89E4E100B05B8B /* ThirdViewController.swift in Sources */,
 				A09599E31E8CB2F200974DC7 /* RiskFactor.swift in Sources */,
 				A0D8F54D1E9F076500B72019 /* StackTip.swift in Sources */,
+				A08BF9B81EB052F70083FB92 /* RuleSpaces.swift in Sources */,
 				A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */,
 				A0E58AB51E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift in Sources */,
 				A0919DD51E89F09F00B05B8B /* BaseProfilePage2ViewController.swift in Sources */,
@@ -534,7 +538,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SGYT74R335;
+				DEVELOPMENT_TEAM = N5H55YKWYG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",
@@ -543,10 +547,10 @@
 				INFOPLIST_FILE = "Previna AVC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-Avc-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-Avc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f56fa702-ba99-4604-bbc3-4f176f2c9a55";
-				PROVISIONING_PROFILE_SPECIFIER = PrevinaAVC;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -559,7 +563,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SGYT74R335;
+				DEVELOPMENT_TEAM = N5H55YKWYG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",
@@ -568,10 +572,10 @@
 				INFOPLIST_FILE = "Previna AVC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-Avc-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-Avc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f56fa702-ba99-4604-bbc3-4f176f2c9a55";
-				PROVISIONING_PROFILE_SPECIFIER = PrevinaAVC;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
