@@ -15,7 +15,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Bem-vindo ao Previna AVC!"
+        navigationItem.title = NSLocalizedString("Welcome to Previna AVC!", comment: "")
 
         
         //navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 64.0)

@@ -32,7 +32,7 @@ class FormOneViewController: FormViewController {
             let dropLast = String(phrase.characters.dropLast(2))
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                Drop.down("Informações obtidas: \(dropLast)", state: Custom.Pink, duration: 7.0)
+                Drop.down(NSLocalizedString("Obtained information", comment: "") + " \(dropLast)", state: Custom.Pink, duration: 7.0)
             }
         }
 
@@ -49,7 +49,7 @@ class FormOneViewController: FormViewController {
 //            print(constraint)
 //        }
         
-        self.navigationItem.title = "Perfil"
+        self.navigationItem.title = NSLocalizedString("Profile", comment: "")
 //        
 //        let navigationController = self.parent as! UINavigationController
 //        let pageViewController = navigationController.parent as! WizardPageViewController
@@ -61,7 +61,7 @@ class FormOneViewController: FormViewController {
             header.height = {62}
             
             header.onSetupView = { view, _ in
-                view.noteText.text = "📝 Preencha os campos a seguir para se cadastrar."
+                view.noteText.text = "📝 " + NSLocalizedString("Fill in the fields below to sign up", comment: "")
                 //saveButton.setTitle("CONCLUIR", for: .normal)
             }
             
@@ -69,8 +69,8 @@ class FormOneViewController: FormViewController {
             }
 
             <<< NameRow("nameRow") { row in
-                row.title = "👤 Nome:" //👤
-                row.placeholder = "Digite seu nome aqui"
+                row.title = "👤 " + NSLocalizedString("Name", comment: "")
+                row.placeholder = NSLocalizedString("Type your name here", comment: "")
                 row.cell.textLabel?.font = UIFont(name: row.cell.textLabel!.font!.fontName, size: 15)
                 row.add(rule: RuleRequired())
                 row.add(rule: RuleSpaces())
@@ -103,7 +103,7 @@ class FormOneViewController: FormViewController {
 //
 //            }
             <<< PickerInputRow<Int>("ageRow") { row in
-                row.title = "📆 Idade:"
+                row.title = "📆 " + NSLocalizedString("Age", comment: "")
                 
                 var ages: [Int] = []
                 

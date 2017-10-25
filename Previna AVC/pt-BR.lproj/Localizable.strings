@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  Previna AVC
+
+  Created by Matheus Campezatto on 25/10/17.
+  Copyright © 2017 Lucas Dos Santos Gomes. All rights reserved.
+*/
+"Welcome to Previna AVC!" = "Bem vindo ao Previna AVC!";
+
+"Obtained information" = "Informações obtidas:";
+
+"Profile" = "Perfil";
+
+"Fill in the fields below to sign up" = "Preencha os campos a seguir para se cadastrar.";
+
+"Type your name here" = "Digite seu nome aqui";
+
+"Name" = "Nome:";

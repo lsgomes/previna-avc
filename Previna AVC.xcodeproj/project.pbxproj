@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F74F0231FA141DE0013F4CE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F74F0211FA141DE0013F4CE /* Localizable.strings */; };
 		A01B39051E9C6C09007008E0 /* FormOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01B39041E9C6C09007008E0 /* FormOneViewController.swift */; };
 		A0207D961E9C91B90089FE09 /* HeaderViewImageNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0207D951E9C91B90089FE09 /* HeaderViewImageNib.xib */; };
 		A0207D981E9C91CF0089FE09 /* HeaderViewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0207D971E9C91CF0089FE09 /* HeaderViewImage.swift */; };
@@ -53,6 +54,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F74F0201FA140300013F4CE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		2F74F0221FA141DE0013F4CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2F74F0241FA1421E0013F4CE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		348DC6AE897B4A2115C8C70A /* Pods-Previna AVC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Previna AVC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Previna AVC/Pods-Previna AVC.debug.xcconfig"; sourceTree = "<group>"; };
 		A01B39041E9C6C09007008E0 /* FormOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormOneViewController.swift; sourceTree = "<group>"; };
 		A0207D951E9C91B90089FE09 /* HeaderViewImageNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewImageNib.xib; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				A0FF49BA1E4BE4B80041EEBE /* LaunchScreen.storyboard */,
 				A0FF49BD1E4BE4B80041EEBE /* Info.plist */,
 				A0D98B391E8DD83900BE8BB9 /* Model */,
+				2F74F0211FA141DE0013F4CE /* Localizable.strings */,
 			);
 			path = "Previna AVC";
 			sourceTree = "<group>";
@@ -281,7 +286,7 @@
 				TargetAttributes = {
 					A0FF49AB1E4BE4B70041EEBE = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = N5H55YKWYG;
+						DevelopmentTeam = 8CLND99G3E;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -299,6 +304,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = A0FF49A31E4BE4B70041EEBE;
 			productRefGroup = A0FF49AD1E4BE4B80041EEBE /* Products */;
@@ -318,6 +324,7 @@
 				A0FF49BC1E4BE4B80041EEBE /* LaunchScreen.storyboard in Resources */,
 				A0FF49B91E4BE4B80041EEBE /* Assets.xcassets in Resources */,
 				A0E4B9F21E9F050100B181CF /* StackTipNib.xib in Resources */,
+				2F74F0231FA141DE0013F4CE /* Localizable.strings in Resources */,
 				A0FF49B71E4BE4B80041EEBE /* Main.storyboard in Resources */,
 				A09C42861E9B28B800EA0B3A /* HeaderViewNib.xib in Resources */,
 				A0207D961E9C91B90089FE09 /* HeaderViewImageNib.xib in Resources */,
@@ -348,9 +355,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Previna AVC/Pods-Previna AVC-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ASHorizontalScrollView/ASHorizontalScrollView.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyDrop/SwiftyDrop.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASHorizontalScrollView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyDrop.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -363,13 +381,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Previna AVC-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -420,10 +441,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		2F74F0211FA141DE0013F4CE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F74F0221FA141DE0013F4CE /* Base */,
+				2F74F0241FA1421E0013F4CE /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		A0FF49B51E4BE4B80041EEBE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A0FF49B61E4BE4B80041EEBE /* Base */,
+				2F74F0201FA140300013F4CE /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -443,6 +474,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -492,6 +524,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -538,7 +571,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = N5H55YKWYG;
+				DEVELOPMENT_TEAM = 8CLND99G3E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",
@@ -563,7 +596,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = N5H55YKWYG;
+				DEVELOPMENT_TEAM = 8CLND99G3E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",

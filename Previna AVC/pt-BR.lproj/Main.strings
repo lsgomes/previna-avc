@@ -1,0 +1,54 @@
+
+/* Class = "UITextView"; text = "Este aplicativo irá ajudar você a prevenir o acidente vascular cerebral (AVC)."; ObjectID = "1TY-nz-Fc7"; */
+"1TY-nz-Fc7.text" = "Este aplicativo irá ajudar você a prevenir o acidente vascular cerebral (AVC).";
+
+/* Class = "UILabel"; text = "O aplicativo irá ler seu sexo, idade, e outras informações, se possível, para calcular seu risco."; ObjectID = "8Hc-xn-U2b"; */
+"8Hc-xn-U2b.text" = "O aplicativo irá ler seu sexo, idade, e outras informações, se possível, para calcular seu risco.";
+
+/* Class = "UILabel"; text = "?"; ObjectID = "A5M-7J-77L"; */
+"A5M-7J-77L.text" = "?";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "JNc-gh-lgU"; */
+"JNc-gh-lgU.title" = "Title";
+
+/* Class = "UINavigationController"; title = "Nav for MainTab"; ObjectID = "LQA-eA-1w3"; */
+"LQA-eA-1w3.title" = "Nav for MainTab";
+
+/* Class = "UIButton"; normalTitle = "PERMITIR ACESSO"; ObjectID = "NgE-fi-xGq"; */
+"NgE-fi-xGq.normalTitle" = "PERMITIR ACESSO";
+
+/* Class = "UILabel"; text = "Bem-vindo ao Previna AVC!"; ObjectID = "Nmr-p3-KUw"; */
+"Nmr-p3-KUw.text" = "Bem-vindo ao Previna AVC!";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "OvL-ud-yaa"; */
+"OvL-ud-yaa.text" = "Title";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "Q9l-FX-4fK"; */
+"Q9l-FX-4fK.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "ATUALIZAR"; ObjectID = "Qy5-ma-n6t"; */
+"Qy5-ma-n6t.normalTitle" = "ATUALIZAR";
+
+/* Class = "UIViewController"; title = "formTwo"; ObjectID = "V65-Gy-7ns"; */
+"V65-Gy-7ns.title" = "formTwo";
+
+/* Class = "UITabBarItem"; title = "Perfil"; ObjectID = "VZa-4Q-rce"; */
+"VZa-4Q-rce.title" = "Perfil";
+
+/* Class = "UITabBarItem"; title = "Risco"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Risco";
+
+/* Class = "UITabBarItem"; title = "Formulário"; ObjectID = "dpH-ln-oJF"; */
+"dpH-ln-oJF.title" = "Formulário";
+
+/* Class = "UITextView"; text = "Permitir Acesso à Saúde"; ObjectID = "fNX-dl-56m"; */
+"fNX-dl-56m.text" = "Permitir Acesso à Saúde";
+
+/* Class = "UITabBarItem"; title = "Conquistas"; ObjectID = "jVu-oC-bkQ"; */
+"jVu-oC-bkQ.title" = "Conquistas";
+
+/* Class = "UIButton"; normalTitle = "CONTINUAR"; ObjectID = "y0C-9M-3F2"; */
+"y0C-9M-3F2.normalTitle" = "CONTINUAR";
+
+/* Class = "UINavigationItem"; title = "Bem vindo, Lucas!"; ObjectID = "ylr-zX-xTg"; */
+"ylr-zX-xTg.title" = "Bem vindo, Lucas!";
