@@ -119,7 +119,7 @@ class FormOneViewController: FormViewController {
                     row.baseValue = age
                     row.value = age
                     print("HealthKit: setting Age to \(age)")
-                    identifiedRiskFactors.append("\(age) anos")
+                    identifiedRiskFactors.append("\(age) " + NSLocalizedString("Years", comment: ""))
                     //DispatchQueue.main.async {
                         //Drop.down("Idade identificada: \(row.value!)", state: Custom.Pink, duration: 5.0)
                     //}
@@ -132,8 +132,8 @@ class FormOneViewController: FormViewController {
             }
 
             <<< PickerInputRow<String>("sexRow") { row in
-                row.title = "👫 Sexo: "
-                row.options = [TRANSLATION_MALE, TRANSLATION_FEMALE]
+                row.title = "👫 " + NSLocalizedString("Sex", comment: "")
+                row.options = [NSLocalizedString("Male", comment: ""), NSLocalizedString("Female", comment: "")]
                 row.cell.textLabel?.font = UIFont(name: row.cell.textLabel!.font!.fontName, size: 15)
                 
                 let sex = HealthKitManager.instance.getBiologicalSex()
@@ -152,17 +152,17 @@ class FormOneViewController: FormViewController {
 
             }
             
-            <<< createCheckRow("hypertensionRow", "Possui hipertensão?")
-            <<< createCheckRow("diabetesRow", "Possui diabetes?")
-            <<< createCheckRow("renalRow", "Possui insuficiência renal crônica?")
+            <<< createCheckRow("hypertensionRow", NSLocalizedString("Hypertension question", comment: ""))
+            <<< createCheckRow("diabetesRow", NSLocalizedString("Diabetes question", comment: ""))
+            <<< createCheckRow("renalRow", NSLocalizedString("Renal failure question", comment: ""))
 
-            <<< createCheckRow("arteryRow", "Possui doença arterial periférica?")
-            <<< createCheckRow("heartRow", "Possui insuficiência cardíaca?")
-            <<< createCheckRow("coronaryRow", "Possui doença arterial coronariana?")
+            <<< createCheckRow("arteryRow", NSLocalizedString("Peripheral arterial disease question", comment: ""))
+            <<< createCheckRow("heartRow", NSLocalizedString("Heart failure question", comment: ""))
+            <<< createCheckRow("coronaryRow", NSLocalizedString("Ischemic heart disease question", comment: ""))
 
             <<< ButtonRow("buttonRow") { button in
                 
-                button.title = "CONTINUAR"
+                button.title = NSLocalizedString("Continue", comment: "")
                 
                 }.cellSetup { cell, _ in
                     
@@ -204,8 +204,8 @@ class FormOneViewController: FormViewController {
         guard var name = values["nameRow"] as? String else
         {
             DispatchQueue.main.async {
-                NotificationManager.instance.displayAlert(title: "Atenção", message: "Digite seu primeiro nome.", dismiss: "OK", viewController: self)
-            }
+                NotificationManager.instance.displayAlert(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("Type your first name", comment: ""), dismiss: "OK", viewController: self
+            })
             return false
         }
         
@@ -214,7 +214,7 @@ class FormOneViewController: FormViewController {
         if (name.isEmpty || name.contains(" ")) {
             
             DispatchQueue.main.async {
-                NotificationManager.instance.displayAlert(title: "Atenção", message: "Digite apenas seu primeiro nome.", dismiss: "OK", viewController: self)
+                NotificationManager.instance.displayAlert(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("Type only your first name", comment: ""), dismiss: "OK", viewController: self)
             }
             return false
         }
@@ -224,9 +224,11 @@ class FormOneViewController: FormViewController {
 
         UserManager.instance.person.hasAge = values["ageRow"] as! Int!
         
+        let male = NSLocalizedString("Male", comment: "")
+
         switch (values["sexRow"] as! String!)
         {
-        case TRANSLATION_MALE: UserManager.instance.addRiskFactor(uri: RiskFactor.MALE.rawValue)
+        case male: UserManager.instance.addRiskFactor(uri: RiskFactor.MALE.rawValue)
         default: break
         }
     
@@ -276,7 +278,7 @@ class FormOneViewController: FormViewController {
                 print("HealthKit: setting Diabetes to \(hasDiabetes)")
 
                 if (hasDiabetes) {
-                    self.identifiedRiskFactors.append("diabetes")
+                    self.identifiedRiskFactors.append(NSLocalizedString("diabetes", comment: ""))
                 }
                 
                 DispatchQueue.main.async {
@@ -308,7 +310,7 @@ class FormOneViewController: FormViewController {
                 print("HealthKit: setting High Blood Pressure to \(hasHighBloodPressure)")
                 
                 if (hasHighBloodPressure) {
-                    self.identifiedRiskFactors.append("hipertensão")
+                    self.identifiedRiskFactors.append(NSLocalizedString("hypertension", comment: ""))
                 }
                 
                 DispatchQueue.main.async {
@@ -320,18 +322,10 @@ class FormOneViewController: FormViewController {
         }
     }
     
-    
-    
-    let TRANSLATION_MALE = "Masculino"
-    let TRANSLATION_FEMALE = "Feminino"
-    
-    let SEGMENT_YES = "Sim"
-    let SEGMENT_NO = "Não"
-    
     func createSegmentedRow(_ tag: String, _ title: String) -> SegmentedRow<String> {
         let row = SegmentedRow<String>(tag) { row in
             row.title = title
-            row.options = [SEGMENT_YES, SEGMENT_NO]
+            row.options = [NSLocalizedString("Yes", comment: ""), NSLocalizedString("No", comment: "")]
 
             row.cell.setControlWidth(width:100)
             row.cell.setTitleWidth(width:180)

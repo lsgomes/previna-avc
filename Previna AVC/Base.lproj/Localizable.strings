@@ -5,7 +5,13 @@
   Created by Matheus Campezatto on 25/10/17.
   Copyright © 2017 Lucas Dos Santos Gomes. All rights reserved.
 */
+
+
 "Welcome to Previna AVC!" = "Welcome to Previna AVC!";
+
+/*
+FormOneViewController
+*/
 
 "Obtained information" = "Obtained information:";
 
@@ -17,6 +23,45 @@
 
 "Name" = "Name:";
 
-// Passar para PT BR
+"Age" = "Age:";
 
-"Age" = "Age:"
+"Years" = "years";
+
+"Sex" = "Sex:";
+
+"Hypertension question" = "Do you have hypertension?";
+
+"Diabetes question" = "Do you have diabetes?";
+
+"Renal failure question" = "Do you have renal failure?";
+
+"Peripheral arterial disease question" = "Do you have peripheral arterial disease?";
+
+"Heart failure question" = "Do you have heart failure?";
+
+"Ischemic heart disease question" = "Do you have ischemic heart disease?";
+
+"Continue" = "CONTINUE";
+
+"Attention" = "Attention";
+
+"Type your first name" = "Type your first name.";
+
+"Type only your first name" = "Type only your first name.";
+
+"Yes" = "Yes";
+
+"No" = "No";
+
+"diabetes" = "diabetes";
+
+"hypertension" = "hypertension";
+
+
+/*
+HealthKitManager
+*/
+
+"Male" = "Male";
+
+"Female" = "Female";

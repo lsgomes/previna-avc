@@ -499,10 +499,10 @@ class HealthKitManager {
             switch (userSex as HKBiologicalSex) {
             
             case .male:
-                biologicalSex = "Masculino"
+                biologicalSex = NSLocalizedString("Male", comment: "")
             
             case .female:
-                biologicalSex = "Feminino"
+                biologicalSex = NSLocalizedString("Female", comment: "")
             
             default:
                 break
