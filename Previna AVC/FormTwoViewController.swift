@@ -30,7 +30,7 @@ class FormTwoViewController: FormViewController {
             
                 let dropLast = String(phrase.characters.dropLast(2))
             
-                Drop.down("Informações obtidas: \(dropLast)", state: Custom.Pink, duration: 7.0)
+                Drop.down(NSLocalizedString("Obtained information", comment: "") + " \(dropLast)", state: Custom.Pink, duration: 7.0)
             
             }
         }
@@ -45,11 +45,10 @@ class FormTwoViewController: FormViewController {
         
         if self.parent?.restorationIdentifier == "navForPerfil" {
             let buttonRow: ButtonRow = form.rowBy(tag: "buttonRow")!
-            buttonRow.title = "SALVAR"
+            buttonRow.title = NSLocalizedString("Save", comment: "")
             let section: Section = form.sectionBy(tag: "section1")!
             let headerView = section.header?.viewForSection(section, type: .header) as! HeaderView
-            headerView.noteText.text = "📝 Se algum fator de risco mudou, atualize aqui."
-            
+            headerView.noteText.text = "📝 " + NSLocalizedString("If any risk factor has changed, update here", comment: "")
             setMenusWithDataFromPerson()
         }
         
@@ -59,10 +58,10 @@ class FormTwoViewController: FormViewController {
         
 //        navigationController?.navigationBar.topItem?.title = "Perfil"
 //        navigationController?.navigationItem.title =  "Perfil"
-        self.navigationItem.title = "Perfil"
-        self.parent?.navigationItem.title =  "Perfil"
-        self.parent?.navigationController?.navigationBar.topItem?.title = "Perfil"
-        self.parent?.navigationController?.navigationItem.title =  "Perfil"
+        self.navigationItem.title = NSLocalizedString("Profile", comment: "")
+        self.parent?.navigationItem.title = NSLocalizedString("Profile", comment: "")
+        self.parent?.navigationController?.navigationBar.topItem?.title = NSLocalizedString("Profile", comment: "")
+        self.parent?.navigationController?.navigationItem.title = NSLocalizedString("Profile", comment: "")
 
        
 
@@ -156,10 +155,10 @@ class FormTwoViewController: FormViewController {
                 header.onSetupView = { view, _ in
                     
                     if self.parent?.restorationIdentifier == "navForPerfil" {
-                        view.noteText.text = "📝 Se algum fator de risco mudou, atualize aqui."
+                        view.noteText.text = "📝 " + NSLocalizedString("If any risk factor has changed, update here", comment: "")
                     }
                     else {
-                        view.noteText.text = "📝 Preencha os campos a seguir para completar seu perfil."
+                        view.noteText.text = "📝 " + NSLocalizedString("Fill in the following fields to complete your profile", comment: "")
                     }
                         //saveButton.setTitle("CONCLUIR", for: .normal)
                 }
@@ -167,7 +166,7 @@ class FormTwoViewController: FormViewController {
                 section.header = header
             }
 
-            <<< createRow("alcoholRow", "🍺 Álcool:",
+            <<< createRow("alcoholRow", "🍺 " + NSLocalizedString("Alcohol", comment: ""),
                                [TRANSLATION_DRINKER,
                                TRANSLATION_DRINK_IN_MODERATION,
                                TRANSLATION_ABSTAIN,
@@ -178,20 +177,20 @@ class FormTwoViewController: FormViewController {
 //                                TRANSLATION_ACTIVE,
 //                                TRANSLATION_INACTIVE])
             <<< PickerInputRow<String>("activityRow") {
-                $0.title = "🚶 Atividade física:"
+                $0.title = "🚶 " + NSLocalizedString("Physical activity", comment: "")
                 //$0.selectorTitle = "Selecione uma opção:"
                 $0.options = [TRANSLATION_VERY_ACTIVE,
                               TRANSLATION_ACTIVE,
                               TRANSLATION_INACTIVE]
                 $0.value = $0.options.first    // initially selected
             }
-            <<< createRow("angryRow", "😡 Irritação: ", TRANSLATION_FREQUENCY)
+            <<< createRow("angryRow", "😡 " + NSLocalizedString("Angry", comment: ""), TRANSLATION_FREQUENCY)
         
-            <<< createRow("anxietyRow", "😨 Ansiosidade:", TRANSLATION_FREQUENCY)
+            <<< createRow("anxietyRow", "😨 " + NSLocalizedString("Anxiety", comment: ""), TRANSLATION_FREQUENCY)
         
-            <<< createRow("cryRow", "😭 Choro: ", TRANSLATION_FREQUENCY)
+            <<< createRow("cryRow", "😭 " + NSLocalizedString("Cry", comment: ""), TRANSLATION_FREQUENCY)
         
-            <<< createRow("smokeRow", "🚬 Cigarro:",
+            <<< createRow("smokeRow", "🚬 " + NSLocalizedString("Smoke", comment: ""),
                                [TRANSLATION_NEVER_SMOKED,
                                 TRANSLATION_SMOKER,
                                 TRANSLATION_FORMER_SMOKER])
@@ -204,7 +203,7 @@ class FormTwoViewController: FormViewController {
                 if self.parent?.restorationIdentifier == "navForPerfil" {
                     $0.hidden = true
                 }
-                $0.title = "📖 Educação:"
+                $0.title = "📖 " + NSLocalizedString("Education", comment: "")
                 //$0.selectorTitle = "Selecione uma opção:"
                 $0.options = [TRANSLATION_COLLEGE_DIPLOMA,
                               TRANSLATION_HIGH_SCHOOL_DIPLOMA,
@@ -214,7 +213,7 @@ class FormTwoViewController: FormViewController {
 
         
             <<< ButtonRow("buttonRow") { button in
-                button.title = "CONTINUAR"
+                button.title = NSLocalizedString("CONTINUE", comment: "")
                 }.cellSetup { cell, _ in
                     cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
                     cell.backgroundColor = UIColor(red:0.98, green:0.19, blue:0.41, alpha:1.0)
@@ -281,7 +280,7 @@ class FormTwoViewController: FormViewController {
 
             }
             
-            self.identifiedRiskFactors.append("atividade física \(row.value!.lowercased())")
+            self.identifiedRiskFactors.append(NSLocalizedString("physical activity", comment: "") + " \(row.value!.lowercased())")
 
             UserManager.instance.person.hasStepsCount = String(describing: steps)
             print("HealthKit: setting person.hasStepsCount to \(steps)")
@@ -329,7 +328,8 @@ class FormTwoViewController: FormViewController {
 
                 
             }
-            self.identifiedRiskFactors.append("consumo de álcool \(row.value!.lowercased())")
+
+            self.identifiedRiskFactors.append(NSLocalizedString("alcohol consumption", comment: "") + " \(row.value!.lowercased())")
 	
             UserManager.instance.person.hasBloodAlcoholContent = String(describing: alcohol * 100)
             print("HealthKit: setting person.hasBloodAlcoholContent to \(alcohol * 100)")
@@ -462,26 +462,26 @@ class FormTwoViewController: FormViewController {
     }
 
     // MARK: Translations
-    let TRANSLATION_INACTIVE = "Sedentário"
-    let TRANSLATION_ACTIVE = "1-2 por semana"
-    let TRANSLATION_VERY_ACTIVE = "3+ por semana"
+    let TRANSLATION_INACTIVE = NSLocalizedString("Sedentary", comment: "")
+    let TRANSLATION_ACTIVE = NSLocalizedString("1-2 per week", comment: "")
+    let TRANSLATION_VERY_ACTIVE = NSLocalizedString("3+ per week", comment: "")
     
-    let TRANSLATION_ABSTAIN = "Abstenho"
-    let TRANSLATION_DRINKER = "7+ por semana"
-    let TRANSLATION_FORMER_ALCOHOLIC = "Ex-álcoolatra"
-    let TRANSLATION_DRINK_IN_MODERATION = "1-6 por semana"
+    let TRANSLATION_ABSTAIN = NSLocalizedString("Abstain", comment: "")
+    let TRANSLATION_DRINKER = NSLocalizedString("7+ per week", comment: "")
+    let TRANSLATION_FORMER_ALCOHOLIC = NSLocalizedString("Former alcoholic", comment: "")
+    let TRANSLATION_DRINK_IN_MODERATION = NSLocalizedString("1-6 per week", comment: "")
     
-    let TRANSLATION_SMOKER = "Fumante"
-    let TRANSLATION_FORMER_SMOKER = "Ex-fumante"
-    let TRANSLATION_NEVER_SMOKED = "Não-fumante"
+    let TRANSLATION_SMOKER = NSLocalizedString("Smoker", comment: "")
+    let TRANSLATION_FORMER_SMOKER = NSLocalizedString("Former smoker", comment: "")
+    let TRANSLATION_NEVER_SMOKED = NSLocalizedString("Non-smoker", comment: "")
     
-    let TRANSLATION_HIGH_SCHOOL_DIPLOMA = "Ensino médio"
-    let TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA = "Ensino fundamental"
-    let TRANSLATION_COLLEGE_DIPLOMA = "Ensino superior"
+    let TRANSLATION_HIGH_SCHOOL_DIPLOMA = NSLocalizedString("High school diploma", comment: "")
+    let TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA = NSLocalizedString("No high school diploma", comment: "")
+    let TRANSLATION_COLLEGE_DIPLOMA = NSLocalizedString("College diploma", comment: "")
     
-    let TRANSLATION_OFTEN_OR_ALWAYS = "Muitas vezes"
-    let TRANSLATION_SOMETIMES = "Às vezes"
-    let TRANSLATION_NEVER = "Nunca"
+    let TRANSLATION_OFTEN_OR_ALWAYS = NSLocalizedString("Many times", comment: "")
+    let TRANSLATION_SOMETIMES = NSLocalizedString("Sometimes", comment: "")
+    let TRANSLATION_NEVER = NSLocalizedString("Never", comment: "")
     
     var TRANSLATION_FREQUENCY : [String] = []
     

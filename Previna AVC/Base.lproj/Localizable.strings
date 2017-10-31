@@ -57,6 +57,65 @@ FormOneViewController
 
 "hypertension" = "hypertension";
 
+/*
+FormTwoViewController
+*/
+
+"Save" = "SAVE"
+
+"If any risk factor has changed, update here" = "If any risk factor has changed, update here";
+
+"Fill in the following fields to complete your profile" = "Fill in the following fields to complete your profile.";
+
+"Alcohol" = "Alcohol:";
+
+"Physical activity" = "Physical activity:";
+
+"physical activity" = "physical activity";
+
+"alcohol consumption" = "alcohol consumption";
+
+"Angry" = "Angry:";
+
+"Anxiety" = "Anxiety:";
+
+"Cry" = "Cry:";
+
+"Smoke" = "Smoke:";
+
+"Education" = "Education:";
+
+"Sedentary" = "Sedentary";
+
+"1-2 per week" = "1-2 per week";
+
+"3+ per week" = "3+ per week";
+
+"Abstain" = "Abstain";
+
+"7+ per week" = "7+ per week";
+
+"Former alcoholic" = "Former alcoholic";
+
+"1-6 per week" = "1-6 per week";
+
+"Smoker" = "Smoker";
+
+"Former smoker" = "Former smoker";
+
+"Non-smoker" = "Non-smoker";
+
+"High school diploma" = "High school diploma";
+
+"No high school diploma" = "No high school diploma";
+
+"College diploma" = "College diploma";
+
+"Many times" = "Many times";
+
+"Sometimes" = "Sometimes";
+
+"Never" = "Never";
 
 /*
 HealthKitManager
