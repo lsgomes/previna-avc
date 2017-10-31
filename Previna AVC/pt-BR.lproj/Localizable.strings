@@ -120,3 +120,9 @@ HealthKitManager
 "Male" = "Masculino";
 
 "Female" = "Feminino";
+
+/*
+AuthorizeHealthKitViewController
+*/
+
+"Allow Access to Health" = "Permitir Acesso à Saúde";

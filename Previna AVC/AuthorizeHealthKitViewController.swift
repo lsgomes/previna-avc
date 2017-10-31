@@ -55,7 +55,7 @@ class AuthorizeHealthKitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Permitir Acesso à Saúde"
+        navigationItem.title = NSLocalizedString("Allow Access to Health", comment: "")
         
     }
 
