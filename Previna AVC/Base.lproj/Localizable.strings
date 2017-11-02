@@ -61,7 +61,7 @@ FormOneViewController
 FormTwoViewController
 */
 
-"Save" = "SAVE"
+"Save" = "SAVE";
 
 "If any risk factor has changed, update here" = "If any risk factor has changed, update here";
 

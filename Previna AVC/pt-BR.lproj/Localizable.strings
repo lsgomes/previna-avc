@@ -43,7 +43,7 @@ FormOneViewController
 
 "Continue" = "CONTINUAR";
 
-"Attention" = "Atenção":
+"Attention" = "Atenção";
 
 "Type your first name" = "Digite seu primeiro nome.";
 
@@ -91,7 +91,7 @@ FormTwoViewController
 
 "Abstain" = "Abstenho";
 
-"Former alcoholic" = ""Ex-álcoolatra";
+"Former alcoholic" = "Ex-álcoolatra";
 
 "1-6 per week" = "1-6 por semana";
 

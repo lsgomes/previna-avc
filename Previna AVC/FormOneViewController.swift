@@ -205,7 +205,7 @@ class FormOneViewController: FormViewController {
         {
             DispatchQueue.main.async {
                 NotificationManager.instance.displayAlert(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("Type your first name", comment: ""), dismiss: "OK", viewController: self
-            })
+            )}
             return false
         }
         
