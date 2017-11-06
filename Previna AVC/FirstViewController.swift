@@ -32,7 +32,7 @@ class FirstViewController: UIViewController {
         imageView.image = image
         
         let label = UILabel(frame:CGRect(x: 20, y: -15, width: 215, height: itemSize))
-        label.text = "Dica \(index):\n\n" + text
+        label.text = NSLocalizedString("Tip", comment: "") + " \(index):\n\n" + text
         label.numberOfLines = 6
         
         let tipView = TipView(frame: CGRect.zero)
@@ -45,10 +45,10 @@ class FirstViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if (UserManager.instance.person.hasUserName != nil) {
             //navigationBar.topItem?.title = "Bem vindo, \(UserManager.instance.person.hasUserName!)!"
-            navigationController?.navigationBar.topItem?.title = "Bem vindo, \(UserManager.instance.person.hasUserName!)!"
+            navigationController?.navigationBar.topItem?.title = NSLocalizedString("Welcome,", comment: "") + " \(UserManager.instance.person.hasUserName!)!"
         }
         else {
-            navigationController?.navigationBar.topItem?.title = "Bem vindo!"
+            navigationController?.navigationBar.topItem?.title = NSLocalizedString("Welcome!", comment: "")
         }
 
     }
@@ -130,7 +130,7 @@ class FirstViewController: UIViewController {
     @IBAction func updateAction(_ sender: UIButton) {
         
         
-        sender.setTitle("ATUALIZANDO", for: .normal)
+        sender.setTitle(NSLocalizedString("Updating", comment: ""), for: .normal)
         activityIndicator.startAnimating()
         
         let person = UserManager.instance.person
@@ -150,11 +150,11 @@ class FirstViewController: UIViewController {
                     let hour = calendar.component(.hour, from: date)
                     let minutes = calendar.component(.minute, from: date)
                     
-                    self.stackTip.subtitle.text = "Este é seu risco de AVC em 10 anos. Última atualização: Hoje às \(hour):\(minutes)"
+                    self.stackTip.subtitle.text = NSLocalizedString("This is your stroke risk in 10 years. Last update: Today at:", comment: "") + " \(hour):\(minutes)"
 
                 }
                 
-                sender.setTitle("ATUALIZAR", for: .normal)
+                sender.setTitle(NSLocalizedString("Update", comment: ""), for: .normal)
                 
                 self.horizontalScrollView.removeAllItems()
                 

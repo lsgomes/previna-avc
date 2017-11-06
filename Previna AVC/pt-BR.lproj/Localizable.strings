@@ -126,3 +126,21 @@ AuthorizeHealthKitViewController
 */
 
 "Allow Access to Health" = "Permitir Acesso à Saúde";
+
+/*
+FirstViewController
+*/
+
+"Tip" = "Dica";
+
+"Welcome!" = "Welcome!";
+
+"Welcome," = "Bem-vindo,";
+
+"Updating" = "ATUALIZANDO";
+
+"This is your stroke risk in 10 years. Last update: Today at:" = "Este é seu risco de AVC em 10 anos. Última atualização: Hoje às:";
+
+"Update" = "ATUALIZAR";
+
+// TODO: translate the rest of FirstViewController
