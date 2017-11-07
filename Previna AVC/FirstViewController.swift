@@ -170,9 +170,9 @@ class FirstViewController: UIViewController {
 
             }
             else {
-                NotificationManager.instance.displayAlert(title: "Atenção", message: "Não foi possível atualizar seu risco. Tente novamente.", dismiss: "OK", viewController: self)
-                self.stackTip.subtitle.text = "Pressione em ATUALIZAR para calcular seu risco de AVC em 10 anos."
-                sender.setTitle("ATUALIZAR", for: .normal)
+                NotificationManager.instance.displayAlert(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("Your risk could not be updated. Try again.", comment: ""), dismiss: "OK", viewController: self)
+                self.stackTip.subtitle.text = NSLocalizedString("Press UPDATE to calculate your stroke risk in 10 years", comment: "")
+                sender.setTitle(NSLocalizedString("Update", comment: ""), for: .normal)
                 self.activityIndicator.stopAnimating()
             }
             

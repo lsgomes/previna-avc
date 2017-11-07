@@ -147,4 +147,6 @@ FirstViewController
 
 "Update" = "UPDATE";
 
-// TODO: translate the rest of FirstViewController
+"Your risk could not be updated. Try again." = "Your risk could not be updated. Try again.";
+
+"Press UPDATE to calculate your stroke risk in 10 years" = "Press UPDATE to calculate your stroke risk in 10 years";
