@@ -19,10 +19,10 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
     var pageControl: UIPageControl?
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newViewController(title: PAGE_1),
-                self.newViewController(title: PAGE_2),
-                self.newViewController(title: PAGE_3),
-                self.newViewController(title: PAGE_4)
+        return [self.newViewController(title: WizardPageViewController.PAGE_1),
+                self.newViewController(title: WizardPageViewController.PAGE_2),
+                self.newViewController(title: WizardPageViewController.PAGE_3),
+                self.newViewController(title: WizardPageViewController.PAGE_4)
 
     ]
     } ()

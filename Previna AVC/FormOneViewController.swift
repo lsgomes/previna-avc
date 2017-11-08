@@ -365,7 +365,7 @@ extension FormViewController {
             multiplier: 1,
             constant: 20
         )
-        constraint.priority = UILayoutPriorityRequired
+        constraint.priority = UILayoutPriority.required
         self.view.addConstraint(constraint)
     }
 }
