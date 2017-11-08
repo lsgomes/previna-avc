@@ -8,18 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2F74F0231FA141DE0013F4CE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F74F0211FA141DE0013F4CE /* Localizable.strings */; };
+		2FFDB85F1FB3C13D00EAD2B0 /* StackTipNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FFDB8611FB3C13D00EAD2B0 /* StackTipNib.xib */; };
 		A01B39051E9C6C09007008E0 /* FormOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01B39041E9C6C09007008E0 /* FormOneViewController.swift */; };
 		A0207D961E9C91B90089FE09 /* HeaderViewImageNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0207D951E9C91B90089FE09 /* HeaderViewImageNib.xib */; };
 		A0207D981E9C91CF0089FE09 /* HeaderViewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0207D971E9C91CF0089FE09 /* HeaderViewImage.swift */; };
 		A03329E51E846724005C3D87 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03329E41E846724005C3D87 /* StartViewController.swift */; };
 		A03B1C1E1E80D94C0012E36D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03B1C1D1E80D94C0012E36D /* UserManager.swift */; };
-		A05EDB001E95DF90007984CB /* RiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */; };
 		A088A1651E8B4E8300D15E6C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */; };
 		A08BF9B81EB052F70083FB92 /* RuleSpaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08BF9B71EB052F70083FB92 /* RuleSpaces.swift */; };
 		A0919DD31E89E4E100B05B8B /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */; };
-		A0919DD51E89F09F00B05B8B /* BaseProfilePage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0919DD41E89F09F00B05B8B /* BaseProfilePage2ViewController.swift */; };
 		A09599E31E8CB2F200974DC7 /* RiskFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09599E21E8CB2F200974DC7 /* RiskFactor.swift */; };
-		A0974F891E53E4AE005E712A /* ProfileSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */; };
 		A09C42841E9B274A00EA0B3A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09C42831E9B274A00EA0B3A /* HeaderView.swift */; };
 		A09C42861E9B28B800EA0B3A /* HeaderViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = A09C42851E9B28B800EA0B3A /* HeaderViewNib.xib */; };
 		A09DCECE1EA864CD00FED0DB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09DCECD1EA864CD00FED0DB /* WebViewController.swift */; };
@@ -29,12 +27,9 @@
 		A0D7F62C1E8C8B9000D6FC48 /* DKDropMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D7F62B1E8C8B9000D6FC48 /* DKDropMenu.swift */; };
 		A0D8F54D1E9F076500B72019 /* StackTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8F54C1E9F076500B72019 /* StackTip.swift */; };
 		A0DB6CB11E88859F002F26B6 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB6CB01E88859F002F26B6 /* TipView.swift */; };
-		A0E4B9F21E9F050100B181CF /* StackTipNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0E4B9F11E9F050100B181CF /* StackTipNib.xib */; };
 		A0E56B3E1E91D9DF009DEA0F /* ModifiableRiskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E56B3D1E91D9DF009DEA0F /* ModifiableRiskCell.swift */; };
-		A0E56B401E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E56B3F1E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift */; };
 		A0E58AB51E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */; };
 		A0F0F3141E9983410082A1D5 /* SegmentControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0F3131E9983410082A1D5 /* SegmentControlCell.swift */; };
-		A0F0F3161E9985B90082A1D5 /* StaticRiskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0F3151E9985B90082A1D5 /* StaticRiskViewController.swift */; };
 		A0F0F3181E998D6E0082A1D5 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0F3171E998D6E0082A1D5 /* TextFieldCell.swift */; };
 		A0F380D31E927BE3000359F4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F380D21E927BE3000359F4 /* NotificationManager.swift */; };
 		A0F6EBB21E8377BF0006451F /* HasDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F6EBAE1E8377BF0006451F /* HasDevice.swift */; };
@@ -44,7 +39,6 @@
 		A0FA77961E7F34DD00F7B5FA /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FA77951E7F34DD00F7B5FA /* RestManager.swift */; };
 		A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */; };
 		A0FF49B21E4BE4B80041EEBE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */; };
-		A0FF49B41E4BE4B80041EEBE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */; };
 		A0FF49B71E4BE4B80041EEBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FF49B51E4BE4B80041EEBE /* Main.storyboard */; };
 		A0FF49B91E4BE4B80041EEBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0FF49B81E4BE4B80041EEBE /* Assets.xcassets */; };
 		A0FF49BC1E4BE4B80041EEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FF49BA1E4BE4B80041EEBE /* LaunchScreen.storyboard */; };
@@ -57,19 +51,21 @@
 		2F74F0201FA140300013F4CE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		2F74F0221FA141DE0013F4CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2F74F0241FA1421E0013F4CE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2FFDB85E1FB3C0EA00EAD2B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		2FFDB8601FB3C13D00EAD2B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StackTipNib.xib; sourceTree = "<group>"; };
+		2FFDB8621FB3C14600EAD2B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StackTipNib.strings; sourceTree = "<group>"; };
+		2FFDB8641FB3C14A00EAD2B0 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/StackTipNib.strings"; sourceTree = "<group>"; };
+		2FFDB8661FB3C32700EAD2B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Previna AVC/Base.lproj/StackTipNib.xib"; sourceTree = "<group>"; };
 		348DC6AE897B4A2115C8C70A /* Pods-Previna AVC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Previna AVC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Previna AVC/Pods-Previna AVC.debug.xcconfig"; sourceTree = "<group>"; };
 		A01B39041E9C6C09007008E0 /* FormOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormOneViewController.swift; sourceTree = "<group>"; };
 		A0207D951E9C91B90089FE09 /* HeaderViewImageNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewImageNib.xib; sourceTree = "<group>"; };
 		A0207D971E9C91CF0089FE09 /* HeaderViewImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewImage.swift; sourceTree = "<group>"; };
 		A03329E41E846724005C3D87 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		A03B1C1D1E80D94C0012E36D /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiskTableViewController.swift; sourceTree = "<group>"; };
 		A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A08BF9B71EB052F70083FB92 /* RuleSpaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleSpaces.swift; sourceTree = "<group>"; };
 		A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		A0919DD41E89F09F00B05B8B /* BaseProfilePage2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProfilePage2ViewController.swift; sourceTree = "<group>"; };
 		A09599E21E8CB2F200974DC7 /* RiskFactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiskFactor.swift; sourceTree = "<group>"; };
-		A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetupViewController.swift; sourceTree = "<group>"; };
 		A09C42831E9B274A00EA0B3A /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A09C42851E9B28B800EA0B3A /* HeaderViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewNib.xib; sourceTree = "<group>"; };
 		A09DCECD1EA864CD00FED0DB /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -79,12 +75,9 @@
 		A0D7F62B1E8C8B9000D6FC48 /* DKDropMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKDropMenu.swift; sourceTree = "<group>"; };
 		A0D8F54C1E9F076500B72019 /* StackTip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTip.swift; sourceTree = "<group>"; };
 		A0DB6CB01E88859F002F26B6 /* TipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
-		A0E4B9F11E9F050100B181CF /* StackTipNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StackTipNib.xib; sourceTree = "<group>"; };
 		A0E56B3D1E91D9DF009DEA0F /* ModifiableRiskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifiableRiskCell.swift; sourceTree = "<group>"; };
-		A0E56B3F1E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifiableRiskTableViewController.swift; sourceTree = "<group>"; };
 		A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizeHealthKitViewController.swift; sourceTree = "<group>"; };
 		A0F0F3131E9983410082A1D5 /* SegmentControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentControlCell.swift; sourceTree = "<group>"; };
-		A0F0F3151E9985B90082A1D5 /* StaticRiskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticRiskViewController.swift; sourceTree = "<group>"; };
 		A0F0F3171E998D6E0082A1D5 /* TextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		A0F380D21E927BE3000359F4 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		A0F6EBAE1E8377BF0006451F /* HasDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasDevice.swift; sourceTree = "<group>"; };
@@ -97,7 +90,6 @@
 		A0FF49AC1E4BE4B80041EEBE /* Previna AVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Previna AVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0FF49B11E4BE4B80041EEBE /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		A0FF49B61E4BE4B80041EEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0FF49B81E4BE4B80041EEBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0FF49BB1E4BE4B80041EEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -122,19 +114,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A0D8F54E1E9F177A00B72019 /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				A0E56B3F1E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift */,
-				A05EDAFF1E95DF90007984CB /* RiskTableViewController.swift */,
-				A0FF49B31E4BE4B80041EEBE /* SecondViewController.swift */,
-				A0F0F3151E9985B90082A1D5 /* StaticRiskViewController.swift */,
-				A0974F881E53E4AE005E712A /* ProfileSetupViewController.swift */,
-				A0919DD41E89F09F00B05B8B /* BaseProfilePage2ViewController.swift */,
-			);
-			name = Deprecated;
-			sourceTree = "<group>";
-		};
 		A0D98B381E8DD81B00BE8BB9 /* Wizard */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +131,7 @@
 			children = (
 				A0F0F3131E9983410082A1D5 /* SegmentControlCell.swift */,
 				A0D8F54C1E9F076500B72019 /* StackTip.swift */,
-				A0E4B9F11E9F050100B181CF /* StackTipNib.xib */,
+				2FFDB8611FB3C13D00EAD2B0 /* StackTipNib.xib */,
 				A09C42851E9B28B800EA0B3A /* HeaderViewNib.xib */,
 				A0207D951E9C91B90089FE09 /* HeaderViewImageNib.xib */,
 				A09C42831E9B274A00EA0B3A /* HeaderView.swift */,
@@ -197,6 +176,7 @@
 		A0FF49A31E4BE4B70041EEBE = {
 			isa = PBXGroup;
 			children = (
+				2FFDB8651FB3C32700EAD2B0 /* StackTipNib.xib */,
 				A0FF49AE1E4BE4B80041EEBE /* Previna AVC */,
 				A0FF49AD1E4BE4B80041EEBE /* Products */,
 				A0FF49C41E4BE5470041EEBE /* Frameworks */,
@@ -215,7 +195,6 @@
 		A0FF49AE1E4BE4B80041EEBE /* Previna AVC */ = {
 			isa = PBXGroup;
 			children = (
-				A0D8F54E1E9F177A00B72019 /* Deprecated */,
 				A0D98B3B1E8DD89300BE8BB9 /* Manager */,
 				A0D98B3A1E8DD85100BE8BB9 /* Tab */,
 				A0D98B381E8DD81B00BE8BB9 /* Wizard */,
@@ -323,7 +302,7 @@
 			files = (
 				A0FF49BC1E4BE4B80041EEBE /* LaunchScreen.storyboard in Resources */,
 				A0FF49B91E4BE4B80041EEBE /* Assets.xcassets in Resources */,
-				A0E4B9F21E9F050100B181CF /* StackTipNib.xib in Resources */,
+				2FFDB85F1FB3C13D00EAD2B0 /* StackTipNib.xib in Resources */,
 				2F74F0231FA141DE0013F4CE /* Localizable.strings in Resources */,
 				A0FF49B71E4BE4B80041EEBE /* Main.storyboard in Resources */,
 				A09C42861E9B28B800EA0B3A /* HeaderViewNib.xib in Resources */,
@@ -406,7 +385,6 @@
 				A03329E51E846724005C3D87 /* StartViewController.swift in Sources */,
 				A01B39051E9C6C09007008E0 /* FormOneViewController.swift in Sources */,
 				A0D1E2AD1E55FF8000349A18 /* WelcomeViewController.swift in Sources */,
-				A0FF49B41E4BE4B80041EEBE /* SecondViewController.swift in Sources */,
 				A03B1C1E1E80D94C0012E36D /* UserManager.swift in Sources */,
 				A0919DD31E89E4E100B05B8B /* ThirdViewController.swift in Sources */,
 				A09599E31E8CB2F200974DC7 /* RiskFactor.swift in Sources */,
@@ -414,19 +392,14 @@
 				A08BF9B81EB052F70083FB92 /* RuleSpaces.swift in Sources */,
 				A0FF49B01E4BE4B80041EEBE /* AppDelegate.swift in Sources */,
 				A0E58AB51E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift in Sources */,
-				A0919DD51E89F09F00B05B8B /* BaseProfilePage2ViewController.swift in Sources */,
 				A0DB6CB11E88859F002F26B6 /* TipView.swift in Sources */,
 				A0FF49C81E4BEAD60041EEBE /* WizardPageViewController.swift in Sources */,
-				A0974F891E53E4AE005E712A /* ProfileSetupViewController.swift in Sources */,
-				A0E56B401E91DD6A009DEA0F /* ModifiableRiskTableViewController.swift in Sources */,
 				A0F6EBB31E8377BF0006451F /* HasRiskFactor.swift in Sources */,
-				A0F0F3161E9985B90082A1D5 /* StaticRiskViewController.swift in Sources */,
 				A0FF49B21E4BE4B80041EEBE /* FirstViewController.swift in Sources */,
 				A0D7F62C1E8C8B9000D6FC48 /* DKDropMenu.swift in Sources */,
 				A0F6EBB41E8377BF0006451F /* HasSensor.swift in Sources */,
 				A088A1651E8B4E8300D15E6C /* MainTabBarController.swift in Sources */,
 				A0207D981E9C91CF0089FE09 /* HeaderViewImage.swift in Sources */,
-				A05EDB001E95DF90007984CB /* RiskTableViewController.swift in Sources */,
 				A0E56B3E1E91D9DF009DEA0F /* ModifiableRiskCell.swift in Sources */,
 				A0F0F3181E998D6E0082A1D5 /* TextFieldCell.swift in Sources */,
 				A09C42841E9B274A00EA0B3A /* HeaderView.swift in Sources */,
@@ -450,11 +423,31 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
+		2FFDB8611FB3C13D00EAD2B0 /* StackTipNib.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FFDB8601FB3C13D00EAD2B0 /* Base */,
+				2FFDB8621FB3C14600EAD2B0 /* en */,
+				2FFDB8641FB3C14A00EAD2B0 /* pt-BR */,
+			);
+			name = StackTipNib.xib;
+			path = "Previna AVC";
+			sourceTree = SOURCE_ROOT;
+		};
+		2FFDB8651FB3C32700EAD2B0 /* StackTipNib.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FFDB8661FB3C32700EAD2B0 /* Base */,
+			);
+			name = StackTipNib.xib;
+			sourceTree = "<group>";
+		};
 		A0FF49B51E4BE4B80041EEBE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A0FF49B61E4BE4B80041EEBE /* Base */,
 				2F74F0201FA140300013F4CE /* pt-BR */,
+				2FFDB85E1FB3C0EA00EAD2B0 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
