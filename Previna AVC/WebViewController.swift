@@ -20,14 +20,14 @@ class WebViewController: UIViewController {
         let request = URLRequest(url: url!);
         webView.loadRequest(request);
 
-        navigationController?.navigationBar.topItem?.title = "Formulário de pesquisa"
+        navigationController?.navigationBar.topItem?.title = NSLocalizedString("Research Form", comment: "")
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.topItem?.title = "Formulário de pesquisa"
+        navigationController?.navigationBar.topItem?.title = NSLocalizedString("Research Form", comment: "")
 
     }
 

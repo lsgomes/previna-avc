@@ -69,7 +69,7 @@ class NotificationManager {
     
     private func displayNotificationsDisabled(viewController: UIViewController) {
         
-        displayAlert(title: "Notificações desabilitadas para o aplicativo Previna AVC", message: "Por favor, habilite as notificações em Ajustes -> Notificações -> Previna AVC", dismiss: "OK", viewController: viewController)
+        displayAlert(title: NSLocalizedString("Notifications disabled for the Previna AVC app", comment: ""), message: NSLocalizedString("Please, enable notifications in Settings -> Notifications -> Previna AVC", comment: ""), dismiss: "OK", viewController: viewController)
     }
     
     public func displayAlert(title: String, message: String, dismiss: String, viewController: UIViewController) {

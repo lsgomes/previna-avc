@@ -170,3 +170,23 @@ ThirdViewController
 "Did not go back to drinking" = "Não voltou a beber";
 
 "Did not go back to smoking" = "Não voltou a fumar";
+
+/*
+NotificationManager
+*/
+
+"Notifications disabled for the Previna AVC app" = "Notificações desabilitadas para o aplicativo Previna AVC";
+
+"Please, enable notifications in Settings -> Notifications -> Previna AVC" = "Por favor, habilite as notificações em Ajustes -> Notificações -> Previna AVC";
+
+/*
+RuleSpaces
+*/
+
+"Type only your first name." = "Digite apenas seu primeiro nome.";
+
+/*
+WebViewController
+*/
+
+"Research Form" = "Formulário de pesquisa";

@@ -11,7 +11,7 @@ import Eureka
 
 public struct RuleSpaces<T: Equatable>: RuleType {
     
-    public init(msg: String = "Digite apenas seu primeiro nome."){
+    public init(msg: String = NSLocalizedString("Type only your first name.", comment: "")){
         self.validationError = ValidationError(msg: msg)
     }
     
