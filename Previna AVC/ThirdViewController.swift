@@ -11,11 +11,20 @@ import UIKit
 class ThirdViewController: UITableViewController, UITabBarControllerDelegate {
 
     @IBOutlet var headerView: HeaderViewImage!
-    
+
+    let DRINKING_IN_MODERATION = NSLocalizedString("Drinking in moderation", comment: "")
+    let EXERCISING_TWICE_A_WEEK = NSLocalizedString("Exercising twice a week", comment: "")
+    let EXERCISING_THREE_TIMES_A_WEEK = NSLocalizedString("Exercising 3 times a week", comment: "")
+    let LIVING_HAPPILY = NSLocalizedString("Living happily", comment: "")
+    let LEVEL_OF_ANXIETY_UNDER_CONTROL = NSLocalizedString("Level of anxiety under control", comment: "")
+    let LEVEL_OF_ANGER_UNDER_CONTROL = NSLocalizedString("Level of anger under control", comment: "")
+    let DID_NOT_GO_BACK_TO_DRINKING = NSLocalizedString("Did not go back to drinking", comment: "")
+    let DID_NOT_GO_BACK_TO_SMOKING = NSLocalizedString("Did not go back to smoking", comment: "")
+
     let achievements: [String] =
-        ["Bebendo com moderação", "Se exercitando 2 vezes por semana", "Se exercitando 3 vezes por semana",
-        "Vivendo de forma alegre", "Nível de ansiedade sob controle", "Nível de irritação sob controle",
-        "Não voltou a beber", "Não voltou a fumar"]
+        [DRINKING_IN_MODERATION, EXERCISING_TWICE_A_WEEK, EXERCISING_THREE_TIMES_A_WEEK,
+        LIVING_HAPPILY, LEVEL_OF_ANXIETY_UNDER_CONTROL, LEVEL_OF_ANGER_UNDER_CONTROL,
+        DID_NOT_GO_BACK_TO_DRINKING, DID_NOT_GO_BACK_TO_SMOKING]
     
     let medalImage = UIImage(named: "medal")
     
@@ -24,14 +33,14 @@ class ThirdViewController: UITableViewController, UITabBarControllerDelegate {
 //    }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.topItem?.title = "Conquistas"
+        navigationController?.navigationBar.topItem?.title = NSLocalizedString("Achievements", comment: "")
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headerView.noteText.text = "🏅 Suas conquistas obtidas aparecerão como medalhas douradas."
+        headerView.noteText.text = "🏅 " + NSLocalizedString("Your achievements will appear as golden medals", comment: "")
        //self.tableView.reloadData()
 
     }

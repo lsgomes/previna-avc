@@ -146,3 +146,27 @@ FirstViewController
 "Your risk could not be updated. Try again." = "Não foi possível atualizar seu risco. Tente novamente.";
 
 "Press UPDATE to calculate your stroke risk in 10 years" = "Pressione em ATUALIZAR para calcular seu risco de AVC em 10 anos";
+
+/*
+ThirdViewController
+*/
+
+"Achievements" = "Conquistas";
+
+"Your achievements will appear as golden medals" = "Suas conquistas obtidas aparecerão como medalhas douradas";
+
+"Drinking in moderation" = "Bebendo com moderação";
+
+"Exercising twice a week" = "Se exercitando 2 vezes por semana";
+
+"Exercising 3 times a week" = "Se exercitando 3 vezes por semana";
+
+"Living happily" = "Vivendo de forma alegre";
+
+"Level of anxiety under control" = "Nível de ansiedade sob controle";
+
+"Level of anger under control" = "Nível de irritação sob controle";
+
+"Did not go back to drinking" = "Não voltou a beber";
+
+"Did not go back to smoking" = "Não voltou a fumar";

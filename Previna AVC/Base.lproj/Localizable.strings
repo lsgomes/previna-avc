@@ -150,3 +150,27 @@ FirstViewController
 "Your risk could not be updated. Try again." = "Your risk could not be updated. Try again.";
 
 "Press UPDATE to calculate your stroke risk in 10 years" = "Press UPDATE to calculate your stroke risk in 10 years";
+
+/*
+ThirdViewController
+*/
+
+"Achievements" = "Achievements";
+
+"Your achievements will appear as golden medals" = "Your achievements will appear as golden medals";
+
+"Drinking in moderation" = "Drinking in moderation";
+
+"Exercising twice a week" = "Exercising twice a week";
+
+"Exercising 3 times a week" = "Exercising 3 times a week";
+
+"Living happily" = "Living happily";
+
+"Level of anxiety under control" = "Level of anxiety under control";
+
+"Level of anger under control" = "Level of anger under control";
+
+"Did not go back to drinking" = "Did not go back to drinking";
+
+"Did not go back to smoking" = "Did not go back to smoking";
