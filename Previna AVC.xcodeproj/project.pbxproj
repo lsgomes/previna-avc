@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F6FAE971FC0809600516138 /* HeaderViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F6FAE951FC0809600516138 /* HeaderViewNib.xib */; };
 		2F74F0231FA141DE0013F4CE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F74F0211FA141DE0013F4CE /* Localizable.strings */; };
 		2FFDB85F1FB3C13D00EAD2B0 /* StackTipNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FFDB8611FB3C13D00EAD2B0 /* StackTipNib.xib */; };
 		A01B39051E9C6C09007008E0 /* FormOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01B39041E9C6C09007008E0 /* FormOneViewController.swift */; };
@@ -19,15 +20,12 @@
 		A0919DD31E89E4E100B05B8B /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */; };
 		A09599E31E8CB2F200974DC7 /* RiskFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09599E21E8CB2F200974DC7 /* RiskFactor.swift */; };
 		A09C42841E9B274A00EA0B3A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09C42831E9B274A00EA0B3A /* HeaderView.swift */; };
-		A09C42861E9B28B800EA0B3A /* HeaderViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = A09C42851E9B28B800EA0B3A /* HeaderViewNib.xib */; };
 		A09DCECE1EA864CD00FED0DB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09DCECD1EA864CD00FED0DB /* WebViewController.swift */; };
 		A0A16EE91E9AF37D00BDA2FB /* FormTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A16EE81E9AF37D00BDA2FB /* FormTwoViewController.swift */; };
 		A0D1E2AD1E55FF8000349A18 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */; };
 		A0D1E2AF1E56194400349A18 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */; };
-		A0D7F62C1E8C8B9000D6FC48 /* DKDropMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D7F62B1E8C8B9000D6FC48 /* DKDropMenu.swift */; };
 		A0D8F54D1E9F076500B72019 /* StackTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D8F54C1E9F076500B72019 /* StackTip.swift */; };
 		A0DB6CB11E88859F002F26B6 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB6CB01E88859F002F26B6 /* TipView.swift */; };
-		A0E56B3E1E91D9DF009DEA0F /* ModifiableRiskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E56B3D1E91D9DF009DEA0F /* ModifiableRiskCell.swift */; };
 		A0E58AB51E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */; };
 		A0F0F3141E9983410082A1D5 /* SegmentControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0F3131E9983410082A1D5 /* SegmentControlCell.swift */; };
 		A0F0F3181E998D6E0082A1D5 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0F3171E998D6E0082A1D5 /* TextFieldCell.swift */; };
@@ -48,6 +46,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F6FAE961FC0809600516138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HeaderViewNib.xib; sourceTree = "<group>"; };
+		2F6FAE981FC080A600516138 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HeaderViewNib.strings; sourceTree = "<group>"; };
+		2F6FAE991FC080A900516138 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/HeaderViewNib.strings"; sourceTree = "<group>"; };
 		2F74F0201FA140300013F4CE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		2F74F0221FA141DE0013F4CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2F74F0241FA1421E0013F4CE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -67,15 +68,12 @@
 		A0919DD21E89E4E100B05B8B /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		A09599E21E8CB2F200974DC7 /* RiskFactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiskFactor.swift; sourceTree = "<group>"; };
 		A09C42831E9B274A00EA0B3A /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		A09C42851E9B28B800EA0B3A /* HeaderViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewNib.xib; sourceTree = "<group>"; };
 		A09DCECD1EA864CD00FED0DB /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		A0A16EE81E9AF37D00BDA2FB /* FormTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTwoViewController.swift; sourceTree = "<group>"; };
 		A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
-		A0D7F62B1E8C8B9000D6FC48 /* DKDropMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKDropMenu.swift; sourceTree = "<group>"; };
 		A0D8F54C1E9F076500B72019 /* StackTip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTip.swift; sourceTree = "<group>"; };
 		A0DB6CB01E88859F002F26B6 /* TipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
-		A0E56B3D1E91D9DF009DEA0F /* ModifiableRiskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifiableRiskCell.swift; sourceTree = "<group>"; };
 		A0E58AB41E4D53EE00252FA7 /* AuthorizeHealthKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizeHealthKitViewController.swift; sourceTree = "<group>"; };
 		A0F0F3131E9983410082A1D5 /* SegmentControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentControlCell.swift; sourceTree = "<group>"; };
 		A0F0F3171E998D6E0082A1D5 /* TextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
@@ -129,15 +127,13 @@
 		A0D98B391E8DD83900BE8BB9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2F6FAE951FC0809600516138 /* HeaderViewNib.xib */,
 				A0F0F3131E9983410082A1D5 /* SegmentControlCell.swift */,
 				A0D8F54C1E9F076500B72019 /* StackTip.swift */,
 				2FFDB8611FB3C13D00EAD2B0 /* StackTipNib.xib */,
-				A09C42851E9B28B800EA0B3A /* HeaderViewNib.xib */,
 				A0207D951E9C91B90089FE09 /* HeaderViewImageNib.xib */,
 				A09C42831E9B274A00EA0B3A /* HeaderView.swift */,
 				A0207D971E9C91CF0089FE09 /* HeaderViewImage.swift */,
-				A0E56B3D1E91D9DF009DEA0F /* ModifiableRiskCell.swift */,
-				A0D7F62B1E8C8B9000D6FC48 /* DKDropMenu.swift */,
 				A09599E21E8CB2F200974DC7 /* RiskFactor.swift */,
 				A0DB6CB01E88859F002F26B6 /* TipView.swift */,
 				A0F6EBAE1E8377BF0006451F /* HasDevice.swift */,
@@ -300,12 +296,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F6FAE971FC0809600516138 /* HeaderViewNib.xib in Resources */,
 				A0FF49BC1E4BE4B80041EEBE /* LaunchScreen.storyboard in Resources */,
 				A0FF49B91E4BE4B80041EEBE /* Assets.xcassets in Resources */,
 				2FFDB85F1FB3C13D00EAD2B0 /* StackTipNib.xib in Resources */,
 				2F74F0231FA141DE0013F4CE /* Localizable.strings in Resources */,
 				A0FF49B71E4BE4B80041EEBE /* Main.storyboard in Resources */,
-				A09C42861E9B28B800EA0B3A /* HeaderViewNib.xib in Resources */,
 				A0207D961E9C91B90089FE09 /* HeaderViewImageNib.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,11 +392,9 @@
 				A0FF49C81E4BEAD60041EEBE /* WizardPageViewController.swift in Sources */,
 				A0F6EBB31E8377BF0006451F /* HasRiskFactor.swift in Sources */,
 				A0FF49B21E4BE4B80041EEBE /* FirstViewController.swift in Sources */,
-				A0D7F62C1E8C8B9000D6FC48 /* DKDropMenu.swift in Sources */,
 				A0F6EBB41E8377BF0006451F /* HasSensor.swift in Sources */,
 				A088A1651E8B4E8300D15E6C /* MainTabBarController.swift in Sources */,
 				A0207D981E9C91CF0089FE09 /* HeaderViewImage.swift in Sources */,
-				A0E56B3E1E91D9DF009DEA0F /* ModifiableRiskCell.swift in Sources */,
 				A0F0F3181E998D6E0082A1D5 /* TextFieldCell.swift in Sources */,
 				A09C42841E9B274A00EA0B3A /* HeaderView.swift in Sources */,
 				A09DCECE1EA864CD00FED0DB /* WebViewController.swift in Sources */,
@@ -414,6 +408,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		2F6FAE951FC0809600516138 /* HeaderViewNib.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F6FAE961FC0809600516138 /* Base */,
+				2F6FAE981FC080A600516138 /* en */,
+				2F6FAE991FC080A900516138 /* pt-BR */,
+			);
+			name = HeaderViewNib.xib;
+			sourceTree = "<group>";
+		};
 		2F74F0211FA141DE0013F4CE /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -564,6 +568,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8CLND99G3E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -573,11 +578,11 @@
 				INFOPLIST_FILE = "Previna AVC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-Avc";
+				PRODUCT_BUNDLE_IDENTIFIER = com.previnaavc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -589,6 +594,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Previna AVC/Previna AVC.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8CLND99G3E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -598,11 +604,11 @@
 				INFOPLIST_FILE = "Previna AVC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-Avc";
+				PRODUCT_BUNDLE_IDENTIFIER = com.previnaavc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

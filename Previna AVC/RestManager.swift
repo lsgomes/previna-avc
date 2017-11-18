@@ -12,10 +12,9 @@ import SwiftyJSON
 
 class RestManager {
     
-    static let IP = "https://previna-avc-server.azurewebsites.net"
-    static let PORT = ":8081"
+//    static let IP = "https://previna-avc-server.azurewebsites.net"
+    static let IP = "http://localhost:8081"
     static let ENDPOINT = "/rest"
-    //static let REST_ENDPOINT = IP + PORT + ENDPOINT
     static let REST_ENDPOINT = IP + ENDPOINT
     
     static let instance = RestManager()

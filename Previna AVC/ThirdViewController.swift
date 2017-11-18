@@ -21,13 +21,13 @@ class ThirdViewController: UITableViewController, UITabBarControllerDelegate {
     let DID_NOT_GO_BACK_TO_DRINKING = NSLocalizedString("Did not go back to drinking", comment: "")
     let DID_NOT_GO_BACK_TO_SMOKING = NSLocalizedString("Did not go back to smoking", comment: "")
 
-    let achievements: [String] =
+    lazy var achievements: [String] =
         [DRINKING_IN_MODERATION, EXERCISING_TWICE_A_WEEK, EXERCISING_THREE_TIMES_A_WEEK,
         LIVING_HAPPILY, LEVEL_OF_ANXIETY_UNDER_CONTROL, LEVEL_OF_ANGER_UNDER_CONTROL,
         DID_NOT_GO_BACK_TO_DRINKING, DID_NOT_GO_BACK_TO_SMOKING]
     
     let medalImage = UIImage(named: "medal")
-    
+    //Instance member 'DRINKING_IN_MODERATION' cannot be used on type 'ThirdViewController'
 //    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //        return "Suas Conquistas"
 //    }
