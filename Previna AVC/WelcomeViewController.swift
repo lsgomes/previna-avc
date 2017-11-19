@@ -11,12 +11,14 @@ import UIKit
 class WelcomeViewController: UIViewController {
     
     //@IBOutlet var navigationBar: UINavigationBar!
+    @IBOutlet var welcomeText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        welcomeText.text = NSLocalizedString("This app will help you in preventing stroke.", comment: "")
+        
         navigationItem.title = NSLocalizedString("Welcome to Previna AVC!", comment: "")
-
         
         //navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 64.0)
     }
