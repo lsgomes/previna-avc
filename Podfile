@@ -10,6 +10,7 @@ target 'Previna AVC' do
   pod 'Alamofire', '~> 4.4'
   pod 'ASHorizontalScrollView', '~> 1.5.1'
   #pod 'Eureka', '~> 3.1.0'
-  pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'feature/Xcode9-Swift3_2'
-  pod 'SwiftyDrop'
+  #pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'feature/#Xcode9-Swift3_2'
+  pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git'
+  pod 'SwiftyDrop', '~> 4.0.2'
 end

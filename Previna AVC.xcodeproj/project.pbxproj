@@ -238,7 +238,6 @@
 				A0FF49A91E4BE4B70041EEBE /* Frameworks */,
 				A0FF49AA1E4BE4B70041EEBE /* Resources */,
 				E24765669D1910683A25E10C /* [CP] Embed Pods Frameworks */,
-				20FC8DC176466C9088C163F4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,7 +260,7 @@
 				TargetAttributes = {
 					A0FF49AB1E4BE4B70041EEBE = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8CLND99G3E;
+						DevelopmentTeam = N5H55YKWYG;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -309,21 +308,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		20FC8DC176466C9088C163F4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Previna AVC/Pods-Previna AVC-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E24765669D1910683A25E10C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -569,7 +553,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8CLND99G3E;
+				DEVELOPMENT_TEAM = N5H55YKWYG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",
@@ -578,7 +562,7 @@
 				INFOPLIST_FILE = "Previna AVC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.previnaavc;
+				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-Avc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -595,7 +579,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8CLND99G3E;
+				DEVELOPMENT_TEAM = N5H55YKWYG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos/Alamofire",
@@ -604,7 +588,7 @@
 				INFOPLIST_FILE = "Previna AVC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.previnaavc;
+				PRODUCT_BUNDLE_IDENTIFIER = "lsg.Previna-Avc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -316,6 +316,9 @@ class HealthKitManager {
             if (glucose > 110) {
                 completion(true, glucose, nil)
             }
+            else {
+                completion(false, glucose, nil)
+            }
         }
     }
     
