@@ -6,11 +6,9 @@ target 'Previna AVC' do
   use_frameworks!
 
   # Pods for Previna AVC
-  pod 'SwiftyJSON', '~> 3.1.4’
-  pod 'Alamofire', '~> 4.4'
-  pod 'ASHorizontalScrollView', '~> 1.5.1'
-  #pod 'Eureka', '~> 3.1.0'
-  #pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'feature/#Xcode9-Swift3_2'
-  pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git'
-  pod 'SwiftyDrop', '~> 4.0.2'
+  pod 'SwiftyJSON', '3.1.4'
+  pod 'Alamofire', '4.4'
+  pod 'ASHorizontalScrollView', '1.5.1'
+  pod 'Eureka', '4.1.1'
+  pod 'SwiftyDrop', '4.0.2'
 end

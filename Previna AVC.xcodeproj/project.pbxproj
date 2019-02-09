@@ -402,6 +402,7 @@
 				2F6FAE991FC080A900516138 /* pt-BR */,
 			);
 			name = HeaderViewNib.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		2F74F0211FA141DE0013F4CE /* Localizable.strings */ = {

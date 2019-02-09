@@ -24,5 +24,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
             print("Switched to ThirdViewController()")
 
         }
+    }
+    
 
 }
