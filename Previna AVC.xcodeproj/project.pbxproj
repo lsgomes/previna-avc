@@ -122,6 +122,7 @@
 				A0D1E2AC1E55FF8000349A18 /* WelcomeViewController.swift */,
 			);
 			name = Wizard;
+			path = Controller/Wizard;
 			sourceTree = "<group>";
 		};
 		A0D98B391E8DD83900BE8BB9 /* Model */ = {
@@ -143,10 +144,10 @@
 				A0F0F3171E998D6E0082A1D5 /* TextFieldCell.swift */,
 				A08BF9B71EB052F70083FB92 /* RuleSpaces.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		A0D98B3A1E8DD85100BE8BB9 /* Tab */ = {
+		A0D98B3A1E8DD85100BE8BB9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				A088A1641E8B4E8300D15E6C /* MainTabBarController.swift */,
@@ -155,7 +156,8 @@
 				A0A16EE81E9AF37D00BDA2FB /* FormTwoViewController.swift */,
 				A09DCECD1EA864CD00FED0DB /* WebViewController.swift */,
 			);
-			name = Tab;
+			name = Controller;
+			path = Controller/Main;
 			sourceTree = "<group>";
 		};
 		A0D98B3B1E8DD89300BE8BB9 /* Manager */ = {
@@ -166,7 +168,7 @@
 				A0D1E2AE1E56194400349A18 /* HealthKitManager.swift */,
 				A0F380D21E927BE3000359F4 /* NotificationManager.swift */,
 			);
-			name = Manager;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		A0FF49A31E4BE4B70041EEBE = {
@@ -192,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				A0D98B3B1E8DD89300BE8BB9 /* Manager */,
-				A0D98B3A1E8DD85100BE8BB9 /* Tab */,
+				A0D98B3A1E8DD85100BE8BB9 /* Controller */,
 				A0D98B381E8DD81B00BE8BB9 /* Wizard */,
 				A0FF49C31E4BE5470041EEBE /* Previna AVC.entitlements */,
 				A0FF49AF1E4BE4B80041EEBE /* AppDelegate.swift */,
@@ -428,6 +430,7 @@
 				2FFDB8661FB3C32700EAD2B0 /* Base */,
 			);
 			name = StackTipNib.xib;
+			path = "Previna AVC";
 			sourceTree = "<group>";
 		};
 		A0FF49B51E4BE4B80041EEBE /* Main.storyboard */ = {
