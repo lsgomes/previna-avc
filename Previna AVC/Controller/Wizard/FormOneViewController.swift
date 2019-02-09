@@ -38,23 +38,11 @@ class FormOneViewController: FormViewController {
 
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //setTableViewDistance()
-        
-//        for constraint in view.constraints {
-//            print(constraint)
-//        }
-        
         self.navigationItem.title = NSLocalizedString("Profile", comment: "")
-//        
-//        let navigationController = self.parent as! UINavigationController
-//        let pageViewController = navigationController.parent as! WizardPageViewController
-//        pageViewController.pageControl = UIPageControl.appearance(whenContainedInInstancesOf: [type(of: self)])
-//        
+
         form +++ Section()
             { section in
             var header = HeaderFooterView<HeaderViewImage>(.class)
@@ -62,7 +50,6 @@ class FormOneViewController: FormViewController {
             
             header.onSetupView = { view, _ in
                 view.noteText.text = "📝 " + NSLocalizedString("Fill in the fields below to sign up", comment: "")
-                //saveButton.setTitle("CONCLUIR", for: .normal)
             }
             
             section.header = header
@@ -90,18 +77,7 @@ class FormOneViewController: FormViewController {
                     
                 }
             }
-//            <<< IntRow("ageRow") { row in
-//                row.title = "📆 Idade:"
-//                row.placeholder = "Digite sua idade aqui"
-//                row.cell.textLabel?.font = UIFont(name: row.cell.textLabel!.font!.fontName, size: 15)
-//                if let age = Int(HealthKitManager.instance.getDateOfBirth())
-//                {
-//                row.baseValue = age
-//                print("HealthKit: setting Age to \(age)")
-//                }
-//
-//
-//            }
+
             <<< PickerInputRow<Int>("ageRow") { row in
                 row.title = "📆 " + NSLocalizedString("Age", comment: "")
                 
@@ -120,9 +96,6 @@ class FormOneViewController: FormViewController {
                     row.value = age
                     print("HealthKit: setting Age to \(age)")
                     identifiedRiskFactors.append("\(age) " + NSLocalizedString("Years", comment: ""))
-                    //DispatchQueue.main.async {
-                        //Drop.down("Idade identificada: \(row.value!)", state: Custom.Pink, duration: 5.0)
-                    //}
                 }
                 else {
                     row.baseValue = 18
@@ -137,14 +110,10 @@ class FormOneViewController: FormViewController {
                 row.cell.textLabel?.font = UIFont(name: row.cell.textLabel!.font!.fontName, size: 15)
                 
                 let sex = HealthKitManager.instance.getBiologicalSex()
+
                 if (!sex.isEmpty) {
                     row.value = sex
                     identifiedRiskFactors.append("\(sex.lowercased())")
-
-//                    DispatchQueue.main.async {
-//                    Drop.down("Sexo identificado: \(row.value!)", state: Custom.Pink, duration: 5.0)
-//                    }
-
                 } else {
                     row.value = row.options.first    // initially selected
                 }
@@ -172,7 +141,6 @@ class FormOneViewController: FormViewController {
                     
                 }.onCellSelection { cell, row in
                     
-                    // validation
                     let isValidForm = self.validateForm()
                     
                     if (isValidForm) {
@@ -183,13 +151,10 @@ class FormOneViewController: FormViewController {
                   
         }
        
-
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         updateWithHealthKitData()
-        
        
     }
     
@@ -231,7 +196,6 @@ class FormOneViewController: FormViewController {
         case male: UserManager.instance.addRiskFactor(uri: RiskFactor.MALE.rawValue)
         default: break
         }
-    
         
         validateRiskFactor("hypertensionRow", RiskFactor.HYPERTENSION.rawValue, values)
   
@@ -256,7 +220,6 @@ class FormOneViewController: FormViewController {
     }
     
     func updateWithHealthKitData() {
-        
         
         HealthKitManager.instance.getDiabetes() { hasDiabetes, glucose, error in
             
@@ -323,20 +286,21 @@ class FormOneViewController: FormViewController {
     }
     
     func createSegmentedRow(_ tag: String, _ title: String) -> SegmentedRow<String> {
-        let row = SegmentedRow<String>(tag) { row in
+      
+       let row = SegmentedRow<String>(tag) { row in
             row.title = title
             row.options = [NSLocalizedString("Yes", comment: ""), NSLocalizedString("No", comment: "")]
 
             row.cell.setControlWidth(width:100)
             row.cell.setTitleWidth(width:180)
             row.cell.textLabel?.adjustsFontSizeToFitWidth = true
-            //minimumScaleFactor
         }
         
         return row
     }
     
     func createCheckRow(_ tag: String, _ title: String) -> CheckRow {
+        
         let row = CheckRow(tag) { row in
             row.title = title
             row.cell.textLabel?.font = UIFont(name: row.cell.textLabel!.font!.fontName, size: 15)
@@ -349,13 +313,12 @@ class FormOneViewController: FormViewController {
         super.didReceiveMemoryWarning()
     }
     
-
-    
-
 }
 
 extension FormViewController {
+
     func setTableViewDistance() {
+
         let constraint = NSLayoutConstraint(
             item: self.view,
             attribute: .height,
@@ -365,13 +328,16 @@ extension FormViewController {
             multiplier: 1,
             constant: 20
         )
+
         constraint.priority = UILayoutPriority.required
         self.view.addConstraint(constraint)
     }
 }
 
 extension SegmentedCell {
+
     func setControlWidth(width: CGFloat) {
+        
         let constraint = NSLayoutConstraint(
             item: segmentedControl,
             attribute: .width,

@@ -9,7 +9,7 @@
 import UIKit
 import HealthKit
 
-class WizardPageViewController: UIPageViewController //, UIPageViewControllerDelegate
+class WizardPageViewController: UIPageViewController
 {
     static let PAGE_1 = "WizardPage1"
     static let PAGE_2 = "WizardPage2"
@@ -23,11 +23,9 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
                 self.newViewController(title: WizardPageViewController.PAGE_2),
                 self.newViewController(title: WizardPageViewController.PAGE_3),
                 self.newViewController(title: WizardPageViewController.PAGE_4)
-
-    ]
+               ]
     } ()
 
-    //var orderedViewControllers: [UIViewController] = []
     
     private func newViewController(title: String) -> UIViewController {
         
@@ -56,34 +54,10 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-//        orderedViewControllers = {
-//                return [self.newViewController(title: WizardPageViewController.PAGE_1),
-//                        self.newViewController(title: WizardPageViewController.PAGE_2),
-//                        self.newViewController(title: WizardPageViewController.PAGE_3),
-//                        self.newViewController(title: WizardPageViewController.PAGE_4)
-//        
-//            ]
-//            } ()
 
         dataSource = self
         
-        // delegate = self
         self.view.backgroundColor = .white
-        
-        /* 
-        let doc = UIImage.init(named: "document")!
-        let imageView = UIImageView.init(image: doc)
-
-        imageView.backgroundColor = .clear
-        imageView.contentMode = .scaleAspectFill
-        imageView.frame = CGRect(x: 0, y: 0, width: 375.0, height: 667.0)
-
-        view.addSubview(imageView)
-        view.sendSubview(toBack: imageView)
-        */
         
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],
@@ -96,7 +70,7 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
         pageControl!.currentPageIndicatorTintColor = UIColor.darkGray
         pageControl!.pageIndicatorTintColor = UIColor.lightGray
         pageControl!.backgroundColor = .clear
-            }
+    }
 
     public func segueToPage(name: String)
     {
@@ -113,70 +87,13 @@ class WizardPageViewController: UIPageViewController //, UIPageViewControllerDel
             
         }
         
-        //print("WizardPageViewController.segueToPage(): " + page!.restorationIdentifier!)
-        
         setViewControllers([page!], direction: .forward, animated: true, completion: nil)
     }
-
-    //  public func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController])
-
 }
 
 // MARK: WizardPageViewControllerDataSource
 
 extension WizardPageViewController: UIPageViewControllerDataSource {
-    
-//    func pageViewController(_ pageViewController: UIPageViewController,
-//                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
-//        
-//        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
-//            return nil
-//        }
-//        
-//        print("viewControllerBefore.currentViewController: \(viewControllerIndex)")
-//        
-//        let previousIndex = viewControllerIndex - 1
-//        
-//        guard previousIndex >= 0 else {
-//            return nil
-//        }
-//        
-//        guard orderedViewControllers.count > previousIndex else {
-//            return nil
-//        }
-//        
-//        return orderedViewControllers[previousIndex]
-//    }
-//    
-//    func pageViewController(_ pageViewController: UIPageViewController,
-//                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
-//        
-//        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
-//            return nil
-//        }
-//        
-//        print("viewControllerAfter.currentViewController: \(viewControllerIndex)")
-//
-//        if (viewController.restorationIdentifier == WizardPageViewController.PAGE_3)
-//        {
-//            let profileSetup = viewController as? ProfileSetupViewController
-//            profileSetup?.setup()
-//        }
-//        
-//        let nextIndex = viewControllerIndex + 1
-//        let orderedViewControllersCount = orderedViewControllers.count
-//        
-//        guard orderedViewControllersCount != nextIndex else {
-//            return nil
-//        }
-//        
-//        guard orderedViewControllersCount > nextIndex else {
-//            return nil
-//        }
-//        
-//        return orderedViewControllers[nextIndex]
-//
-//    }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         return nil
@@ -198,26 +115,5 @@ extension WizardPageViewController: UIPageViewControllerDataSource {
         
         return firstViewControllerIndex
     }
-    
-    
-    // Snippets
-    
-    //let doc = UIImage.init(named: "document")!
-    //pageControl.backgroundColor = UIColor.init(patternImage: doc)
-    //pageControl.contentMode = .scaleAspectFill
-    
-    //pageControl.isOpaque = false
-    //pageControl.alpha = 1
-    
-    //view.backgroundColor = .clear
-    //view.isOpaque = false
-    //view.alpha = 1
-    //imageView.frame = CGRect(x: 0, y: 0, width: doc.size.width, height: doc.size.height)
-    //imageView.bounds = CGRect(x: 0, y: 0, width: 375.0, height: 667.0)
-    //imageView.widthAnchor.constraint(equalToConstant: 375.0)
-    //imageView.heightAnchor.constraint(equalToConstant: 667.0)
-    //imageView.bounds = CGRect(0,0,doc.size.width,doc.size.height);
-    //imageView.frame.width = 375.0
-    //imageView.sizeToFit()
     
 }

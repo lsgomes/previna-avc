@@ -13,14 +13,11 @@ import SwiftyJSON
 class RestManager {
     
     static let IP = "https://previna-avc-server-jar.herokuapp.com"
-//    static let IP = "http://localhost:8081"
     static let ENDPOINT = "/rest"
     static let REST_ENDPOINT = IP + ENDPOINT
     
     static let instance = RestManager()
-    
-    // alamofireManager
-    
+        
     func calculateRiskForPerson(person: Person, completion: @escaping (Bool) -> ()) {
         
         let endpoint = RestManager.REST_ENDPOINT + "/calculateRiskForPerson"
@@ -31,11 +28,7 @@ class RestManager {
         
         let headers =
             ["Content-Type" : "application/json"]
-//             //"Accept": "application/json"]
         
-        
-        
-        //    public func encode(_ urlRequest: URLRequestConvertible, withJSONObject jsonObject: Any? = nil) throws -> URLRequest {
         Alamofire.request(endpoint, method: .post, parameters: person.dictionaryRepresentation(), encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             
             
@@ -56,7 +49,6 @@ class RestManager {
                 print(response.result)
                 print(response.request!)
                 print(response.request.debugDescription)
-                //print(response.result.value!)
                 print("REST Failure @ \(endpoint) with parameter \(person.dictionaryRepresentation()).")
                 completion(false)
             }
@@ -76,7 +68,7 @@ class RestManager {
             switch (response.result) {
                 
             case .success:
-                let risk = String(describing: response.result.value) //  as! NSDecimalNumber
+                let risk = String(describing: response.result.value)
                 completion(risk)
             case .failure:
                 let risk = "?"

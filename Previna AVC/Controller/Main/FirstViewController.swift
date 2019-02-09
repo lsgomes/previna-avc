@@ -20,7 +20,7 @@ class FirstViewController: UIViewController {
     
     @IBOutlet var stackTip: StackTip!
 
-    @IBOutlet var horizontalScrollView: ASHorizontalScrollView! // TODO
+    @IBOutlet var horizontalScrollView: ASHorizontalScrollView!
 
     var itemSize = 150
     var size = 200
@@ -43,11 +43,12 @@ class FirstViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+
         if (UserManager.instance.person.hasUserName != nil) {
-            //navigationBar.topItem?.title = "Bem vindo, \(UserManager.instance.person.hasUserName!)!"
             navigationController?.navigationBar.topItem?.title = NSLocalizedString("Welcome,", comment: "") + " \(UserManager.instance.person.hasUserName!)!"
         }
-        else {
+        else 
+        {
             navigationController?.navigationBar.topItem?.title = NSLocalizedString("Welcome!", comment: "")
         }
 
@@ -56,10 +57,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        //navigationBar.topItem?.prompt = "navigationBar.topItem?"
-                //navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 60.0)
-        
+
         setHorizontalViewProperties()
         
         listTips()
@@ -69,14 +67,7 @@ class FirstViewController: UIViewController {
         }
         
         self.view.addSubview(horizontalScrollView)
-        
-//        horizontalScrollView.addItem(createTip(text: "Pratique mais exercícios físicos", index: 1))
-//        horizontalScrollView.addItem(createTip(text: "Beba com moderação", index: 2))
-//        horizontalScrollView.addItem(createTip(text: "Tente parar de fumar", index: 3))
-//
-
-    
-        //horizontalScrollView.setItemsMarginOnce()
+  
     }
     
     func listTips() {
@@ -129,7 +120,6 @@ class FirstViewController: UIViewController {
     
     @IBAction func updateAction(_ sender: UIButton) {
         
-        
         sender.setTitle(NSLocalizedString("Updating", comment: ""), for: .normal)
         activityIndicator.startAnimating()
         
@@ -138,6 +128,7 @@ class FirstViewController: UIViewController {
         removeNotificationsForTips()
         
         RestManager.instance.calculateRiskForPerson(person: person) { response in
+            
             print(response)
             
             if (response) {
@@ -160,45 +151,32 @@ class FirstViewController: UIViewController {
                 
                 self.listTips()
                 
-                //self.removeAllNotifications()
-                
                 self.addNotificationsForTips()
                 
                 self.activityIndicator.stopAnimating()
                 
-                //UserManager.instance.savePerson()
-
             }
-            else {
+            else 
+            {
                 NotificationManager.instance.displayAlert(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("Your risk could not be updated. Try again.", comment: ""), dismiss: "OK", viewController: self)
                 self.stackTip.subtitle.text = NSLocalizedString("Press UPDATE to calculate your stroke risk in 10 years", comment: "")
                 sender.setTitle(NSLocalizedString("Update", comment: ""), for: .normal)
                 self.activityIndicator.stopAnimating()
             }
-            
 
         }
     }
     
     func setHorizontalViewProperties() {
-        
-//        let horizontalScrollView = ASHorizontalScrollView(frame:CGRect(x: 0, y: 255, width: 320 , height: size)) // W: IPHONE SCREEN SIZE (5S = 320)
-        
+                
         horizontalScrollView.arrangeType = .byNumber
-        //horizontalScrollView.arrangeType = .byFrame
-        
-        //horizontalScrollView.marginSettings_320 = MarginSettings(leftMargin: 1, miniMarginBetweenItems: 1, miniAppearWidthOfLastItem: 20)
-        
+                
         horizontalScrollView.marginSettings_320 = MarginSettings(leftMargin: 0, numberOfItemsPerScreen: 1.25)
-        
-        //horizontalScrollView.defaultMarginSettings.numberOfItemsPerScreen = 1.25
-        
+                
         horizontalScrollView.uniformItemSize = CGSize(width: tipSize, height: itemSize)
         
         horizontalScrollView.setItemsMarginOnce()
-        
-        //return horizontalScrollView
-        
+                
     }
 }
 

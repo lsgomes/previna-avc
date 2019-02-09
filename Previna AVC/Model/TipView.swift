@@ -26,25 +26,9 @@ class TipView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
- 
-    
     
     public func setProperties(imageName: String, text: String) {
-//        let image = UIImage(named: imageName)
-//        imageView = UIImageView(image: image)
-//        label = UILabel()
-//        label.text = text
-//        addSubview(imageView)
-//        addSubview(label)
+
     }
-    
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }

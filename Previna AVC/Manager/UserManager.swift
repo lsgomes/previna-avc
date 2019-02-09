@@ -31,17 +31,8 @@ class UserManager {
     }
     
     func fileExists() -> Bool {
-        
+
         return (try? Person.ArchiveURL.checkResourceIsReachable()) ?? false
-        
-//        do {
-//            let exists = try Person.ArchiveURL.checkResourceIsReachable()
-//            print("File person exists? \(exists)")
-//            return exists
-//        } catch {
-//            print("Exception when loading person file. Returning false")
-//            return false
-//        }
     }
     
     func removeRiskFactor(name: String) {
@@ -57,28 +48,21 @@ class UserManager {
                 }
             }
             
-
         }
         
-//        let index = person.hasRiskFactor!.index(where: {element in
-//            element.uri == name
-//        })
-//        
-//        if (index != nil) {
-//            person.hasRiskFactor!.remove(at: index!)
-//        }
-        
-          }
+    }
     
     func addRiskFactor(uri: String) {
                 
         if hasRiskFactor(uri: uri) {
             print("Risk factor \(uri) already exists. Skipping add")
         }
-        else {
+        else 
+        {
             if (person.hasRiskFactor == nil) {
                 person.hasRiskFactor = [HasRiskFactor]()
             }
+
             let risk = HasRiskFactor()
             risk.uri = uri
             print("Adding risk \(uri) to user")

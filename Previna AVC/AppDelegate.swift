@@ -13,58 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        
-        
-        // handle the iOS bar!
-        
-        // >>>>>NOTE<<<<<
-        // >>>>>NOTE<<<<<
-        // >>>>>NOTE<<<<<
-        // "Status Bar Style" refers to the >>>>>color of the TEXT<<<<<< of the Apple status bar,
-        // it does NOT refer to the background color of the bar. This causes a lot of confusion.
-        // >>>>>NOTE<<<<<
-        // >>>>>NOTE<<<<<
-        // >>>>>NOTE<<<<<
-        
-        // our app is white, so we want the Apple bar to be white (with, obviously, black writing)
-        
-        // make the ultimate window of OUR app actually start only BELOW Apple's bar....
-        // so, in storyboard, never think about the issue. design to the full height in storyboard.
-        //let h = UIApplication.shared.statusBarFrame.size.height
-        //let f = self.window?.frame
-        //self.window?.frame = CGRect(x: 0, y: h, width: f!.size.width, height: f!.size.height - h)
-        
-        // next, in your plist be sure to have this: you almost always want this anyway:
-        // <key>UIViewControllerBasedStatusBarAppearance</key>
-        // <false/>
-        
-        // next - very simply in the app Target, select "Status Bar Style" to Default.
-        // Do nothing in the plist regarding "Status Bar Style" - in modern Xcode, setting
-        // the "Status Bar Style" toggle simply sets the plist for you.
-        
-        // finally, method A:
-        // set the bg of the Apple bar to white.  Technique courtesy Warif Akhand Rishi.
-        // note: self.window?.clipsToBounds = true-or-false, makes no difference in method A.
-        //if let sb = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView {
-            //sb.backgroundColor = UIColor.white
-            // if you prefer a light gray under there...
-            //sb.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.9, alpha: 1)
-            //sb.backgroundColor = UIColor.lightGray
-        //}
-        
-        /*
-         // if you prefer or if necessary, method B:
-         // explicitly actually add a background, in our app, to sit behind the apple bar....
-         self.window?.clipsToBounds = false // MUST be false if you use this approach
-         let whiteness = UIView()
-         whiteness.frame = CGRect(x: 0, y: -h, width: f!.size.width, height: h)
-         whiteness.backgroundColor = UIColor.green
-         self.window!.addSubview(whiteness)
-         */
-
         application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert , .badge , .sound], categories: nil))
         
         return true

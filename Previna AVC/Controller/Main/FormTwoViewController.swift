@@ -35,8 +35,6 @@ class FormTwoViewController: FormViewController {
             }
         }
         
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,26 +54,19 @@ class FormTwoViewController: FormViewController {
         updateWithHealthKitAlcohol()
         updateWithHealthKitData()
         
-//        navigationController?.navigationBar.topItem?.title = "Perfil"
-//        navigationController?.navigationItem.title =  "Perfil"
         self.navigationItem.title = NSLocalizedString("Profile", comment: "")
         self.parent?.navigationItem.title = NSLocalizedString("Profile", comment: "")
         self.parent?.navigationController?.navigationBar.topItem?.title = NSLocalizedString("Profile", comment: "")
         self.parent?.navigationController?.navigationItem.title = NSLocalizedString("Profile", comment: "")
 
-       
-
-
     }
     
     func setMenusWithDataFromPerson() {
-        
         
         setMenuSelectedItem(riskFactor: RiskFactor.ACTIVE.rawValue, selectItem: TRANSLATION_ACTIVE, rowName: "activityRow")
         setMenuSelectedItem(riskFactor: RiskFactor.INACTIVE.rawValue, selectItem: TRANSLATION_INACTIVE, rowName: "activityRow")
         setMenuSelectedItem(riskFactor: RiskFactor.VERY_ACTIVE.rawValue, selectItem: TRANSLATION_VERY_ACTIVE, rowName: "activityRow")
 
-        
         setMenuSelectedItem(riskFactor: RiskFactor.DRINK_IN_MODERATION.rawValue, selectItem: TRANSLATION_DRINK_IN_MODERATION, rowName: "alcoholRow")
         setMenuSelectedItem(riskFactor: RiskFactor.DRINKER.rawValue, selectItem: TRANSLATION_DRINKER, rowName: "alcoholRow")
         setMenuSelectedItem(riskFactor: RiskFactor.ABSTAIN.rawValue, selectItem: TRANSLATION_ABSTAIN, rowName: "alcoholRow")
@@ -84,16 +75,13 @@ class FormTwoViewController: FormViewController {
         setMenuSelectedItem(riskFactor: RiskFactor.SMOKER.rawValue, selectItem: TRANSLATION_SMOKER, rowName: "smokeRow")
         setMenuSelectedItem(riskFactor: RiskFactor.FORMER_SMOKER.rawValue, selectItem: TRANSLATION_FORMER_SMOKER, rowName: "smokeRow")
         setMenuSelectedItem(riskFactor: RiskFactor.NEVER_SMOKED.rawValue, selectItem: TRANSLATION_NEVER_SMOKED, rowName: "smokeRow")
-
         
         setMenuSelectedItem(riskFactor: RiskFactor.CRY_EASILY.rawValue, selectItem: TRANSLATION_OFTEN_OR_ALWAYS, rowName: "cryRow")
         setMenuSelectedItem(riskFactor: RiskFactor.NOT_CRYING_EASILY.rawValue, selectItem: TRANSLATION_SOMETIMES, rowName: "cryRow")
 
-        
         setMenuSelectedItem(riskFactor: RiskFactor.CRITICAL_OF_OTHERS.rawValue, selectItem: TRANSLATION_OFTEN_OR_ALWAYS, rowName: "angryRow")
         setMenuSelectedItem(riskFactor: RiskFactor.NOT_CRITICAL_OF_OTHERS.rawValue, selectItem: TRANSLATION_SOMETIMES, rowName: "angryRow")
 
-        
         setMenuSelectedItem(riskFactor: RiskFactor.FEARFUL.rawValue, selectItem: TRANSLATION_OFTEN_OR_ALWAYS, rowName: "anxietyRow")
         setMenuSelectedItem(riskFactor: RiskFactor.NOT_FEARFUL.rawValue, selectItem: TRANSLATION_SOMETIMES, rowName: "anxietyRow")
 
@@ -134,12 +122,7 @@ class FormTwoViewController: FormViewController {
                TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA: RiskFactor.NO_HIGH_SCHOOL_DIPLOMA.rawValue
         ]
         
-        //tableView?.isScrollEnabled = false
-        //tableView?.bounces = false
         view.backgroundColor = .white
-//        self.navigationItem.title = "Perfil"
-//        navigationController?.navigationBar.topItem?.title = "Perfil"
-//        navigationController?.navigationItem.title =  "Perfil"
         
         TRANSLATION_FREQUENCY =
             [TRANSLATION_OFTEN_OR_ALWAYS,
@@ -155,12 +138,13 @@ class FormTwoViewController: FormViewController {
                 header.onSetupView = { view, _ in
                     
                     if self.parent?.restorationIdentifier == "navForPerfil" {
+
                         view.noteText.text = "📝 " + NSLocalizedString("If any risk factor has changed, update here", comment: "")
                     }
-                    else {
+                    else 
+                    {
                         view.noteText.text = "📝 " + NSLocalizedString("Fill in the following fields to complete your profile", comment: "")
                     }
-                        //saveButton.setTitle("CONCLUIR", for: .normal)
                 }
                 
                 section.header = header
@@ -172,13 +156,8 @@ class FormTwoViewController: FormViewController {
                                TRANSLATION_ABSTAIN,
                                TRANSLATION_FORMER_ALCOHOLIC])
         
-//            <<< createRow("activityRow", "🚶 Atividade física:",
-//                               [TRANSLATION_VERY_ACTIVE,
-//                                TRANSLATION_ACTIVE,
-//                                TRANSLATION_INACTIVE])
             <<< PickerInputRow<String>("activityRow") {
                 $0.title = "🚶 " + NSLocalizedString("Physical activity", comment: "")
-                //$0.selectorTitle = "Selecione uma opção:"
                 $0.options = [TRANSLATION_VERY_ACTIVE,
                               TRANSLATION_ACTIVE,
                               TRANSLATION_INACTIVE]
@@ -194,17 +173,12 @@ class FormTwoViewController: FormViewController {
                                [TRANSLATION_NEVER_SMOKED,
                                 TRANSLATION_SMOKER,
                                 TRANSLATION_FORMER_SMOKER])
-//            <<< createRow("educationRow","📖 Educação:",
-//                          [TRANSLATION_COLLEGE_DIPLOMA,
-//                           TRANSLATION_HIGH_SCHOOL_DIPLOMA,
-//                           TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA])
             
             <<< PickerInputRow<String>("educationRow") {
                 if self.parent?.restorationIdentifier == "navForPerfil" {
                     $0.hidden = true
                 }
                 $0.title = "📖 " + NSLocalizedString("Education", comment: "")
-                //$0.selectorTitle = "Selecione uma opção:"
                 $0.options = [TRANSLATION_COLLEGE_DIPLOMA,
                               TRANSLATION_HIGH_SCHOOL_DIPLOMA,
                               TRANSLATION_NO_HIGH_SCHOOL_DIPLOMA]
@@ -227,20 +201,14 @@ class FormTwoViewController: FormViewController {
                     UserManager.instance.savePerson()
 
                     if (!canUpdateProfile) {
-                        //self.performSegue(withIdentifier: "formTwoSegue", sender: nil)
                         
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        //TabBarController
-                        // vc is the Storyboard ID that you added
-                        // as! ... Add your ViewController class name that you want to navigate to
                         let controller = storyboard.instantiateViewController(withIdentifier: "navControl") as! UINavigationController
                         self.present(controller, animated: true, completion: { () -> Void in
                         })
                         
                     }
-//                    let navigationController = self.parent as! UINavigationController
-//                    let pageViewController = navigationController.parent as! WizardPageViewController
-//                    pageViewController.segueToPage(name: WizardPageViewController.PAGE_4)
+
                 }
         
         if (self.parent?.restorationIdentifier == "navForPerfil") {
@@ -283,21 +251,16 @@ class FormTwoViewController: FormViewController {
             self.identifiedRiskFactors.append(NSLocalizedString("physical activity", comment: "") + " \(row.value!.lowercased())")
 
             UserManager.instance.person.hasStepsCount = String(describing: steps)
+          
             print("HealthKit: setting person.hasStepsCount to \(steps)")
 
             print("HealthKit: setting activityRow to \(row.value!)")
-            //row.updateCell()
-            
-            
             
             DispatchQueue.main.async {
                 
                 row.reload()
-                //Drop.down("Atividade física identificada: \(row.value!)", state: Custom.Pink)
             }
             
-            
-            // notify user UP DOWN
         }
 
     }
@@ -340,10 +303,9 @@ class FormTwoViewController: FormViewController {
             DispatchQueue.main.async {
                 
                 row.reload()
-                //Drop.down("Consumo de álcool identificado: \(row.value!)", state: Custom.Pink)
 
             }
-            // notify USER up down
+
         }
     }
     
@@ -361,8 +323,6 @@ class FormTwoViewController: FormViewController {
                 
                 print("HealthKit: setting person.hasBloodGlucose to \(glucose)")
             }
-            
-  
 
         }
         
@@ -380,11 +340,9 @@ class FormTwoViewController: FormViewController {
 
             }
             
-       
         }
         
     }
-
     
     func validateForm(deleteModifiableRisks: Bool) {
         
@@ -408,7 +366,6 @@ class FormTwoViewController: FormViewController {
             UserManager.instance.removeRiskFactor(name: RiskFactor.NOT_CRITICAL_OF_OTHERS.rawValue)
             UserManager.instance.removeRiskFactor(name: RiskFactor.NOT_FEARFUL.rawValue)
 
-
         }
         
         let values = form.values()
@@ -423,7 +380,6 @@ class FormTwoViewController: FormViewController {
         
         validateFrequency("cryRow", RiskFactor.CRY_EASILY.rawValue, elseRisk: RiskFactor.NOT_CRYING_EASILY.rawValue, values)
        
-        
     }
     
     func validateRiskFactor(_ rowName: String, _ dict: [String: Any?]) {
@@ -437,6 +393,7 @@ class FormTwoViewController: FormViewController {
     }
     
     func validateFrequency(_ rowName: String, _ riskFactor: String, elseRisk: String, _ dict: [String: Any?]) {
+       
         if let selectedRow = dict[rowName] as! String!
         {
             print("rowName: \(rowName) selectedRow: \(selectedRow)")
@@ -452,7 +409,6 @@ class FormTwoViewController: FormViewController {
     
         let alertRow = PickerInputRow<String>(tag) {
             $0.title = title
-            //$0.selectorTitle = "Selecione uma opção:"
             $0.options = options
             $0.value = options.first    // initially selected
         }
@@ -487,21 +443,12 @@ class FormTwoViewController: FormViewController {
     
     var map : [String : String] = [:]
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
 }
 
 

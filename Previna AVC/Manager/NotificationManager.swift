@@ -16,6 +16,7 @@ class NotificationManager {
     func checkNotificationEnabled() -> Bool {
         // Check if the user has enabled notifications for this app and return True / False
         guard let settings = UIApplication.shared.currentUserNotificationSettings else { return false }
+
         if settings.types == .none {
             return false
         } else {
@@ -58,7 +59,6 @@ class NotificationManager {
         let notification = UILocalNotification()
         notification.fireDate = alertDate
         notification.alertBody = text
-        //		notification.alertAction = "Due : \(alertDate)"
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.userInfo = ["taskObjectId": taskTypeId]
         notification.repeatInterval = .day

@@ -15,11 +15,9 @@ class HealthKitManager {
     
     let healthKitStore: HKHealthStore = HKHealthStore()
     
-    
     let SYSTOLIC_TYPE = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodPressureSystolic)!
     let DIASTOLIC_TYPE = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodPressureDiastolic)!
 
-    
     func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Void) {
         
         guard HKHealthStore.isHealthDataAvailable() else {
@@ -91,8 +89,6 @@ class HealthKitManager {
                     }
                 }
             }
-            
-            
         }
         
         self.healthKitStore.execute(query)
@@ -102,7 +98,6 @@ class HealthKitManager {
         
         print("retrieveWeekSteps")
 
-        
         let calendar = Calendar.current
         
         var interval = DateComponents()
@@ -157,15 +152,12 @@ class HealthKitManager {
                     print("Steps/7= \(value / 7)")
 
                     completion(Int(value / 7))
-                    // Call a custom method to plot each data point.
-                    //self.plotWeeklyStepCount(value, forDate: date)
                 }
             }
         }
         
         self.healthKitStore.execute(query)
-        
-        
+
     }
     
     func retrieveAlcohol(completion: @escaping (_ stepRetrieved: Double) -> Void) {
@@ -281,19 +273,11 @@ class HealthKitManager {
                     print("Alcohol= \(value)")
                     
                     completion(value)
-                    // Call a custom method to plot each data point.
-                    //self.plotWeeklyStepCount(value, forDate: date)
                 }
             }
         }
         
         self.healthKitStore.execute(query)
-        
-//        let a = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodAlcoholContent)
-//        
-//        readMostRecentSample(sampleType: a!) { s in
-//            print("recent sample \(s)")
-//        }
     }
 
     
@@ -316,7 +300,8 @@ class HealthKitManager {
             if (glucose > 110) {
                 completion(true, glucose, nil)
             }
-            else {
+            else 
+            {
                 completion(false, glucose, nil)
             }
         }
@@ -426,51 +411,6 @@ class HealthKitManager {
         self.healthKitStore.execute(sampleQuery)
     }
     
-    
-//    func updateHighBloodPressureComponent(segmentControl: UISegmentedControl) {
-//        
-//        let type = HKQuantityType.correlationType(forIdentifier: HKCorrelationTypeIdentifier.bloodPressure)!
-//
-//        let startDate = Date.distantPast
-//        let endDate   = Date()
-//        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
-//        
-//        let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: false)
-//        
-//        let sampleQuery = HKSampleQuery(sampleType: type, predicate : predicate, limit: 0, sortDescriptors: [sortDescriptor]) {
-//            query, results, error in
-//            
-//            guard let results = results as? [HKCorrelation] else { return }
-//            
-//            if let systolicSample = results.first?.objects(for: self.SYSTOLIC_TYPE).first as? HKQuantitySample,
-//               let diastolicSample = results.first?.objects(for: self.DIASTOLIC_TYPE).first as? HKQuantitySample {
-//                
-//                let systolic = systolicSample.quantity.doubleValue(for: HKUnit.millimeterOfMercury())
-//                let diastolic = diastolicSample.quantity.doubleValue(for: HKUnit.millimeterOfMercury())
-//                
-//                if (!self.getDateOfBirth().isEmpty && Int(self.getDateOfBirth())! > 59) {
-//                    
-//                    if (systolic > 149 && diastolic > 89)
-//                    {
-//                        segmentControl.selectedSegmentIndex = 0
-//                    }
-//                    
-//                } else if (systolic > 139 && diastolic > 89) {
-//                    
-//                    segmentControl.selectedSegmentIndex = 0
-//
-//                } else {
-//                    
-//                    segmentControl.selectedSegmentIndex = 1
-//
-//                }
-//            }
-//            
-//        }
-//        
-//        self.healthKitStore.execute(sampleQuery)
-//    }
-    
     func getDateOfBirth() -> String {
         
         var userAge = ""
@@ -513,36 +453,15 @@ class HealthKitManager {
             
             print("HealthKitManager.getBiologicalSex(): " + biologicalSex)
 
-        } catch {
+        }
+        catch 
+        {
             print("Error getting biologicalSex from HealthKitStore")
         }
 
-        
         return biologicalSex
     }
     
-    //        HKQuantityTypeIdentifier.activeEnergyBurned
-    //        HKQuantityTypeIdentifier.appleExerciseTime
-    //        HKQuantityTypeIdentifier.bloodAlcoholContent
-    //        HKQuantityTypeIdentifier.bloodGlucose
-    //        HKQuantityTypeIdentifier.bloodPressureSystolic
-    //        HKQuantityTypeIdentifier.bloodPressureDiastolic
-    //        HKQuantityTypeIdentifier.bodyFatPercentage
-    //        HKQuantityTypeIdentifier.bodyMassIndex
-    //        HKQuantityTypeIdentifier.dietaryCholesterol
-    //        HKQuantityTypeIdentifier.dietaryEnergyConsumed
-    //        HKQuantityTypeIdentifier.dietaryFatTotal
-    //        HKQuantityTypeIdentifier.dietaryFatSaturated
-    //        HKQuantityTypeIdentifier.dietaryWater
-    //        HKQuantityTypeIdentifier.distanceSwimming
-    //        HKQuantityTypeIdentifier.distanceCycling
-    //        HKQuantityTypeIdentifier.distanceWalkingRunning
-    //        HKQuantityTypeIdentifier.heartRate
-    //        HKQuantityTypeIdentifier.height
-    //        HKQuantityTypeIdentifier.stepCount
-    //        HKQuantityTypeIdentifier.heartRate
-    //        HKQuantityTypeIdentifier.flightsClimbed
-    
-    fileprivate init() {} //This prevents others from using the default '()' initializer for this class.
+    fileprivate init() {} // This prevents others from using the default '()' initializer for this class.
 
 }
